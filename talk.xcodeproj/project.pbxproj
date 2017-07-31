@@ -11,10 +11,11 @@
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
 		349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */; };
-		349EAD6C1F2F59CF005833ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD691F2F59CF005833ED /* Main.storyboard */; };
 		349EAD701F2F5ADC005833ED /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD6F1F2F5ADC005833ED /* Login.storyboard */; };
 		349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD711F2F5B04005833ED /* LoginViewController.swift */; };
 		349EAD751F2F5D06005833ED /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD741F2F5D06005833ED /* R.generated.swift */; };
+		349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */; };
+		349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +28,11 @@
 		349EAD581F2F55CE005833ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349EAD661F2F59CF005833ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		349EAD691F2F59CF005833ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		349EAD6F1F2F5ADC005833ED /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		349EAD711F2F5B04005833ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		349EAD741F2F5D06005833ED /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 		349EAD601F2F59CF005833ED /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				349EAD761F2F5EBB005833ED /* SignUp */,
 				349EAD611F2F59CF005833ED /* Login */,
 			);
 			path = MVVM;
@@ -156,9 +159,41 @@
 			isa = PBXGroup;
 			children = (
 				349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */,
-				349EAD691F2F59CF005833ED /* Main.storyboard */,
 			);
 			path = InterfaceBuilder;
+			sourceTree = "<group>";
+		};
+		349EAD761F2F5EBB005833ED /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				349EAD771F2F5EBB005833ED /* StoryBoard */,
+				349EAD781F2F5EBB005833ED /* View */,
+				349EAD791F2F5EBB005833ED /* ViewModel */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		349EAD771F2F5EBB005833ED /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		349EAD781F2F5EBB005833ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		349EAD791F2F5EBB005833ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -204,6 +239,7 @@
 				TargetAttributes = {
 					349EAD451F2F55CE005833ED = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9VLE4ZJUBP;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -232,9 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				349EAD701F2F5ADC005833ED /* Login.storyboard in Resources */,
-				349EAD6C1F2F59CF005833ED /* Main.storyboard in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
+				349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */,
+				349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
@@ -415,6 +452,7 @@
 			baseConfigurationReference = ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
 				INFOPLIST_FILE = talk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;
@@ -428,6 +466,7 @@
 			baseConfigurationReference = 1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
 				INFOPLIST_FILE = talk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;

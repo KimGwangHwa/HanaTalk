@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SigUpViewController.swift
 //  talk
 //
 //  Created by ひかりちゃん on 2017/07/31.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UITableViewController {
+class SigUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
