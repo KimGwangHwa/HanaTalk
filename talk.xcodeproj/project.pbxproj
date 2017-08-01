@@ -16,6 +16,8 @@
 		349EAD751F2F5D06005833ED /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD741F2F5D06005833ED /* R.generated.swift */; };
 		349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */; };
 		349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */; };
+		349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */; };
+		34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7EDF91F30BE1200D87C1C /* UserRequest.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		349EAD741F2F5D06005833ED /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
+		349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteAPIManager.swift; sourceTree = "<group>"; };
+		34E7EDF91F30BE1200D87C1C /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,7 @@
 		349EAD5E1F2F59CF005833ED /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		349EAD5F1F2F59CF005833ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				34E7EDF81F30BDA900D87C1C /* API */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +200,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		34E7EDF81F30BDA900D87C1C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				34E7EDF91F30BE1200D87C1C /* UserRequest.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -343,11 +357,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */,
 				349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */,
 				349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
+				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
 				INFOPLIST_FILE = talk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -468,6 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
 				INFOPLIST_FILE = talk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;
 				PRODUCT_NAME = "$(TARGET_NAME)";

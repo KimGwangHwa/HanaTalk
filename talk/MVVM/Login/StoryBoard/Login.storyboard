@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1Q-EO-pUs">
-                                                    <rect key="frame" x="62" y="20" width="250" height="44"/>
+                                                    <rect key="frame" x="62" y="20" width="250" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61Z-w4-ZQA">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="44"/>
@@ -53,17 +52,17 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="4by-X5-JXb"/>
+                                                        <constraint firstAttribute="height" constant="50" id="4by-X5-JXb"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2a-gP-eaz">
-                                                    <rect key="frame" x="62" y="64" width="250" height="44"/>
+                                                    <rect key="frame" x="62" y="70" width="250" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Twc-GV-R6H">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザーIDを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbR-7E-bjS">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="パスワードを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbR-7E-bjS">
                                                             <rect key="frame" x="20" y="0.0" width="230" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <nil key="textColor"/>
@@ -73,17 +72,45 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="HQs-Nz-6SW"/>
+                                                        <constraint firstAttribute="height" constant="50" id="HQs-Nz-6SW"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg9-Ht-AXE">
+                                                    <rect key="frame" x="62" y="140" width="250" height="44"/>
+                                                    <color key="backgroundColor" red="0.62745098040000002" green="0.84705882349999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="gEn-E1-3bi"/>
+                                                        <constraint firstAttribute="height" constant="44" id="nUB-l2-2dm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="ログイン"/>
+                                                    <connections>
+                                                        <action selector="tapLoginButton:" destination="ROC-zJ-nuG" eventType="touchUpInside" id="QrO-G8-rkl"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLw-D4-wAo">
+                                                    <rect key="frame" x="62" y="192" width="250" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="IZP-Zx-DBP"/>
+                                                        <constraint firstAttribute="height" constant="44" id="eYW-X3-rgp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="新規登録">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Q2a-gP-eaz" firstAttribute="leading" secondItem="eVV-KR-rso" secondAttribute="leadingMargin" constant="54" id="8pB-Xw-91O"/>
                                                 <constraint firstItem="W1Q-EO-pUs" firstAttribute="centerX" secondItem="eVV-KR-rso" secondAttribute="centerX" id="94a-eO-vn9"/>
+                                                <constraint firstItem="Tg9-Ht-AXE" firstAttribute="centerX" secondItem="eVV-KR-rso" secondAttribute="centerX" id="JLE-Yy-NVM"/>
+                                                <constraint firstItem="Tg9-Ht-AXE" firstAttribute="top" secondItem="Q2a-gP-eaz" secondAttribute="bottom" constant="20" id="NGS-PI-aTb"/>
                                                 <constraint firstItem="Q2a-gP-eaz" firstAttribute="top" secondItem="W1Q-EO-pUs" secondAttribute="bottom" id="UCd-qW-zry"/>
                                                 <constraint firstItem="W1Q-EO-pUs" firstAttribute="leading" secondItem="eVV-KR-rso" secondAttribute="leading" constant="62" id="W7k-tC-aTE"/>
                                                 <constraint firstAttribute="trailing" secondItem="W1Q-EO-pUs" secondAttribute="trailing" constant="63" id="Xac-hK-Bpp"/>
+                                                <constraint firstItem="uLw-D4-wAo" firstAttribute="centerX" secondItem="eVV-KR-rso" secondAttribute="centerX" id="f0E-ts-dO2"/>
                                                 <constraint firstItem="Q2a-gP-eaz" firstAttribute="centerX" secondItem="eVV-KR-rso" secondAttribute="centerX" id="jt3-wI-SOR"/>
+                                                <constraint firstItem="uLw-D4-wAo" firstAttribute="top" secondItem="Tg9-Ht-AXE" secondAttribute="bottom" constant="8" id="msb-as-1pM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Q2a-gP-eaz" secondAttribute="trailing" constant="55" id="mxH-ar-NAg"/>
                                                 <constraint firstItem="W1Q-EO-pUs" firstAttribute="top" secondItem="eVV-KR-rso" secondAttribute="top" constant="20" id="rPI-xa-SKx"/>
                                             </constraints>
@@ -108,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGh-6E-Okg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50.399999999999999" y="77.811094452773617"/>
+            <point key="canvasLocation" x="218" y="16"/>
         </scene>
     </scenes>
 </document>
