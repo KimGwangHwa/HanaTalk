@@ -18,5 +18,14 @@ class UserRequest: NSObject {
     
     var mail = ""
     
+    init(id: String, password: String) {
+        super.init()
+        self.id = id
+        self.password = password
+    }
+    
+    override init() {
+        super.init()
+    }
     
 }

@@ -10,6 +10,12 @@ import UIKit
 
 class LoginViewController: UITableViewController {
 
+    /// @IBOutlet
+    @IBOutlet weak var userIdTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    let homeSegueIdentifier = R.segue.loginViewController.home.identifier
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +29,12 @@ class LoginViewController: UITableViewController {
     
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
+        let request = UserRequest(id: userIdTextField.text ?? "", password: passwordTextField.text ?? "")
+        RemoteAPIManager.login(request: request) { (isSucceeded) in
+            if isSucceeded {
+                self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
+            }
+        }
     }
 
     // MARK: Segue Prepare
@@ -30,4 +42,5 @@ class LoginViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
+
 }

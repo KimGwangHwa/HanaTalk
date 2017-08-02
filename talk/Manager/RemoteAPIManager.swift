@@ -12,6 +12,7 @@ import Parse
 class RemoteAPIManager: NSObject {
     
     private static let shared = RemoteAPIManager()
+    private static var isInit = false
     // Block
     public typealias SignUpInBackgroundWithBlock = (Bool) -> Void
     public typealias LoginInBackgroundWithBlock = (Bool) -> Void
@@ -20,7 +21,21 @@ class RemoteAPIManager: NSObject {
         super.init()
     }
     
+    private class func initParse() {
+        if !isInit {
+            let configuration = ParseClientConfiguration {
+                $0.applicationId = SA_APPLICATIONID
+                $0.clientKey = SA_CLIENT_KEY
+                $0.server = SA_SERVER
+            }
+            Parse.initialize(with: configuration)
+
+            isInit = true
+        }
+    }
+    
     class func signUp(request: UserRequest, withCompletion: @escaping SignUpInBackgroundWithBlock) {
+        RemoteAPIManager.initParse()
         
         let user = PFUser()
         user.username = request.nickName
@@ -31,8 +46,9 @@ class RemoteAPIManager: NSObject {
     }
     
     class func login(request: UserRequest, withCompletion: @escaping LoginInBackgroundWithBlock) {
-        
-        PFUser.logInWithUsername(inBackground: request.nickName, password: request.password) { (user, error) in
+        RemoteAPIManager.initParse()
+
+        PFUser.logInWithUsername(inBackground: request.id, password: request.password) { (user, error) in
             withCompletion(user == nil ? false : true)
         }
     }

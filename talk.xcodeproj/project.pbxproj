@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344C272F1F31F8B600FD5805 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C272E1F31F8B600FD5805 /* Home.storyboard */; };
+		344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C27381F31FA1400FD5805 /* Contact.storyboard */; };
+		344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C273A1F31FA4100FD5805 /* TalkLog.storyboard */; };
+		344C273E1F3201AF00FD5805 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273D1F3201AF00FD5805 /* Const.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -24,6 +28,10 @@
 /* Begin PBXFileReference section */
 		1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.release.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.release.xcconfig"; sourceTree = "<group>"; };
 		30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		344C272E1F31F8B600FD5805 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		344C27381F31FA1400FD5805 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		344C273A1F31FA4100FD5805 /* TalkLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkLog.storyboard; sourceTree = "<group>"; };
+		344C273D1F3201AF00FD5805 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +67,110 @@
 				1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		344C272A1F31F8A300FD5805 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				344C272B1F31F8A300FD5805 /* StoryBoard */,
+				344C272C1F31F8A300FD5805 /* View */,
+				344C272D1F31F8A300FD5805 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		344C272B1F31F8A300FD5805 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				344C272E1F31F8B600FD5805 /* Home.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		344C272C1F31F8A300FD5805 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		344C272D1F31F8A300FD5805 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		344C27301F31F9D100FD5805 /* TalkLog */ = {
+			isa = PBXGroup;
+			children = (
+				344C27311F31F9D100FD5805 /* StoryBoard */,
+				344C27321F31F9D100FD5805 /* View */,
+				344C27331F31F9D100FD5805 /* ViewModel */,
+			);
+			path = TalkLog;
+			sourceTree = "<group>";
+		};
+		344C27311F31F9D100FD5805 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				344C273A1F31FA4100FD5805 /* TalkLog.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		344C27321F31F9D100FD5805 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		344C27331F31F9D100FD5805 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		344C27341F31F9E100FD5805 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				344C27351F31F9E100FD5805 /* StoryBoard */,
+				344C27361F31F9E100FD5805 /* View */,
+				344C27371F31F9E100FD5805 /* ViewModel */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		344C27351F31F9E100FD5805 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				344C27381F31FA1400FD5805 /* Contact.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		344C27361F31F9E100FD5805 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		344C27371F31F9E100FD5805 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		344C273C1F3201A000FD5805 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				344C273D1F3201AF00FD5805 /* Const.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		349EAD3D1F2F55CE005833ED = {
@@ -112,6 +224,9 @@
 		349EAD601F2F59CF005833ED /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				344C27341F31F9E100FD5805 /* Contact */,
+				344C27301F31F9D100FD5805 /* TalkLog */,
+				344C272A1F31F8A300FD5805 /* Home */,
 				349EAD761F2F5EBB005833ED /* SignUp */,
 				349EAD611F2F59CF005833ED /* Login */,
 			);
@@ -154,6 +269,7 @@
 		349EAD651F2F59CF005833ED /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				344C273C1F3201A000FD5805 /* Config */,
 				349EAD741F2F5D06005833ED /* R.generated.swift */,
 				349EAD661F2F59CF005833ED /* AppDelegate.swift */,
 				349EAD671F2F59CF005833ED /* InterfaceBuilder */,
@@ -282,9 +398,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				349EAD701F2F5ADC005833ED /* Login.storyboard in Resources */,
+				344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */,
+				344C272F1F31F8B600FD5805 /* Home.storyboard in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */,
+				344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +481,7 @@
 				349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
+				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
 				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
