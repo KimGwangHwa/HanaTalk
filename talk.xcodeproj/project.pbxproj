@@ -11,6 +11,10 @@
 		344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C27381F31FA1400FD5805 /* Contact.storyboard */; };
 		344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C273A1F31FA4100FD5805 /* TalkLog.storyboard */; };
 		344C273E1F3201AF00FD5805 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273D1F3201AF00FD5805 /* Const.swift */; };
+		344C27401F33588800FD5805 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273F1F33588800FD5805 /* ContactViewController.swift */; };
+		344C27451F335A6D00FD5805 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C27431F335A6D00FD5805 /* ContactCell.swift */; };
+		344C27461F335A6D00FD5805 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344C27441F335A6D00FD5805 /* ContactCell.xib */; };
+		344C274B1F33620000FD5805 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C274A1F33620000FD5805 /* UserInfo.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -32,6 +36,10 @@
 		344C27381F31FA1400FD5805 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		344C273A1F31FA4100FD5805 /* TalkLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkLog.storyboard; sourceTree = "<group>"; };
 		344C273D1F3201AF00FD5805 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		344C273F1F33588800FD5805 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		344C27431F335A6D00FD5805 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		344C27441F335A6D00FD5805 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		344C274A1F33620000FD5805 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +162,8 @@
 		344C27361F31F9E100FD5805 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				344C27421F335A4200FD5805 /* Cell */,
+				344C273F1F33588800FD5805 /* ContactViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +181,30 @@
 				344C273D1F3201AF00FD5805 /* Const.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		344C27411F3358C200FD5805 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		344C27421F335A4200FD5805 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				344C27431F335A6D00FD5805 /* ContactCell.swift */,
+				344C27441F335A6D00FD5805 /* ContactCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		344C27491F3361D600FD5805 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				344C274A1F33620000FD5805 /* UserInfo.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		349EAD3D1F2F55CE005833ED = {
@@ -194,6 +228,7 @@
 		349EAD481F2F55CE005833ED /* talk */ = {
 			isa = PBXGroup;
 			children = (
+				344C27411F3358C200FD5805 /* Extension */,
 				349EAD5E1F2F59CF005833ED /* Manager */,
 				349EAD5F1F2F59CF005833ED /* Model */,
 				349EAD601F2F59CF005833ED /* MVVM */,
@@ -216,6 +251,7 @@
 		349EAD5F1F2F59CF005833ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				344C27491F3361D600FD5805 /* View */,
 				34E7EDF81F30BDA900D87C1C /* API */,
 			);
 			path = Model;
@@ -401,6 +437,7 @@
 				344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */,
 				344C272F1F31F8B600FD5805 /* Home.storyboard in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
+				344C27461F335A6D00FD5805 /* ContactCell.xib in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */,
 				344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */,
@@ -476,13 +513,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344C27451F335A6D00FD5805 /* ContactCell.swift in Sources */,
 				349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */,
 				349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */,
 				349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
+				344C27401F33588800FD5805 /* ContactViewController.swift in Sources */,
 				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
 				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
+				344C274B1F33620000FD5805 /* UserInfo.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

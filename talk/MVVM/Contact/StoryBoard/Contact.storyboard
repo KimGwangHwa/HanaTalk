@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="wqC-Tx-UGD">
             <objects>
-                <viewController id="VBT-cK-EY7" sceneMemberID="viewController">
+                <viewController id="VBT-cK-EY7" customClass="ContactViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wcd-Xd-E1u"/>
                         <viewControllerLayoutGuide type="bottom" id="D10-ch-KPj"/>
@@ -19,12 +19,62 @@
                     <view key="view" contentMode="scaleToFill" id="RRt-pE-ldJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bDe-l4-ptO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="SVK-J9-ZC0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85f-Xq-los">
+                                            <rect key="frame" x="15" y="5" width="345" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="85f-Xq-los" firstAttribute="leading" secondItem="SVK-J9-ZC0" secondAttribute="leading" constant="15" id="Anm-rg-2Sd"/>
+                                        <constraint firstAttribute="trailing" secondItem="85f-Xq-los" secondAttribute="trailing" constant="15" id="C9i-N6-M6d"/>
+                                        <constraint firstAttribute="bottom" secondItem="85f-Xq-los" secondAttribute="bottom" constant="5" id="HuG-ql-fWp"/>
+                                        <constraint firstItem="85f-Xq-los" firstAttribute="top" secondItem="SVK-J9-ZC0" secondAttribute="top" constant="5" id="OYf-JY-0r3"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="VBT-cK-EY7" id="YkC-zm-U4i"/>
+                                    <outlet property="delegate" destination="VBT-cK-EY7" id="pUD-FC-hiN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bDe-l4-ptO" firstAttribute="top" secondItem="RRt-pE-ldJ" secondAttribute="top" id="25C-25-hjh"/>
+                            <constraint firstItem="D10-ch-KPj" firstAttribute="top" secondItem="bDe-l4-ptO" secondAttribute="bottom" id="EXd-tq-QVF"/>
+                            <constraint firstItem="bDe-l4-ptO" firstAttribute="leading" secondItem="RRt-pE-ldJ" secondAttribute="leading" id="Hxn-iI-rek"/>
+                            <constraint firstAttribute="trailing" secondItem="bDe-l4-ptO" secondAttribute="trailing" id="WYE-10-C7i"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iLv-AR-3wh" id="wsA-3a-PWg"/>
+                        <outlet property="tableView" destination="bDe-l4-ptO" id="A1y-jz-il3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b22-GU-7KQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="iLv-AR-3wh">
+                    <connections>
+                        <outlet property="delegate" destination="VBT-cK-EY7" id="zSD-BK-a6o"/>
+                        <outlet property="searchContentsController" destination="VBT-cK-EY7" id="z5X-tY-jr3"/>
+                        <outlet property="searchResultsDataSource" destination="VBT-cK-EY7" id="amF-7e-e11"/>
+                        <outlet property="searchResultsDelegate" destination="VBT-cK-EY7" id="4xl-l5-Ndu"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-478" y="71"/>
+            <point key="canvasLocation" x="-479.19999999999999" y="70.614692653673174"/>
         </scene>
     </scenes>
 </document>
