@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34211CF91F38A055000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211CF81F38A055000F0C94 /* TalkLogViewController.swift */; };
-		34211CFD1F38A139000F0C94 /* TalkLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211CFB1F38A139000F0C94 /* TalkLogCell.swift */; };
-		34211CFE1F38A139000F0C94 /* TalkLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211CFC1F38A139000F0C94 /* TalkLogCell.xib */; };
-		34211D051F38A818000F0C94 /* TalkRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D041F38A818000F0C94 /* TalkRoom.storyboard */; };
-		34211D071F38A832000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D061F38A832000F0C94 /* TalkRoomViewController.swift */; };
-		344C272F1F31F8B600FD5805 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C272E1F31F8B600FD5805 /* Home.storyboard */; };
-		344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C27381F31FA1400FD5805 /* Contact.storyboard */; };
-		344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C273A1F31FA4100FD5805 /* TalkLog.storyboard */; };
+		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
+		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
+		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
+		34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0C1F3A0714000F0C94 /* SignUp.storyboard */; };
+		34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0D1F3A0714000F0C94 /* TalkLog.storyboard */; };
+		34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */; };
+		34211D281F3A0714000F0C94 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D121F3A0714000F0C94 /* ContactCell.swift */; };
+		34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D131F3A0714000F0C94 /* ContactCell.xib */; };
+		34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D141F3A0714000F0C94 /* ContactViewController.swift */; };
+		34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D171F3A0714000F0C94 /* LoginViewController.swift */; };
+		34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D191F3A0714000F0C94 /* SigUpViewController.swift */; };
+		34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */; };
+		34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */; };
+		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
+		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
 		344C273E1F3201AF00FD5805 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273D1F3201AF00FD5805 /* Const.swift */; };
-		344C27401F33588800FD5805 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273F1F33588800FD5805 /* ContactViewController.swift */; };
-		344C27451F335A6D00FD5805 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C27431F335A6D00FD5805 /* ContactCell.swift */; };
-		344C27461F335A6D00FD5805 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344C27441F335A6D00FD5805 /* ContactCell.xib */; };
 		344C274B1F33620000FD5805 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C274A1F33620000FD5805 /* UserInfo.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
 		349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */; };
-		349EAD701F2F5ADC005833ED /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD6F1F2F5ADC005833ED /* Login.storyboard */; };
-		349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD711F2F5B04005833ED /* LoginViewController.swift */; };
 		349EAD751F2F5D06005833ED /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD741F2F5D06005833ED /* R.generated.swift */; };
-		349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */; };
-		349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */; };
 		349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */; };
 		34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7EDF91F30BE1200D87C1C /* UserRequest.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
@@ -37,18 +37,22 @@
 /* Begin PBXFileReference section */
 		1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.release.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.release.xcconfig"; sourceTree = "<group>"; };
 		30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34211CF81F38A055000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
-		34211CFB1F38A139000F0C94 /* TalkLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogCell.swift; sourceTree = "<group>"; };
-		34211CFC1F38A139000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
-		34211D041F38A818000F0C94 /* TalkRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkRoom.storyboard; sourceTree = "<group>"; };
-		34211D061F38A832000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
-		344C272E1F31F8B600FD5805 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		344C27381F31FA1400FD5805 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
-		344C273A1F31FA4100FD5805 /* TalkLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkLog.storyboard; sourceTree = "<group>"; };
+		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		34211D0C1F3A0714000F0C94 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		34211D0D1F3A0714000F0C94 /* TalkLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkLog.storyboard; sourceTree = "<group>"; };
+		34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkRoom.storyboard; sourceTree = "<group>"; };
+		34211D121F3A0714000F0C94 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		34211D131F3A0714000F0C94 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		34211D141F3A0714000F0C94 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		34211D171F3A0714000F0C94 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		34211D191F3A0714000F0C94 /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
+		34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogCell.swift; sourceTree = "<group>"; };
+		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
+		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
+		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		344C273D1F3201AF00FD5805 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		344C273F1F33588800FD5805 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		344C27431F335A6D00FD5805 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		344C27441F335A6D00FD5805 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		344C274A1F33620000FD5805 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
@@ -56,11 +60,7 @@
 		349EAD581F2F55CE005833ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349EAD661F2F59CF005833ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		349EAD6F1F2F5ADC005833ED /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		349EAD711F2F5B04005833ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		349EAD741F2F5D06005833ED /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
 		349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteAPIManager.swift; sourceTree = "<group>"; };
 		34E7EDF91F30BE1200D87C1C /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,154 +87,105 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		34211CFA1F38A111000F0C94 /* Cell */ = {
+		34211D081F3A0714000F0C94 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				34211CFB1F38A139000F0C94 /* TalkLogCell.swift */,
-				34211CFC1F38A139000F0C94 /* TalkLogCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		34211CFF1F38A7E5000F0C94 /* TalkRoom */ = {
-			isa = PBXGroup;
-			children = (
-				34211D001F38A80A000F0C94 /* StoryBoard */,
-				34211D011F38A80A000F0C94 /* View */,
-				34211D031F38A80A000F0C94 /* ViewModel */,
-			);
-			path = TalkRoom;
-			sourceTree = "<group>";
-		};
-		34211D001F38A80A000F0C94 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				34211D041F38A818000F0C94 /* TalkRoom.storyboard */,
+				34211D091F3A0714000F0C94 /* Contact.storyboard */,
+				34211D0A1F3A0714000F0C94 /* Home.storyboard */,
+				34211D0B1F3A0714000F0C94 /* Login.storyboard */,
+				34211D0C1F3A0714000F0C94 /* SignUp.storyboard */,
+				34211D0D1F3A0714000F0C94 /* TalkLog.storyboard */,
+				34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
-		34211D011F38A80A000F0C94 /* View */ = {
+		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				34211D021F38A80A000F0C94 /* Cell */,
-				34211D061F38A832000F0C94 /* TalkRoomViewController.swift */,
+				34211D101F3A0714000F0C94 /* Contact */,
+				34211D151F3A0714000F0C94 /* Home */,
+				34211D161F3A0714000F0C94 /* Login */,
+				34211D181F3A0714000F0C94 /* SignUp */,
+				34211D1A1F3A0714000F0C94 /* TalkLog */,
+				34211D1F1F3A0714000F0C94 /* TalkRoom */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		34211D021F38A80A000F0C94 /* Cell */ = {
+		34211D101F3A0714000F0C94 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		34211D031F38A80A000F0C94 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		344C272A1F31F8A300FD5805 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				344C272B1F31F8A300FD5805 /* StoryBoard */,
-				344C272C1F31F8A300FD5805 /* View */,
-				344C272D1F31F8A300FD5805 /* ViewModel */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		344C272B1F31F8A300FD5805 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				344C272E1F31F8B600FD5805 /* Home.storyboard */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		344C272C1F31F8A300FD5805 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		344C272D1F31F8A300FD5805 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		344C27301F31F9D100FD5805 /* TalkLog */ = {
-			isa = PBXGroup;
-			children = (
-				344C27311F31F9D100FD5805 /* StoryBoard */,
-				344C27321F31F9D100FD5805 /* View */,
-				344C27331F31F9D100FD5805 /* ViewModel */,
-			);
-			path = TalkLog;
-			sourceTree = "<group>";
-		};
-		344C27311F31F9D100FD5805 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				344C273A1F31FA4100FD5805 /* TalkLog.storyboard */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		344C27321F31F9D100FD5805 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				34211CFA1F38A111000F0C94 /* Cell */,
-				34211CF81F38A055000F0C94 /* TalkLogViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		344C27331F31F9D100FD5805 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		344C27341F31F9E100FD5805 /* Contact */ = {
-			isa = PBXGroup;
-			children = (
-				344C27351F31F9E100FD5805 /* StoryBoard */,
-				344C27361F31F9E100FD5805 /* View */,
-				344C27371F31F9E100FD5805 /* ViewModel */,
+				34211D111F3A0714000F0C94 /* Cell */,
+				34211D141F3A0714000F0C94 /* ContactViewController.swift */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
 		};
-		344C27351F31F9E100FD5805 /* StoryBoard */ = {
+		34211D111F3A0714000F0C94 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				344C27381F31FA1400FD5805 /* Contact.storyboard */,
+				34211D121F3A0714000F0C94 /* ContactCell.swift */,
+				34211D131F3A0714000F0C94 /* ContactCell.xib */,
 			);
-			path = StoryBoard;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		344C27361F31F9E100FD5805 /* View */ = {
+		34211D151F3A0714000F0C94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				344C27421F335A4200FD5805 /* Cell */,
-				344C273F1F33588800FD5805 /* ContactViewController.swift */,
 			);
-			path = View;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		344C27371F31F9E100FD5805 /* ViewModel */ = {
+		34211D161F3A0714000F0C94 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				34211D171F3A0714000F0C94 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		34211D181F3A0714000F0C94 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				34211D191F3A0714000F0C94 /* SigUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		34211D1A1F3A0714000F0C94 /* TalkLog */ = {
+			isa = PBXGroup;
+			children = (
+				34211D1B1F3A0714000F0C94 /* Cell */,
+				34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */,
+			);
+			path = TalkLog;
+			sourceTree = "<group>";
+		};
+		34211D1B1F3A0714000F0C94 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */,
+				34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		34211D1F1F3A0714000F0C94 /* TalkRoom */ = {
+			isa = PBXGroup;
+			children = (
+				34211D201F3A0714000F0C94 /* Cell */,
+				34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */,
+			);
+			path = TalkRoom;
+			sourceTree = "<group>";
+		};
+		34211D201F3A0714000F0C94 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		344C273C1F3201A000FD5805 /* Config */ = {
@@ -250,15 +201,6 @@
 			children = (
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		344C27421F335A4200FD5805 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				344C27431F335A6D00FD5805 /* ContactCell.swift */,
-				344C27441F335A6D00FD5805 /* ContactCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		344C27491F3361D600FD5805 /* View */ = {
@@ -290,10 +232,11 @@
 		349EAD481F2F55CE005833ED /* talk */ = {
 			isa = PBXGroup;
 			children = (
+				34211D081F3A0714000F0C94 /* StoryBoard */,
+				34211D0F1F3A0714000F0C94 /* View */,
 				344C27411F3358C200FD5805 /* Extension */,
 				349EAD5E1F2F59CF005833ED /* Manager */,
 				349EAD5F1F2F59CF005833ED /* Model */,
-				349EAD601F2F59CF005833ED /* MVVM */,
 				349EAD651F2F59CF005833ED /* Resource */,
 				349EAD531F2F55CE005833ED /* Assets.xcassets */,
 				349EAD581F2F55CE005833ED /* Info.plist */,
@@ -319,52 +262,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		349EAD601F2F59CF005833ED /* MVVM */ = {
-			isa = PBXGroup;
-			children = (
-				34211CFF1F38A7E5000F0C94 /* TalkRoom */,
-				344C27341F31F9E100FD5805 /* Contact */,
-				344C27301F31F9D100FD5805 /* TalkLog */,
-				344C272A1F31F8A300FD5805 /* Home */,
-				349EAD761F2F5EBB005833ED /* SignUp */,
-				349EAD611F2F59CF005833ED /* Login */,
-			);
-			path = MVVM;
-			sourceTree = "<group>";
-		};
-		349EAD611F2F59CF005833ED /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD621F2F59CF005833ED /* StoryBoard */,
-				349EAD631F2F59CF005833ED /* View */,
-				349EAD641F2F59CF005833ED /* ViewModel */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		349EAD621F2F59CF005833ED /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD6F1F2F5ADC005833ED /* Login.storyboard */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		349EAD631F2F59CF005833ED /* View */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD711F2F5B04005833ED /* LoginViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		349EAD641F2F59CF005833ED /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		349EAD651F2F59CF005833ED /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,39 +279,6 @@
 				349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */,
 			);
 			path = InterfaceBuilder;
-			sourceTree = "<group>";
-		};
-		349EAD761F2F5EBB005833ED /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD771F2F5EBB005833ED /* StoryBoard */,
-				349EAD781F2F5EBB005833ED /* View */,
-				349EAD791F2F5EBB005833ED /* ViewModel */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
-		349EAD771F2F5EBB005833ED /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD7A1F2F5EF6005833ED /* SignUp.storyboard */,
-			);
-			path = StoryBoard;
-			sourceTree = "<group>";
-		};
-		349EAD781F2F5EBB005833ED /* View */ = {
-			isa = PBXGroup;
-			children = (
-				349EAD7C1F2F5F0A005833ED /* SigUpViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		349EAD791F2F5EBB005833ED /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		34E7EDF81F30BDA900D87C1C /* API */ = {
@@ -496,16 +360,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349EAD701F2F5ADC005833ED /* Login.storyboard in Resources */,
-				344C27391F31FA1400FD5805 /* Contact.storyboard in Resources */,
-				344C272F1F31F8B600FD5805 /* Home.storyboard in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
-				34211CFE1F38A139000F0C94 /* TalkLogCell.xib in Resources */,
-				344C27461F335A6D00FD5805 /* ContactCell.xib in Resources */,
+				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
+				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
+				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
+				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
-				34211D051F38A818000F0C94 /* TalkRoom.storyboard in Resources */,
-				349EAD7B1F2F5EF6005833ED /* SignUp.storyboard in Resources */,
-				344C273B1F31FA4100FD5805 /* TalkLog.storyboard in Resources */,
+				34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */,
+				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
+				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
+				34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,20 +442,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34211CFD1F38A139000F0C94 /* TalkLogCell.swift in Sources */,
-				344C27451F335A6D00FD5805 /* ContactCell.swift in Sources */,
+				34211D281F3A0714000F0C94 /* ContactCell.swift in Sources */,
 				349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */,
-				349EAD721F2F5B04005833ED /* LoginViewController.swift in Sources */,
-				349EAD7D1F2F5F0A005833ED /* SigUpViewController.swift in Sources */,
-				34211D071F38A832000F0C94 /* TalkRoomViewController.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
-				344C27401F33588800FD5805 /* ContactViewController.swift in Sources */,
 				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
+				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
+				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
+				34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */,
 				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
 				344C274B1F33620000FD5805 /* UserInfo.swift in Sources */,
+				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
+				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
+				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
-				34211CF91F38A055000F0C94 /* TalkLogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
