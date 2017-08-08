@@ -34,11 +34,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Wdg-hg-tsv" id="Pxv-HA-C3P"/>
+                        <segue destination="xYe-OU-aag" kind="show" identifier="TalkRoom" id="JdL-lg-rfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZa-3Q-Mge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-719.20000000000005" y="-74.212893553223395"/>
+        </scene>
+        <!--TalkRoom-->
+        <scene sceneID="xlK-aa-l5d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TalkRoom" id="xYe-OU-aag" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zfp-gg-Iby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-208" y="-268"/>
         </scene>
     </scenes>
 </document>
