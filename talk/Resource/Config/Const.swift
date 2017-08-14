@@ -22,3 +22,4 @@ let SA_SERVER = "https://pg-app-hovattt1c895ae0yjki7hueyw5qd2x.scalabl.cloud/1/"
 // ApplicationId
 
 let SB_APPLICATIONID = ""
+
