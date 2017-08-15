@@ -11,31 +11,28 @@ import Parse
 
 class RemoteAPIManager: NSObject {
     
-    private static let shared = RemoteAPIManager()
-    private static var isInit = false
+    static let shared = RemoteAPIManager()
+
     // Block
     public typealias SignUpInBackgroundWithBlock = (Bool) -> Void
     public typealias LoginInBackgroundWithBlock = (Bool) -> Void
 
     private override init() {
         super.init()
+        initParse()
     }
     
-    private class func initParse() {
-        if !isInit {
-            let configuration = ParseClientConfiguration {
-                $0.applicationId = SA_APPLICATIONID
-                $0.clientKey = SA_CLIENT_KEY
-                $0.server = SA_SERVER
-            }
-            Parse.initialize(with: configuration)
-
-            isInit = true
+    private func initParse() {
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = SA_APPLICATIONID
+            $0.clientKey = SA_CLIENT_KEY
+            $0.server = SA_SERVER
         }
+        Parse.initialize(with: configuration)
+
     }
     
-    class func signUp(request: UserRequest, withCompletion: @escaping SignUpInBackgroundWithBlock) {
-        RemoteAPIManager.initParse()
+    func signUp(request: UserRequest, withCompletion: @escaping SignUpInBackgroundWithBlock) {
         
         let user = PFUser()
         user.username = request.nickName
@@ -45,10 +42,16 @@ class RemoteAPIManager: NSObject {
         }
     }
     
-    class func login(request: UserRequest, withCompletion: @escaping LoginInBackgroundWithBlock) {
-        RemoteAPIManager.initParse()
+    func login(request: UserRequest, withCompletion: @escaping LoginInBackgroundWithBlock) {
 
         PFUser.logInWithUsername(inBackground: request.id, password: request.password) { (user, error) in
+            if user != nil {
+                let loginHistory = LoginHistory.createNewRecord()
+                loginHistory.userId = request.id
+                loginHistory.password = request.password
+                loginHistory.updateDate = NSDate()
+                CoreDataManager.shared.saveContext()
+            }
             withCompletion(user == nil ? false : true)
         }
     }
