@@ -18,6 +18,10 @@ class CoreDataManager: NSObject {
     
     static let shared = CoreDataManager()
     
+    public var loginInfo: LoginHistory? {
+        return LoginHistory.readLastLoginHistory()
+    }
+    
     private override init() {
         super.init()
     }

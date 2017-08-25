@@ -29,7 +29,7 @@ class LoginViewController: UITableViewController {
     
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        let request = UserRequest(id: userIdTextField.text ?? "", password: passwordTextField.text ?? "")
+        let request = UserRequest(userName: userIdTextField.text ?? "", password: passwordTextField.text ?? "")
         RemoteAPIManager.shared.login(request: request) { (isSucceeded) in
             if isSucceeded {
                 self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)

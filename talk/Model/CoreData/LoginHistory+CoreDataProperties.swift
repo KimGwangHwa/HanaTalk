@@ -16,7 +16,7 @@ extension LoginHistory {
         return NSFetchRequest<LoginHistory>(entityName: "LoginHistory")
     }
 
-    @NSManaged public var userId: String?
+    @NSManaged public var userName: String?
     @NSManaged public var password: String?
     @NSManaged public var updateDate: NSDate?
     

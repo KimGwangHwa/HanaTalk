@@ -14,8 +14,10 @@ class RemoteAPIManager: NSObject {
     static let shared = RemoteAPIManager()
 
     // Block
-    public typealias SignUpInBackgroundWithBlock = (Bool) -> Void
-    public typealias LoginInBackgroundWithBlock = (Bool) -> Void
+//    public typealias SignUpInBackgroundWithBlock = (Bool) -> Void
+//    public typealias LoginInBackgroundWithBlock = (Bool) -> Void
+    typealias CompletionHandler = (Bool) -> Void
+
 
     private override init() {
         super.init()
@@ -32,7 +34,7 @@ class RemoteAPIManager: NSObject {
 
     }
     
-    func signUp(request: UserRequest, withCompletion: @escaping SignUpInBackgroundWithBlock) {
+    func signUp(request: UserRequest, withCompletion: @escaping CompletionHandler) {
         
         let user = PFUser()
         user.username = request.nickName
@@ -42,17 +44,25 @@ class RemoteAPIManager: NSObject {
         }
     }
     
-    func login(request: UserRequest, withCompletion: @escaping LoginInBackgroundWithBlock) {
+    func login(request: UserRequest, withCompletion: @escaping CompletionHandler) {
 
-        PFUser.logInWithUsername(inBackground: request.id, password: request.password) { (user, error) in
+        PFUser.logInWithUsername(inBackground: request.userName, password: request.password) { (user, error) in
             if user != nil {
                 let loginHistory = LoginHistory.createNewRecord()
-                loginHistory.userId = request.id
+                loginHistory.userName = request.userName
                 loginHistory.password = request.password
                 loginHistory.updateDate = NSDate()
                 CoreDataManager.shared.saveContext()
             }
             withCompletion(user == nil ? false : true)
+        }
+    }
+    
+    func getFriends() {
+        let query = PFQuery(className: "Friend")
+        query.whereKey("userName", equalTo: "test")
+        query.findObjectsInBackground { (objects, error) in
+            //objects[0]["user"]
         }
     }
     

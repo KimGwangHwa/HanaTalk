@@ -8,9 +8,10 @@
 
 import UIKit
 
+// stuct
 class UserRequest: NSObject {
     
-    var id = ""
+    var userName = ""
 
     var nickName = ""
     
@@ -18,9 +19,9 @@ class UserRequest: NSObject {
     
     var mail = ""
     
-    init(id: String, password: String) {
+    init(userName: String, password: String) {
         super.init()
-        self.id = id
+        self.userName = userName
         self.password = password
     }
     
