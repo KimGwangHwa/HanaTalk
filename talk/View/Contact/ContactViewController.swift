@@ -14,6 +14,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     // SectionTitles
     let sectionTitles = ["friend"]
     var dataSource = [User]()
+    var selectedData: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,16 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.register(R.nib.contactCell(), forCellReuseIdentifier: R.reuseIdentifier.contactCell.identifier)
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.black
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.contactViewController.userInfo.identifier {
+            if let viewController = segue.destination as? UserInfoViewController {
+                viewController.userData = selectedData
+            }
+        }
     }
     
     // MARK: - UITableViewDelegate
@@ -75,8 +86,11 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         return ["A", "B", "C", "D", "E", "F", "G", "H"]
     }
     
+    // DidSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedData = dataSource[indexPath.row]
+        self.performSegue(withIdentifier: R.segue.contactViewController.userInfo.identifier, sender: nil)
     }
     
 }
