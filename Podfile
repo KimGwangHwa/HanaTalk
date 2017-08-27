@@ -10,5 +10,6 @@ target 'talk' do
   pod 'R.swift'
   pod ‘Parse’
   pod 'Realm'
+  pod 'SDWebImage'
 
 end

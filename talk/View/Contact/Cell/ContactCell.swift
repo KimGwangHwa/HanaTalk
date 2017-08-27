@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ContactCell: UITableViewCell {
 
@@ -18,11 +19,12 @@ class ContactCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    var userInfo: UserInfo? {
+    var user: User? {
         didSet {
-            nickNameLabel.text = userInfo?.nickName
-            descriptionLabel.text = userInfo?.statusMessage
+            nickNameLabel.text = user?.nickName
+            descriptionLabel.text = "descriptionLabel"
+            headImageView.sd_setImage(with: URL(string: user?.headImage ?? "")
+                , placeholderImage: nil)
         }
     }
     

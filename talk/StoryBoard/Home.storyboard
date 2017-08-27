@@ -63,10 +63,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="e6G-3d-I3p" kind="relationship" relationship="rootViewController" id="mgW-bM-Uss"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiG-ZO-tch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7" y="-213"/>
+        </scene>
+        <!--UserInfo-->
+        <scene sceneID="DIp-CL-Y3G">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserInfo" id="e6G-3d-I3p" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JO8-kN-jL2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzz-ag-qNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="-213"/>
         </scene>
         <!--TalkLog-->
         <scene sceneID="4GJ-xn-uhi">

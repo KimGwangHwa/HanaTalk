@@ -17,7 +17,7 @@ class RemoteAPIManager: NSObject {
 //    public typealias SignUpInBackgroundWithBlock = (Bool) -> Void
 //    public typealias LoginInBackgroundWithBlock = (Bool) -> Void
     typealias CompletionHandler = (Bool) -> Void
-
+    typealias GetListCompletionHandler = (Bool, [User]) -> Void
 
     private override init() {
         super.init()
@@ -30,6 +30,7 @@ class RemoteAPIManager: NSObject {
             $0.clientKey = SA_CLIENT_KEY
             $0.server = SA_SERVER
         }
+        
         Parse.initialize(with: configuration)
 
     }
@@ -58,11 +59,37 @@ class RemoteAPIManager: NSObject {
         }
     }
     
-    func getFriends() {
+    func getFriends(completionHandler: @escaping GetListCompletionHandler) {
         let query = PFQuery(className: "Friend")
         query.whereKey("userName", equalTo: "test")
         query.findObjectsInBackground { (objects, error) in
-            //objects[0]["user"]
+            var userIds = [String]()
+            for item in objects ?? [] {
+                if let pfObj = item["friendUser"] as? PFObject {
+                    userIds.append(pfObj.objectId ?? "")
+                }
+            }
+            var retUser = [User]()
+            
+            let queryUser = PFQuery(className: "_User")
+            queryUser.whereKey("objectId", containedIn: userIds)
+            queryUser.findObjectsInBackground(block: { (users, error) in
+                for item in users ?? [] {
+                    let user = User()
+                    user.userName = (item["userName"] as? String) ?? ""
+                    user.nickName = (item["nickName"] as? String) ?? ""
+                    user.statusMessage = (item["statusMessage"] as? String) ?? ""
+                    if let file = item["headImage"] as? PFFile {
+                        user.headImage = file.url
+                    }
+                    
+                    retUser.append(user)
+                }
+                completionHandler(true, retUser)
+
+            })
+            
+            
         }
     }
     
