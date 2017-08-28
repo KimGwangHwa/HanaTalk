@@ -14,6 +14,10 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     static let shared = RemoteChatManager()
     
     typealias CompletionHandler = (Bool) -> Void
+    typealias ReceiveMessageCompletionHandler = (Bool, Message?) -> Void
+
+    var didReceiveMessageCompletionHandler: ReceiveMessageCompletionHandler? = nil
+    
 //    typealias DisconnectCompletionHandler = () -> Void
 //    typealias CreateTalkRoomCompletionHandler = (Bool) -> Void
 //    typealias TalkRoomListCompletionHandler = (Bool) -> Void
@@ -59,6 +63,11 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
             
         }
     }
+//    
+//    func sendMessage(_ message: Message, completionHandler: @escaping CompletionHandler) {
+//    }
+    
+    
     
     func sendTextMessage(text: String, completionHandler: @escaping CompletionHandler) {
         groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
@@ -72,6 +81,15 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
         
+        if let userMessage = message as? SBDUserMessage {
+            if let textMessage = userMessage.message {
+                let message = Message()
+                message.sendReceiveType = .Receive
+                message.textMessage = textMessage
+                message.senderUserName = userMessage.sender?.userId ?? ""
+                didReceiveMessageCompletionHandler!(true, message)
+            }
+        }
     }
     
 }

@@ -26,9 +26,23 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func closeEvent(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-
+    
+    @IBAction func sendMessageEvent(_ sender: UIButton) {
+        
+        if let topViewController = self.topNavigationViewController() {
+            if let viewController = R.storyboard.talkRoom.talkRoomViewController() {
+                viewController.senderUser = userData
+                topViewController.pushViewController(viewController, animated: false)
+                
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
     // MARK: - UITableViewDelegate
     
     // Rows

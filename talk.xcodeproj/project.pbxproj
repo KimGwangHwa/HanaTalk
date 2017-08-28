@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340627211F5331E700821E39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627201F5331E700821E39 /* R.generated.swift */; };
+		340627261F53320D00821E39 /* ReceiveTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627221F53320D00821E39 /* ReceiveTextCell.swift */; };
+		340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627231F53320D00821E39 /* ReceiveTextCell.xib */; };
+		340627281F53320D00821E39 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627241F53320D00821E39 /* SendTextCell.swift */; };
+		340627291F53320D00821E39 /* SendTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627251F53320D00821E39 /* SendTextCell.xib */; };
+		3406272B1F53332600821E39 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272A1F53332600821E39 /* Message.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
 		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
@@ -33,11 +39,11 @@
 		3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7321F526496000D2FC5 /* UserInfoViewController.swift */; };
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
 		3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */; };
+		3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7391F530B63000D2FC5 /* UIViewController.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
 		349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */; };
-		349EAD751F2F5D06005833ED /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD741F2F5D06005833ED /* R.generated.swift */; };
 		349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */; };
 		34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7EDF91F30BE1200D87C1C /* UserRequest.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
@@ -46,6 +52,12 @@
 /* Begin PBXFileReference section */
 		1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.release.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.release.xcconfig"; sourceTree = "<group>"; };
 		30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		340627201F5331E700821E39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		340627221F53320D00821E39 /* ReceiveTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveTextCell.swift; sourceTree = "<group>"; };
+		340627231F53320D00821E39 /* ReceiveTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTextCell.xib; sourceTree = "<group>"; };
+		340627241F53320D00821E39 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
+		340627251F53320D00821E39 /* SendTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendTextCell.xib; sourceTree = "<group>"; };
+		3406272A1F53332600821E39 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -72,13 +84,13 @@
 		3459A7321F526496000D2FC5 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderCell.swift; sourceTree = "<group>"; };
+		3459A7391F530B63000D2FC5 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		349EAD581F2F55CE005833ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349EAD661F2F59CF005833ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		349EAD741F2F5D06005833ED /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteAPIManager.swift; sourceTree = "<group>"; };
 		34E7EDF91F30BE1200D87C1C /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +217,10 @@
 		34211D201F3A0714000F0C94 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				340627221F53320D00821E39 /* ReceiveTextCell.swift */,
+				340627231F53320D00821E39 /* ReceiveTextCell.xib */,
+				340627241F53320D00821E39 /* SendTextCell.swift */,
+				340627251F53320D00821E39 /* SendTextCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -220,6 +236,7 @@
 		344C27411F3358C200FD5805 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3459A7391F530B63000D2FC5 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -228,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				344C274A1F33620000FD5805 /* UserInfo.swift */,
+				3406272A1F53332600821E39 /* Message.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,8 +333,8 @@
 		349EAD651F2F59CF005833ED /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				340627201F5331E700821E39 /* R.generated.swift */,
 				344C273C1F3201A000FD5805 /* Config */,
-				349EAD741F2F5D06005833ED /* R.generated.swift */,
 				349EAD661F2F59CF005833ED /* AppDelegate.swift */,
 				349EAD671F2F59CF005833ED /* InterfaceBuilder */,
 			);
@@ -356,12 +374,12 @@
 			buildConfigurationList = 349EAD5B1F2F55CE005833ED /* Build configuration list for PBXNativeTarget "talk" */;
 			buildPhases = (
 				CBFA38D5ECA35E05AC293680 /* [CP] Check Pods Manifest.lock */,
+				3406271F1F53314C00821E39 /* R.swift */,
 				349EAD421F2F55CE005833ED /* Sources */,
 				349EAD431F2F55CE005833ED /* Frameworks */,
 				349EAD441F2F55CE005833ED /* Resources */,
 				553EE7F80FD0D0735136E45C /* [CP] Embed Pods Frameworks */,
 				A1D884EF91D9F38B44E7C237 /* [CP] Copy Pods Resources */,
-				349EAD731F2F5BAF005833ED /* R.swift */,
 			);
 			buildRules = (
 			);
@@ -412,9 +430,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
+				340627291F53320D00821E39 /* SendTextCell.xib in Resources */,
 				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
 				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
 				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
+				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
@@ -428,7 +448,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		349EAD731F2F5BAF005833ED /* R.swift */ = {
+		3406271F1F53314C00821E39 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,22 +514,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340627261F53320D00821E39 /* ReceiveTextCell.swift in Sources */,
 				34211D281F3A0714000F0C94 /* ContactCell.swift in Sources */,
 				3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */,
 				3459A7211F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift in Sources */,
 				349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
+				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
+				3406272B1F53332600821E39 /* Message.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
 				3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */,
 				3459A72D1F51878F000D2FC5 /* User.swift in Sources */,
+				340627211F5331E700821E39 /* R.generated.swift in Sources */,
 				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */,
-				349EAD751F2F5D06005833ED /* R.generated.swift in Sources */,
+				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				344C274B1F33620000FD5805 /* UserInfo.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
