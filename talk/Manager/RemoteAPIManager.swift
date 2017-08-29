@@ -76,7 +76,7 @@ class RemoteAPIManager: NSObject {
             queryUser.findObjectsInBackground(block: { (users, error) in
                 for item in users ?? [] {
                     let user = User()
-                    user.userName = (item["userName"] as? String) ?? ""
+                    user.userName = (item["username"] as? String) ?? ""
                     user.nickName = (item["nickName"] as? String) ?? ""
                     user.statusMessage = (item["statusMessage"] as? String) ?? ""
                     if let file = item["headImage"] as? PFFile {

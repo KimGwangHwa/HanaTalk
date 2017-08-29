@@ -47,7 +47,6 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     
     private func enterTheTalkRoom(channelUrl: String, completionHandler: @escaping CompletionHandler) {
         SBDGroupChannel.getWithUrl(channelUrl) { (groupChannel, error) in
-            self.groupChannel = groupChannel
             completionHandler(error == nil ? false : true)
         }
     }
@@ -55,7 +54,8 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     // SBDGroupChannel
     func createTalkRoom(userId: [String], completionHandler: @escaping CompletionHandler) {
         SBDGroupChannel.createChannel(withUserIds: userId, isDistinct: true) { (groupChannel, error) in
-            if error != nil {
+            if error == nil {
+                self.groupChannel = groupChannel
                 self.enterTheTalkRoom(channelUrl: groupChannel?.channelUrl ?? "", completionHandler: completionHandler)
             } else {
                 completionHandler(false)

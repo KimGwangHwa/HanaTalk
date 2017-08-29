@@ -23,7 +23,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
         addKeyBoardObserver()
         setUpView()
-        
+        createTalkRomm()
         
     }
     
@@ -46,8 +46,12 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: - DdiReceviData
+    
     func receviData(message: Message?) {
-        
+        if let guardMessage = message {
+            dataSource.append(guardMessage)
+            tableView.reloadData()
+        }
     }
     
     // MARK: - KeyBoardObserver
@@ -127,8 +131,14 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         return UITableViewCell()
     }
 
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
     /*
     // MARK: - Navigation
 
