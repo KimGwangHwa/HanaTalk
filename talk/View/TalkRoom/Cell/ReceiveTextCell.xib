@@ -30,31 +30,48 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UaH-ma-vpI">
+                        <rect key="frame" x="53" y="3" width="78" height="32"/>
+                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I34-Yz-zGi">
-                        <rect key="frame" x="56" y="4" width="58" height="40"/>
+                        <rect key="frame" x="63" y="4" width="58" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="1nH-2O-ExP"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bZx-pk-ocR"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bZx-pk-ocR"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="I34-Yz-zGi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="56" id="FhK-3g-bHu"/>
-                    <constraint firstAttribute="bottom" secondItem="I34-Yz-zGi" secondAttribute="bottom" constant="5.5" id="G5Z-r5-Uac"/>
+                    <constraint firstAttribute="bottom" secondItem="I34-Yz-zGi" secondAttribute="bottom" constant="15.5" id="G5Z-r5-Uac"/>
                     <constraint firstItem="hBX-my-e6i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="JtE-cN-sMw"/>
                     <constraint firstItem="hBX-my-e6i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="TNq-vS-PCv"/>
                     <constraint firstItem="I34-Yz-zGi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="U7U-Mz-A6d"/>
+                    <constraint firstItem="I34-Yz-zGi" firstAttribute="trailing" secondItem="UaH-ma-vpI" secondAttribute="trailing" constant="-10" id="a12-ZW-YRc"/>
+                    <constraint firstItem="I34-Yz-zGi" firstAttribute="top" secondItem="UaH-ma-vpI" secondAttribute="top" constant="1" id="a2W-Jw-gKi"/>
+                    <constraint firstItem="I34-Yz-zGi" firstAttribute="bottom" secondItem="UaH-ma-vpI" secondAttribute="bottom" constant="-1" id="mSv-uH-JKu"/>
+                    <constraint firstItem="I34-Yz-zGi" firstAttribute="leading" secondItem="UaH-ma-vpI" secondAttribute="leading" constant="10" id="rms-BV-dzF"/>
+                    <constraint firstItem="I34-Yz-zGi" firstAttribute="leading" secondItem="hBX-my-e6i" secondAttribute="trailing" constant="15" id="xyI-fY-wGy"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="headImageView" destination="hBX-my-e6i" id="MDh-un-cdS"/>
                 <outlet property="messageLabel" destination="I34-Yz-zGi" id="WhQ-DE-Vja"/>
             </connections>
-            <point key="canvasLocation" x="-53" y="18"/>
+            <point key="canvasLocation" x="-105" y="-39"/>
         </tableViewCell>
     </objects>
 </document>

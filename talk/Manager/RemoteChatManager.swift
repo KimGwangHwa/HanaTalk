@@ -9,22 +9,21 @@
 import UIKit
 import SendBirdSDK
 
+protocol DidReceiveMessageDelegate: NSObjectProtocol {
+    func didReceiveMessage(_ message: Message?, isSuccess: Bool) -> Void
+}
+
 class RemoteChatManager: NSObject, SBDChannelDelegate {
 
     static let shared = RemoteChatManager()
     
     typealias CompletionHandler = (Bool) -> Void
-    typealias ReceiveMessageCompletionHandler = (Bool, Message?) -> Void
 
-    var didReceiveMessageCompletionHandler: ReceiveMessageCompletionHandler? = nil
-    
-//    typealias DisconnectCompletionHandler = () -> Void
-//    typealias CreateTalkRoomCompletionHandler = (Bool) -> Void
-//    typealias TalkRoomListCompletionHandler = (Bool) -> Void
-//    typealias SendTextMessageCompletionHandler = (Bool) -> Void
+    private var delegates = NSHashTable<AnyObject>.weakObjects()
     
     private var groupChannel: SBDGroupChannel?
     
+    weak var d: DidReceiveMessageDelegate?
 
     private override init() {
         super.init()
@@ -33,6 +32,10 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         SBDMain.add(self, identifier: "")
     }
 
+    func addDelegate(_ delegate: AnyObject)  {
+        delegates.add(delegate)
+    }
+    
     func connect(userId: String, completionHandler: @escaping CompletionHandler) {
         SBDMain.connect(withUserId: userId) { (user, error) in
             completionHandler(error == nil ? false : true)
@@ -63,19 +66,12 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
             
         }
     }
-//    
-//    func sendMessage(_ message: Message, completionHandler: @escaping CompletionHandler) {
-//    }
-    
-    
     
     func sendTextMessage(text: String, completionHandler: @escaping CompletionHandler) {
         groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
             completionHandler(error == nil ? false : true)
         })
     }
-    
-    
     
     // MARK: - SBDChannelDelegate
     
@@ -87,9 +83,14 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 message.sendReceiveType = .Receive
                 message.textMessage = textMessage
                 message.senderUserName = userMessage.sender?.userId ?? ""
-                didReceiveMessageCompletionHandler!(true, message)
+
+                delegates.objectEnumerator().enumerated()
+                    .map { $0.element as? DidReceiveMessageDelegate }
+                    .forEach { $0?.didReceiveMessage(message, isSuccess: true) }
+
             }
         }
+        
     }
     
 }

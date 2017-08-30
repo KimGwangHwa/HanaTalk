@@ -17,6 +17,8 @@ class User: NSObject {
     var headImage: String?
     
     var statusMessage: String?
-
+    
+    var email: String?
+    
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -28,15 +28,12 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func createTalkRomm() {
+        RemoteChatManager.shared.addDelegate(self)
         RemoteChatManager.shared.createTalkRoom(userId: [senderUser?.userName ?? ""]) { (isSuccess) in
             
         }
-        RemoteChatManager.shared.didReceiveMessageCompletionHandler = { (isSucess, message) in
-            self.receviData(message: message)
-        }
     }
-
-
+    
     func setUpView() {
         title = senderUser?.nickName
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
@@ -45,9 +42,9 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    // MARK: - DdiReceviData
+    // MARK: - DidReceiveMessageDelegate
     
-    func receviData(message: Message?) {
+    func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
         if let guardMessage = message {
             dataSource.append(guardMessage)
             tableView.reloadData()
@@ -96,7 +93,13 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         sendMessage.textMessage = inputTextField.text ?? ""
 
         RemoteChatManager.shared.sendTextMessage(text: sendMessage.textMessage) { (isSuccess) in
-            
+            let a = Messages(className: "Messages")
+            a.sender = "e0o41nWPiR"
+            a.receiver = "qBbCps4fuA"
+            a.textMessage = "dkdkdkdk"
+//            a.saveInBackground(block: { (isSuccess, error) in
+//                
+//            })
         }
         
         dataSource.append(sendMessage)
@@ -129,14 +132,6 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return UITableViewCell()
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
     }
     
     /*

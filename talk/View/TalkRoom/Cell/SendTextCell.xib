@@ -17,23 +17,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-aF-oQD">
+                        <rect key="frame" x="232" y="8" width="78" height="32"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7P-iK-Yng">
-                        <rect key="frame" x="250" y="4" width="58" height="40"/>
+                        <rect key="frame" x="242" y="9" width="58" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="SLu-LD-Dtl"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="SLu-LD-Dtl"/>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="YY9-Qj-dJJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.cornerRadius" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="y7P-iK-Yng" secondAttribute="trailing" constant="12" id="P4D-UQ-KBF"/>
-                    <constraint firstItem="y7P-iK-Yng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="axl-ab-mQP"/>
-                    <constraint firstAttribute="bottom" secondItem="y7P-iK-Yng" secondAttribute="bottom" constant="5.5" id="wCI-Up-GM8"/>
+                    <constraint firstItem="y7P-iK-Yng" firstAttribute="bottom" secondItem="q7V-aF-oQD" secondAttribute="bottom" constant="-1" id="7BH-i7-925"/>
+                    <constraint firstItem="y7P-iK-Yng" firstAttribute="trailing" secondItem="q7V-aF-oQD" secondAttribute="trailing" constant="-10" id="Du8-nl-j2l"/>
+                    <constraint firstItem="y7P-iK-Yng" firstAttribute="leading" secondItem="q7V-aF-oQD" secondAttribute="leading" constant="10" id="Ikc-gZ-bcD"/>
+                    <constraint firstAttribute="trailing" secondItem="y7P-iK-Yng" secondAttribute="trailing" constant="20" id="P4D-UQ-KBF"/>
+                    <constraint firstItem="y7P-iK-Yng" firstAttribute="top" secondItem="q7V-aF-oQD" secondAttribute="top" constant="1" id="WYG-Sq-XdI"/>
+                    <constraint firstItem="y7P-iK-Yng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="axl-ab-mQP"/>
+                    <constraint firstAttribute="bottom" secondItem="y7P-iK-Yng" secondAttribute="bottom" constant="10.5" id="wCI-Up-GM8"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="messageLabel" destination="y7P-iK-Yng" id="zzT-eq-dEk"/>
             </connections>

@@ -24,4 +24,6 @@ class Message: NSObject {
     
     var senderUserName = ""
     
+    var isRead = false
+    
 }
