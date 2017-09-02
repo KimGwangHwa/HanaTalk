@@ -19,6 +19,5 @@ class User: NSObject {
     var statusMessage: String?
     
     var email: String?
-    
-    
+
 }

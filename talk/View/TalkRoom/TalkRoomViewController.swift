@@ -91,15 +91,8 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
         let sendMessage = Message()
         sendMessage.textMessage = inputTextField.text ?? ""
-
-        RemoteChatManager.shared.sendTextMessage(text: sendMessage.textMessage) { (isSuccess) in
-            let a = Messages(className: "Messages")
-            a.sender = "e0o41nWPiR"
-            a.receiver = "qBbCps4fuA"
-            a.textMessage = "dkdkdkdk"
-//            a.saveInBackground(block: { (isSuccess, error) in
-//                
-//            })
+        RemoteChatManager.shared.sendMessage(sendMessage) { (isSuccess) in
+            
         }
         
         dataSource.append(sendMessage)

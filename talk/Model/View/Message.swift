@@ -8,22 +8,30 @@
 
 import UIKit
 
+enum SendReceiveType: Int {
+    case Receive = 0
+    case Send = 1
+}
+enum MessageType: Int {
+    case Text = 0
+    case File = 1
+}
 class Message: NSObject {
-    enum SendReceiveType: Int {
-        case Receive = 0
-        case Send = 1
-    }
     
     var sendReceiveType: SendReceiveType = .Send
     
-    var textMessage = ""
-    
-    var userName = ""
-    
-    var createDate = Date()
-    
-    var senderUserName = ""
-    
     var isRead = false
+    
+    // _User objectID
+    var sender = ""
+    
+    var receiveer = ""
+    
+    var textMessage = ""
+
+    var fileMessage = ""
+
+    var messageFalg: MessageType = .Text
+    
     
 }

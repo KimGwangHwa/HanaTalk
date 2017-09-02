@@ -13,7 +13,7 @@
 		340627281F53320D00821E39 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627241F53320D00821E39 /* SendTextCell.swift */; };
 		340627291F53320D00821E39 /* SendTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627251F53320D00821E39 /* SendTextCell.xib */; };
 		3406272B1F53332600821E39 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272A1F53332600821E39 /* Message.swift */; };
-		3406272D1F56F92100821E39 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272C1F56F92100821E39 /* Messages.swift */; };
+		3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272E1F5ADAC500821E39 /* DataManager.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
 		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
@@ -59,7 +59,7 @@
 		340627241F53320D00821E39 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
 		340627251F53320D00821E39 /* SendTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendTextCell.xib; sourceTree = "<group>"; };
 		3406272A1F53332600821E39 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		3406272C1F56F92100821E39 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		3406272E1F5ADAC500821E39 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -318,6 +318,7 @@
 				349EAD7E1F30B90C005833ED /* RemoteAPIManager.swift */,
 				3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */,
 				3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */,
+				3406272E1F5ADAC500821E39 /* DataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -356,7 +357,6 @@
 			children = (
 				34E7EDF91F30BE1200D87C1C /* UserRequest.swift */,
 				3459A72C1F51878F000D2FC5 /* User.swift */,
-				3406272C1F56F92100821E39 /* Messages.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -527,7 +527,6 @@
 				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				3406272B1F53332600821E39 /* Message.swift in Sources */,
-				3406272D1F56F92100821E39 /* Messages.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
 				3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */,
@@ -543,6 +542,7 @@
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
+				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

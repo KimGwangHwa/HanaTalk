@@ -67,6 +67,17 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         }
     }
     
+    func sendMessage(_ message: Message, completionHandler: @escaping CompletionHandler) {
+        if message.messageFalg == .Text {
+            sendTextMessage(text: message.textMessage, completionHandler: { (isSuccess) in
+                completionHandler(isSuccess)
+                if isSuccess {
+                    RemoteAPIManager.shared.saveRemoteClass(message: message)
+                }
+            })
+        }
+    }
+    
     func sendTextMessage(text: String, completionHandler: @escaping CompletionHandler) {
         groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
             completionHandler(error == nil ? false : true)
@@ -82,7 +93,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 let message = Message()
                 message.sendReceiveType = .Receive
                 message.textMessage = textMessage
-                message.senderUserName = userMessage.sender?.userId ?? ""
+                //message.senderUserName = userMessage.sender?.userId ?? ""
 
                 delegates.objectEnumerator().enumerated()
                     .map { $0.element as? DidReceiveMessageDelegate }
