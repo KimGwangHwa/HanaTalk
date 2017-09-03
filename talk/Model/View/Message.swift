@@ -33,5 +33,7 @@ class Message: NSObject {
 
     var messageFalg: MessageType = .Text
     
+    var createAt: Date! = nil
+    
     
 }

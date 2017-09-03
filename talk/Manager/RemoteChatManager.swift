@@ -55,9 +55,19 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     }
     
     // SBDGroupChannel
-    func createTalkRoom(userId: [String], completionHandler: @escaping CompletionHandler) {
+    func createChatRoom(userId: [String], completionHandler: @escaping CompletionHandler) {
         SBDGroupChannel.createChannel(withUserIds: userId, isDistinct: true) { (groupChannel, error) in
             if error == nil {
+                
+                if !ChatRoom.isExistence(chatName: groupChannel?.channelUrl ?? "") {
+                    let chatRoom = ChatRoom.createNewRecord()
+                    chatRoom.members = NSArray(array: userId)
+                    chatRoom.userName = DataManager.shared.currentUser?.userName
+                    chatRoom.chatName = groupChannel?.channelUrl
+                    
+                    CoreDataManager.shared.saveContext()
+                }
+                
                 self.groupChannel = groupChannel
                 self.enterTheTalkRoom(channelUrl: groupChannel?.channelUrl ?? "", completionHandler: completionHandler)
             } else {
@@ -68,8 +78,8 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     }
     
     func sendMessage(_ message: Message, completionHandler: @escaping CompletionHandler) {
-        if message.messageFalg == .Text {
-            sendTextMessage(text: message.textMessage, completionHandler: { (isSuccess) in
+        if message.messageState == .Text {
+            sendTextMessage(text: message.textMessage ?? "", completionHandler: { (isSuccess) in
                 completionHandler(isSuccess)
                 if isSuccess {
                     RemoteAPIManager.shared.saveRemoteClass(message: message)
@@ -90,11 +100,21 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         
         if let userMessage = message as? SBDUserMessage {
             if let textMessage = userMessage.message {
-                let message = Message()
-                message.sendReceiveType = .Receive
+                
+                if ChatRoom.isExistence(chatName: sender.channelUrl) {
+                    let chatRoom = ChatRoom.createNewRecord()
+                    chatRoom.members = NSArray(object: userMessage.sender?.userId ?? "")
+                    chatRoom.userName = DataManager.shared.currentUser?.userName
+                    chatRoom.chatName = sender.channelUrl
+                }
+                
+                let message = Message.createNewRecord()
+                message.receiver = DataManager.shared.currentUser?.userName
+                message.sender = userMessage.sender?.userId
                 message.textMessage = textMessage
-                //message.senderUserName = userMessage.sender?.userId ?? ""
-
+                
+                CoreDataManager.shared.saveContext()
+                
                 delegates.objectEnumerator().enumerated()
                     .map { $0.element as? DidReceiveMessageDelegate }
                     .forEach { $0?.didReceiveMessage(message, isSuccess: true) }

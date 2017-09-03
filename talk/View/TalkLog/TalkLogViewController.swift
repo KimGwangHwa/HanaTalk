@@ -10,6 +10,11 @@ import UIKit
 
 class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    private var dataSource = DataManager.shared.chatRooms
+    
+    private var selectedRoom: ChatRoom! = nil
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,15 +22,28 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         setUpTableView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dataSource = DataManager.shared.chatRooms
+        tableView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Private
+  
     private func setUpTableView() {
         tableView.register(R.nib.talkLogCell(), forCellReuseIdentifier: R.reuseIdentifier.talkLogCell.identifier)
     }
+    
+    
+    
     
     // MARK: - TabelViewDelegate
 
@@ -39,14 +57,39 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // RowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return dataSource.count
     }
     
     // DidSelect
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        selectedRoom = dataSource[indexPath.row]
+
         self.performSegue(withIdentifier: R.segue.talkLogViewController.talkRoom.identifier, sender: nil)
     }
 
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.talkLogViewController.talkRoom.identifier {
+            if let viewController = segue.destination as? TalkRoomViewController {
+                //viewController.senderUser =
+                var senderUserName = ""
+                if let members = selectedRoom.members as? NSArray {
+                    if members.count == 1 {
+                        senderUserName = (members.firstObject as? String) ?? ""
+                    }
+                }
+                
+                let senderUsers = DataManager.shared.friends.filter({$0.userName == senderUserName})
+                viewController.senderUser = senderUsers.first
+            }
+        }
+    }
+    
+    
+
+    
 }

@@ -16,8 +16,14 @@ class DataManager: NSObject {
         super.init()
         
     }
-    var currentUser: User = User()
+    var currentUser: User? = nil
+    
     var friends: [User] = [User]()
+    
+    var chatRooms: [ChatRoom] {
+        return ChatRoom.readAllData()
+    }
+    
     
 
 }

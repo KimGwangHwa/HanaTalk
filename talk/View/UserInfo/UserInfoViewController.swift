@@ -55,7 +55,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0 {
             userInfoHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.userInfoHeaderCell.identifier, for: indexPath) as? UserInfoHeaderCell
             if let cell = userInfoHeaderCell {
-                cell.infoData = userData
+                cell.infoData = DataManager.shared.currentUser
                 return cell
             }
         } else if indexPath.row == 1 {

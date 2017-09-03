@@ -46,6 +46,16 @@ class RemoteAPIManager: NSObject {
 
         PFUser.logInWithUsername(inBackground: request.userName, password: request.password) { (user, error) in
             if user != nil {
+                
+                let currentUser = User()
+                currentUser.userName = user?.username ?? ""
+                currentUser.nickName = (user?["nickName"] as? String) ?? ""
+                currentUser.headImage = (user?["headImage"] as? PFFile)?.url
+                currentUser.statusMessage = user?["statusMessage"] as? String
+                currentUser.email = user?["email"] as? String
+
+                DataManager.shared.currentUser = currentUser
+                
                 let loginHistory = LoginHistory.createNewRecord()
                 loginHistory.userName = request.userName
                 loginHistory.password = request.password
@@ -82,6 +92,9 @@ class RemoteAPIManager: NSObject {
                     
                     retUser.append(user)
                 }
+                
+                DataManager.shared.friends = retUser
+                
                 completionHandler(true, retUser)
 
             })
@@ -91,17 +104,17 @@ class RemoteAPIManager: NSObject {
     }
     
     func saveRemoteClass(message: Message) {
-        let pfObject = PFObject(className: "Messages");
-        pfObject["sender"] = PFObject(withoutDataWithClassName: "_User", objectId: message.sender);
-        pfObject["receiveer"] = PFObject(withoutDataWithClassName: "_User", objectId: message.receiveer);
-        pfObject["textMessage"] = message.textMessage
-        pfObject["fileMessage"] = message.fileMessage
-        pfObject["messageFalg"] = message.messageFalg.rawValue
-        pfObject["isRead"] = message.isRead
+//        let pfObject = PFObject(className: "Messages");
+//        pfObject["sender"] = PFObject(withoutDataWithClassName: "_User", objectId: message.sender);
+//        pfObject["receiveer"] = PFObject(withoutDataWithClassName: "_User", objectId: message.receiveer);
+//        pfObject["textMessage"] = message.textMessage
+//        pfObject["fileMessage"] = message.fileMessage
+//        pfObject["messageFalg"] = message.messageFalg.rawValue
+//        pfObject["isRead"] = message.isRead
         
-        pfObject.saveInBackground { (isSuccess, error) in
-            
-        }
+//        pfObject.saveInBackground { (isSuccess, error) in
+//            
+//        }
     }
     
     func saveRemoteClass(user: User)  {

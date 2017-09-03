@@ -12,14 +12,31 @@ class HomeViewController: UITabBarController, DidReceiveMessageDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        login()
+    }
+    
+    func login() {
+        
+        if DataManager.shared.currentUser == nil {
+            let userName = CoreDataManager.shared.loginInfo?.userName ?? ""
+            let password = CoreDataManager.shared.loginInfo?.password ?? ""
+            let request = UserRequest(userName: userName, password: password)
+            
+            RemoteAPIManager.shared.login(request: request, withCompletion: { (isSuccess) in
+                self.connectRemoteChatServer()
+                RemoteChatManager.shared.addDelegate(self)
+            })
 
-        connectRemoteChatServer()
-        RemoteChatManager.shared.addDelegate(self)
+        } else {
+            self.connectRemoteChatServer()
+            RemoteChatManager.shared.addDelegate(self)
+            
+        }
     }
     
     func connectRemoteChatServer() {
         
-        let userId = CoreDataManager.shared.loginInfo?.userName ?? ""
+        let userId = DataManager.shared.currentUser?.userName ?? ""
         
         RemoteChatManager.shared.connect(userId: userId) { (isSuccess) in
             
@@ -35,6 +52,7 @@ class HomeViewController: UITabBarController, DidReceiveMessageDelegate {
     // MARK: - DidReceiveMessageDelegate
     
     func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
+        
         self.viewControllers?[1].tabBarItem.badgeValue = "100"
 //        tabBar.items[1].
 //        if let item = tabBar.items[1] {

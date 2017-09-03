@@ -23,13 +23,13 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
         addKeyBoardObserver()
         setUpView()
-        createTalkRomm()
+        createChatRoom()
         
     }
     
-    func createTalkRomm() {
+    func createChatRoom() {
         RemoteChatManager.shared.addDelegate(self)
-        RemoteChatManager.shared.createTalkRoom(userId: [senderUser?.userName ?? ""]) { (isSuccess) in
+        RemoteChatManager.shared.createChatRoom(userId: [senderUser?.userName ?? ""]) { (isSuccess) in
             
         }
     }
@@ -89,7 +89,9 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func sendEvent(_ sender: Any) {
         
-        let sendMessage = Message()
+        let sendMessage = Message.createNewRecord()
+        sendMessage.sender = DataManager.shared.currentUser?.userName
+        sendMessage.receiver = senderUser?.userName
         sendMessage.textMessage = inputTextField.text ?? ""
         RemoteChatManager.shared.sendMessage(sendMessage) { (isSuccess) in
             
@@ -110,14 +112,14 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataSource[indexPath.row]
-        if rowData.sendReceiveType == .Receive {
+        if rowData.responderState == .Receive {
             if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.receiveTextCell.identifier, for: indexPath) as? ReceiveTextCell {
                 cell.message = dataSource[indexPath.row]
                 cell.senderUser = senderUser
                 return cell
             }
             
-        } else if rowData.sendReceiveType == .Send {
+        } else if rowData.responderState == .Send {
             if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sendTextCell.identifier, for: indexPath) as? SendTextCell {
                 cell.message = dataSource[indexPath.row]
                 return cell

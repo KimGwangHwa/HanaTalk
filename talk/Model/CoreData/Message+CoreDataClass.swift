@@ -1,0 +1,44 @@
+//
+//  Message+CoreDataClass.swift
+//  
+//
+//  Created by ひかりちゃん on 2017/09/03.
+//
+//
+
+import Foundation
+import CoreData
+
+@objc(Message)
+public class Message: NSManagedObject {
+    
+    class func createNewRecord() -> Message {
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Message.rawValue, in: CoreDataManager.shared.managedObjectContext)
+        let message = Message(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        message.objectId = message.getMaxID()
+        message.createdAt = NSDate()
+        return message
+    }
+    
+    func getMaxID() -> Int16 {
+        let fetchRequest = Message.fetchMessageRequest()
+        fetchRequest.fetchLimit = 1
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "objectId", ascending: false)]
+        
+        do {
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            if fetchData.isEmpty {
+                return 1
+            } else {
+                
+                if let firstData = fetchData.first {
+                    return firstData.objectId + 1
+                }
+            }
+        } catch {
+            
+        }
+        return 0
+    }
+
+}

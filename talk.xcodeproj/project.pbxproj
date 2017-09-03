@@ -12,8 +12,11 @@
 		340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627231F53320D00821E39 /* ReceiveTextCell.xib */; };
 		340627281F53320D00821E39 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627241F53320D00821E39 /* SendTextCell.swift */; };
 		340627291F53320D00821E39 /* SendTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627251F53320D00821E39 /* SendTextCell.xib */; };
-		3406272B1F53332600821E39 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272A1F53332600821E39 /* Message.swift */; };
 		3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272E1F5ADAC500821E39 /* DataManager.swift */; };
+		3406273C1F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627381F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift */; };
+		3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627391F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift */; };
+		3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406273A1F5BCB7800821E39 /* Message+CoreDataClass.swift */; };
+		3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406273B1F5BCB7800821E39 /* Message+CoreDataProperties.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
 		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
@@ -30,7 +33,6 @@
 		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
 		344C273E1F3201AF00FD5805 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C273D1F3201AF00FD5805 /* Const.swift */; };
-		344C274B1F33620000FD5805 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C274A1F33620000FD5805 /* UserInfo.swift */; };
 		3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */; };
 		3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A71E1F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift */; };
 		3459A7211F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */; };
@@ -58,8 +60,11 @@
 		340627231F53320D00821E39 /* ReceiveTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTextCell.xib; sourceTree = "<group>"; };
 		340627241F53320D00821E39 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
 		340627251F53320D00821E39 /* SendTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendTextCell.xib; sourceTree = "<group>"; };
-		3406272A1F53332600821E39 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		3406272E1F5ADAC500821E39 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		340627381F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatRoom+CoreDataClass.swift"; sourceTree = "<group>"; };
+		340627391F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatRoom+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3406273A1F5BCB7800821E39 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3406273B1F5BCB7800821E39 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		344C273D1F3201AF00FD5805 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		344C274A1F33620000FD5805 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3459A71E1F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -246,8 +250,6 @@
 		344C27491F3361D600FD5805 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				344C274A1F33620000FD5805 /* UserInfo.swift */,
-				3406272A1F53332600821E39 /* Message.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +257,10 @@
 		3459A7041F3B3B6C000D2FC5 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				340627381F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift */,
+				340627391F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift */,
+				3406273A1F5BCB7800821E39 /* Message+CoreDataClass.swift */,
+				3406273B1F5BCB7800821E39 /* Message+CoreDataProperties.swift */,
 				3459A71E1F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift */,
 				3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */,
 			);
@@ -525,19 +531,21 @@
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
+				3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */,
+				3406273C1F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
-				3406272B1F53332600821E39 /* Message.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
 				3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */,
 				3459A72D1F51878F000D2FC5 /* User.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
+				3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */,
 				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */,
+				3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
-				344C274B1F33620000FD5805 /* UserInfo.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,

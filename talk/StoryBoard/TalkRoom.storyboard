@@ -11,7 +11,7 @@
         <!--Talk Room View Controller-->
         <scene sceneID="0le-rU-48t">
             <objects>
-                <viewController storyboardIdentifier="TalkRoomViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zIV-Uo-APX" customClass="TalkRoomViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TalkRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zIV-Uo-APX" customClass="TalkRoomViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kEr-1R-cTP"/>
                         <viewControllerLayoutGuide type="bottom" id="mf8-bd-SpN"/>
