@@ -11,7 +11,7 @@
         <!--Talk Log View Controller-->
         <scene sceneID="lFt-OR-umy">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="xQh-Je-SJa" customClass="TalkLogViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xQh-Je-SJa" customClass="TalkLogViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Zc-qn-zdx"/>
                         <viewControllerLayoutGuide type="bottom" id="FOw-fQ-tF4"/>

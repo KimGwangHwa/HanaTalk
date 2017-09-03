@@ -20,10 +20,29 @@ public class ChatRoom: NSManagedObject {
         return chatRoom
     }
     
+    class func find(chatName: String) -> ChatRoom? {
+        
+        let fetchRequest = ChatRoom.fetchChatRoomRequest()
+        let predicate = NSPredicate(format: "name = %@", chatName)
+        fetchRequest.predicate = predicate
+        
+        do {
+            
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            if !fetchData.isEmpty {
+                return fetchData.first
+            }
+            
+        } catch {
+            
+        }
+        return nil
+    }
+    
     class func isExistence(chatName: String) -> Bool {
         
         let fetchRequest = ChatRoom.fetchChatRoomRequest()
-        let predicate = NSPredicate(format: "%K = %s", "chatName", chatName)
+        let predicate = NSPredicate(format: "%K = %s", "name", chatName)
         fetchRequest.predicate = predicate
         
         do {

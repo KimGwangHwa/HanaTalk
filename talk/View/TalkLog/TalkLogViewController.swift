@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
 
     
     private var dataSource = DataManager.shared.chatRooms
@@ -16,11 +16,13 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     private var selectedRoom: ChatRoom! = nil
     
     @IBOutlet weak var tableView: UITableView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpTableView()
+        RemoteChatManager.shared.addDelegate(self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,13 +45,12 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    
-    
     // MARK: - TabelViewDelegate
 
     // CellRow
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.talkLogCell.identifier, for: indexPath) as? TalkLogCell {
+            cell.data = dataSource[indexPath.row]
             return cell
         }
         return UITableViewCell()
@@ -68,6 +69,11 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         self.performSegue(withIdentifier: R.segue.talkLogViewController.talkRoom.identifier, sender: nil)
     }
+    
+    // RowHeight
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 
     
     // MARK: - Segue
@@ -75,7 +81,6 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.talkLogViewController.talkRoom.identifier {
             if let viewController = segue.destination as? TalkRoomViewController {
-                //viewController.senderUser =
                 var senderUserName = ""
                 if let members = selectedRoom.members as? NSArray {
                     if members.count == 1 {
@@ -89,7 +94,14 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // MARK: -DidReceive
     
+    func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
+//        var bageInt = Int(self.tabBarItem.badgeValue!) ?? 0
+        self.navigationController?.tabBarItem.badgeValue = "1"
+    
+    }
+
 
     
 }

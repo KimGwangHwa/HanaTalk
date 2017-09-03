@@ -23,6 +23,7 @@ extension ChatRoom {
     @NSManaged public var createdAt: NSDate?
     @NSManaged public var objectId: Int16
     @NSManaged public var lastMessageId: Int16
-    @NSManaged public var chatName: String?
+    @NSManaged public var name: String?
+    @NSManaged public var url: String?
 
 }

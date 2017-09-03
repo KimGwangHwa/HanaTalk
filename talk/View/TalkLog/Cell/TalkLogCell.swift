@@ -14,6 +14,23 @@ class TalkLogCell: UITableViewCell {
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    var data: ChatRoom? {
+        didSet{
+            if let members = data?.members as? NSArray {
+                if let firstObject =  members.firstObject as? String {
+                    if let opponentUser = DataManager.shared.friends.filter({$0.userName == firstObject}).first {
+                        headImageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
+                            , placeholderImage: nil)
+                        roomNameLabel.text = data?.name
+                    }
+                }
+            }
+        
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

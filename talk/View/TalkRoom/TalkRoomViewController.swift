@@ -18,18 +18,22 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var dataSource = [Message]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.layoutIfNeeded()
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         addKeyBoardObserver()
         setUpView()
-        createChatRoom()
+        enterTheChatRoom()
         
     }
     
-    func createChatRoom() {
+    func enterTheChatRoom() {
         RemoteChatManager.shared.addDelegate(self)
-        RemoteChatManager.shared.createChatRoom(userId: [senderUser?.userName ?? ""]) { (isSuccess) in
+        RemoteChatManager.shared.enterTheChatRoom(userName: senderUser?.userName ?? "") { (isSuccess) in
             
         }
     }

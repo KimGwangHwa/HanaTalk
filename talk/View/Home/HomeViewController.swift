@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UITabBarController, DidReceiveMessageDelegate {
+class HomeViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,10 @@ class HomeViewController: UITabBarController, DidReceiveMessageDelegate {
             
             RemoteAPIManager.shared.login(request: request, withCompletion: { (isSuccess) in
                 self.connectRemoteChatServer()
-                RemoteChatManager.shared.addDelegate(self)
             })
 
         } else {
             self.connectRemoteChatServer()
-            RemoteChatManager.shared.addDelegate(self)
             
         }
     }
@@ -49,16 +47,6 @@ class HomeViewController: UITabBarController, DidReceiveMessageDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - DidReceiveMessageDelegate
-    
-    func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
-        
-        self.viewControllers?[1].tabBarItem.badgeValue = "100"
-//        tabBar.items[1].
-//        if let item = tabBar.items[1] {
-//            item
-//        }
-    }
 
 
     /*

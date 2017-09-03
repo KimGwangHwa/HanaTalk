@@ -77,7 +77,7 @@
 		34211D171F3A0714000F0C94 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		34211D191F3A0714000F0C94 /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
 		34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogCell.swift; sourceTree = "<group>"; };
-		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TalkLogCell.xib; path = Cell/TalkLogCell.xib; sourceTree = "<group>"; };
+		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		344C273D1F3201AF00FD5805 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -196,7 +196,6 @@
 		34211D1A1F3A0714000F0C94 /* TalkLog */ = {
 			isa = PBXGroup;
 			children = (
-				34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */,
 				34211D1B1F3A0714000F0C94 /* Cell */,
 				34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */,
 			);
@@ -206,6 +205,7 @@
 		34211D1B1F3A0714000F0C94 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */,
 				34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */,
 			);
 			path = Cell;
