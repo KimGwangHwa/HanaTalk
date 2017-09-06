@@ -27,7 +27,11 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         addKeyBoardObserver()
         setUpView()
+        readLocalMessage()
         enterTheChatRoom()
+    }
+    
+    func readLocalMessage() {
         
     }
     

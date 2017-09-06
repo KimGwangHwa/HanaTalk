@@ -21,7 +21,6 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         setUpTableView()
-        RemoteChatManager.shared.addDelegate(self)
         
     }
     

@@ -31,6 +31,7 @@ extension Message {
     @NSManaged public var textMessage: String?
     @NSManaged public var isread: Bool
     @NSManaged public var messageType: String?
+    @NSManaged public var chatName: String?
     
     var responderState: ResponderState! {
         if sender == DataManager.shared.currentUser?.userName {

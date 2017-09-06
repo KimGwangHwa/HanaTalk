@@ -38,6 +38,19 @@ class HomeViewController: UITabBarController {
         
         RemoteChatManager.shared.connect(userId: userId) { (isSuccess) in
             
+            for itemViewController in self.viewControllers ?? [] {
+                if let navViewController = itemViewController as? UINavigationController {
+                    if let navRootViewController = navViewController.viewControllers.first {
+                        if let asTalkLogViewController = navRootViewController as? TalkLogViewController {
+                            RemoteChatManager.shared.addDelegate(asTalkLogViewController)
+                        }
+                    }
+                }
+                
+            }
+            
+            RemoteChatManager.shared.addDelegate(self)
+
         }
     }
     

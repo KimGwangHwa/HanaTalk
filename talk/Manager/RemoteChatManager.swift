@@ -130,19 +130,23 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         if let userMessage = message as? SBDUserMessage {
             if let textMessage = userMessage.message {
                 
-                if ChatRoom.find(chatName: sender.name) == nil  {
-                    let chatRoom = ChatRoom.createNewRecord()
-                    chatRoom.members = NSArray(object: userMessage.sender?.userId ?? "")
-                    chatRoom.userName = DataManager.shared.currentUser?.userName
-                    chatRoom.url = sender.channelUrl
-                    chatRoom.name = sender.name
-
+                var chatRoom = ChatRoom.find(chatName: sender.name)
+                
+                if chatRoom == nil  {
+                    chatRoom = ChatRoom.createNewRecord()
+                    chatRoom?.members = NSArray(object: userMessage.sender?.userId ?? "")
+                    chatRoom?.userName = DataManager.shared.currentUser?.userName
+                    chatRoom?.url = sender.channelUrl
+                    chatRoom?.name = sender.name
                 }
                 
                 let message = Message.createNewRecord()
                 message.receiver = DataManager.shared.currentUser?.userName
                 message.sender = userMessage.sender?.userId
                 message.textMessage = textMessage
+                message.chatName = sender.name
+                chatRoom?.lastMessageId = message.objectId
+                
                 
                 CoreDataManager.shared.saveContext()
                 

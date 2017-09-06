@@ -17,6 +17,7 @@
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES">
+        <attribute name="chatName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isread" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="messageType" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,9 +28,9 @@
     </entity>
     <entity name="TalkLogHistory" representedClassName="TalkLogHistory" syncable="YES"/>
     <elements>
-        <element name="LoginHistory" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="TalkLogHistory" positionX="-54" positionY="99" width="128" height="45"/>
         <element name="ChatRoom" positionX="-270" positionY="45" width="128" height="178"/>
-        <element name="Message" positionX="-281" positionY="261" width="128" height="148"/>
+        <element name="LoginHistory" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Message" positionX="-281" positionY="261" width="128" height="165"/>
+        <element name="TalkLogHistory" positionX="-54" positionY="99" width="128" height="45"/>
     </elements>
 </model>
