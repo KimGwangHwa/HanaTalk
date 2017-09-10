@@ -25,7 +25,7 @@ extension Message {
     }
 
     @NSManaged public var objectId: Int16
-    @NSManaged public var createdAt: NSDate?
+    @NSManaged public var createdAt: Date?
     @NSManaged public var sender: String?
     @NSManaged public var receiver: String?
     @NSManaged public var textMessage: String?

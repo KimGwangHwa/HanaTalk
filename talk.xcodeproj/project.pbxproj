@@ -43,6 +43,7 @@
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
 		3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */; };
 		3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7391F530B63000D2FC5 /* UIViewController.swift */; };
+		346219601F65051E004998E8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462195F1F65051E004998E8 /* Common.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -91,6 +92,7 @@
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderCell.swift; sourceTree = "<group>"; };
 		3459A7391F530B63000D2FC5 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		3462195F1F65051E004998E8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				344C273C1F3201A000FD5805 /* Config */,
 				349EAD661F2F59CF005833ED /* AppDelegate.swift */,
 				349EAD671F2F59CF005833ED /* InterfaceBuilder */,
+				3462195F1F65051E004998E8 /* Common.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
 				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,
+				346219601F65051E004998E8 /* Common.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

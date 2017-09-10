@@ -88,7 +88,7 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 let senderUsers = DataManager.shared.friends.filter({$0.userName == senderUserName})
-                viewController.senderUser = senderUsers.first
+                viewController.receiver = senderUsers.first
             }
         }
     }

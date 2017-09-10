@@ -16,7 +16,7 @@ public class Message: NSManagedObject {
         let tweet = NSEntityDescription.entity(forEntityName: EntityName.Message.rawValue, in: CoreDataManager.shared.managedObjectContext)
         let message = Message(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
         message.objectId = message.getMaxID()
-        message.createdAt = NSDate()
+        message.createdAt = Date()
         return message
     }
     
@@ -39,6 +39,36 @@ public class Message: NSManagedObject {
             
         }
         return 0
+    }
+    class func find(chatName: String) -> [Message]? {
+        
+        let fetchRequest = Message.fetchMessageRequest()
+        let predicate = NSPredicate(format: "chatName = %@", chatName)
+        fetchRequest.predicate = predicate
+        
+        do {
+            
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            return fetchData
+        } catch {
+            
+        }
+        return nil
+    }
+    class func find(objectId: Int16) -> Message? {
+        
+        let fetchRequest = Message.fetchMessageRequest()
+        let predicate = NSPredicate(format: "objectId = %d", objectId)
+        fetchRequest.predicate = predicate
+        
+        do {
+            
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            return fetchData.first
+        } catch {
+            
+        }
+        return nil
     }
 
 }

@@ -20,7 +20,7 @@ extension ChatRoom {
     @NSManaged public var unreadMessageCount: Int16
     @NSManaged public var members: NSObject?
     @NSManaged public var memberCount: Int16
-    @NSManaged public var createdAt: NSDate?
+    @NSManaged public var createdAt: Date?
     @NSManaged public var objectId: Int16
     @NSManaged public var lastMessageId: Int16
     @NSManaged public var name: String?

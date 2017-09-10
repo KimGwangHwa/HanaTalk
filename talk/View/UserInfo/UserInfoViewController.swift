@@ -33,9 +33,8 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         
         if let topViewController = self.topNavigationViewController() {
             if let viewController = R.storyboard.talkRoom.talkRoomViewController() {
-                viewController.senderUser = userData
+                viewController.receiver = userData
                 topViewController.pushViewController(viewController, animated: false)
-                
             }
         }
         

@@ -16,7 +16,7 @@ public class ChatRoom: NSManagedObject {
         let tweet = NSEntityDescription.entity(forEntityName: EntityName.ChatRoom.rawValue, in: CoreDataManager.shared.managedObjectContext)
         let chatRoom = ChatRoom(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
         chatRoom.objectId = chatRoom.getMaxID()
-        chatRoom.createdAt = NSDate()
+        chatRoom.createdAt = Date()
         return chatRoom
     }
     

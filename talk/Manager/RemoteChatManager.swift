@@ -19,6 +19,11 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     
     typealias CompletionHandler = (Bool) -> Void
 
+    typealias EnterTheChatRoomCompletionHandler = (Bool, ChatRoom?) -> Void
+    
+    typealias SendMessageCompletionHandler = (Bool, Message?) -> Void
+
+
     private var delegates = NSHashTable<AnyObject>.weakObjects()
     
     private var groupChannel: SBDGroupChannel?
@@ -52,14 +57,14 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
 //        }
 //    }
     
-    func enterTheChatRoom(userName: String, completionHandler: @escaping CompletionHandler) {
+    func enterTheChatRoom(userName: String, completionHandler: @escaping EnterTheChatRoomCompletionHandler) {
         
         if let chatRoom = ChatRoom.find(chatName: userName) {
             SBDGroupChannel.getWithUrl(chatRoom.url ?? "") { (groupChannel, error) in
                 
                 self.groupChannel = groupChannel
                 
-                completionHandler(error == nil ? false : true)
+                completionHandler(error == nil ? true : false, chatRoom)
             }
         } else {
             SBDGroupChannel.createChannel(withName: userName, userIds: [userName], coverUrl: nil, data: nil) { (groupChannel, error) in
@@ -73,7 +78,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 self.groupChannel = groupChannel
                 
                 SBDGroupChannel.getWithUrl(groupChannel?.channelUrl ?? "") { (groupChannel, error) in
-                    completionHandler(error == nil ? false : true)
+                    completionHandler(error == nil ? true : false, chatRoom)
                 }
                 
             }
@@ -105,19 +110,26 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
 //            
 //        }
 //    }
-    
-    func sendMessage(_ message: Message, completionHandler: @escaping CompletionHandler) {
-        if message.messageState == .Text {
-            sendTextMessage(text: message.textMessage ?? "", completionHandler: { (isSuccess) in
-                completionHandler(isSuccess)
-                if isSuccess {
-                    RemoteAPIManager.shared.saveRemoteClass(message: message)
-                }
-            })
-        }
+    func sendTextMessage(_ text: String, receiver: String, chatRoom: ChatRoom, completionHandler: @escaping SendMessageCompletionHandler) {
+        
+        groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
+            
+            if error == nil {
+                let sendMessage = Message.createNewRecord()
+                sendMessage.sender = DataManager.shared.currentUser?.userName
+                sendMessage.receiver = receiver
+                sendMessage.textMessage = text
+                sendMessage.chatName = chatRoom.name
+                chatRoom.lastMessageId = sendMessage.objectId
+                
+                CoreDataManager.shared.saveContext()
+                completionHandler(true, sendMessage)
+            }
+            
+        })
     }
     
-    func sendTextMessage(text: String, completionHandler: @escaping CompletionHandler) {
+    private func sendMessage(text: String, receiverUserName: NSString,completionHandler: @escaping CompletionHandler) {
         groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
             completionHandler(error == nil ? false : true)
         })

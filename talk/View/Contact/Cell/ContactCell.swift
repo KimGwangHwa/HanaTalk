@@ -22,7 +22,7 @@ class ContactCell: UITableViewCell {
     var user: User? {
         didSet {
             nickNameLabel.text = user?.nickName
-            descriptionLabel.text = "descriptionLabel"
+            descriptionLabel.text = user?.statusMessage
             headImageView.sd_setImage(with: URL(string: user?.headImage ?? "")
                 , placeholderImage: nil)
         }

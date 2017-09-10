@@ -27,6 +27,13 @@ class TalkLogCell: UITableViewCell {
                     }
                 }
             }
+            
+            if let lastMessage = Message.find(objectId: data?.lastMessageId ?? 0) {
+                lastMessageLabel.text = lastMessage.textMessage
+                dateLabel.text = Common.dateToString(date: lastMessage.createdAt ?? Date(), format: "M/d")
+                
+            }
+            
         
         }
     }

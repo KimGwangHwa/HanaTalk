@@ -29,17 +29,17 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-Vn-TNA">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-Vn-TNA">
                         <rect key="frame" x="304" y="0.0" width="1" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="1" id="7bZ-NT-acS"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="7bZ-NT-acS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kne-Bp-vV9">
-                        <rect key="frame" x="59" y="0.0" width="230" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kne-Bp-vV9">
+                        <rect key="frame" x="69" y="0.0" width="220" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="230" id="jah-B7-wRG"/>
                         </constraints>
@@ -51,7 +51,7 @@
                 <constraints>
                     <constraint firstItem="3Pb-Vn-TNA" firstAttribute="leading" secondItem="kne-Bp-vV9" secondAttribute="trailing" constant="15" id="AMk-hs-unI"/>
                     <constraint firstAttribute="trailing" secondItem="3Pb-Vn-TNA" secondAttribute="trailing" constant="15" id="KxK-GI-aMl"/>
-                    <constraint firstItem="kne-Bp-vV9" firstAttribute="leading" secondItem="bos-Kz-Zsh" secondAttribute="trailing" id="M7J-ps-Z6C"/>
+                    <constraint firstItem="kne-Bp-vV9" firstAttribute="leading" secondItem="bos-Kz-Zsh" secondAttribute="trailing" constant="10" id="M7J-ps-Z6C"/>
                     <constraint firstItem="bos-Kz-Zsh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S3v-5d-3Sf"/>
                     <constraint firstAttribute="bottom" secondItem="3Pb-Vn-TNA" secondAttribute="bottom" id="atD-Vj-bIh"/>
                     <constraint firstAttribute="bottom" secondItem="bos-Kz-Zsh" secondAttribute="bottom" id="k1k-K6-z4R"/>
