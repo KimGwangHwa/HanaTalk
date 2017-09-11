@@ -44,6 +44,8 @@
 		3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */; };
 		3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7391F530B63000D2FC5 /* UIViewController.swift */; };
 		346219601F65051E004998E8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462195F1F65051E004998E8 /* Common.swift */; };
+		346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219621F66CACE004998E8 /* CustomBadgeView.swift */; };
+		346219651F66D222004998E8 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219641F66D222004998E8 /* BadgeLabel.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -93,6 +95,8 @@
 		3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderCell.swift; sourceTree = "<group>"; };
 		3459A7391F530B63000D2FC5 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		3462195F1F65051E004998E8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		346219621F66CACE004998E8 /* CustomBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBadgeView.swift; sourceTree = "<group>"; };
+		346219641F66D222004998E8 /* BadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -286,6 +290,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		346219611F66CA66004998E8 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				346219641F66D222004998E8 /* BadgeLabel.swift */,
+				346219621F66CACE004998E8 /* CustomBadgeView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		349EAD3D1F2F55CE005833ED = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +320,7 @@
 		349EAD481F2F55CE005833ED /* talk */ = {
 			isa = PBXGroup;
 			children = (
+				346219611F66CA66004998E8 /* CustomView */,
 				34211D081F3A0714000F0C94 /* StoryBoard */,
 				34211D0F1F3A0714000F0C94 /* View */,
 				344C27411F3358C200FD5805 /* Extension */,
@@ -537,6 +551,7 @@
 				3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */,
 				3406273C1F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
+				346219651F66D222004998E8 /* BadgeLabel.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
 				3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */,
@@ -550,6 +565,7 @@
 				3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
+				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,

@@ -71,7 +71,7 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // RowHeight
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
 
     
@@ -81,9 +81,9 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == R.segue.talkLogViewController.talkRoom.identifier {
             if let viewController = segue.destination as? TalkRoomViewController {
                 var senderUserName = ""
-                if let members = selectedRoom.members as? NSArray {
+                if let members = selectedRoom.members {
                     if members.count == 1 {
-                        senderUserName = (members.firstObject as? String) ?? ""
+                        senderUserName = members.first ?? ""
                     }
                 }
                 

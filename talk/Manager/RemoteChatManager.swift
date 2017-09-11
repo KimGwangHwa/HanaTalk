@@ -69,7 +69,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         } else {
             SBDGroupChannel.createChannel(withName: userName, userIds: [userName], coverUrl: nil, data: nil) { (groupChannel, error) in
                 let chatRoom = ChatRoom.createNewRecord()
-                chatRoom.members = NSArray(object: userName)
+                chatRoom.members = [userName]//NSArray(object: userName)
                 chatRoom.url = groupChannel?.channelUrl
                 chatRoom.name = userName
                 
@@ -146,7 +146,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 
                 if chatRoom == nil  {
                     chatRoom = ChatRoom.createNewRecord()
-                    chatRoom?.members = NSArray(object: userMessage.sender?.userId ?? "")
+                    chatRoom?.members = [(userMessage.sender?.userId) ?? ""]
                     chatRoom?.userName = DataManager.shared.currentUser?.userName
                     chatRoom?.url = sender.channelUrl
                     chatRoom?.name = sender.name

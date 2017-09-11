@@ -18,21 +18,26 @@ class TalkLogCell: UITableViewCell {
     
     var data: ChatRoom? {
         didSet{
-            if let members = data?.members as? NSArray {
-                if let firstObject =  members.firstObject as? String {
-                    if let opponentUser = DataManager.shared.friends.filter({$0.userName == firstObject}).first {
-                        headImageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
-                            , placeholderImage: nil)
-                        roomNameLabel.text = data?.name
+            
+            if let guardData = data {
+                if let guardMembers = guardData.members {
+                    if let firstObject =  guardMembers.first {
+                        if let opponentUser = DataManager.shared.friends.filter({$0.userName == firstObject}).first {
+                            headImageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
+                                , placeholderImage: nil)
+                            roomNameLabel.text = data?.name
+                        }
                     }
+                }
+                
+                
+                if let lastMessage = Message.find(objectId: guardData.lastMessageId) {
+                    lastMessageLabel.text = lastMessage.textMessage
+                    dateLabel.text = Common.dateToString(date: lastMessage.createdAt ?? Date(), format: "M/d")
+                    
                 }
             }
             
-            if let lastMessage = Message.find(objectId: data?.lastMessageId ?? 0) {
-                lastMessageLabel.text = lastMessage.textMessage
-                dateLabel.text = Common.dateToString(date: lastMessage.createdAt ?? Date(), format: "M/d")
-                
-            }
             
         
         }

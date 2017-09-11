@@ -17,20 +17,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bos-Kz-Zsh">
-                        <rect key="frame" x="15" y="0.0" width="44" height="44"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bos-Kz-Zsh" customClass="CustomBadgeView" customModule="talk" customModuleProvider="target">
+                        <rect key="frame" x="15" y="2" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="UKI-ML-jY4"/>
+                            <constraint firstAttribute="width" constant="40" id="UKI-ML-jY4"/>
+                            <constraint firstAttribute="height" constant="40" id="WFP-Lc-DGX"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="22"/>
+                                <integer key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-Vn-TNA">
-                        <rect key="frame" x="304" y="0.0" width="1" height="44"/>
+                        <rect key="frame" x="304" y="0.0" width="1" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="7bZ-NT-acS"/>
                         </constraints>
@@ -39,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kne-Bp-vV9">
-                        <rect key="frame" x="69" y="0.0" width="220" height="44"/>
+                        <rect key="frame" x="65" y="0.0" width="224" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="230" id="jah-B7-wRG"/>
                         </constraints>
@@ -53,9 +60,8 @@
                     <constraint firstAttribute="trailing" secondItem="3Pb-Vn-TNA" secondAttribute="trailing" constant="15" id="KxK-GI-aMl"/>
                     <constraint firstItem="kne-Bp-vV9" firstAttribute="leading" secondItem="bos-Kz-Zsh" secondAttribute="trailing" constant="10" id="M7J-ps-Z6C"/>
                     <constraint firstItem="bos-Kz-Zsh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S3v-5d-3Sf"/>
+                    <constraint firstItem="bos-Kz-Zsh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TjL-kY-523"/>
                     <constraint firstAttribute="bottom" secondItem="3Pb-Vn-TNA" secondAttribute="bottom" id="atD-Vj-bIh"/>
-                    <constraint firstAttribute="bottom" secondItem="bos-Kz-Zsh" secondAttribute="bottom" id="k1k-K6-z4R"/>
-                    <constraint firstItem="bos-Kz-Zsh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mZ5-JR-aYf"/>
                     <constraint firstItem="3Pb-Vn-TNA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oS3-aJ-zSB"/>
                     <constraint firstItem="kne-Bp-vV9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sRM-af-pGc"/>
                     <constraint firstAttribute="bottom" secondItem="kne-Bp-vV9" secondAttribute="bottom" id="t1o-Ks-xKj"/>
