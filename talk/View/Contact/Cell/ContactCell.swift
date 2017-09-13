@@ -11,20 +11,22 @@ import SDWebImage
 
 class ContactCell: UITableViewCell {
 
-    @IBOutlet weak var headImageView: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var customBadgeView: CustomBadgeView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     var user: User? {
         didSet {
             nickNameLabel.text = user?.nickName
             descriptionLabel.text = user?.statusMessage
-            headImageView.sd_setImage(with: URL(string: user?.headImage ?? "")
+            customBadgeView.imageView.sd_setImage(with: URL(string: user?.headImage ?? "")
                 , placeholderImage: nil)
+            customBadgeView.badgeString = "2"
         }
     }
     

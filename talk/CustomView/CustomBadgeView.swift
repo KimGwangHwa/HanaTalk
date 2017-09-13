@@ -8,11 +8,31 @@
 
 import UIKit
 
-class CustomBadgeView: UIImageView {
+class CustomBadgeView: UIView {
+    
+    var imageView = UIImageView()
+    
+    var badgeLabel = UILabel()
+    
+    private var badgeView = UIImageView()
+    
+    
+    private let badgeDiameter: CGFloat = 18
+    private let badgeFontSize: CGFloat = 13
     
     var badgeString: String? {
         didSet {
             badgeLabel.text = badgeString
+
+            let labelSize = badgeLabel.sizeThatFits(CGSize(width: 100, height: badgeDiameter))
+            
+            if labelSize.width >= badgeDiameter {
+                badgeView.frame.size = labelSize
+            } else {
+                badgeView.frame.size = CGSize(width: badgeDiameter, height: badgeDiameter)
+            }
+            badgeLabel.frame.size = badgeView.frame.size
+
         }
     }
     
@@ -21,54 +41,41 @@ class CustomBadgeView: UIImageView {
     
     var badgeColor = UIColor.red
     
-    private var badgeLabel = BadgeLabel()
     
     override func awakeFromNib() {
-        self.clipsToBounds = false
-        let diameter = badgeRadius * 2.0
-        let offsetX = self.frame.width - diameter
-//        let offsetY = self.frame.height - diameter
-        badgeLabel.frame = CGRect(x: offsetX, y: 0, width: badgeRadius * 2.0, height: badgeRadius * 2.0 )
-        badgeLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        badgeLabel.text = "12"
-        badgeLabel.textColor = UIColor.white
-        self.addSubview(badgeLabel)
+
+        setUpView()
 
     }
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//        
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
-    func ma() {
+    private func setUpView() {
         
-        let bounds:CGRect = self.frame;//サイズ
-        var center = CGPoint()
-        center.x = bounds.origin.x + bounds.size.width / 2.0;
-        center.y = bounds.origin.y + bounds.size.height / 2.0;
-        let radius = (min(bounds.size.width, bounds.size.height) / 2.0);
-        let path:UIBezierPath = UIBezierPath();
-        path.addArc(withCenter: center, radius: radius, startAngle: 0.0, endAngle: CGFloat(.pi * 2.0), clockwise: true)
-//        UIColorFromRGB(0xfde9ac).setFill();
-//        UIColor
-        path.stroke();//枠線
-        path.fill();//色
+        imageView.frame = frame
+        imageView.layer.cornerRadius = frame.size.width/2
+        imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderWidth = 0.2
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = UIColor.white
+        
+        badgeView.frame = CGRect(x: frame.size.width - (badgeDiameter/4), y: 0, width: badgeDiameter, height: badgeDiameter)
+        badgeView.layer.cornerRadius = badgeDiameter/2
+        badgeView.clipsToBounds = true
+        badgeView.image = UIImage.colorImage(color: UIColor.red, size: badgeView.frame.size)
+        badgeView.addSubview(badgeLabel)
+        
+        badgeLabel.frame = badgeView.bounds
+        badgeLabel.layer.cornerRadius = badgeDiameter/2
+        badgeLabel.clipsToBounds = true
+        badgeLabel.font = UIFont.systemFont(ofSize: badgeFontSize)
+        badgeLabel.textColor = UIColor.white
+        badgeLabel.textAlignment = .center
+
+        
+        addSubview(imageView)
+        addSubview(badgeView)
+        
+    
     }
     
 }
