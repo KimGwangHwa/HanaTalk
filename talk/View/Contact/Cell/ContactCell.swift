@@ -26,7 +26,6 @@ class ContactCell: UITableViewCell {
             descriptionLabel.text = user?.statusMessage
             customBadgeView.imageView.sd_setImage(with: URL(string: user?.headImage ?? "")
                 , placeholderImage: nil)
-            customBadgeView.badgeString = "2"
         }
     }
     

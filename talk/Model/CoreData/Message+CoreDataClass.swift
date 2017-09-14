@@ -70,5 +70,20 @@ public class Message: NSManagedObject {
         }
         return nil
     }
+    
+    class func updateReadingStatus(with chatName: String) {
+        if let messages = find(chatName: chatName) {
+            for message in messages {
+                message.isread = true
+            }
+        }
+        
+        if let chatRoom = ChatRoom.find(chatName: chatName) {
+            chatRoom.unreadMessageCount = 0
+        }
+        
+        CoreDataManager.shared.saveContext()
 
+    }
+    
 }

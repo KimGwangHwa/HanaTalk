@@ -20,13 +20,12 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpTableView()
-        
+        setUpView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         dataSource = DataManager.shared.chatRooms
         tableView.reloadData()
     }
@@ -39,8 +38,22 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Private
   
-    private func setUpTableView() {
+    private func setUpView() {
         tableView.register(R.nib.talkLogCell(), forCellReuseIdentifier: R.reuseIdentifier.talkLogCell.identifier)
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = 60.0
+
+    }
+    
+    private func reloadBadgeData() {
+
+        var unreadCount = 0
+        for room in dataSource {
+            unreadCount += Int(room.unreadMessageCount)
+        }
+        
+        navigationController?.tabBarItem.badgeValue = "\(unreadCount)"
+        
     }
     
     
@@ -69,12 +82,6 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.performSegue(withIdentifier: R.segue.talkLogViewController.talkRoom.identifier, sender: nil)
     }
     
-    // RowHeight
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-
-    
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,8 +103,12 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: -DidReceive
     
     func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
-//        var bageInt = Int(self.tabBarItem.badgeValue!) ?? 0
-        self.navigationController?.tabBarItem.badgeValue = "1"
+
+        reloadBadgeData()
+        
+        if (tableView != nil) {
+            tableView.reloadData()
+        }
     
     }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class TalkLogCell: UITableViewCell {
 
-    @IBOutlet weak var headImageView: UIImageView!
+    @IBOutlet weak var customBadgeView: CustomBadgeView!
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     
@@ -23,13 +23,14 @@ class TalkLogCell: UITableViewCell {
                 if let guardMembers = guardData.members {
                     if let firstObject =  guardMembers.first {
                         if let opponentUser = DataManager.shared.friends.filter({$0.userName == firstObject}).first {
-                            headImageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
+                            customBadgeView.imageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
                                 , placeholderImage: nil)
                             roomNameLabel.text = data?.name
                         }
                     }
                 }
                 
+                customBadgeView.badgeString = String("\(guardData.unreadMessageCount)")
                 
                 if let lastMessage = Message.find(objectId: guardData.lastMessageId) {
                     lastMessageLabel.text = lastMessage.textMessage

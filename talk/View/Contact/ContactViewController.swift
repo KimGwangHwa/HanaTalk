@@ -18,9 +18,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
+        setUpView()
         getDataSource()
-        
     }
 
     private func getDataSource() {
@@ -32,10 +31,12 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    private func setUpTableView() {
+    private func setUpView() {
         tableView.register(R.nib.contactCell(), forCellReuseIdentifier: R.reuseIdentifier.contactCell.identifier)
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.black
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = 50.0
     }
     
     // MARK: Segue

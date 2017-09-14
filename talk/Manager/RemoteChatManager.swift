@@ -60,6 +60,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     func enterTheChatRoom(userName: String, completionHandler: @escaping EnterTheChatRoomCompletionHandler) {
         
         if let chatRoom = ChatRoom.find(chatName: userName) {
+            Message.updateReadingStatus(with: chatRoom.name ?? "")
             SBDGroupChannel.getWithUrl(chatRoom.url ?? "") { (groupChannel, error) in
                 
                 self.groupChannel = groupChannel
@@ -157,8 +158,9 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 message.sender = userMessage.sender?.userId
                 message.textMessage = textMessage
                 message.chatName = sender.name
+                message.isread = false
                 chatRoom?.lastMessageId = message.objectId
-                
+                chatRoom?.unreadMessageCount += 1
                 
                 CoreDataManager.shared.saveContext()
                 

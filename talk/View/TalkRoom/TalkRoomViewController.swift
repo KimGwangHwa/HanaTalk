@@ -39,6 +39,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         RemoteChatManager.shared.enterTheChatRoom(userName: receiver.userName) { (isSuccess, chatRoom) in
             if isSuccess == true {
                 self.chatRoom = chatRoom
+
                 if let messages = Message.find(chatName: self.chatRoom.name ?? "") {
                     self.dataSource.append(contentsOf: messages)
                     self.tableView.reloadData()

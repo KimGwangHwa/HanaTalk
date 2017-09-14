@@ -12,7 +12,7 @@ class CustomBadgeView: UIView {
     
     var imageView = UIImageView()
     
-    var badgeLabel = UILabel()
+    private var badgeLabel = UILabel()
     
     private var badgeView = UIImageView()
     
@@ -23,6 +23,18 @@ class CustomBadgeView: UIView {
     var badgeString: String? {
         didSet {
             badgeLabel.text = badgeString
+            
+            let string = badgeString ?? ""
+            
+            if string.isEmpty {
+                badgeView.isHidden = true
+            } else {
+                if let intString = Int(string), intString == 0 {
+                    badgeView.isHidden = true
+                } else {
+                    badgeView.isHidden = false
+                }
+            }
 
             let labelSize = badgeLabel.sizeThatFits(CGSize(width: 100, height: badgeDiameter))
             
@@ -50,7 +62,7 @@ class CustomBadgeView: UIView {
     
     private func setUpView() {
         
-        imageView.frame = frame
+        imageView.frame = bounds
         imageView.layer.cornerRadius = frame.size.width/2
         imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor.lightGray.cgColor
@@ -58,11 +70,12 @@ class CustomBadgeView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor.white
         
-        badgeView.frame = CGRect(x: frame.size.width - (badgeDiameter/4), y: 0, width: badgeDiameter, height: badgeDiameter)
+        badgeView.frame = CGRect(x: frame.size.width - (badgeDiameter/2), y: 0, width: badgeDiameter, height: badgeDiameter)
         badgeView.layer.cornerRadius = badgeDiameter/2
         badgeView.clipsToBounds = true
         badgeView.image = UIImage.colorImage(color: UIColor.red, size: badgeView.frame.size)
         badgeView.addSubview(badgeLabel)
+        badgeView.isHidden = true
         
         badgeLabel.frame = badgeView.bounds
         badgeLabel.layer.cornerRadius = badgeDiameter/2
@@ -70,7 +83,6 @@ class CustomBadgeView: UIView {
         badgeLabel.font = UIFont.systemFont(ofSize: badgeFontSize)
         badgeLabel.textColor = UIColor.white
         badgeLabel.textAlignment = .center
-
         
         addSubview(imageView)
         addSubview(badgeView)
