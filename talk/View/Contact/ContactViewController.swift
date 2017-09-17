@@ -21,6 +21,9 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         setUpView()
         getDataSource()
     }
+    
+    // MARK: private
+
 
     private func getDataSource() {
         RemoteAPIManager.shared.getFriends { (isSuccess, list) in
@@ -32,12 +35,23 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func setUpView() {
+        // UITableView
         tableView.register(R.nib.contactCell(), forCellReuseIdentifier: R.reuseIdentifier.contactCell.identifier)
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.black
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = 50.0
+        
+        // Navigation TODO:
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightBarButton))
+        
     }
+    
+    @objc private func rightBarButton() {
+    
+        performSegue(withIdentifier: R.segue.contactViewController.search.identifier, sender: nil)
+    }
+    
     
     // MARK: Segue
     
