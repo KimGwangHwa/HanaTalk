@@ -64,7 +64,7 @@
                         <outlet property="searchDisplayController" destination="iLv-AR-3wh" id="wsA-3a-PWg"/>
                         <outlet property="tableView" destination="bDe-l4-ptO" id="A1y-jz-il3"/>
                         <segue destination="2to-l6-Ad7" kind="presentation" identifier="UserInfo" id="MIl-7m-bSI"/>
-                        <segue destination="rTa-KF-JwR" kind="presentation" identifier="Search" id="iN1-Px-3FR"/>
+                        <segue destination="rTa-KF-JwR" kind="presentation" identifier="Find" id="iN1-Px-3FR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b22-GU-7KQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-479.19999999999999" y="70.614692653673174"/>
         </scene>
-        <!--Search-->
+        <!--Find-->
         <scene sceneID="dON-pR-46P">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="rTa-KF-JwR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Find" id="rTa-KF-JwR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVC-pq-4yN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="94" y="105"/>

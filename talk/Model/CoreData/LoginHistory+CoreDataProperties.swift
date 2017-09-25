@@ -19,5 +19,6 @@ extension LoginHistory {
     @NSManaged public var userName: String?
     @NSManaged public var password: String?
     @NSManaged public var updateDate: NSDate?
+    @NSManaged public var objectId: String?
     
 }

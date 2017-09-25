@@ -1,21 +1,20 @@
 //
-//  SearchCell.swift
+//  FindCell.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2017/09/17.
+//  Created by ひかりちゃん on 2017/09/23.
 //
 //
 
 import UIKit
 
-class SearchCell: UITableViewCell {
+class FindCell: UITableViewCell {
 
+    @IBOutlet weak var iconImageView: CustomBadgeView!
     
-    @IBOutlet weak var customView: CustomBadgeView!
+    @IBOutlet weak var nickNameLabel: UILabel!
     
-    @IBOutlet weak var nickNaleLabel: UILabel!
-    
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusMessageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

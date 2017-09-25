@@ -14,7 +14,9 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextField: UITextField!
     
-    public var receiver: User! = nil
+    private var receiverUserInfo: UserInfo? = nil
+    
+    public var receiverUserId: String = ""
     
     private var chatRoom: ChatRoom! = nil
     
@@ -29,14 +31,23 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         addKeyBoardObserver()
         setUpView()
-        enterTheChatRoom()
+        getReceiverInfo()
+    }
+    
+    func getReceiverInfo() {
+        RemoteAPIManager.shared.getUserInfo(with: receiverUserId) { (isSuccess, info) in
+            if isSuccess {
+                self.receiverUserInfo = info
+                self.enterTheChatRoom()
+            }
+        }
     }
     
     func enterTheChatRoom() {
         
         RemoteChatManager.shared.addDelegate(self)
         
-        RemoteChatManager.shared.enterTheChatRoom(userName: receiver.userName) { (isSuccess, chatRoom) in
+        RemoteChatManager.shared.enterTheChatRoom(userName: receiverUserId) { (isSuccess, chatRoom) in
             if isSuccess == true {
                 self.chatRoom = chatRoom
 
@@ -49,7 +60,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setUpView() {
-        title = receiver?.nickName
+        title = receiverUserInfo?.nickName
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0
@@ -103,7 +114,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func sendEvent(_ sender: Any) {
         
-       RemoteChatManager.shared.sendTextMessage(inputTextField.text ?? "", receiver: receiver.userName, chatRoom: chatRoom) { (isSuccess, message) in
+       RemoteChatManager.shared.sendTextMessage(inputTextField.text ?? "", receiver: receiverUserId, chatRoom: chatRoom) { (isSuccess, message) in
             if let guardMessage = message {
                 self.dataSource.append(guardMessage)
                 self.tableView.reloadData()
@@ -125,7 +136,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         if rowData.responderState == .Receive {
             if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.receiveTextCell.identifier, for: indexPath) as? ReceiveTextCell {
                 cell.message = dataSource[indexPath.row]
-                cell.receiver = receiver
+                cell.receiver = receiverUserInfo
                 return cell
             }
             

@@ -25,5 +25,6 @@ extension ChatRoom {
     @NSManaged public var lastMessageId: Int16
     @NSManaged public var name: String?
     @NSManaged public var url: String?
+    @NSManaged public var coverImageUrls: [String]?
 
 }

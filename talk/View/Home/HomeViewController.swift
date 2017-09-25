@@ -12,31 +12,12 @@ class HomeViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        login()
-    }
-    
-    func login() {
-        
-        if DataManager.shared.currentUser == nil {
-            let userName = CoreDataManager.shared.loginInfo?.userName ?? ""
-            let password = CoreDataManager.shared.loginInfo?.password ?? ""
-            let request = UserRequest(userName: userName, password: password)
-            
-            RemoteAPIManager.shared.login(request: request, withCompletion: { (isSuccess) in
-                self.connectRemoteChatServer()
-            })
-
-        } else {
-            self.connectRemoteChatServer()
-            
-        }
+        connectRemoteChatServer()
     }
     
     func connectRemoteChatServer() {
-        
-        let userId = DataManager.shared.currentUser?.userName ?? ""
-        
-        RemoteChatManager.shared.connect(userId: userId) { (isSuccess) in
+                
+        RemoteChatManager.shared.connect(userId: DataManager.shared.currentUserObjectId) { (isSuccess) in
             
             for itemViewController in self.viewControllers ?? [] {
                 if let navViewController = itemViewController as? UINavigationController {

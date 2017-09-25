@@ -34,10 +34,10 @@ extension Message {
     @NSManaged public var chatName: String?
     
     var responderState: ResponderState! {
-        if sender == DataManager.shared.currentUser?.userName {
+        if sender == DataManager.shared.currentUserInfo?.userId {
             return .Send
         }
-        if receiver == DataManager.shared.currentUser?.userName {
+        if receiver == DataManager.shared.currentUserInfo?.userId {
             return .Receive
         }
         return .Receive

@@ -11,18 +11,33 @@ import UIKit
 class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableview: UITableView!
-    public var userData: User! = nil
+
+    public var userId: String = ""
+    
+    private var dataSource: UserInfo? = nil
+    
     private var userInfoHeaderCell: UserInfoHeaderCell?
     
     private var headerCellHeight: CGFloat = 400.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getData() {
+        if userId.isEmpty {
+            userId = DataManager.shared.currentUserObjectId
+        }
+        RemoteAPIManager.shared.getUserInfo(with: userId) { (isSuccess, info) in
+            
+        }
     }
     
     @IBAction func closeEvent(_ sender: UIButton) {
@@ -33,7 +48,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         
         if let topViewController = self.topNavigationViewController() {
             if let viewController = R.storyboard.talkRoom.talkRoomViewController() {
-                viewController.receiver = userData
+                viewController.receiverUserId = dataSource?.userId ?? ""
                 topViewController.pushViewController(viewController, animated: false)
             }
         }
@@ -54,7 +69,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0 {
             userInfoHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.userInfoHeaderCell.identifier, for: indexPath) as? UserInfoHeaderCell
             if let cell = userInfoHeaderCell {
-                cell.infoData = DataManager.shared.currentUser
+                cell.infoData = DataManager.shared.currentUserInfo
                 return cell
             }
         } else if indexPath.row == 1 {

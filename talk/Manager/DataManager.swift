@@ -16,9 +16,10 @@ class DataManager: NSObject {
         super.init()
         
     }
-    var currentUser: User? = nil
     
-    var friends: [User] = [User]()
+    var currentUserObjectId: String = (LoginHistory.readLastLoginHistory()?.objectId) ?? ""
+    
+    var currentUserInfo: UserInfo? = nil
     
     var chatRooms: [ChatRoom] {
         return ChatRoom.readAllData()

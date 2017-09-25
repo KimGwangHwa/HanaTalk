@@ -38,16 +38,17 @@
 		3459A7211F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */; };
 		3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7241F50496B000D2FC5 /* HomeViewController.swift */; };
 		3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */; };
-		3459A72D1F51878F000D2FC5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A72C1F51878F000D2FC5 /* User.swift */; };
 		3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7321F526496000D2FC5 /* UserInfoViewController.swift */; };
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
 		3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */; };
 		3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7391F530B63000D2FC5 /* UIViewController.swift */; };
-		3461F4FB1F6E6C05000D09D5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461F4FA1F6E6C05000D09D5 /* Search.storyboard */; };
 		3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F4FC1F6E6CAE000D09D5 /* UIView.swift */; };
-		3461F4FF1F6E6F80000D09D5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F4FE1F6E6F80000D09D5 /* SearchViewController.swift */; };
-		3461F5031F6E710F000D09D5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F5011F6E710F000D09D5 /* SearchCell.swift */; };
-		3461F5041F6E710F000D09D5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3461F5021F6E710F000D09D5 /* SearchCell.xib */; };
+		3461F50E1F763672000D09D5 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461F50D1F763672000D09D5 /* Find.storyboard */; };
+		3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F50F1F7636C0000D09D5 /* FindViewController.swift */; };
+		3461F5131F7636DB000D09D5 /* FindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F5111F7636DB000D09D5 /* FindCell.swift */; };
+		3461F5141F7636DB000D09D5 /* FindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3461F5121F7636DB000D09D5 /* FindCell.xib */; };
+		3461F5181F763F73000D09D5 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F5171F763F73000D09D5 /* UserInfo.swift */; };
+		3461F51A1F792E7E000D09D5 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F5191F792E7E000D09D5 /* Follow.swift */; };
 		346219601F65051E004998E8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462195F1F65051E004998E8 /* Common.swift */; };
 		346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219621F66CACE004998E8 /* CustomBadgeView.swift */; };
 		346219671F696D56004998E8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219661F696D56004998E8 /* UIImage.swift */; };
@@ -94,16 +95,17 @@
 		3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3459A7241F50496B000D2FC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteChatManager.swift; sourceTree = "<group>"; };
-		3459A72C1F51878F000D2FC5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3459A7321F526496000D2FC5 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		3459A7371F5289B8000D2FC5 /* UserInfoHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderCell.swift; sourceTree = "<group>"; };
 		3459A7391F530B63000D2FC5 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		3461F4FA1F6E6C05000D09D5 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		3461F4FC1F6E6CAE000D09D5 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		3461F4FE1F6E6F80000D09D5 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		3461F5011F6E710F000D09D5 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
-		3461F5021F6E710F000D09D5 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		3461F50D1F763672000D09D5 /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
+		3461F50F1F7636C0000D09D5 /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		3461F5111F7636DB000D09D5 /* FindCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCell.swift; sourceTree = "<group>"; };
+		3461F5121F7636DB000D09D5 /* FindCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindCell.xib; sourceTree = "<group>"; };
+		3461F5171F763F73000D09D5 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3461F5191F792E7E000D09D5 /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		3462195F1F65051E004998E8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		346219621F66CACE004998E8 /* CustomBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBadgeView.swift; sourceTree = "<group>"; };
 		346219661F696D56004998E8 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 				34211D0D1F3A0714000F0C94 /* TalkLog.storyboard */,
 				34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */,
 				3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */,
-				3461F4FA1F6E6C05000D09D5 /* Search.storyboard */,
+				3461F50D1F763672000D09D5 /* Find.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -157,7 +159,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3461F4F91F6E6BF5000D09D5 /* Search */,
+				3461F5051F763640000D09D5 /* Find */,
 				3459A7301F526481000D2FC5 /* UserInfo */,
 				34211D101F3A0714000F0C94 /* Contact */,
 				34211D151F3A0714000F0C94 /* Home */,
@@ -304,20 +306,20 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		3461F4F91F6E6BF5000D09D5 /* Search */ = {
+		3461F5051F763640000D09D5 /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				3461F5001F6E70F6000D09D5 /* Cell */,
-				3461F4FE1F6E6F80000D09D5 /* SearchViewController.swift */,
+				3461F5061F763640000D09D5 /* Cell */,
+				3461F50F1F7636C0000D09D5 /* FindViewController.swift */,
 			);
-			path = Search;
+			path = Find;
 			sourceTree = "<group>";
 		};
-		3461F5001F6E70F6000D09D5 /* Cell */ = {
+		3461F5061F763640000D09D5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3461F5011F6E710F000D09D5 /* SearchCell.swift */,
-				3461F5021F6E710F000D09D5 /* SearchCell.xib */,
+				3461F5111F7636DB000D09D5 /* FindCell.swift */,
+				3461F5121F7636DB000D09D5 /* FindCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -410,7 +412,8 @@
 			isa = PBXGroup;
 			children = (
 				34E7EDF91F30BE1200D87C1C /* UserRequest.swift */,
-				3459A72C1F51878F000D2FC5 /* User.swift */,
+				3461F5171F763F73000D09D5 /* UserInfo.swift */,
+				3461F5191F792E7E000D09D5 /* Follow.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -486,19 +489,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3461F5041F6E710F000D09D5 /* SearchCell.xib in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
 				340627291F53320D00821E39 /* SendTextCell.xib in Resources */,
 				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
 				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
-				3461F4FB1F6E6C05000D09D5 /* Search.storyboard in Resources */,
 				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
+				3461F50E1F763672000D09D5 /* Find.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
 				34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */,
 				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
+				3461F5141F7636DB000D09D5 /* FindCell.xib in Resources */,
 				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
 				34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */,
 			);
@@ -579,22 +582,24 @@
 				3459A7211F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift in Sources */,
 				349EAD7F1F30B90C005833ED /* RemoteAPIManager.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
+				3461F5131F7636DB000D09D5 /* FindCell.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
 				3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */,
 				3406273C1F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage.swift in Sources */,
+				3461F51A1F792E7E000D09D5 /* Follow.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
+				3461F5181F763F73000D09D5 /* UserInfo.swift in Sources */,
 				3459A7381F5289B8000D2FC5 /* UserInfoHeaderCell.swift in Sources */,
-				3459A72D1F51878F000D2FC5 /* User.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
 				3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */,
 				344C273E1F3201AF00FD5805 /* Const.swift in Sources */,
-				3461F4FF1F6E6F80000D09D5 /* SearchViewController.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
+				3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */,
 				3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */,
@@ -604,7 +609,6 @@
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
-				3461F5031F6E710F000D09D5 /* SearchCell.swift in Sources */,
 				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,
 				346219601F65051E004998E8 /* Common.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,

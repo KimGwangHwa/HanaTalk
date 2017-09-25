@@ -87,15 +87,9 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.talkLogViewController.talkRoom.identifier {
             if let viewController = segue.destination as? TalkRoomViewController {
-                var senderUserName = ""
-                if let members = selectedRoom.members {
-                    if members.count == 1 {
-                        senderUserName = members.first ?? ""
-                    }
+                if let members = selectedRoom.members, members.count == 1 {
+                    viewController.receiverUserId = members.first ?? ""
                 }
-                
-                let senderUsers = DataManager.shared.friends.filter({$0.userName == senderUserName})
-                viewController.receiver = senderUsers.first
             }
         }
     }

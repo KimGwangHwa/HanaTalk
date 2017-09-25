@@ -20,11 +20,11 @@ class ContactCell: UITableViewCell {
         // Initialization code
         
     }
-    var user: User? {
+    var user: UserInfo? {
         didSet {
             nickNameLabel.text = user?.nickName
             descriptionLabel.text = user?.statusMessage
-            customBadgeView.imageView.sd_setImage(with: URL(string: user?.headImage ?? "")
+            customBadgeView.imageView.sd_setImage(with: URL(string: user?.profilePicture ?? "")
                 , placeholderImage: nil)
         }
     }

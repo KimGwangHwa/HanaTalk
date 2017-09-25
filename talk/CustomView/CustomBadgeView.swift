@@ -12,6 +12,12 @@ class CustomBadgeView: UIView {
     
     var imageView = UIImageView()
     
+    var badgeRadius: CGFloat = 5
+    
+    var badgeColor = UIColor.red
+    
+    var lineColor = UIColor.lightGray
+
     private var badgeLabel = UILabel()
     
     private var badgeView = UIImageView()
@@ -48,12 +54,6 @@ class CustomBadgeView: UIView {
         }
     }
     
-    var badgeRadius: CGFloat = 5
-    
-    
-    var badgeColor = UIColor.red
-    
-    
     override func awakeFromNib() {
 
         setUpView()
@@ -65,7 +65,7 @@ class CustomBadgeView: UIView {
         imageView.frame = bounds
         imageView.layer.cornerRadius = frame.size.width/2
         imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderColor = lineColor.cgColor
         imageView.layer.borderWidth = 0.2
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor.white

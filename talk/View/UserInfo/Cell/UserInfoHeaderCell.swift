@@ -17,11 +17,13 @@ class UserInfoHeaderCell: UITableViewCell {
     @IBOutlet weak var statusMessageLabel: UILabel!
     @IBOutlet weak var sendMessageButton: UIButton!
 
-    var infoData: User! {
+    var infoData: UserInfo? {
         didSet {
-            headImageView.sd_setImage(with: URL(string: infoData.headImage ?? ""), placeholderImage: nil)
-            nickNameLabel.text = infoData.nickName
-            statusMessageLabel.text = infoData.statusMessage
+            if let guardInfo = infoData {
+                headImageView.sd_setImage(with: URL(string: guardInfo.profilePicture ?? ""), placeholderImage: nil)
+                nickNameLabel.text = guardInfo.nickName
+                statusMessageLabel.text = guardInfo.statusMessage
+            }
         }
     }
     

@@ -13,8 +13,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     // SectionTitles
     let sectionTitles = ["friend"]
-    var dataSource = [User]()
-    var selectedData: User? = nil
+    var dataSource = [UserInfo]()
+    var selectedData: UserInfo? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,13 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 
     private func getDataSource() {
-        RemoteAPIManager.shared.getFriends { (isSuccess, list) in
-            if isSuccess {
-                self.dataSource = list
-                self.tableView.reloadData()
-            }
-        }
+//        RemoteAPIManager.shared.getFriends { (isSuccess, list) in
+//            if isSuccess {
+//                // TODO :
+////                self.dataSource = list
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     private func setUpView() {
@@ -49,7 +50,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @objc private func rightBarButton() {
     
-        performSegue(withIdentifier: R.segue.contactViewController.search.identifier, sender: nil)
+        performSegue(withIdentifier: R.segue.contactViewController.find.identifier, sender: nil)
     }
     
     
@@ -58,7 +59,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.contactViewController.userInfo.identifier {
             if let viewController = segue.destination as? UserInfoViewController {
-                viewController.userData = selectedData
+                viewController.userId = selectedData?.userId ?? ""
             }
         }
     }

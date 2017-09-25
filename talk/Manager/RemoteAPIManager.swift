@@ -14,7 +14,10 @@ class RemoteAPIManager: NSObject {
     static let shared = RemoteAPIManager()
 
     typealias CompletionHandler = (Bool) -> Void
-    typealias GetListCompletionHandler = (Bool, [User]) -> Void
+
+    typealias GetListCompletionHandler = (Bool, [UserInfo]) -> Void
+    typealias GetUserInfoListCompletionHandler = (Bool, [UserInfo]?) -> Void
+    typealias GetUserInfoCompletionHandler = (Bool, UserInfo?) -> Void
 
     private override init() {
         super.init()
@@ -46,62 +49,66 @@ class RemoteAPIManager: NSObject {
 
         PFUser.logInWithUsername(inBackground: request.userName, password: request.password) { (user, error) in
             if user != nil {
-                
-                let currentUser = User()
-                currentUser.userName = user?.username ?? ""
-                currentUser.nickName = (user?["nickName"] as? String) ?? ""
-                currentUser.headImage = (user?["headImage"] as? PFFile)?.url
-                currentUser.statusMessage = user?["statusMessage"] as? String
-                currentUser.email = user?["email"] as? String
-
-                DataManager.shared.currentUser = currentUser
-                
                 let loginHistory = LoginHistory.createNewRecord()
                 loginHistory.userName = request.userName
                 loginHistory.password = request.password
                 loginHistory.updateDate = NSDate()
+                loginHistory.objectId = user?.objectId
                 CoreDataManager.shared.saveContext()
+
+                self.getUserInfo(with: DataManager.shared.currentUserObjectId, completion: { (isSuccess, userInfo) in
+                    withCompletion(isSuccess)
+                })
             }
             withCompletion(user == nil ? false : true)
         }
     }
-    
-    func getFriends(completionHandler: @escaping GetListCompletionHandler) {
-        let query = PFQuery(className: "Friend")
-        query.whereKey("userName", equalTo: "test")
-        query.findObjectsInBackground { (objects, error) in
-            var userIds = [String]()
-            for item in objects ?? [] {
-                if let pfObj = item["friendUser"] as? PFObject {
-                    userIds.append(pfObj.objectId ?? "")
-                }
-            }
-            var retUser = [User]()
-            
-            let queryUser = PFQuery(className: "_User")
-            queryUser.whereKey("objectId", containedIn: userIds)
-            queryUser.findObjectsInBackground(block: { (users, error) in
-                for item in users ?? [] {
-                    let user = User()
-                    user.userName = (item["username"] as? String) ?? ""
-                    user.nickName = (item["nickName"] as? String) ?? ""
-                    user.statusMessage = (item["statusMessage"] as? String) ?? ""
-                    if let file = item["headImage"] as? PFFile {
-                        user.headImage = file.url
-                    }
-                    
-                    retUser.append(user)
-                }
-                
-                DataManager.shared.friends = retUser
-                
-                completionHandler(true, retUser)
 
+    func getUserInfo(with userId: String, completion: @escaping GetUserInfoCompletionHandler) {
+        let query = PFQuery(className: "UserInfo")
+        query.whereKey("userId", equalTo: DataManager.shared.currentUserObjectId)
+        query.findObjectsInBackground(block: { (objects, error) in
+            if let infos = UserInfo.creatUserInfos(with: objects) ,
+               let currentUserInfo = infos.first {
+                DataManager.shared.currentUserInfo = currentUserInfo
+                completion(true, currentUserInfo)
+            }
+        })
+    }
+  
+    func getFollowingUserInfos(completion: @escaping GetUserInfoListCompletionHandler)  {
+        
+        //userId
+        getFollowUserInfo(with: "userId", completion: completion)
+    }
+    
+    func getFollowedUserInfos(completion: @escaping GetUserInfoListCompletionHandler)  {
+        
+        //followingUserId
+        getFollowUserInfo(with: "followingUserId", completion: completion)
+
+    }
+    
+    private func getFollowUserInfo(with column: String, completion: @escaping GetUserInfoListCompletionHandler) {
+    
+        let followQuery = PFQuery(className: "Follow")
+        followQuery.whereKey(column, equalTo: DataManager.shared.currentUserObjectId)
+        followQuery.findObjectsInBackground { (objects, error) in
+            var objectIds = [String]()
+            for info in Follow.creatFollows(with: objects) {
+                objectIds.append(info.objectId ?? "")
+            }
+            
+            let query = PFQuery(className: "UserInfo")
+            query.whereKey("userId", containedIn: objectIds)
+            query.findObjectsInBackground(block: { (objects, error) in
+                completion(true, UserInfo.creatUserInfos(with: objects))
             })
-            
-            
         }
     }
+    
+    
+    
     
     func saveRemoteClass(message: Message) {
 //        let pfObject = PFObject(className: "Messages");
@@ -117,9 +124,7 @@ class RemoteAPIManager: NSObject {
 //        }
     }
     
-    func saveRemoteClass(user: User)  {
-        
-    }
+
     
     
 }

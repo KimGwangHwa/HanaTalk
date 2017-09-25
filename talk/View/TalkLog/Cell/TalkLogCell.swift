@@ -20,16 +20,13 @@ class TalkLogCell: UITableViewCell {
         didSet{
             
             if let guardData = data {
-                if let guardMembers = guardData.members {
-                    if let firstObject =  guardMembers.first {
-                        if let opponentUser = DataManager.shared.friends.filter({$0.userName == firstObject}).first {
-                            customBadgeView.imageView.sd_setImage(with: URL(string: opponentUser.headImage ?? "")
-                                , placeholderImage: nil)
-                            roomNameLabel.text = data?.name
-                        }
-                    }
+                if let corverImageUrls = guardData.coverImageUrls,
+                    let imageUrl = corverImageUrls.first {
+                    customBadgeView.imageView.sd_setImage(with: URL(string: imageUrl)
+                        , placeholderImage: nil)
                 }
                 
+                roomNameLabel.text = guardData.name
                 customBadgeView.badgeString = String("\(guardData.unreadMessageCount)")
                 
                 if let lastMessage = Message.find(objectId: guardData.lastMessageId) {
@@ -37,10 +34,7 @@ class TalkLogCell: UITableViewCell {
                     dateLabel.text = Common.dateToString(date: lastMessage.createdAt ?? Date(), format: "M/d")
                     
                 }
-            }
-            
-            
-        
+            }        
         }
     }
     
