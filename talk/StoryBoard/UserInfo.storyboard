@@ -74,6 +74,7 @@
                                             <outlet property="nickNameLabel" destination="1ek-ec-2SQ" id="9mg-4e-enC"/>
                                             <outlet property="profileImageView" destination="cjD-2b-Z2u" id="Ump-CQ-70O"/>
                                             <outlet property="statusLabel" destination="tes-O7-JEQ" id="PLW-bV-ks8"/>
+                                            <segue destination="yxw-Dj-QlL" kind="show" id="0CJ-Tm-SeS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postsCell" id="KgP-hi-iNQ" customClass="UserInfoCell" customModule="talk" customModuleProvider="target">
@@ -212,6 +213,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGh-b6-GFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="917.60000000000002" y="-1.3493253373313345"/>
+        </scene>
+        <!--UserProfile-->
+        <scene sceneID="XZI-QN-79R">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserProfile" id="yxw-Dj-QlL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7b-bh-mdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="-76"/>
         </scene>
     </scenes>
 </document>
