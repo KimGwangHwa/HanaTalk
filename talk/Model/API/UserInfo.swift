@@ -45,6 +45,19 @@ class UserInfo: PFObject, PFSubclassing {
     
     var postsCount: Int?
     
+    class func upload(imageFile: UIImage) {
+        let data = imageFile.sd_imageData()
+        
+        let pffile = PFFile(name: "test.png", data: data!)
+        let info = UserInfo()
+        info["profilePicture"] = pffile
+        info.objectId = DataManager.shared.currentUserInfo?.objectId
+        info.saveInBackground { (isSuccess, error) in
+            
+        }
+        
+    }
+    
     class func creatUserInfos(with ojbects: [PFObject]?) -> [UserInfo]? {
 
         if let guardObject = ojbects {

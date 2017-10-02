@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2f8-Xy-hT7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Info Input View Controller-->
+        <scene sceneID="Ig3-Pe-AMf">
+            <objects>
+                <viewController storyboardIdentifier="InfoInputViewController" id="2f8-Xy-hT7" customClass="InfoInputViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hF1-4S-Qat">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-TC-OG1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="7Uf-mA-ovJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfE-pm-k4V">
+                                            <rect key="frame" x="0.0" y="30" width="375" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="rfE-pm-k4V" secondAttribute="bottom" id="7ol-0V-9Nj"/>
+                                        <constraint firstAttribute="trailing" secondItem="rfE-pm-k4V" secondAttribute="trailing" id="FnA-h8-efI"/>
+                                        <constraint firstItem="rfE-pm-k4V" firstAttribute="leading" secondItem="7Uf-mA-ovJ" secondAttribute="leading" id="b2R-wK-Dno"/>
+                                        <constraint firstItem="rfE-pm-k4V" firstAttribute="top" secondItem="7Uf-mA-ovJ" secondAttribute="top" constant="30" id="h4G-1D-vj4"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TIa-TC-OG1" firstAttribute="trailing" secondItem="mqN-vK-qHt" secondAttribute="trailing" id="8hh-LB-d0S"/>
+                            <constraint firstItem="TIa-TC-OG1" firstAttribute="bottom" secondItem="mqN-vK-qHt" secondAttribute="bottom" id="Ebw-CD-2fZ"/>
+                            <constraint firstItem="TIa-TC-OG1" firstAttribute="leading" secondItem="mqN-vK-qHt" secondAttribute="leading" id="J9d-H2-Y3z"/>
+                            <constraint firstItem="TIa-TC-OG1" firstAttribute="top" secondItem="hF1-4S-Qat" secondAttribute="top" id="K5z-hy-gY1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mqN-vK-qHt"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoInputTextField" destination="rfE-pm-k4V" id="8in-a7-QJ0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fhi-Tz-WqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-212" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+</document>
