@@ -8,6 +8,8 @@
 
 import UIKit
 
+let DATE_FORMAT_1 = "yyyyMMddHHmmss"
+
 // MARK: SASHIDO
 
 // ApplicationId

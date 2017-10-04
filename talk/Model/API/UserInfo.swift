@@ -18,6 +18,7 @@ class UserInfo: PFObject, PFSubclassing {
         return "UserInfo"
     }
 
+    typealias CompletionHandler = (Bool) -> Void
 
     //var objectId = ""
     
@@ -45,15 +46,17 @@ class UserInfo: PFObject, PFSubclassing {
     
     var postsCount: Int?
     
-    class func upload(imageFile: UIImage) {
+    var birthday: Date?
+    
+    class func upload(imageFile: UIImage, completion: @escaping CompletionHandler) {
         let data = imageFile.sd_imageData()
         
-        let pffile = PFFile(name: "test.png", data: data!)
+        let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
         let info = UserInfo()
         info["profilePicture"] = pffile
         info.objectId = DataManager.shared.currentUserInfo?.objectId
         info.saveInBackground { (isSuccess, error) in
-            
+            completion(isSuccess)
         }
         
     }
@@ -65,7 +68,7 @@ class UserInfo: PFObject, PFSubclassing {
 
             for item in guardObject {
                 let object: UserInfo = UserInfo()
-
+                object.objectId = item.objectId
                 object.statusMessage =  item["statusMessage"] as? String
                 object.email =  item["email"] as? String
                 object.profilePicture =  (item["profilePicture"] as? PFFile)?.url

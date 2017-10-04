@@ -61,13 +61,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         let cellData =  dataSource[indexPath.section][indexPath.row]
         
         if cellData == R.reuseIdentifier.profileImageCell.identifier {
-            let sourceType: UIImagePickerControllerSourceType = .savedPhotosAlbum
-            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-                let picker = UIImagePickerController()
-                picker.sourceType = sourceType
-                picker.delegate = self
-                self.present(picker, animated: true, completion: nil)
-            }
+            showAlertSheet()
         } else {
 
             if let infoViewController = R.storyboard.infoInput.infoInputViewController()
@@ -102,17 +96,43 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         albumImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        UserInfo.upload(imageFile: albumImage!)
-        tableView.reloadData()
-        
-//        let userInfo: UserInfo? = nil
-//        if DataManager.shared.currentUserInfo == nil {
-//            userInfo = UserInfo()
-//        } else {
-//            userInfo = DataManager.shared.currentUserInfo
-//        }
-        
-
-        
+        UserInfo.upload(imageFile: albumImage!) { (isSuccess) in
+            self.tableView.reloadData()
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
+    
+    
+    // MARK: - UIAlertController
+    
+    func showAlertSheet() {
+        let alertViewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+        }))
+        alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+            let sourceType: UIImagePickerControllerSourceType = .camera
+            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+                let picker = UIImagePickerController()
+                picker.sourceType = sourceType
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+        }))
+        alertViewController.addAction(UIAlertAction(title: "Album", style: .default, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+            let sourceType: UIImagePickerControllerSourceType = .savedPhotosAlbum
+            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+                let picker = UIImagePickerController()
+                picker.sourceType = sourceType
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+
+        }))
+        present(alertViewController, animated: true, completion: nil)
+    }
+    
+
 }
