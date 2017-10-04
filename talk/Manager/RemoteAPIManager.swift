@@ -66,7 +66,7 @@ class RemoteAPIManager: NSObject {
 
     func getUserInfo(with userId: String, completion: @escaping GetUserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
-        query.whereKey("userId", equalTo: DataManager.shared.currentUserObjectId)
+        query.whereKey("userId", equalTo: userId)
         query.findObjectsInBackground(block: { (objects, error) in
                 if let infos = UserInfo.creatUserInfos(with: objects) ,
                let currentUserInfo = infos.first {

@@ -16,4 +16,10 @@ class Common: NSObject {
         return formatter.string(from: date)
     }
     
+    class func stringToDate(dateString: String, format: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: dateString)
+    }
+    
 }

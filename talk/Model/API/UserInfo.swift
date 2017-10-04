@@ -33,6 +33,8 @@ class UserInfo: PFObject, PFSubclassing {
     var sex: Bool = true
     
     var profilePicture: String? //URL
+
+    //var image: UIImage? //image
     
     var nickName: String?
     
@@ -48,18 +50,46 @@ class UserInfo: PFObject, PFSubclassing {
     
     var birthday: Date?
     
-    class func upload(imageFile: UIImage, completion: @escaping CompletionHandler) {
-        let data = imageFile.sd_imageData()
-        
+//    class func upload(imageFile: UIImage, completion: @escaping CompletionHandler) {
+//        let data = image.sd_imageData()
+//
+//        let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
+//
+//        self["profilePicture"] = pffile
+//        self["userId"] = DataManager.shared.currentUserInfo?.objectId
+//        self["userId"] = DataManager.shared.currentUserInfo?.objectId
+//
+//
+//        info.saveInBackground { (isSuccess, error) in
+//            completion(isSuccess)
+//        }
+//
+//    }¥
+    
+    func uploadProfilePicture(image: UIImage, completion: @escaping CompletionHandler) {
+        let data = image.sd_imageData()
         let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
-        let info = UserInfo()
-        info["profilePicture"] = pffile
-        info.objectId = DataManager.shared.currentUserInfo?.objectId
-        info.saveInBackground { (isSuccess, error) in
+        self["profilePicture"] = pffile
+        self.saveInBackground { (isSuccess, error) in
+            completion(isSuccess)
+        }
+    }
+    func upload(completion: @escaping CompletionHandler) {
+
+        self["userId"] = DataManager.shared.currentUserInfo?.userId
+        self["phoneNumber"] = DataManager.shared.currentUserInfo?.phoneNumber ?? ""
+        self["statusMessage"] = DataManager.shared.currentUserInfo?.statusMessage ?? ""
+        self["sex"] = DataManager.shared.currentUserInfo?.sex ?? false
+        self["nickName"] = DataManager.shared.currentUserInfo?.nickName ?? ""
+        self["birthday"] = DataManager.shared.currentUserInfo?.birthday ?? Date()
+        
+        self.saveInBackground { (isSuccess, error) in
             completion(isSuccess)
         }
         
     }
+    
+    
     
     class func creatUserInfos(with ojbects: [PFObject]?) -> [UserInfo]? {
 

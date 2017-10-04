@@ -15,6 +15,7 @@ class InfoInputViewController: UIViewController {
         case phoneNumber
         case email
         case sex
+        case birthDay
         
         var placeholder: String {
             
@@ -29,6 +30,8 @@ class InfoInputViewController: UIViewController {
                 return "input your email"
             case .sex:
                 return "input your sex"
+            case .birthDay:
+                return "input your birthDay"
             }
         }
     }
@@ -51,7 +54,7 @@ class InfoInputViewController: UIViewController {
     }
 
     func doneEvent() {
-        var userInfo = DataManager.shared.currentUserInfo
+        var userInfo:UserInfo? = DataManager.shared.currentUserInfo
         
         if userInfo == nil {
             userInfo = UserInfo()
@@ -73,11 +76,14 @@ class InfoInputViewController: UIViewController {
         case .sex:
             userInfo?.phoneNumber = infoInputTextField.text
             break
+        case .birthDay:
+            userInfo?.birthday = Common.stringToDate(dateString: infoInputTextField.text!, format: "yyyMMdd")
+            break
         }
-        
-        userInfo?.saveInBackground(block: { (isSuccess, error) in
+        userInfo?.upload { (isSuccess) in
+            DataManager.shared.currentUserInfo = userInfo
             self.navigationController?.popViewController(animated: true)
-        })
+        }
         
     }
     
