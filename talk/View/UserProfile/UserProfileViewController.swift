@@ -52,7 +52,11 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         let cellData =  dataSource[indexPath.section][indexPath.row]
 
         if let userprofileCell = cell as? UserProfileCell {
-            userprofileCell.profileImageView.imageView.sd_setImage(with: URL(string: DataManager.shared.currentUserInfo?.profilePicture ?? ""), placeholderImage: nil)
+            if albumImage != nil {
+                userprofileCell.profileImageView.imageView.image = albumImage
+            } else {
+                userprofileCell.profileImageView.imageView.sd_setImage(with: URL(string: DataManager.shared.currentUserInfo?.profilePicture ?? ""), placeholderImage: nil)
+            }
         }
         
         switch cellData {
@@ -72,7 +76,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             cell.detailTextLabel?.text = (DataManager.shared.currentUserInfo?.sex ?? true) ? "Man": "Women"
             break
         case R.reuseIdentifier.birthdayCell.identifier:
-            cell.detailTextLabel?.text = Common.dateToString(date: DataManager.shared.currentUserInfo?.birthday ?? Date(), format: "yyyMMdd")
+            cell.detailTextLabel?.text = Common.dateToString(date: DataManager.shared.currentUserInfo?.birthday, format: DATE_FORMAT_2)
             break
         default:
             break

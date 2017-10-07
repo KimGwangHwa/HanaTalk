@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ROC-zJ-nuG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ROC-zJ-nuG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -149,11 +150,20 @@
                         <outlet property="passwordTextField" destination="FbR-7E-bjS" id="wMm-Mv-6h8"/>
                         <outlet property="userIdTextField" destination="8SV-SO-lAd" id="wi5-he-zwD"/>
                         <segue destination="CIa-K5-c1q" kind="show" identifier="Home" id="t0l-z9-hfW"/>
+                        <segue destination="4Dk-9G-DnW" kind="show" identifier="UserProfile" id="BuL-a2-eQd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGh-6E-Okg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="218" y="16"/>
+        </scene>
+        <!--UserProfile-->
+        <scene sceneID="0Wa-9P-F91">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserProfile" id="4Dk-9G-DnW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ead-lv-lUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="22"/>
         </scene>
         <!--Home-->
         <scene sceneID="QOs-An-iwa">

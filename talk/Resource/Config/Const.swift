@@ -8,7 +8,9 @@
 
 import UIKit
 
+// DateFormat
 let DATE_FORMAT_1 = "yyyyMMddHHmmss"
+let DATE_FORMAT_2 = "yyyy/MM/dd"
 
 // MARK: SASHIDO
 

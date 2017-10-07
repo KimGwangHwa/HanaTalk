@@ -31,7 +31,7 @@ class TalkLogCell: UITableViewCell {
                 
                 if let lastMessage = Message.find(objectId: guardData.lastMessageId) {
                     lastMessageLabel.text = lastMessage.textMessage
-                    dateLabel.text = Common.dateToString(date: lastMessage.createdAt ?? Date(), format: "M/d")
+                    dateLabel.text = Common.dateToString(date: lastMessage.createdAt, format: "M/d")
                     
                 }
             }        

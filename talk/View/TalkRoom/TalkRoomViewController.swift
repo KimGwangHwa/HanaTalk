@@ -98,7 +98,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         })
     }
     
-    func keyboardWillHide(notification: Notification?) {
+    @objc func keyboardWillHide(notification: Notification?) {
         let duration: TimeInterval? = notification?.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? Double
         self.bottomConstraint.constant = 0.0
         UIView.animate(withDuration: duration!, animations: { () in
