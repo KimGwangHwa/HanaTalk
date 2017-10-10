@@ -87,7 +87,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(notification: Notification?) {
+    @objc func keyboardWillShow(notification: Notification?) {
         let rect = (notification?.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         let duration: TimeInterval? = notification?.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
         let height = rect?.size.height

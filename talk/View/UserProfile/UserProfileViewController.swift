@@ -11,9 +11,8 @@ import UIKit
 class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    private var dataSource = [[R.reuseIdentifier.profileImageCell.identifier, R.reuseIdentifier.nickName.identifier, R.reuseIdentifier.statusCell.identifier,],
-                              [R.reuseIdentifier.phoneNumberCell.identifier, R.reuseIdentifier.emailCell.identifier, R.reuseIdentifier.sexCell.identifier, R.reuseIdentifier.birthdayCell.identifier]]
-    
+    private var reuseIdentifiers: [String] = []//[R.reuseIdentifier.profileCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier
+    let dataSource = [""]
     private var albumImage: UIImage? = nil
 
     override func viewDidLoad() {
@@ -37,19 +36,19 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - UITableViewDelegate
     
     // Rows
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource[section].count
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return reuseIdentifiers[section].count
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSource.count
+        return reuseIdentifiers.count
     }
     
     // CellForRow
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: dataSource[indexPath.section][indexPath.row], for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifiers[indexPath.row], for: indexPath)
         
-        let cellData =  dataSource[indexPath.section][indexPath.row]
+        let cellIdentifier =  reuseIdentifiers[indexPath.row]
 
         if let userprofileCell = cell as? UserProfileCell {
             if albumImage != nil {
@@ -59,7 +58,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
-        switch cellData {
+        switch cellIdentifier {
         case R.reuseIdentifier.nickName.identifier:
             cell.detailTextLabel?.text = DataManager.shared.currentUserInfo?.nickName
             break
@@ -87,7 +86,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if dataSource[indexPath.section][indexPath.row] == R.reuseIdentifier.profileImageCell.identifier {
+        if reuseIdentifiers[indexPath.row] == R.reuseIdentifier.profileImageCell.identifier {
             return 100
         }
         return 44
@@ -121,7 +120,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
                     infoViewController.type = .sex
                     break
                 case R.reuseIdentifier.birthdayCell.identifier:
-                    infoViewController.type = .sex
+                    infoViewController.type = .birthDay
                     break
                 default:
                     break

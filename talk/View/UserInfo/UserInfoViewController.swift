@@ -8,20 +8,18 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var tableview: UITableView!
-
     public var userId: String = ""
-    //R.reuseIdentifier.followerCell
-    
-    private var cellIdentifiers: [String] = [R.reuseIdentifier.profileCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier]
+    @IBOutlet weak var tableview: UITableView!
+    private var reuseIdentifiers = [R.reuseIdentifier.profileImageCell.identifier, R.reuseIdentifier.nickName.identifier, R.reuseIdentifier.statusCell.identifier,R.reuseIdentifier.phoneNumberCell.identifier, R.reuseIdentifier.emailCell.identifier, R.reuseIdentifier.sexCell.identifier, R.reuseIdentifier.birthdayCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier, R.reuseIdentifier.actionCell.identifier]
+
     private var userInfo: UserInfo? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        getData()
+        readData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +27,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    func getData() {
+    func readData() {
         if userId.isEmpty {
             userId = DataManager.shared.currentUserObjectId
         }
@@ -42,38 +40,17 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     func setUpView() {
         tableview.tableFooterView = UIView(frame: CGRect.zero)
     }
-    
-    @IBAction func sendMessageEvent(_ sender: UIButton) {
-        
-        if let topViewController = self.topNavigationViewController() {
-            if let viewController = R.storyboard.talkRoom.talkRoomViewController() {
-                viewController.receiverUserId = userInfo?.userId ?? ""
-                topViewController.pushViewController(viewController, animated: false)
-            }
-        }
-        
-        dismiss(animated: true, completion: nil)
-        
-        
-    }
+
     // MARK: - UITableViewDelegate
     
     // Rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return cellIdentifiers.count
-        }
-        return 1
-
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return reuseIdentifiers.count
     }
     
     // CellForRow
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.row], for: indexPath) as? UserInfoCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifiers[indexPath.row], for: indexPath) as? UserInfoCell {
             cell.userInfo = userInfo
             return cell
         }
@@ -82,7 +59,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if cellIdentifiers[indexPath.row] == R.reuseIdentifier.profileCell.identifier {
+        if reuseIdentifiers[indexPath.row] == R.reuseIdentifier.profileImageCell.identifier {
             return 100
         }
         return 44
@@ -95,38 +72,49 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         return 1
     }
     
-    // SectionHeadView
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headLabel = UILabel()
-        headLabel.text = "test"
-        headLabel.sizeToFit()
-        return headLabel
+    // MARK: - ImagePickerController delegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        albumImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        
+//        DataManager.shared.currentUserInfo?.uploadProfilePicture(image: albumImage!, completion: { (isSuccess) in
+//            self.tableView.reloadData()
+//        })
+//        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - UIAlertController
+    
+    func showAlertSheet() {
+        let alertViewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+        }))
+        alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+            let sourceType: UIImagePickerControllerSourceType = .camera
+            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+                let picker = UIImagePickerController()
+                picker.sourceType = sourceType
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+        }))
+        alertViewController.addAction(UIAlertAction(title: "Album", style: .default, handler: { (alert) in
+            alertViewController.dismiss(animated: true, completion: nil)
+            let sourceType: UIImagePickerControllerSourceType = .savedPhotosAlbum
+            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+                let picker = UIImagePickerController()
+                picker.sourceType = sourceType
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+            
+        }))
+        present(alertViewController, animated: true, completion: nil)
     }
 
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if let cell = userInfoHeaderCell {
-//            let offsetY = scrollView.contentOffset.y
-//            let offsetH = headerCellHeight + offsetY
-//            var frame = cell.frame
-//            frame.size.height = headerCellHeight - offsetY
-//            frame.origin.y = -headerCellHeight + offsetH
-//            cell.frame = frame
-//
-//        }
-//
-//    }
     
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

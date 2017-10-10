@@ -69,7 +69,9 @@ class UserInfo: PFObject, PFSubclassing {
     func uploadProfilePicture(image: UIImage, completion: @escaping CompletionHandler) {
         let data = image.sd_imageData()
         let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
+        
         self["profilePicture"] = pffile
+        self.profilePicture = pffile?.url
         self.saveInBackground { (isSuccess, error) in
             completion(isSuccess)
         }

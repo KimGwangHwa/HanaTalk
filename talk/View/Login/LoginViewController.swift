@@ -15,7 +15,6 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     let homeSegueIdentifier = R.segue.loginViewController.home.identifier
-    let userProfileSegueIdentifier = R.segue.loginViewController.userProfile.identifier
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +32,7 @@ class LoginViewController: UITableViewController {
         let request = UserRequest(userName: userIdTextField.text ?? "", password: passwordTextField.text ?? "")
         RemoteAPIManager.shared.login(request: request) { (isSucceeded) in
             if isSucceeded {
-                if DataManager.shared.currentUserInfo == nil {
-                    self.performSegue(withIdentifier: self.userProfileSegueIdentifier, sender: nil)
-                } else {
-                    self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
-                }
+                self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
             }
         }
     }

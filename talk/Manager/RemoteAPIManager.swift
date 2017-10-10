@@ -106,25 +106,4 @@ class RemoteAPIManager: NSObject {
             })
         }
     }
-    
-    
-    
-    
-    func saveRemoteClass(message: Message) {
-//        let pfObject = PFObject(className: "Messages");
-//        pfObject["sender"] = PFObject(withoutDataWithClassName: "_User", objectId: message.sender);
-//        pfObject["receiveer"] = PFObject(withoutDataWithClassName: "_User", objectId: message.receiveer);
-//        pfObject["textMessage"] = message.textMessage
-//        pfObject["fileMessage"] = message.fileMessage
-//        pfObject["messageFalg"] = message.messageFalg.rawValue
-//        pfObject["isRead"] = message.isRead
-        
-//        pfObject.saveInBackground { (isSuccess, error) in
-//            
-//        }
-    }
-    
-
-    
-    
 }

@@ -52,6 +52,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mqN-vK-qHt"/>
                     </view>
+                    <connections>
+                        <outlet property="infoInputTextField" destination="0Qt-Tp-Yhu" id="E9B-81-cp2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhi-Tz-WqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
