@@ -24,7 +24,9 @@ class UserInfoCell: UITableViewCell {
     var userInfo: UserInfo? {
         didSet {
             if let guradUserInfo = userInfo {
-                customBadgeView.imageView.sd_setImage(with: URL(string: guradUserInfo.profilePicture ?? ""), placeholderImage: nil)
+                if customBadgeView != nil {
+                    customBadgeView.imageView.sd_setImage(with: URL(string: guradUserInfo.profilePicture ?? ""), placeholderImage: nil)
+                }
 
                 if nickNameLabel != nil {
                     nickNameLabel.text = "\(String(guradUserInfo.nickName ?? ""))"
