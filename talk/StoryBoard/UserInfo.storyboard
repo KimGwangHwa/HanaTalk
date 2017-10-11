@@ -307,6 +307,9 @@
                                                         <constraint firstAttribute="height" constant="44" id="Qp2-SN-Ngu"/>
                                                     </constraints>
                                                     <state key="normal" title="F"/>
+                                                    <connections>
+                                                        <action selector="followEvent:" destination="DmR-PN-e6I" eventType="touchUpInside" id="yEC-Xr-Uza"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3k7-Jt-2Nx">
                                                     <rect key="frame" x="231" y="0.0" width="44" height="44"/>
@@ -315,6 +318,9 @@
                                                         <constraint firstAttribute="height" constant="44" id="UyI-il-J76"/>
                                                     </constraints>
                                                     <state key="normal" title="M"/>
+                                                    <connections>
+                                                        <action selector="sendMessageEvent:" destination="DmR-PN-e6I" eventType="touchUpInside" id="cGU-Kt-kEX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

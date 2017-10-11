@@ -116,6 +116,9 @@
                                                     <state key="normal" title="新規登録">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="8Kz-Ll-dTJ" kind="show" id="arV-Af-eNV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -163,6 +166,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="st4-at-R4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18" y="465"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="f92-NX-Z8w">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="8Kz-Ll-dTJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPR-iB-WMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="464"/>
         </scene>
     </scenes>
 </document>

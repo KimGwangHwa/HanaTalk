@@ -15,7 +15,6 @@ class RemoteAPIManager: NSObject {
 
     typealias CompletionHandler = (Bool) -> Void
 
-    typealias GetListCompletionHandler = (Bool, [UserInfo]) -> Void
     typealias GetUserInfoListCompletionHandler = (Bool, [UserInfo]?) -> Void
     typealias GetUserInfoCompletionHandler = (Bool, UserInfo?) -> Void
 

@@ -12,7 +12,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     
     public var userId: String = ""
     @IBOutlet weak var tableview: UITableView!
-    private var reuseIdentifiers = [R.reuseIdentifier.profileImageCell.identifier, R.reuseIdentifier.nickName.identifier, R.reuseIdentifier.statusCell.identifier,R.reuseIdentifier.phoneNumberCell.identifier, R.reuseIdentifier.emailCell.identifier, R.reuseIdentifier.sexCell.identifier, R.reuseIdentifier.birthdayCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier, R.reuseIdentifier.actionCell.identifier]
+    private var reuseIdentifiers = [R.reuseIdentifier.profileImageCell.identifier, R.reuseIdentifier.nickName.identifier, R.reuseIdentifier.statusCell.identifier, R.reuseIdentifier.phoneNumberCell.identifier, R.reuseIdentifier.emailCell.identifier, R.reuseIdentifier.sexCell.identifier, R.reuseIdentifier.birthdayCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier, R.reuseIdentifier.actionCell.identifier]
 
     private var userInfo: UserInfo? = nil
     
@@ -25,8 +25,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
+    }    
     func readData() {
         if userId.isEmpty {
             userId = DataManager.shared.currentUserObjectId
@@ -41,6 +40,16 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         tableview.tableFooterView = UIView(frame: CGRect.zero)
     }
 
+    // MARK: - ActionEvent
+
+    @IBAction func followEvent(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func sendMessageEvent(_ sender: UIButton) {
+    
+    }
+    
     // MARK: - UITableViewDelegate
     
     // Rows
@@ -74,6 +83,31 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cellIdentifier = reuseIdentifiers[indexPath.row]
+        if cellIdentifier == R.reuseIdentifier.profileImageCell.identifier {
+            showAlertSheet()
+        } else if cellIdentifier == R.reuseIdentifier.nickName.identifier || cellIdentifier == R.reuseIdentifier.statusCell.identifier || cellIdentifier == R.reuseIdentifier.phoneNumberCell.identifier || cellIdentifier == R.reuseIdentifier.emailCell.identifier || cellIdentifier == R.reuseIdentifier.birthdayCell.identifier {
+            
+            if let inputViewController = R.storyboard.infoInput.infoInputViewController() {
+                if cellIdentifier == R.reuseIdentifier.nickName.identifier {
+                    inputViewController.type = .nickName
+                } else if cellIdentifier == R.reuseIdentifier.statusCell.identifier {
+                    inputViewController.type = .statusMessage
+                } else if cellIdentifier == R.reuseIdentifier.phoneNumberCell.identifier {
+                    inputViewController.type = .phoneNumber
+                } else if cellIdentifier == R.reuseIdentifier.emailCell.identifier {
+                    inputViewController.type = .email
+                } else if cellIdentifier == R.reuseIdentifier.birthdayCell.identifier {
+                    inputViewController.type = .birthDay
+                }
+                navigationController?.pushViewController(inputViewController, animated: true)
+            }
+
+        } else if cellIdentifier == R.reuseIdentifier.postsCell.identifier || cellIdentifier == R.reuseIdentifier.followingCell.identifier || cellIdentifier == R.reuseIdentifier.followerCell.identifier {
+            
+        }
+        
     }
     
     // MARK: - ImagePickerController delegate
@@ -84,7 +118,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
 //        DataManager.shared.currentUserInfo?.uploadProfilePicture(image: albumImage!, completion: { (isSuccess) in
 //            self.tableView.reloadData()
 //        })
-//        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
     
