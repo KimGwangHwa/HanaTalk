@@ -117,7 +117,7 @@
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="8Kz-Ll-dTJ" kind="show" id="arV-Af-eNV"/>
+                                                        <segue destination="Sua-Rh-Bex" kind="show" id="BiD-S2-oF9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -168,12 +168,12 @@
             <point key="canvasLocation" x="18" y="465"/>
         </scene>
         <!--SignUp-->
-        <scene sceneID="f92-NX-Z8w">
+        <scene sceneID="kZt-cC-P08">
             <objects>
-                <viewControllerPlaceholder storyboardName="SignUp" id="8Kz-Ll-dTJ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sPR-iB-WMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="SignUp" id="Sua-Rh-Bex" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCe-qb-ZQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="376" y="464"/>
+            <point key="canvasLocation" x="634" y="426"/>
         </scene>
     </scenes>
 </document>

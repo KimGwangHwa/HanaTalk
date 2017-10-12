@@ -50,22 +50,6 @@ class UserInfo: PFObject, PFSubclassing {
     
     var birthday: Date?
     
-//    class func upload(imageFile: UIImage, completion: @escaping CompletionHandler) {
-//        let data = image.sd_imageData()
-//
-//        let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
-//
-//        self["profilePicture"] = pffile
-//        self["userId"] = DataManager.shared.currentUserInfo?.objectId
-//        self["userId"] = DataManager.shared.currentUserInfo?.objectId
-//
-//
-//        info.saveInBackground { (isSuccess, error) in
-//            completion(isSuccess)
-//        }
-//
-//    }¥
-    
     func uploadProfilePicture(image: UIImage, completion: @escaping CompletionHandler) {
         let data = image.sd_imageData()
         let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
@@ -88,7 +72,6 @@ class UserInfo: PFObject, PFSubclassing {
         self.saveInBackground { (isSuccess, error) in
             completion(isSuccess)
         }
-        
     }
     
     

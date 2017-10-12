@@ -27,7 +27,6 @@
 		34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D131F3A0714000F0C94 /* ContactCell.xib */; };
 		34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D141F3A0714000F0C94 /* ContactViewController.swift */; };
 		34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D171F3A0714000F0C94 /* LoginViewController.swift */; };
-		34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D191F3A0714000F0C94 /* SigUpViewController.swift */; };
 		34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */; };
 		34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */; };
 		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
@@ -52,6 +51,8 @@
 		346219601F65051E004998E8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3462195F1F65051E004998E8 /* Common.swift */; };
 		346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219621F66CACE004998E8 /* CustomBadgeView.swift */; };
 		346219671F696D56004998E8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346219661F696D56004998E8 /* UIImage.swift */; };
+		346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA301F8F9A5E0065A762 /* SignUpViewController.swift */; };
+		346BAA331F8F9CD10065A762 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA321F8F9CD10065A762 /* User.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -86,7 +87,6 @@
 		34211D131F3A0714000F0C94 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		34211D141F3A0714000F0C94 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		34211D171F3A0714000F0C94 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		34211D191F3A0714000F0C94 /* SigUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
 		34211D1C1F3A0714000F0C94 /* TalkLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogCell.swift; sourceTree = "<group>"; };
 		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		3462195F1F65051E004998E8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		346219621F66CACE004998E8 /* CustomBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBadgeView.swift; sourceTree = "<group>"; };
 		346219661F696D56004998E8 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		346BAA301F8F9A5E0065A762 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		346BAA321F8F9CD10065A762 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,7 +216,7 @@
 		34211D181F3A0714000F0C94 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				34211D191F3A0714000F0C94 /* SigUpViewController.swift */,
+				346BAA301F8F9A5E0065A762 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -420,6 +422,7 @@
 				34E7EDF91F30BE1200D87C1C /* UserRequest.swift */,
 				3461F5171F763F73000D09D5 /* UserInfo.swift */,
 				3461F5191F792E7E000D09D5 /* Follow.swift */,
+				346BAA321F8F9CD10065A762 /* User.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
+				346BAA331F8F9CD10065A762 /* User.swift in Sources */,
 				3461F5181F763F73000D09D5 /* UserInfo.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
 				3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */,
@@ -617,7 +621,6 @@
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
-				34211D2C1F3A0714000F0C94 /* SigUpViewController.swift in Sources */,
 				3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
@@ -628,6 +631,7 @@
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
 				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,
 				346219601F65051E004998E8 /* Common.swift in Sources */,
+				346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */,
 				34E7EDFA1F30BE1200D87C1C /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

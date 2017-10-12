@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sig Up View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="h7Y-G3-cet">
             <objects>
-                <viewController id="h5Y-DW-g7B" customClass="SigUpViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="h5Y-DW-g7B" customClass="SignUpViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SJE-PN-MoJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ub6-o9-m95"/>
@@ -23,7 +23,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-xE-UKU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9Xf-OK-ded">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -43,14 +43,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CONFIRM PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqt-L8-Cng">
                                                     <rect key="frame" x="10" y="80" width="230" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NICKNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PxF-i1-HrQ">
                                                     <rect key="frame" x="10" y="120" width="230" height="40"/>
@@ -66,14 +66,20 @@
                                                     <state key="normal" title="MAN">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sexSelectEvent:" destination="h5Y-DW-g7B" eventType="touchUpInside" id="QxI-wH-MsN"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLA-Nw-G3Q">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLA-Nw-G3Q">
                                                     <rect key="frame" x="120" y="160" width="120" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="WOMEN">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sexSelectEvent:" destination="h5Y-DW-g7B" eventType="touchUpInside" id="YS4-0g-ihO"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BIRTHDAY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-oX-wP2">
                                                     <rect key="frame" x="10" y="200" width="230" height="40"/>
@@ -94,9 +100,11 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="SIGNUP"/>
+                                            <connections>
+                                                <action selector="signupEvent:" destination="h5Y-DW-g7B" eventType="touchUpInside" id="iJ0-GV-d8I"/>
+                                            </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="hbV-Sm-74L" firstAttribute="centerX" secondItem="9Xf-OK-ded" secondAttribute="centerX" id="DWx-Mb-w54"/>
                                         <constraint firstItem="hbV-Sm-74L" firstAttribute="centerY" secondItem="9Xf-OK-ded" secondAttribute="centerY" id="Rw2-os-qKT"/>
@@ -111,7 +119,7 @@
                                 </constraints>
                                 <state key="normal" title="❌"/>
                                 <connections>
-                                    <action selector="closeEvent:" destination="h5Y-DW-g7B" eventType="touchUpInside" id="JW5-YS-APo"/>
+                                    <action selector="closeEvent:" destination="h5Y-DW-g7B" eventType="touchUpInside" id="5Vh-6Q-HXB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,6 +133,13 @@
                             <constraint firstItem="Hem-xE-UKU" firstAttribute="top" secondItem="l9V-nN-DNI" secondAttribute="top" id="pj1-po-Bxf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="birthdayTextField" destination="i4g-oX-wP2" id="2pR-0i-AM9"/>
+                        <outlet property="confirmTextField" destination="xqt-L8-Cng" id="939-dd-7l1"/>
+                        <outlet property="nickNameTextField" destination="PxF-i1-HrQ" id="HoK-yI-sTP"/>
+                        <outlet property="passwordTextField" destination="U8H-df-qsH" id="AES-pz-eA0"/>
+                        <outlet property="userIdTextField" destination="BzA-gp-HYe" id="lb9-MI-Oje"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LE5-gd-sOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

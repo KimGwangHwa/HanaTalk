@@ -29,9 +29,7 @@ class RemoteAPIManager: NSObject {
             $0.clientKey = SA_CLIENT_KEY
             $0.server = SA_SERVER
         }
-        
         Parse.initialize(with: configuration)
-
     }
     
     func signUp(request: UserRequest, withCompletion: @escaping CompletionHandler) {
