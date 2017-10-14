@@ -103,10 +103,10 @@ class InfoInputViewController: UIViewController {
             userInfo?.birthday = Common.stringToDate(dateString: infoInputTextField.text!, format: DATE_FORMAT_2)
             break
         }
-        userInfo?.upload { (isSuccess) in
+        userInfo?.remoteSaveRecord(completion: { (status) in
             DataManager.shared.currentUserInfo = userInfo
             self.navigationController?.popViewController(animated: true)
-        }
+        })
         
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+// MARK: Class Delet
 class RemoteAPIManager: NSObject {
     
     static let shared = RemoteAPIManager()
@@ -31,41 +32,41 @@ class RemoteAPIManager: NSObject {
         }
         Parse.initialize(with: configuration)
     }
-    
-    func signUp(request: UserRequest, withCompletion: @escaping CompletionHandler) {
-        
-        let user = PFUser()
-        user.username = request.nickName
-        user.password = request.password
-        user.signUpInBackground { (isSucceeded, error) in
-            withCompletion(isSucceeded)
-        }
-    }
-    
-    func login(request: UserRequest, withCompletion: @escaping CompletionHandler) {
-
-        PFUser.logInWithUsername(inBackground: request.userName, password: request.password) { (user, error) in
-            if user != nil {
-                let loginHistory = LoginHistory.createNewRecord()
-                loginHistory.userName = request.userName
-                loginHistory.password = request.password
-                loginHistory.updateDate = NSDate()
-                loginHistory.objectId = user?.objectId
-                CoreDataManager.shared.saveContext()
-
-                self.getUserInfo(with: DataManager.shared.currentUserObjectId, completion: { (isSuccess, userInfo) in
-                    withCompletion(isSuccess)
-                })
-            }
-            withCompletion(user == nil ? false : true)
-        }
-    }
+//    
+//    func signUp(request: UserRequest, withCompletion: @escaping CompletionHandler) {
+//        
+//        let user = PFUser()
+//        user.username = request.nickName
+//        user.password = request.password
+//        user.signUpInBackground { (isSucceeded, error) in
+//            withCompletion(isSucceeded)
+//        }
+//    }
+//    
+//    func login(request: UserRequest, withCompletion: @escaping CompletionHandler) {
+//
+//        PFUser.logInWithUsername(inBackground: request.userName, password: request.password) { (user, error) in
+//            if user != nil {
+//                let loginHistory = LoginHistory.createNewRecord()
+//                loginHistory.userName = request.userName
+//                loginHistory.password = request.password
+//                loginHistory.updateDate = NSDate()
+//                loginHistory.objectId = user?.objectId
+//                CoreDataManager.shared.saveContext()
+//
+//                self.getUserInfo(with: DataManager.shared.currentUserObjectId, completion: { (isSuccess, userInfo) in
+//                    withCompletion(isSuccess)
+//                })
+//            }
+//            withCompletion(user == nil ? false : true)
+//        }
+//    }
 
     func getUserInfo(with userId: String, completion: @escaping GetUserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
         query.whereKey("userId", equalTo: userId)
         query.findObjectsInBackground(block: { (objects, error) in
-                if let infos = UserInfo.creatUserInfos(with: objects) ,
+                if let infos = UserInfo.convertUserInfos(with: objects) ,
                let currentUserInfo = infos.first {
                 DataManager.shared.currentUserInfo = currentUserInfo
                 completion(true, currentUserInfo)
@@ -99,7 +100,7 @@ class RemoteAPIManager: NSObject {
             let query = PFQuery(className: "UserInfo")
             query.whereKey("userId", containedIn: objectIds)
             query.findObjectsInBackground(block: { (objects, error) in
-                completion(true, UserInfo.creatUserInfos(with: objects))
+                completion(true, UserInfo.convertUserInfos(with: objects))
             })
         }
     }

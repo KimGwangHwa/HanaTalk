@@ -30,9 +30,11 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         if userId.isEmpty {
             userId = DataManager.shared.currentUserObjectId
         }
-        RemoteAPIManager.shared.getUserInfo(with: userId) { (isSuccess, info) in
-            self.userInfo = info
-            self.tableview.reloadData()
+        UserInfo.findUserInfo(with: userId) { (response) in
+            if response.status == .Success {
+                self.userInfo = response.data
+                self.tableview.reloadData()
+            }
         }
     }
     

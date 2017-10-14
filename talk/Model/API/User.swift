@@ -9,14 +9,13 @@ import UIKit
 import Parse
 
 class User: PFUser {
-    typealias CompletionHandler = (Bool) -> Void
-
-    func signUpWithCompletion(completionHandler: @escaping CompletionHandler) {
+    
+    func signUp(completion: @escaping StatusCompletionHandler) {
         self.signUpInBackground { (isSucceeded, error) in
-            completionHandler(isSucceeded)
+            completion(isSucceeded == true ? .Success: .Failure)
         }
     }
-    class func login(userId: String, password: String, withCompletionHandler: @escaping CompletionHandler) {
+    class func login(with userId: String, password: String, completion: @escaping StatusCompletionHandler) {
         PFUser.logInWithUsername(inBackground: userId, password: password) { (user, error) in
             if user != nil {
                 let loginHistory = LoginHistory.createNewRecord()
@@ -26,7 +25,7 @@ class User: PFUser {
                 loginHistory.objectId = user?.objectId
                 CoreDataManager.shared.saveContext()
             }
-            withCompletionHandler(user == nil ? false : true)
+            completion(user != nil ? .Success: .Failure)
         }
 
     }

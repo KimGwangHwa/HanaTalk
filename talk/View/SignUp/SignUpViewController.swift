@@ -35,17 +35,19 @@ class SignUpViewController: UIViewController {
         let signupUser = User(className: "_User");
         signupUser.username = userIdTextField.text
         signupUser.password = passwordTextField.text
-        signupUser.signUpWithCompletion { (isSuccess) in
-            let addUserInfo = UserInfo()
-            addUserInfo.nickName = self.nickNameTextField.text
-            addUserInfo.sex = self.sex
-            addUserInfo.userId = signupUser.objectId ?? ""
-            addUserInfo.birthday = Common.stringToDate(dateString: self.birthdayTextField.text, format: DATE_FORMAT_2)
-            addUserInfo.saveInBackground(block: { (isSuccess, error) in
-                if isSuccess {
-                    NSLog("adfasdf")
-                }
-            })
+        signupUser.signUp { (status) in
+            if status == .Success {
+                let addUserInfo = UserInfo()
+                addUserInfo.nickName = self.nickNameTextField.text
+                addUserInfo.sex = self.sex
+                addUserInfo.userId = signupUser.objectId ?? ""
+                addUserInfo.birthday = Common.stringToDate(dateString: self.birthdayTextField.text, format: DATE_FORMAT_2)
+                addUserInfo.remoteSaveRecord(completion: { (status) in
+                    if status == .Success {
+                        self.performSegue(withIdentifier: R.segue.signUpViewController.home.identifier, sender: nil);
+                    }
+                })
+            }
         }
     }
     

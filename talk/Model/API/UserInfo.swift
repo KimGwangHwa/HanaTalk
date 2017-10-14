@@ -18,10 +18,8 @@ class UserInfo: PFObject, PFSubclassing {
         return "UserInfo"
     }
 
-    typealias CompletionHandler = (Bool) -> Void
+    typealias GetUserInfoCompletionHandler = (Response<UserInfo>) -> Void
 
-    //var objectId = ""
-    
     var statusMessage: String?
     
     var userId = ""
@@ -50,33 +48,32 @@ class UserInfo: PFObject, PFSubclassing {
     
     var birthday: Date?
     
-    func uploadProfilePicture(image: UIImage, completion: @escaping CompletionHandler) {
+    func uploadProfilePicture(image: UIImage, completion: @escaping StatusCompletionHandler) {
         let data = image.sd_imageData()
         let pffile = PFFile(name: Common.dateToString(date: Date(), format: DATE_FORMAT_1)! + ".png", data: data!)
         
         self["profilePicture"] = pffile
         self.profilePicture = pffile?.url
         self.saveInBackground { (isSuccess, error) in
-            completion(isSuccess)
+            completion(isSuccess == true ? .Success: .Failure)
         }
     }
-    func upload(completion: @escaping CompletionHandler) {
-
-        self["userId"] = DataManager.shared.currentUserInfo?.userId
-        self["phoneNumber"] = DataManager.shared.currentUserInfo?.phoneNumber ?? ""
-        self["statusMessage"] = DataManager.shared.currentUserInfo?.statusMessage ?? ""
-        self["sex"] = DataManager.shared.currentUserInfo?.sex ?? false
-        self["nickName"] = DataManager.shared.currentUserInfo?.nickName ?? ""
-        self["birthday"] = DataManager.shared.currentUserInfo?.birthday ?? Date()
+    
+    func remoteSaveRecord(completion: @escaping StatusCompletionHandler) {
+        self["userId"] = self.userId
+        self["phoneNumber"] = self.phoneNumber ?? ""
+        self["statusMessage"] = self.statusMessage ?? ""
+        self["sex"] = self.sex
+        self["nickName"] = self.nickName ?? ""
+        self["birthday"] = self.birthday ?? Date()
         
         self.saveInBackground { (isSuccess, error) in
-            completion(isSuccess)
+            completion(isSuccess == true ? .Success: .Failure)
         }
+
     }
     
-    
-    
-    class func creatUserInfos(with ojbects: [PFObject]?) -> [UserInfo]? {
+    class func convertUserInfos(with ojbects: [PFObject]?) -> [UserInfo]? {
 
         if let guardObject = ojbects {
             var retInfos = [UserInfo]()
@@ -103,6 +100,17 @@ class UserInfo: PFObject, PFSubclassing {
         return nil
     }
 
-    
-    
+    class func findUserInfo(with userId: String, completion: @escaping GetUserInfoCompletionHandler) {
+        let query = PFQuery(className: "UserInfo")
+        query.whereKey("userId", equalTo: userId)
+        query.findObjectsInBackground(block: { (objects, error) in
+            if let infos = UserInfo.convertUserInfos(with: objects) ,
+                let currentUserInfo = infos.first {
+                let response = Response<UserInfo>()
+                response.data = currentUserInfo
+                response.status = .Success
+                completion(response)
+            }
+        })
+    }
 }

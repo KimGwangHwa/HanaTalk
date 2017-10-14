@@ -139,11 +139,20 @@
                         <outlet property="nickNameTextField" destination="PxF-i1-HrQ" id="HoK-yI-sTP"/>
                         <outlet property="passwordTextField" destination="U8H-df-qsH" id="AES-pz-eA0"/>
                         <outlet property="userIdTextField" destination="BzA-gp-HYe" id="lb9-MI-Oje"/>
+                        <segue destination="1g4-9s-7lg" kind="show" identifier="Home" id="ZWK-63-SO5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LE5-gd-sOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="80.799999999999997" y="66.11694152923539"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="rBy-hm-g8c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="1g4-9s-7lg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9x-2p-Znc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="-21"/>
         </scene>
     </scenes>
 </document>
