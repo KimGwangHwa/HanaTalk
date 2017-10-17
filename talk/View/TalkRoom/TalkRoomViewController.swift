@@ -31,13 +31,13 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         addKeyBoardObserver()
         setUpView()
-        getReceiverInfo()
+        readData()
     }
     
-    func getReceiverInfo() {
-        RemoteAPIManager.shared.getUserInfo(with: receiverUserId) { (isSuccess, info) in
-            if isSuccess {
-                self.receiverUserInfo = info
+    func readData() {
+        UserInfo.findUserInfo(with: receiverUserId) { (response) in
+            if response.status == .Success {
+                self.receiverUserInfo = response.data
                 self.enterTheChatRoom()
             }
         }

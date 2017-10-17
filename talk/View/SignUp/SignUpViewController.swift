@@ -31,8 +31,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signupEvent(_ sender: Any) {
-        
-        let signupUser = User(className: "_User");
+        let signupUser = User();
         signupUser.username = userIdTextField.text
         signupUser.password = passwordTextField.text
         signupUser.signUp { (status) in
@@ -52,7 +51,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func sexSelectEvent(_ sender: UIButton) {
-    
+        if sender.tag == 0 {
+            sex = true
+        } else {
+            sex = false
+        }
     }
     
     @IBAction func closeEvent(_ sender: UIButton) {

@@ -9,6 +9,21 @@
 import UIKit
 import Parse
 
+enum GetUserInfoType: Int {
+    case Following
+    case Follower
+    
+    var column: String {
+        if self == .Following {
+            return "userId"
+        } else if self == .Follower {
+            return "followingUserId"
+        }
+        return ""
+    }
+    
+}
+
 class UserInfo: PFObject, PFSubclassing {
     
     /**
@@ -17,8 +32,8 @@ class UserInfo: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "UserInfo"
     }
-
     typealias GetUserInfoCompletionHandler = (Response<UserInfo>) -> Void
+    typealias GetUserInfoListCompletionHandler = (Response<[UserInfo]>) -> Void
 
     var statusMessage: String?
     
@@ -70,7 +85,7 @@ class UserInfo: PFObject, PFSubclassing {
         self.saveInBackground { (isSuccess, error) in
             completion(isSuccess == true ? .Success: .Failure)
         }
-
+        
     }
     
     class func convertUserInfos(with ojbects: [PFObject]?) -> [UserInfo]? {
@@ -94,7 +109,6 @@ class UserInfo: PFObject, PFSubclassing {
                 
             }
             return retInfos
-
         }
 
         return nil
@@ -112,5 +126,26 @@ class UserInfo: PFObject, PFSubclassing {
                 completion(response)
             }
         })
+    }
+    
+    class func findUserInfos(with type: GetUserInfoType, completion: @escaping GetUserInfoListCompletionHandler) {
+        
+        let followQuery = PFQuery(className: "Follow")
+        followQuery.whereKey(type.column, equalTo: DataManager.shared.currentUserObjectId)
+        followQuery.findObjectsInBackground { (objects, error) in
+            var objectIds = [String]()
+            for info in Follow.creatFollows(with: objects) {
+                objectIds.append(info.objectId ?? "")
+            }
+            
+            let query = PFQuery(className: "UserInfo")
+            query.whereKey("userId", containedIn: objectIds)
+            query.findObjectsInBackground(block: { (objects, error) in
+                let response = Response<[UserInfo]>()
+                response.data = UserInfo.convertUserInfos(with: objects)
+                response.status = .Success
+                completion(response)
+            })
+        }
     }
 }
