@@ -11,9 +11,12 @@ import CoreData
 
 enum EntityName: String {
     case LoginHistory = "LoginHistory"
-    case TalkLogHistory = "TalkLogHistory"
     case Message = "Message"
     case ChatRoom = "ChatRoom"
+    case User = "User"
+    case UserInfo = "UserInfo"
+    case Follow = "Follow"
+
 }
 
 class CoreDataManager: NSObject {

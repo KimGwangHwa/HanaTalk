@@ -31,21 +31,22 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signupEvent(_ sender: Any) {
-        let signupUser = User();
-        signupUser.username = userIdTextField.text
-        signupUser.password = passwordTextField.text
-        signupUser.signUp { (status) in
+        let signupUser = User.createNewRecord();
+        signupUser.userName = userIdTextField.text ?? ""
+        signupUser.password = passwordTextField.text ?? ""
+        let dao = UserDao()
+        dao.signUp(user: signupUser) { (status) in
             if status == .Success {
                 let addUserInfo = UserInfo()
                 addUserInfo.nickName = self.nickNameTextField.text
                 addUserInfo.sex = self.sex
-                addUserInfo.userId = signupUser.objectId ?? ""
+                addUserInfo.userId = signupUser.objectId
                 addUserInfo.birthday = Common.stringToDate(dateString: self.birthdayTextField.text, format: DATE_FORMAT_2)
-                addUserInfo.remoteSaveRecord(completion: { (status) in
-                    if status == .Success {
-                        self.performSegue(withIdentifier: R.segue.signUpViewController.home.identifier, sender: nil);
-                    }
-                })
+//                addUserInfo.remoteSaveRecord(completion: { (status) in
+//                    if status == .Success {
+//                        self.performSegue(withIdentifier: R.segue.signUpViewController.home.identifier, sender: nil);
+//                    }
+//                })
             }
         }
     }

@@ -12,13 +12,14 @@ import CoreData
 
 extension Follow {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Follow> {
+    @nonobjc public class func fetchFollowRequest() -> NSFetchRequest<Follow> {
         return NSFetchRequest<Follow>(entityName: "Follow")
     }
 
-    @NSManaged public var updateAt: Date?
-    @NSManaged public var followingId: String?
-    @NSManaged public var objectId: String?
-    @NSManaged public var userId: String?
+    @NSManaged public var updateAt: Date
+    @NSManaged public var createAt: Date
+    @NSManaged public var followingId: String
+    @NSManaged public var objectId: String
+    @NSManaged public var userId: String
 
 }

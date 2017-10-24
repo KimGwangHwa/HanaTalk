@@ -25,7 +25,7 @@ class UserInfoCell: UITableViewCell {
         didSet {
             if let guradUserInfo = userInfo {
                 if customBadgeView != nil {
-                    customBadgeView.imageView.sd_setImage(with: URL(string: guradUserInfo.profilePicture ?? ""), placeholderImage: nil)
+                    customBadgeView.imageView.sd_setImage(with: URL(string: guradUserInfo.profilePictureUrl ?? ""), placeholderImage: nil)
                 }
 
                 if nickNameLabel != nil {
@@ -52,15 +52,15 @@ class UserInfoCell: UITableViewCell {
                 }                
                 //
                 if postsLabel != nil {
-                    postsLabel.text = "\(String(guradUserInfo.postsCount ?? 0))"
+                    postsLabel.text = "\(String(guradUserInfo.postsCount))"
                 }
 //
                 if followingLabel != nil {
-                    followingLabel.text = "\(String(guradUserInfo.followingCount ?? 0))"
+                    followingLabel.text = "\(String(guradUserInfo.followingCount))"
                 }
 //
                 if followerLabel != nil {
-                    followerLabel.text = "\(String(guradUserInfo.followersCount ?? 0))"
+                    followerLabel.text = "\(String(guradUserInfo.followersCount))"
                 }
                 
             }

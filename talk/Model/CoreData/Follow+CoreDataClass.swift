@@ -11,5 +11,11 @@ import CoreData
 
 @objc(Follow)
 public class Follow: NSManagedObject {
+    
+    class func createNewRecord() -> Follow {
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Follow.rawValue, in: CoreDataManager.shared.managedObjectContext)
+        let follow = Follow(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        return follow
+    }
 
 }

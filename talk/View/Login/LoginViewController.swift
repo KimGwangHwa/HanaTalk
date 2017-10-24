@@ -29,11 +29,17 @@ class LoginViewController: UITableViewController {
     
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        User.login(with: userIdTextField.text ?? "", password: passwordTextField.text ?? "") { (status) in
-            if status == .Success {
-                self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
-            }
-        }
+
+//        let dao = UserDao()
+//        dao.login(user: <#T##User#>) { (response) in
+//
+//        }
+        
+//        User.login(with: userIdTextField.text ?? "", password: passwordTextField.text ?? "") { (status) in
+//            if status == .Success {
+//                self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
+//            }
+//        }
     }
 
     // MARK: Segue Prepare

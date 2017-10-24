@@ -35,7 +35,9 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func readData() {
-        UserInfo.findUserInfo(with: receiverUserId) { (response) in
+        let dao = UserInfoDao()
+        
+        dao.findUserInfo(with: receiverUserId) { (response) in
             if response.status == .Success {
                 self.receiverUserInfo = response.data
                 self.enterTheChatRoom()
