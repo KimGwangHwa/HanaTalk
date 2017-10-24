@@ -1,4 +1,4 @@
-//
+//
 //  User.swift
 //  talk
 //
@@ -27,7 +27,6 @@ class User: PFUser {
             }
             completion(user != nil ? .Success: .Failure)
         }
-
     }
     
 }
