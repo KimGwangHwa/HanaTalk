@@ -52,7 +52,7 @@ class InfoInputViewController: UIViewController {
         infoInputTextField.leftView = leftView
         infoInputTextField.leftViewMode = .always
         
-        if let userInfo = DataManager.shared.currentUserInfo {
+        if let userInfo = DataManager.shared.currentUserInfo() {
             switch type {
             case .nickName:
                 infoInputTextField.text = userInfo.nickName
@@ -77,7 +77,7 @@ class InfoInputViewController: UIViewController {
     }
 
     @objc func doneEvent() {
-        var userInfo:UserInfo? = DataManager.shared.currentUserInfo
+        var userInfo:UserInfo? = DataManager.shared.currentUserInfo()
         
         if userInfo == nil {
             userInfo = UserInfo()

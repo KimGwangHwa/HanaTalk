@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 @objc(Follow)
 public class Follow: NSManagedObject {
@@ -17,5 +18,19 @@ public class Follow: NSManagedObject {
         let follow = Follow(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
         return follow
     }
-
+    
+    class func convertFollow(with ojbects: [PFObject]?) -> [Follow]? {
+        
+        if let guardObject = ojbects {
+            var retInfos = [Follow]()
+            for item in guardObject {
+                let object = Follow()
+                object.userId =  (item["userId"] as? String) ?? ""
+                object.followingId =  (item["followingId"] as? String) ?? ""
+                retInfos.append(object)
+            }
+            return retInfos
+        }
+        return nil;
+    }
 }

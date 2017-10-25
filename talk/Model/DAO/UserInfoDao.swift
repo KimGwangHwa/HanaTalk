@@ -28,7 +28,7 @@ class UserInfoDao: NSObject {
     typealias GetUserInfoCompletionHandler = (Response<UserInfo>) -> Void
     typealias GetUserInfoListCompletionHandler = (Response<[UserInfo]>) -> Void
     
-    func findUserInfos(with type: GetUserInfoType, completion: @escaping GetUserInfoListCompletionHandler) {
+    func findUserInfo(with type: GetUserInfoType, completion: @escaping GetUserInfoListCompletionHandler) {
         
         let followQuery = PFQuery(className: "Follow")
         followQuery.whereKey(type.column, equalTo: DataManager.shared.currentUserObjectId)
@@ -64,4 +64,27 @@ class UserInfoDao: NSObject {
             }
         })
     }
+
+    func findFirst() -> UserInfo? {
+        let fetchRequest = UserInfo.fetchUserInfoRequest()
+        do {
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            return fetchData.last
+        } catch {
+            return nil;
+        }
+    }
+    func findBy(userId: String) -> UserInfo? {
+        let fetchRequest = UserInfo.fetchUserInfoRequest()
+        let predicate = NSPredicate(format: "userId = %@", userId)
+        fetchRequest.predicate = predicate
+        do {
+            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            return fetchData.last
+        } catch {
+            return nil;
+        }
+    }
+
+
 }
