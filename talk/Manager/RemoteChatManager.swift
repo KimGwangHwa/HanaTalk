@@ -59,8 +59,8 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     
     func enterTheChatRoom(userName: String, completionHandler: @escaping EnterTheChatRoomCompletionHandler) {
         
-        if let chatRoom = ChatRoom.find(chatName: userName) {
-            Message.updateReadingStatus(with: chatRoom.name ?? "")
+        if let chatRoom = ChatRoomDao.find(chatName: userName) {
+            MessageDao.updateReadingStatus(with: chatRoom.name ?? "")
             SBDGroupChannel.getWithUrl(chatRoom.url ?? "") { (groupChannel, error) in
                 
                 self.groupChannel = groupChannel
@@ -143,7 +143,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         if let userMessage = message as? SBDUserMessage {
             if let textMessage = userMessage.message {
                 
-                var chatRoom = ChatRoom.find(chatName: sender.name)
+                var chatRoom = ChatRoomDao.find(chatName: sender.name)
                 
                 if chatRoom == nil  {
                     chatRoom = ChatRoom.createNewRecord()

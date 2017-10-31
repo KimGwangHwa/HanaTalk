@@ -30,8 +30,8 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         if userId.isEmpty {
             userId = DataManager.shared.currentUserObjectId
         }
-        let dao = UserInfoDao()
-        dao.findUserInfo(with: userId) { (response) in
+        
+        UserInfoDao.findUserInfo(with: userId) { (response) in
             if response.status == .Success {
                 self.userInfo = response.data
                 self.tableview.reloadData()

@@ -25,10 +25,10 @@ enum GetUserInfoType: Int {
 
 class UserInfoDao: NSObject {
     
-    typealias GetUserInfoCompletionHandler = (Response<UserInfo>) -> Void
-    typealias GetUserInfoListCompletionHandler = (Response<[UserInfo]>) -> Void
+    typealias UserInfoCompletionHandler = (Response<UserInfo>) -> Void
+    typealias UserInfoListCompletionHandler = (Response<[UserInfo]>) -> Void
     
-    func findUserInfo(with type: GetUserInfoType, completion: @escaping GetUserInfoListCompletionHandler) {
+    class func findUserInfo(with type: GetUserInfoType, completion: @escaping UserInfoListCompletionHandler) {
         
         let followQuery = PFQuery(className: "Follow")
         followQuery.whereKey(type.column, equalTo: DataManager.shared.currentUserObjectId)
@@ -51,7 +51,7 @@ class UserInfoDao: NSObject {
         }
     }
     
-    func findUserInfo(with userId: String, completion: @escaping GetUserInfoCompletionHandler) {
+    class func findUserInfo(with userId: String, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
         query.whereKey("userId", equalTo: userId)
         query.findObjectsInBackground(block: { (objects, error) in
@@ -65,7 +65,7 @@ class UserInfoDao: NSObject {
         })
     }
 
-    func findFirst() -> UserInfo? {
+    class func findFirst() -> UserInfo? {
         let fetchRequest = UserInfo.fetchUserInfoRequest()
         do {
             let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
@@ -74,7 +74,8 @@ class UserInfoDao: NSObject {
             return nil;
         }
     }
-    func findBy(userId: String) -> UserInfo? {
+    
+    class func findBy(userId: String) -> UserInfo? {
         let fetchRequest = UserInfo.fetchUserInfoRequest()
         let predicate = NSPredicate(format: "userId = %@", userId)
         fetchRequest.predicate = predicate

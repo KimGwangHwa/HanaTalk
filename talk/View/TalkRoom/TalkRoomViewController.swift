@@ -35,9 +35,8 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func readData() {
-        let dao = UserInfoDao()
         
-        dao.findUserInfo(with: receiverUserId) { (response) in
+        UserInfoDao.findUserInfo(with: receiverUserId) { (response) in
             if response.status == .Success {
                 self.receiverUserInfo = response.data
                 self.enterTheChatRoom()
@@ -53,7 +52,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
             if isSuccess == true {
                 self.chatRoom = chatRoom
 
-                if let messages = Message.find(chatName: self.chatRoom.name ?? "") {
+                if let messages = MessageDao.find(chatName: self.chatRoom.name ?? "") {
                     self.dataSource.append(contentsOf: messages)
                     self.tableView.reloadData()
                 }

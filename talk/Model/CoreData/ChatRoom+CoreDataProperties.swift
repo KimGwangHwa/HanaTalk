@@ -21,8 +21,8 @@ extension ChatRoom {
     @NSManaged public var members: [String]?
     @NSManaged public var memberCount: Int16
     @NSManaged public var createdAt: Date?
-    @NSManaged public var objectId: Int16
-    @NSManaged public var lastMessageId: Int16
+    @NSManaged public var objectId: String
+    @NSManaged public var lastMessageId: String?
     @NSManaged public var name: String?
     @NSManaged public var url: String?
     @NSManaged public var coverImageUrls: [String]?

@@ -10,18 +10,21 @@ import Parse
 
 class UserDao: NSObject {
     
-    private let pfObject: PFUser = PFUser();
-    
-    func signUp(user: User, completion: @escaping StatusCompletionHandler) {
+    class func signUp(user: User, completion: @escaping StatusCompletionHandler) {
+        let pfObject: PFUser = PFUser()
         pfObject.username = user.userName
         pfObject.password = user.password
         
         pfObject.signUpInBackground { (isSucceeded, error) in
+            user.objectId = pfObject.objectId ?? ""
+            user.createAt = pfObject.createdAt ?? Date()
+            user.updateAt = pfObject.updatedAt ?? Date()
+            CoreDataManager.shared.saveContext()
             completion(isSucceeded == true ? .Success: .Failure)
         }
     }
     
-    func login(user: User, completion: @escaping StatusCompletionHandler) {
+    class func login(user: User, completion: @escaping StatusCompletionHandler) {
         PFUser.logInWithUsername(inBackground: user.userName, password: user.password) { (pfUser, error) in
             if let guradUser = pfUser {
                 user.objectId = guradUser.objectId ?? ""
@@ -33,7 +36,7 @@ class UserDao: NSObject {
         }
     }
 
-    func findFirst() -> User? {
+    class func findFirst() -> User? {
         var user: User? = nil;
         let fetchRequest = User.fetchUserRequest()
         //        let predicate = NSPredicate(format: "%K = %s", "userId", "tt")

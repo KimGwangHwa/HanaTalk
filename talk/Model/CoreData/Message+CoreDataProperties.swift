@@ -24,7 +24,7 @@ extension Message {
         return NSFetchRequest<Message>(entityName: "Message")
     }
 
-    @NSManaged public var objectId: Int16
+    @NSManaged public var objectId: String
     @NSManaged public var createdAt: Date?
     @NSManaged public var sender: String?
     @NSManaged public var receiver: String?

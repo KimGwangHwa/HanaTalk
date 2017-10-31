@@ -17,20 +17,23 @@ class DataManager: NSObject {
         
     }
     
-    var currentUser: User? = UserDao().findFirst()
+    var currentUser: User? = UserDao.findFirst()
     
     var currentUserObjectId: String = (LoginHistory.readLastLoginHistory()?.objectId) ?? ""
     
     func currentUserInfo() -> UserInfo? {
         
         if let guardCurrentUser = currentUser {
-            return UserInfoDao().findBy(userId: guardCurrentUser.objectId)
+            return UserInfoDao.findBy(userId: guardCurrentUser.objectId)
         }
-        return nil;
+        return nil
     }
     
     var chatRooms: [ChatRoom] {
-        return ChatRoom.readAllData()
+        if let chatRooms = ChatRoomDao.readAllData() {
+            return chatRooms
+        }
+        return []
     }
     
     
