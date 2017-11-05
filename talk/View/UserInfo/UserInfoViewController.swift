@@ -31,7 +31,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
             userId = DataManager.shared.currentUserObjectId
         }
         
-        UserInfoDao.findUserInfo(with: userId) { (response) in
+        UserInfoApi.findUserInfo(with: userId) { (response) in
             if response.status == .Success {
                 self.userInfo = response.data
                 self.tableview.reloadData()

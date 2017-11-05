@@ -26,6 +26,7 @@ public class UserInfo: NSManagedObject {
             for item in guardObject {
                 let object: UserInfo = UserInfo.createNewRecord()
                 object.objectId = item.objectId ?? ""
+                object.birthday = item["birthday"] as? Date
                 object.statusMessage =  item["statusMessage"] as? String
                 object.email =  item["email"] as? String
                 object.profilePictureUrl =  (item["profilePicture"] as? PFFile)?.url
@@ -38,7 +39,6 @@ public class UserInfo: NSManagedObject {
             }
             return retInfos
         }
-        
         return nil
     }
 }

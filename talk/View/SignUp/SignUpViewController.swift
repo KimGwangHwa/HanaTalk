@@ -35,7 +35,7 @@ class SignUpViewController: UIViewController {
         signupUser.userName = userIdTextField.text ?? ""
         signupUser.password = passwordTextField.text ?? ""
 
-        UserDao.signUp(user: signupUser) { (status) in
+        UserApi.signUp(user: signupUser) { (status) in
             if status == .Success {
                 let addUserInfo = UserInfo()
                 addUserInfo.nickName = self.nickNameTextField.text
