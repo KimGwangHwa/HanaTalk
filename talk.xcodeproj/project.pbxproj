@@ -36,7 +36,7 @@
 		34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B771FA8B8510045CA60 /* FollowApi.swift */; };
 		34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B791FA8B85D0045CA60 /* MessageApi.swift */; };
 		34385B7C1FA8B86D0045CA60 /* ChatRoomApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */; };
-		3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */; };
+		3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */; };
 		3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A71E1F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift */; };
 		3459A7211F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */; };
 		3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7241F50496B000D2FC5 /* HomeViewController.swift */; };
@@ -108,7 +108,7 @@
 		34385B771FA8B8510045CA60 /* FollowApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
 		34385B791FA8B85D0045CA60 /* MessageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageApi.swift; sourceTree = "<group>"; };
 		34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomApi.swift; sourceTree = "<group>"; };
-		3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		3459A71E1F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3459A71F1F3B4322000D2FC5 /* LoginHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3459A7241F50496B000D2FC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 		349EAD5E1F2F59CF005833ED /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				3459A70D1F3B3CC8000D2FC5 /* CoreDataManager.swift */,
+				3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */,
 				3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */,
 				3406272E1F5ADAC500821E39 /* DataManager.swift */,
 			);
@@ -658,7 +658,7 @@
 				3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
-				3459A70E1F3B3CC8000D2FC5 /* CoreDataManager.swift in Sources */,
+				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
 				347DB0781F9E282100192DC5 /* User+CoreDataClass.swift in Sources */,
 				347DB0771F9E282100192DC5 /* Follow+CoreDataProperties.swift in Sources */,
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,

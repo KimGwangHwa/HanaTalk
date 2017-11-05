@@ -15,7 +15,7 @@ class UserDao: NSObject {
         //        let predicate = NSPredicate(format: "%K = %s", "userId", "tt")
         //        fetchRequest.predicate = predicate
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             user = fetchData.last
         } catch {
             return nil;

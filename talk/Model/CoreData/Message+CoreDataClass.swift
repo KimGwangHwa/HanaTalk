@@ -13,8 +13,8 @@ import CoreData
 public class Message: NSManagedObject {
     
     class func createNewRecord() -> Message {
-        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Message.rawValue, in: CoreDataManager.shared.managedObjectContext)
-        let message = Message(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Message.rawValue, in: CoreDataHelper.shared.managedObjectContext)
+        let message = Message(entity: tweet!, insertInto: CoreDataHelper.shared.managedObjectContext)
         message.createdAt = Date()
         return message
     }        

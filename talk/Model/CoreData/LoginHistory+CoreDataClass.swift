@@ -13,8 +13,8 @@ import CoreData
 public class LoginHistory: NSManagedObject {
 
     class func createNewRecord() -> LoginHistory {
-        let tweet = NSEntityDescription.entity(forEntityName: EntityName.LoginHistory.rawValue, in: CoreDataManager.shared.managedObjectContext)
-        let history = LoginHistory(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.LoginHistory.rawValue, in: CoreDataHelper.shared.managedObjectContext)
+        let history = LoginHistory(entity: tweet!, insertInto: CoreDataHelper.shared.managedObjectContext)
         return history
     }
     
@@ -26,7 +26,7 @@ public class LoginHistory: NSManagedObject {
         //        let predicate = NSPredicate(format: "%K = %s", "userId", "tt")
         //        fetchRequest.predicate = predicate
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             lastLoginHistory = fetchData.last
         } catch {
             
@@ -39,9 +39,9 @@ public class LoginHistory: NSManagedObject {
         //        let predicate = NSPredicate(format: "%K = %s", "userId", "tt")
         //        fetchRequest.predicate = predicate
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             for data in fetchData {
-                CoreDataManager.shared.managedObjectContext.delete(data)
+                CoreDataHelper.shared.managedObjectContext.delete(data)
             }
         } catch {
             

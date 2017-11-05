@@ -74,7 +74,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 chatRoom.url = groupChannel?.channelUrl
                 chatRoom.name = userName
                 
-                CoreDataManager.shared.saveContext()
+                CoreDataHelper.shared.saveContext()
                 
                 self.groupChannel = groupChannel
                 
@@ -123,7 +123,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 sendMessage.chatName = chatRoom.name
                 chatRoom.lastMessageId = sendMessage.objectId
                 
-                CoreDataManager.shared.saveContext()
+                CoreDataHelper.shared.saveContext()
                 completionHandler(true, sendMessage)
             }
             
@@ -162,7 +162,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 chatRoom?.lastMessageId = message.objectId
                 chatRoom?.unreadMessageCount += 1
                 
-                CoreDataManager.shared.saveContext()
+                CoreDataHelper.shared.saveContext()
                 
                 delegates.objectEnumerator().enumerated()
                     .map { $0.element as? DidReceiveMessageDelegate }

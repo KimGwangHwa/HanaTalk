@@ -17,7 +17,7 @@ class ChatRoomDao: NSObject {
         
         do {
             
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             if !fetchData.isEmpty {
                 return fetchData.first
             }
@@ -35,7 +35,7 @@ class ChatRoomDao: NSObject {
         fetchRequest.predicate = predicate
         
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             if fetchData.isEmpty {
                 return false
             } else {
@@ -52,7 +52,7 @@ class ChatRoomDao: NSObject {
         let fetchRequest = ChatRoom.fetchChatRoomRequest()
         
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             
             return fetchData
             

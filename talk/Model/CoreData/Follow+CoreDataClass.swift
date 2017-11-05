@@ -14,8 +14,8 @@ import Parse
 public class Follow: NSManagedObject {
     
     class func createNewRecord() -> Follow {
-        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Follow.rawValue, in: CoreDataManager.shared.managedObjectContext)
-        let follow = Follow(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.Follow.rawValue, in: CoreDataHelper.shared.managedObjectContext)
+        let follow = Follow(entity: tweet!, insertInto: CoreDataHelper.shared.managedObjectContext)
         return follow
     }
     

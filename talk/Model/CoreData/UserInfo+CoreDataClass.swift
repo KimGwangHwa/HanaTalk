@@ -14,8 +14,8 @@ import Parse
 public class UserInfo: NSManagedObject {
     
     class func createNewRecord() -> UserInfo {
-        let tweet = NSEntityDescription.entity(forEntityName: EntityName.UserInfo.rawValue, in: CoreDataManager.shared.managedObjectContext)
-        let userInfo = UserInfo(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.UserInfo.rawValue, in: CoreDataHelper.shared.managedObjectContext)
+        let userInfo = UserInfo(entity: tweet!, insertInto: CoreDataHelper.shared.managedObjectContext)
         return userInfo
     }
     

@@ -19,9 +19,9 @@ enum EntityName: String {
 
 }
 
-class CoreDataManager: NSObject {
+class CoreDataHelper: NSObject {
     
-    static let shared = CoreDataManager()
+    static let shared = CoreDataHelper()
     
     public var loginInfo: LoginHistory? {
         return LoginHistory.readLastLoginHistory()

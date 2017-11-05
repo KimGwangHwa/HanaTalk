@@ -44,6 +44,7 @@ class UserInfoApi: NSObject {
                 let response = Response<[UserInfo]>()
                 response.data = UserInfo.convertUserInfos(with: objects)
                 response.status = .Success
+                
                 completion(response)
             })
         }
@@ -81,8 +82,5 @@ class UserInfoApi: NSObject {
             completion(isSuccess == true ? .Success: .Failure )
         }
     }
-    
-    //profile
-    
     
 }

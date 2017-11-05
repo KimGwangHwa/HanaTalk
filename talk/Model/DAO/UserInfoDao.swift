@@ -12,7 +12,7 @@ class UserInfoDao: NSObject {
     class func findFirst() -> UserInfo? {
         let fetchRequest = UserInfo.fetchUserInfoRequest()
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             return fetchData.last
         } catch {
             return nil;
@@ -24,7 +24,7 @@ class UserInfoDao: NSObject {
         let predicate = NSPredicate(format: "userId = %@", userId)
         fetchRequest.predicate = predicate
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             return fetchData.last
         } catch {
             return nil;

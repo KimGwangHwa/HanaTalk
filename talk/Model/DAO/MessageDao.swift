@@ -16,7 +16,7 @@ class MessageDao: NSObject {
         fetchRequest.predicate = predicate
         
         do {
-            let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+            let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
             return fetchData
         } catch {
             
@@ -31,7 +31,7 @@ class MessageDao: NSObject {
             fetchRequest.predicate = predicate
             
             do {
-                let fetchData = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+                let fetchData = try CoreDataHelper.shared.managedObjectContext.fetch(fetchRequest)
                 return fetchData.first
             } catch {
                 
@@ -51,6 +51,6 @@ class MessageDao: NSObject {
             chatRoom.unreadMessageCount = 0
         }
         
-        CoreDataManager.shared.saveContext()
+        CoreDataHelper.shared.saveContext()
     }
 }

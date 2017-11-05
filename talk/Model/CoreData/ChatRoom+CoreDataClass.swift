@@ -13,8 +13,8 @@ import CoreData
 public class ChatRoom: NSManagedObject {
 
     class func createNewRecord() -> ChatRoom {
-        let tweet = NSEntityDescription.entity(forEntityName: EntityName.ChatRoom.rawValue, in: CoreDataManager.shared.managedObjectContext)
-        let chatRoom = ChatRoom(entity: tweet!, insertInto: CoreDataManager.shared.managedObjectContext)
+        let tweet = NSEntityDescription.entity(forEntityName: EntityName.ChatRoom.rawValue, in: CoreDataHelper.shared.managedObjectContext)
+        let chatRoom = ChatRoom(entity: tweet!, insertInto: CoreDataHelper.shared.managedObjectContext)
         chatRoom.createdAt = Date()
         return chatRoom
     }

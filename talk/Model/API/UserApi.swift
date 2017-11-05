@@ -18,7 +18,7 @@ class UserApi: NSObject {
             user.objectId = pfObject.objectId ?? ""
             user.createAt = pfObject.createdAt ?? Date()
             user.updateAt = pfObject.updatedAt ?? Date()
-            CoreDataManager.shared.saveContext()
+            CoreDataHelper.shared.saveContext()
             completion(isSucceeded == true ? .Success: .Failure)
         }
     }
@@ -29,7 +29,7 @@ class UserApi: NSObject {
                 user.objectId = guradUser.objectId ?? ""
                 user.createAt = guradUser.createdAt ?? Date()
                 user.updateAt = guradUser.updatedAt ?? Date()
-                CoreDataManager.shared.saveContext()
+                CoreDataHelper.shared.saveContext()
             }
             completion(pfUser != nil ? .Success: .Failure)
         }
