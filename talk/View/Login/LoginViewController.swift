@@ -14,8 +14,6 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let homeSegueIdentifier = R.segue.loginViewController.home.identifier
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,11 +39,4 @@ class LoginViewController: UITableViewController {
 //            }
 //        }
     }
-
-    // MARK: Segue Prepare
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-
 }

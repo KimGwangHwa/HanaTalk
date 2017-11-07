@@ -17,6 +17,8 @@
 		3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627391F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift */; };
 		3406273E1F5BCB7800821E39 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406273A1F5BCB7800821E39 /* Message+CoreDataClass.swift */; };
 		3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406273B1F5BCB7800821E39 /* Message+CoreDataProperties.swift */; };
+		341D1AD21FB0A1990070ECAC /* UserInfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D1AD11FB0A1990070ECAC /* UserInfoInput.storyboard */; };
+		341D1AD61FB1DD020070ECAC /* UserInfoInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D1AD51FB1DD020070ECAC /* UserInfoInputViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
 		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
@@ -89,6 +91,8 @@
 		340627391F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatRoom+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3406273A1F5BCB7800821E39 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3406273B1F5BCB7800821E39 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		341D1AD11FB0A1990070ECAC /* UserInfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoInput.storyboard; sourceTree = "<group>"; };
+		341D1AD51FB1DD020070ECAC /* UserInfoInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoInputViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -171,6 +175,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		341D1AD31FB1DCE60070ECAC /* UserInfoInput */ = {
+			isa = PBXGroup;
+			children = (
+				341D1AD41FB1DCE60070ECAC /* Cell */,
+				341D1AD51FB1DD020070ECAC /* UserInfoInputViewController.swift */,
+			);
+			path = UserInfoInput;
+			sourceTree = "<group>";
+		};
+		341D1AD41FB1DCE60070ECAC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		34211D081F3A0714000F0C94 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +203,7 @@
 				3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */,
 				3461F50D1F763672000D09D5 /* Find.storyboard */,
 				34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */,
+				341D1AD11FB0A1990070ECAC /* UserInfoInput.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -190,6 +211,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				341D1AD31FB1DCE60070ECAC /* UserInfoInput */,
 				34FB87CD1F7F3FD900253C92 /* InfoInput */,
 				3461F5051F763640000D09D5 /* Find */,
 				3459A7301F526481000D2FC5 /* UserInfo */,
@@ -554,6 +576,7 @@
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
+				341D1AD21FB0A1990070ECAC /* UserInfoInput.storyboard in Resources */,
 				34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */,
 				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
 				3461F5141F7636DB000D09D5 /* FindCell.xib in Resources */,
@@ -656,6 +679,7 @@
 				347DB07E1F9F6EE000192DC5 /* UserInfo+CoreDataClass.swift in Sources */,
 				3459A7201F3B4322000D2FC5 /* LoginHistory+CoreDataClass.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */,
+				341D1AD61FB1DD020070ECAC /* UserInfoInputViewController.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
