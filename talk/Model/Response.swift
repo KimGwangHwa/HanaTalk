@@ -8,13 +8,13 @@
 import UIKit
 
 enum ResponseStatus: Int {
-    case Success
-    case Failure
+    case success
+    case failure
 }
 
 typealias StatusCompletionHandler = (ResponseStatus) -> Void
 
 class Response<T> {
-    var status: ResponseStatus = .Success
+    var status: ResponseStatus = .success
     var data:T?
 }

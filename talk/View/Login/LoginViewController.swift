@@ -16,27 +16,19 @@ class LoginViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-
-//        let dao = UserDao()
-//        dao.login(user: <#T##User#>) { (response) in
-//
-//        }
-        
-//        User.login(with: userIdTextField.text ?? "", password: passwordTextField.text ?? "") { (status) in
-//            if status == .Success {
-//                self.performSegue(withIdentifier: self.homeSegueIdentifier, sender: nil)
-//            }
-//        }
+        let user = User.createNewRecord()
+        user.userName = userIdTextField.text ?? ""
+        user.password = passwordTextField.text ?? ""
+        UserApi.login(user: user) { (status) in
+            if status == .success {
+                if let viewController = R.storyboard.home.homeViewController() {
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        }
     }
 }

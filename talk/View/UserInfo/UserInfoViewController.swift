@@ -32,7 +32,7 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         UserInfoApi.findUserInfo(with: userId) { (response) in
-            if response.status == .Success {
+            if response.status == .success {
                 self.userInfo = response.data
                 self.tableview.reloadData()
             }

@@ -27,12 +27,10 @@ class SignUpViewController: UITableViewController {
         signupUser.password = passwordTextField.text ?? ""
 
         UserApi.signUp(user: signupUser) { (status) in
-            if status == .Success {
-//                addUserInfo.remoteSaveRecord(completion: { (status) in
-//                    if status == .Success {
-//                        self.performSegue(withIdentifier: R.segue.signUpViewController.home.identifier, sender: nil);
-//                    }
-//                })
+            if status == .success {
+                if let viewController = R.storyboard.addUserInfo.addUserInfoViewController() {
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                }
             }
         }
     }

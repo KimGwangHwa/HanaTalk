@@ -43,7 +43,7 @@ class UserInfoApi: NSObject {
             query.findObjectsInBackground(block: { (objects, error) in
                 let response = Response<[UserInfo]>()
                 response.data = UserInfo.convertUserInfos(with: objects)
-                response.status = .Success
+                response.status = .success
                 
                 completion(response)
             })
@@ -58,7 +58,7 @@ class UserInfoApi: NSObject {
                 let currentUserInfo = infos.first {
                 let response = Response<UserInfo>()
                 response.data = currentUserInfo
-                response.status = .Success
+                response.status = .success
                 completion(response)
             }
         })
@@ -66,20 +66,21 @@ class UserInfoApi: NSObject {
     
     class func saveUserInfo(userInfo: UserInfo, completion: @escaping StatusCompletionHandler) {
         let pfObject = PFObject(className: "UserInfo")
-        pfObject["nickName"] = userInfo.nickName
-        pfObject["email"] = userInfo.email
-        pfObject["phoneNumber"] = userInfo.phoneNumber
-        pfObject["statusMessage"] = userInfo.statusMessage
-        pfObject["birthday"] = userInfo.birthday
+        pfObject["nickName"] = userInfo.nickName ?? ""
+        pfObject["email"] = userInfo.email ?? ""
+        pfObject["phoneNumber"] = userInfo.phoneNumber ?? ""
+        pfObject["statusMessage"] = userInfo.statusMessage ?? ""
+        pfObject["birthday"] = userInfo.birthday ?? Date()
+        pfObject["userId"] = userInfo.userId
         pfObject.saveInBackground { (isSuccess, error) in
-            completion(isSuccess == true ? .Success: .Failure )
+            completion(isSuccess == true ? .success: .failure )
         }
     }
     func saveProfile(imageData:Data, completion: @escaping StatusCompletionHandler) {
         let pfObject = PFObject(className: "UserInfo")
         pfObject["profilePicture"] = PFFile(data: imageData)
         pfObject.saveInBackground { (isSuccess, error) in
-            completion(isSuccess == true ? .Success: .Failure )
+            completion(isSuccess == true ? .success: .failure )
         }
     }
     
