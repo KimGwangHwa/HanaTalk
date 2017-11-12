@@ -12,6 +12,8 @@ class AddUserInfoViewController: UITableViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var sexSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class AddUserInfoViewController: UITableViewController {
         userInfo.nickName = nickNameTextField.text
         userInfo.sex = sexSegmentedControl.selectedSegmentIndex == 0 ? true : false
         userInfo.userId = DataManager.shared.currentUser?.objectId ?? ""
+        userInfo.email = emailTextField.text ?? ""
+        userInfo.phoneNumber = phoneNumberTextField.text ?? ""
         UserInfoApi.saveUserInfo(userInfo: userInfo) { (status) in
             if status == .success {
                 if let viewController = R.storyboard.home.homeViewController() {

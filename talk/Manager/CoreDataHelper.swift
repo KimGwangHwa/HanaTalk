@@ -22,11 +22,7 @@ enum EntityName: String {
 class CoreDataHelper: NSObject {
     
     static let shared = CoreDataHelper()
-    
-    public var loginInfo: LoginHistory? {
-        return LoginHistory.readLastLoginHistory()
-    }
-    
+        
     private override init() {
         super.init()
     }

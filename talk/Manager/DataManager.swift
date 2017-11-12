@@ -19,8 +19,6 @@ class DataManager: NSObject {
     
     var currentUser: User? = UserDao.findFirst()
     
-    var currentUserObjectId: String = (LoginHistory.readLastLoginHistory()?.objectId) ?? ""
-    
     func currentUserInfo() -> UserInfo? {
         
         if let guardCurrentUser = currentUser {

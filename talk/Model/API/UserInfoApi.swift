@@ -29,7 +29,11 @@ class UserInfoApi: NSObject {
     class func findUserInfo(with type: GetUserInfoType, completion: @escaping UserInfoListCompletionHandler) {
         
         let followQuery = PFQuery(className: "Follow")
-        followQuery.whereKey(type.column, equalTo: DataManager.shared.currentUserObjectId)
+        guard let currentUser = DataManager.shared.currentUser else {
+            return
+        }
+        
+        followQuery.whereKey(type.column, equalTo: currentUser.objectId)
         followQuery.findObjectsInBackground { (objects, error) in
             var objectIds = [String]()
             if let guardObjects = objects {
@@ -72,6 +76,7 @@ class UserInfoApi: NSObject {
         pfObject["statusMessage"] = userInfo.statusMessage ?? ""
         pfObject["birthday"] = userInfo.birthday ?? Date()
         pfObject["userId"] = userInfo.userId
+        pfObject["sex"] = userInfo.sex
         pfObject.saveInBackground { (isSuccess, error) in
             completion(isSuccess == true ? .success: .failure )
         }

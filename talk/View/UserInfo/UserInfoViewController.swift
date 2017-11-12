@@ -27,10 +27,6 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }    
     func readData() {
-        if userId.isEmpty {
-            userId = DataManager.shared.currentUserObjectId
-        }
-        
         UserInfoApi.findUserInfo(with: userId) { (response) in
             if response.status == .success {
                 self.userInfo = response.data

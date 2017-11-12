@@ -12,12 +12,15 @@ class HomeViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         connectRemoteChatServer()
     }
     
     func connectRemoteChatServer() {
-                
-        RemoteChatManager.shared.connect(userId: DataManager.shared.currentUserObjectId) { (isSuccess) in
+        guard let currentUser = DataManager.shared.currentUser else {
+            return
+        }
+        RemoteChatManager.shared.connect(userId: currentUser.objectId) { (isSuccess) in
             
             for itemViewController in self.viewControllers ?? [] {
                 if let navViewController = itemViewController as? UINavigationController {

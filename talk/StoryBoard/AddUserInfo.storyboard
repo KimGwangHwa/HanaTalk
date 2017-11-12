@@ -41,8 +41,15 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TEL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Isy-Nn-RII">
+                                                    <rect key="frame" x="87" y="152" width="200" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVu-Ep-dLX">
-                                                    <rect key="frame" x="137" y="205" width="100" height="30"/>
+                                                    <rect key="frame" x="137" y="262" width="100" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Submit"/>
                                                     <connections>
@@ -58,6 +65,13 @@
                                                     </segments>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </segmentedControl>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y62-5w-IPD">
+                                                    <rect key="frame" x="87" y="190" width="200" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -72,7 +86,9 @@
                     </tableView>
                     <connections>
                         <outlet property="birthDayTextField" destination="ZsF-oh-77f" id="I15-6f-97c"/>
+                        <outlet property="emailTextField" destination="Y62-5w-IPD" id="LWz-zH-qVK"/>
                         <outlet property="nickNameTextField" destination="LUX-A6-Gzs" id="Fvg-q7-FZb"/>
+                        <outlet property="phoneNumberTextField" destination="Isy-Nn-RII" id="VM3-NK-gd8"/>
                         <outlet property="sexSegmentedControl" destination="LQP-C0-CGn" id="jNk-fQ-pPD"/>
                     </connections>
                 </tableViewController>
