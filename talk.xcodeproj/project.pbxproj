@@ -33,6 +33,10 @@
 		34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */; };
 		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
+		342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342888611FB9D2AE00D7EB61 /* Story.storyboard */; };
+		342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888631FB9D33000D7EB61 /* StoryViewController.swift */; };
+		342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */; };
+		342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */; };
 		34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B731FA8B81C0045CA60 /* UserApi.swift */; };
 		34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B751FA8B83E0045CA60 /* UserInfoApi.swift */; };
 		34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B771FA8B8510045CA60 /* FollowApi.swift */; };
@@ -105,6 +109,10 @@
 		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
+		342888611FB9D2AE00D7EB61 /* Story.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
+		342888631FB9D33000D7EB61 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
+		342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
 		34385B731FA8B81C0045CA60 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		34385B751FA8B83E0045CA60 /* UserInfoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoApi.swift; sourceTree = "<group>"; };
 		34385B771FA8B8510045CA60 /* FollowApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 				3461F50D1F763672000D09D5 /* Find.storyboard */,
 				34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */,
 				341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */,
+				342888611FB9D2AE00D7EB61 /* Story.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -199,6 +208,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				342888601FB9D29800D7EB61 /* Story */,
 				341D1AD71FB1E0180070ECAC /* AddUserInfo */,
 				34FB87CD1F7F3FD900253C92 /* InfoInput */,
 				3461F5051F763640000D09D5 /* Find */,
@@ -289,6 +299,24 @@
 				340627231F53320D00821E39 /* ReceiveTextCell.xib */,
 				340627241F53320D00821E39 /* SendTextCell.swift */,
 				340627251F53320D00821E39 /* SendTextCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		342888601FB9D29800D7EB61 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				342888651FB9D7C700D7EB61 /* Cell */,
+				342888631FB9D33000D7EB61 /* StoryViewController.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		342888651FB9D7C700D7EB61 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */,
+				342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -557,10 +585,12 @@
 				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
 				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
 				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
+				342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */,
 				3461F50E1F763672000D09D5 /* Find.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
+				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
 				341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */,
 				34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */,
@@ -667,9 +697,11 @@
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
+				342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */,
 				347DB0781F9E282100192DC5 /* User+CoreDataClass.swift in Sources */,
 				347DB0771F9E282100192DC5 /* Follow+CoreDataProperties.swift in Sources */,
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,
+				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
 				3406273D1F5BCB7800821E39 /* ChatRoom+CoreDataProperties.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,

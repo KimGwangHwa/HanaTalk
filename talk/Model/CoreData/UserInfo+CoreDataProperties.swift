@@ -25,7 +25,7 @@ extension UserInfo {
     @NSManaged public var objectId: String
     @NSManaged public var phoneNumber: String?
     @NSManaged public var postsCount: Int16
-    @NSManaged public var profilePictureUrl: String?
+    @NSManaged public var profileImageUrl: String?
     @NSManaged public var sex: Bool
     @NSManaged public var statusMessage: String?
     @NSManaged public var updateAt: Date

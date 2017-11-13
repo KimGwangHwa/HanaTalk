@@ -29,7 +29,7 @@ public class UserInfo: NSManagedObject {
                 object.birthday = item["birthday"] as? Date
                 object.statusMessage =  item["statusMessage"] as? String
                 object.email =  item["email"] as? String
-                object.profilePictureUrl =  (item["profilePicture"] as? PFFile)?.url
+                object.profileImageUrl =  (item["profileImageUrl"] as? PFFile)?.url
                 object.nickName =  item["nickName"] as? String
                 object.userId =  (item["userId"] as? String) ?? ""
                 object.postsCount = (item["postsCount"] as? Int16) ?? 0
