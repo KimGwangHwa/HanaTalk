@@ -11,12 +11,9 @@ class StoryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(R.nib.postsTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.postsTableViewCell.identifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,26 +23,26 @@ class StoryViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return 1
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.postsTableViewCell.identifier) as? PostsTableViewCell {
+            cell.titleLabel.text = "xxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjf"
+            return cell
+        }
         // Configure the cell...
 
-        return cell
+        return UITableViewCell()
     }
-    */
-
+ 
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
