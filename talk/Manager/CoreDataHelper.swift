@@ -16,6 +16,7 @@ enum EntityName: String {
     case User = "User"
     case UserInfo = "UserInfo"
     case Follow = "Follow"
+    case Posts = "Posts"
 
 }
 

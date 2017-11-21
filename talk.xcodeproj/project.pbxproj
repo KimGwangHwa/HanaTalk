@@ -35,6 +35,8 @@
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
 		342600051FC30C7A009857E7 /* PostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600041FC30C7A009857E7 /* PostsApi.swift */; };
 		342600071FC30C95009857E7 /* PostsDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600061FC30C95009857E7 /* PostsDao.swift */; };
+		3426000A1FC318C5009857E7 /* Posts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600081FC318C5009857E7 /* Posts+CoreDataClass.swift */; };
+		3426000B1FC318C5009857E7 /* Posts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600091FC318C5009857E7 /* Posts+CoreDataProperties.swift */; };
 		342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342888611FB9D2AE00D7EB61 /* Story.storyboard */; };
 		342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888631FB9D33000D7EB61 /* StoryViewController.swift */; };
 		342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */; };
@@ -113,6 +115,8 @@
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		342600041FC30C7A009857E7 /* PostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsApi.swift; sourceTree = "<group>"; };
 		342600061FC30C95009857E7 /* PostsDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDao.swift; sourceTree = "<group>"; };
+		342600081FC318C5009857E7 /* Posts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Posts+CoreDataClass.swift"; sourceTree = "<group>"; };
+		342600091FC318C5009857E7 /* Posts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Posts+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		342888611FB9D2AE00D7EB61 /* Story.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
 		342888631FB9D33000D7EB61 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 		3459A7041F3B3B6C000D2FC5 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				342600081FC318C5009857E7 /* Posts+CoreDataClass.swift */,
+				342600091FC318C5009857E7 /* Posts+CoreDataProperties.swift */,
 				347DB07C1F9F6EE000192DC5 /* UserInfo+CoreDataClass.swift */,
 				347DB07B1F9F6EE000192DC5 /* UserInfo+CoreDataProperties.swift */,
 				347DB0731F9E282000192DC5 /* Follow+CoreDataClass.swift */,
@@ -689,12 +695,14 @@
 				346BAA3A1F9E202A0065A762 /* UserDao.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
+				3426000A1FC318C5009857E7 /* Posts+CoreDataClass.swift in Sources */,
 				3406273F1F5BCB7800821E39 /* Message+CoreDataProperties.swift in Sources */,
 				34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */,
 				3406273C1F5BCB7800821E39 /* ChatRoom+CoreDataClass.swift in Sources */,
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage.swift in Sources */,
+				3426000B1FC318C5009857E7 /* Posts+CoreDataProperties.swift in Sources */,
 				347DB07A1F9E282100192DC5 /* User+CoreDataProperties.swift in Sources */,
 				347DB0821F9F6F2A00192DC5 /* FollowDao.swift in Sources */,
 				347DB07E1F9F6EE000192DC5 /* UserInfo+CoreDataClass.swift in Sources */,
