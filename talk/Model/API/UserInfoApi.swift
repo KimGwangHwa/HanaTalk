@@ -98,7 +98,7 @@ class UserInfoApi: NSObject {
         pfObject["phoneNumber"] = userInfo.phoneNumber ?? ""
         pfObject["statusMessage"] = userInfo.statusMessage ?? ""
         pfObject["birthday"] = userInfo.birthday ?? Date()
-        pfObject["userId"] = userInfo.userId
+//        pfObject["userId"] = userInfo.userId
         pfObject["sex"] = userInfo.sex
         pfObject.saveInBackground { (isSuccess, error) in
             completion(isSuccess == true ? .success: .failure )

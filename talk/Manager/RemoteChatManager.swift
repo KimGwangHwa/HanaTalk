@@ -117,7 +117,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
             
             if error == nil {
                 let sendMessage = Message.createNewRecord()
-                sendMessage.sender = DataManager.shared.currentUserInfo()?.userId ?? ""
+//                sendMessage.sender = DataManager.shared.currentUserInfo()?.userId ?? ""
                 sendMessage.receiver = receiver
                 sendMessage.textMessage = text
                 sendMessage.chatName = chatRoom.name
@@ -148,13 +148,13 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 if chatRoom == nil  {
                     chatRoom = ChatRoom.createNewRecord()
                     chatRoom?.members = [(userMessage.sender?.userId) ?? ""]
-                    chatRoom?.userName = DataManager.shared.currentUserInfo()?.userId ?? ""
+//                    chatRoom?.userName = DataManager.shared.currentUserInfo()?.userId ?? ""
                     chatRoom?.url = sender.channelUrl
                     chatRoom?.name = sender.name
                 }
                 
                 let message = Message.createNewRecord()
-                message.receiver = DataManager.shared.currentUserInfo()?.userId ?? ""
+//                message.receiver = DataManager.shared.currentUserInfo()?.userId ?? ""
                 message.sender = userMessage.sender?.userId
                 message.textMessage = textMessage
                 message.chatName = sender.name

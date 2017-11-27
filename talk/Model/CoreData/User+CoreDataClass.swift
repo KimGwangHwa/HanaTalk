@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 @objc(User)
 public class User: NSManagedObject {
@@ -20,4 +21,15 @@ public class User: NSManagedObject {
         return user
     }
 
+    class func convertUser(with ojbect: PFObject?) -> User? {
+        
+        if let guardObject = ojbect {
+            let newUser = User.createNewRecord()
+            newUser.objectId = guardObject.objectId ?? ""
+            newUser.createAt = guardObject.createdAt ?? Date()
+            newUser.updateAt = guardObject.updatedAt ?? Date()
+            return newUser
+        }
+        return nil
+    }
 }

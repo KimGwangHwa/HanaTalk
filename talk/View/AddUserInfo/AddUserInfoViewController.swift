@@ -30,7 +30,7 @@ class AddUserInfoViewController: UITableViewController {
         userInfo.birthday = Common.stringToDate(dateString: birthDayTextField.text, format: DATE_FORMAT_2)
         userInfo.nickName = nickNameTextField.text
         userInfo.sex = sexSegmentedControl.selectedSegmentIndex == 0 ? true : false
-        userInfo.userId = DataManager.shared.currentUser?.objectId ?? ""
+        // userInfo.userId = DataManager.shared.currentUser?.objectId ?? ""
         userInfo.email = emailTextField.text ?? ""
         userInfo.phoneNumber = phoneNumberTextField.text ?? ""
         UserInfoApi.saveUserInfo(userInfo: userInfo) { (status) in

@@ -34,14 +34,14 @@ extension Message {
     @NSManaged public var chatName: String?
     
     var responderState: ResponderState! {
-        if let guardUserInfo = DataManager.shared.currentUserInfo() {
-            if sender == guardUserInfo.userId {
-                return .Send
-            }
-            if receiver == guardUserInfo.userId {
-                return .Receive
-            }
-        }
+//        if let guardUserInfo = DataManager.shared.currentUserInfo() {
+//            if sender == guardUserInfo.userId {
+//                return .Send
+//            }
+//            if receiver == guardUserInfo.userId {
+//                return .Receive
+//            }
+//        }
         return .Receive
     }
     

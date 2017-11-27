@@ -29,9 +29,11 @@ public class UserInfo: NSManagedObject {
                 object.birthday = item["birthday"] as? Date
                 object.statusMessage =  item["statusMessage"] as? String
                 object.email =  item["email"] as? String
-                object.profileImageUrl =  (item["profileImageUrl"] as? PFFile)?.url
+                object.profileImage = item["profileImageUrl"] as? String
                 object.nickName =  item["nickName"] as? String
-                object.userId =  (item["userId"] as? String) ?? ""
+                if let guardUser = User.convertUser(with: item) {
+                    object.user = guardUser
+                }
                 object.postsCount = (item["postsCount"] as? Int16) ?? 0
                 object.followingCount = (item["followingCount"] as? Int16) ?? 0
                 object.followersCount = (item["followersCount"] as? Int16) ?? 0

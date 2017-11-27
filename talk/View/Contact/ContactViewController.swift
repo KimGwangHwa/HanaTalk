@@ -59,7 +59,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.contactViewController.userInfo.identifier {
             if let viewController = segue.destination as? UserInfoViewController {
-                viewController.userId = selectedData?.userId ?? ""
+                // viewController.userId = selectedData?.userId ?? ""
             }
         }
     }

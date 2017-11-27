@@ -12,7 +12,7 @@ import CoreData
 
 extension UserInfo {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<UserInfo> {
+    @nonobjc public class func fetchUserInfoRequest() -> NSFetchRequest<UserInfo> {
         return NSFetchRequest<UserInfo>(entityName: "UserInfo")
     }
 
@@ -27,7 +27,7 @@ extension UserInfo {
     @NSManaged public var objectId: String?
     @NSManaged public var phoneNumber: String?
     @NSManaged public var postsCount: Int16
-    @NSManaged public var profileImageUrl: String?
+    @NSManaged public var profileImage: String?
     @NSManaged public var sex: Bool
     @NSManaged public var statusMessage: String?
     @NSManaged public var updateAt: Date?
