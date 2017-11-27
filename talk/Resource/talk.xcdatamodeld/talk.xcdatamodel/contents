@@ -60,14 +60,14 @@
         <attribute name="sex" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="statusMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updateAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="userId" attributeType="String" syncable="YES"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
     <elements>
         <element name="ChatRoom" positionX="-270" positionY="45" width="128" height="195"/>
         <element name="Follow" positionX="-153" positionY="162" width="128" height="120"/>
         <element name="Message" positionX="-281" positionY="261" width="128" height="165"/>
+        <element name="Posts" positionX="-216" positionY="198" width="128" height="135"/>
         <element name="User" positionX="-171" positionY="144" width="128" height="120"/>
         <element name="UserInfo" positionX="-162" positionY="153" width="128" height="285"/>
-        <element name="Posts" positionX="-216" positionY="198" width="128" height="135"/>
     </elements>
 </model>

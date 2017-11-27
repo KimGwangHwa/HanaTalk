@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/kim9/Desktop/workSpace/talk/talk/View/Home/UserInfo+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:talk.xcodeproj">
    </FileRef>
    <FileRef

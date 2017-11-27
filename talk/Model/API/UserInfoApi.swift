@@ -55,9 +55,32 @@ class UserInfoApi: NSObject {
     }
     
     class func findUserInfo(with userId: String, completion: @escaping UserInfoCompletionHandler) {
+        
+//        let a = PFObject(className: "UserInfo")
+//        let image = R.image.flower_png8() ?? UIImage()
+//        let data = UIImagePNGRepresentation(image) ?? Data()
+//        var list = [PFFile]()
+//        guard let p = PFFile(data: data) else {
+//            return
+//        }
+//        list.append(p)
+//        a["test"] = list
+//
+//        a.saveInBackground()
+//        return
+        
         let query = PFQuery(className: "UserInfo")
-        query.whereKey("userId", equalTo: userId)
+        query.whereKey("userId", equalTo: "uSMpMUKXr8")
         query.findObjectsInBackground(block: { (objects, error) in
+            if let guardObj = objects {
+                if let guard2 = guardObj.first {
+                    if let b = guard2["test"] as? [PFFile] {
+                        print(b.first?.url)
+                    }
+                    
+                }
+                
+            }
             if let infos = UserInfo.convertUserInfos(with: objects) ,
                 let currentUserInfo = infos.first {
                 let response = Response<UserInfo>()
