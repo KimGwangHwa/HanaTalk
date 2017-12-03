@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class DataManager: NSObject {
     
@@ -17,7 +18,14 @@ class DataManager: NSObject {
         
     }
     
-    var currentUser: User? = UserDao.findFirst()
+    var currentUser: User? {
+        
+        let pfUser: PFUser = PFUser.current()
+        
+        
+        return PFUser.current()
+        
+    }
     
     func currentUserInfo() -> UserInfo? {
         
