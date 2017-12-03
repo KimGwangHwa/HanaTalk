@@ -51,58 +51,63 @@ class InfoInputViewController: UIViewController {
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 1))
         infoInputTextField.leftView = leftView
         infoInputTextField.leftViewMode = .always
-        
-        if let userInfo = DataManager.shared.currentUserInfo() {
-            switch type {
-            case .nickName:
-                infoInputTextField.text = userInfo.nickName
-                break
-            case .statusMessage:
-                infoInputTextField.text = userInfo.statusMessage
-                break
-            case .phoneNumber:
-                infoInputTextField.text = userInfo.phoneNumber
-                break
-            case .email:
-                infoInputTextField.text = userInfo.email
-                break
-            case .sex:
-                infoInputTextField.text = userInfo.sex ? "Man": "Women"
-                break
-            case .birthDay:
-                infoInputTextField.text = Common.dateToString(date: userInfo.birthday, format: DATE_FORMAT_2)
-                break
-            }
-        }
+        /*
+         if let userInfo = DataManager.shared.currentUserInfo() {
+         switch type {
+         case .nickName:
+         infoInputTextField.text = userInfo.nickName
+         break
+         case .statusMessage:
+         infoInputTextField.text = userInfo.statusMessage
+         break
+         case .phoneNumber:
+         infoInputTextField.text = userInfo.phoneNumber
+         break
+         case .email:
+         infoInputTextField.text = userInfo.email
+         break
+         case .sex:
+         infoInputTextField.text = userInfo.sex ? "Man": "Women"
+         break
+         case .birthDay:
+         infoInputTextField.text = Common.dateToString(date: userInfo.birthday, format: DATE_FORMAT_2)
+         break
+         }
+         }
+
+         */
     }
 
     @objc func doneEvent() {
-        var userInfo:UserInfo? = DataManager.shared.currentUserInfo()
-        
-        if userInfo == nil {
-            userInfo = UserInfo()
-        }
+        /*
+         var userInfo:UserInfo? = DataManager.shared.currentUserInfo()
+         
+         if userInfo == nil {
+         userInfo = UserInfo()
+         }
+         
+         switch type {
+         case .nickName:
+         userInfo?.nickName = infoInputTextField.text
+         break
+         case .statusMessage:
+         userInfo?.statusMessage = infoInputTextField.text
+         break
+         case .phoneNumber:
+         userInfo?.phoneNumber = infoInputTextField.text
+         break
+         case .email:
+         userInfo?.email = infoInputTextField.text
+         break
+         case .sex:
+         userInfo?.sex = true
+         break
+         case .birthDay:
+         userInfo?.birthday = Common.stringToDate(dateString: infoInputTextField.text!, format: DATE_FORMAT_2)
+         break
+         }
 
-        switch type {
-        case .nickName:
-            userInfo?.nickName = infoInputTextField.text
-            break
-        case .statusMessage:
-            userInfo?.statusMessage = infoInputTextField.text
-            break
-        case .phoneNumber:
-            userInfo?.phoneNumber = infoInputTextField.text
-            break
-        case .email:
-            userInfo?.email = infoInputTextField.text
-            break
-        case .sex:
-            userInfo?.sex = true
-            break
-        case .birthDay:
-            userInfo?.birthday = Common.stringToDate(dateString: infoInputTextField.text!, format: DATE_FORMAT_2)
-            break
-        }
+         */
 //        userInfo?.remoteSaveRecord(completion: { (status) in
 //            DataManager.shared.currentUserInfo = userInfo
 //            self.navigationController?.popViewController(animated: true)

@@ -16,20 +16,21 @@ class UserApi: NSObject {
         
         pfObject.signUpInBackground { (isSucceeded, error) in
             user.objectId = pfObject.objectId ?? ""
-            user.createAt = pfObject.createdAt ?? Date()
-            user.updateAt = pfObject.updatedAt ?? Date()
-            CoreDataHelper.shared.saveContext()
             completion(isSucceeded == true ? .success: .failure)
         }
     }
     
     class func login(user: User, completion: @escaping StatusCompletionHandler) {
-        PFUser.logInWithUsername(inBackground: user.userName, password: user.password) { (pfUser, error) in
+        
+        guard let userName = user.userName,
+            let password = user.password else {
+            completion(.failure)
+            return;
+        }
+        
+        PFUser.logInWithUsername(inBackground: userName, password: password) { (pfUser, error) in
             if let guradUser = pfUser {
                 user.objectId = guradUser.objectId ?? ""
-                user.createAt = guradUser.createdAt ?? Date()
-                user.updateAt = guradUser.updatedAt ?? Date()
-                CoreDataHelper.shared.saveContext()
             }
             completion(pfUser != nil ? .success: .failure)
         }

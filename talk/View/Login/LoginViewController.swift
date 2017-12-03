@@ -20,7 +20,7 @@ class LoginViewController: UITableViewController {
     }
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        let user = User.createNewRecord()
+        let user = User()
         user.userName = userIdTextField.text ?? ""
         user.password = passwordTextField.text ?? ""
         UserApi.login(user: user) { (status) in

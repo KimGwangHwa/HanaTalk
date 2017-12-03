@@ -11,7 +11,7 @@ import UIKit
 class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
 
     
-    private var dataSource = DataManager.shared.chatRooms
+    private var dataSource: [ChatRoom] = [] //DataManager.shared.chatRooms
     
     private var selectedRoom: ChatRoom! = nil
     
@@ -26,7 +26,7 @@ class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource = DataManager.shared.chatRooms
+        dataSource = []
         tableView.reloadData()
     }
     

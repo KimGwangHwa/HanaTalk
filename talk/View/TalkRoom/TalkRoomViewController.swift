@@ -52,10 +52,10 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
             if isSuccess == true {
                 self.chatRoom = chatRoom
 
-                if let messages = MessageDao.find(chatName: self.chatRoom.name ?? "") {
-                    self.dataSource.append(contentsOf: messages)
-                    self.tableView.reloadData()
-                }
+//                if let messages = MessageDao.find(chatName: self.chatRoom.name ?? "") {
+//                    self.dataSource.append(contentsOf: messages)
+//                    self.tableView.reloadData()
+//                }
             }
         }
     }
@@ -134,6 +134,8 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataSource[indexPath.row]
+        /*
+ 
         if rowData.responderState == .Receive {
             if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.receiveTextCell.identifier, for: indexPath) as? ReceiveTextCell {
                 cell.message = dataSource[indexPath.row]
@@ -147,7 +149,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 return cell
             }
         }
-        
+        */
         return UITableViewCell()
     }
     

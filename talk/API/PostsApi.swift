@@ -17,14 +17,14 @@ class PostsApi: NSObject {
         //query.includeKey("test")
         postsQuery.findObjectsInBackground { (pfobjects, error) in
             
-            if let postsList = Posts.convertPosts(with: pfobjects) {
-//                for posts in postsList {
-//                    UserInfoApi.findUserInfo(with: posts.userId, completion: { (response) in
-//
-//                    })
-//                }
-            }
-            
+//            if let postsList = Posts.convertPost(with: pfobjects) {
+////                for posts in postsList {
+////                    UserInfoApi.findUserInfo(with: posts.userId, completion: { (response) in
+////
+////                    })
+////                }
+//            }
+//            
             
             
         }

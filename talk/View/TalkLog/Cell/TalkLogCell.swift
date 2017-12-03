@@ -29,11 +29,11 @@ class TalkLogCell: UITableViewCell {
                 roomNameLabel.text = guardData.name
                 customBadgeView.badgeString = String("\(guardData.unreadMessageCount)")
                 
-                if let lastMessage = MessageDao.find(objectId: guardData.lastMessageId) {
-                    lastMessageLabel.text = lastMessage.textMessage
-                    dateLabel.text = Common.dateToString(date: lastMessage.createdAt, format: "M/d")
-                    
-                }
+//                if let lastMessage = MessageDao.find(objectId: guardData.lastMessageId) {
+//                    lastMessageLabel.text = lastMessage.textMessage
+//                    dateLabel.text = Common.dateToString(date: lastMessage.createdAt, format: "M/d")
+//                    
+//                }
             }        
         }
     }

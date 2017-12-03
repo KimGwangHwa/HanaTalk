@@ -8,7 +8,7 @@
 import UIKit
 
 class MessageDao: NSObject {
-    
+    /*
     class func find(chatName: String) -> [Message]? {
         
         let fetchRequest = Message.fetchMessageRequest()
@@ -53,4 +53,5 @@ class MessageDao: NSObject {
         
         CoreDataHelper.shared.saveContext()
     }
+ */
 }

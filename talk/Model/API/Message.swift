@@ -8,12 +8,11 @@
 import UIKit
 
 class Message: NSObject {
-    public var objectId: String
-    public var createdAt: Date?
+    public var objectId: String?
     public var sender: String?
     public var receiver: String?
     public var textMessage: String?
-    public var isread: Bool
+    public var isread: Bool = false
     public var messageType: String?
     public var chatName: String?
 }

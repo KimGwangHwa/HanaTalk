@@ -22,7 +22,7 @@ class SignUpViewController: UITableViewController {
     }
     
     @IBAction func submitEvent(_ sender: Any) {
-        let signupUser = User.createNewRecord();
+        let signupUser = User()
         signupUser.userName = userIdTextField.text ?? ""
         signupUser.password = passwordTextField.text ?? ""
 

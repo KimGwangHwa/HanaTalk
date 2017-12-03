@@ -39,8 +39,8 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
         delegates.add(delegate)
     }
     
-    func connect(userId: String, completionHandler: @escaping CompletionHandler) {
-        SBDMain.connect(withUserId: userId) { (user, error) in
+    func connect(userId: String?, completionHandler: @escaping CompletionHandler) {
+        SBDMain.connect(withUserId: userId ?? "") { (user, error) in
             completionHandler(error == nil ? false : true)
         }
     }
@@ -58,7 +58,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
 //    }
     
     func enterTheChatRoom(userName: String, completionHandler: @escaping EnterTheChatRoomCompletionHandler) {
-        
+        /*
         if let chatRoom = ChatRoomDao.find(chatName: userName) {
             MessageDao.updateReadingStatus(with: chatRoom.name ?? "")
             SBDGroupChannel.getWithUrl(chatRoom.url ?? "") { (groupChannel, error) in
@@ -84,6 +84,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
                 
             }
         }
+ */
     }
     
     
@@ -112,7 +113,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
 //        }
 //    }
     func sendTextMessage(_ text: String, receiver: String, chatRoom: ChatRoom, completionHandler: @escaping SendMessageCompletionHandler) {
-        
+        /*
         groupChannel?.sendUserMessage(text, completionHandler: { (message, error) in
             
             if error == nil {
@@ -128,6 +129,8 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
             }
             
         })
+         */
+
     }
     
     private func sendMessage(text: String, receiverUserName: NSString,completionHandler: @escaping CompletionHandler) {
@@ -139,7 +142,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     // MARK: - SBDChannelDelegate
     
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
-        
+        /*
         if let userMessage = message as? SBDUserMessage {
             if let textMessage = userMessage.message {
                 
@@ -170,7 +173,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
 
             }
         }
-        
+        */
     }
     
 }

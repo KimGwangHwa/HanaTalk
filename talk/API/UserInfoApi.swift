@@ -46,7 +46,7 @@ class UserInfoApi: NSObject {
             query.whereKey("userId", containedIn: objectIds)
             query.findObjectsInBackground(block: { (objects, error) in
                 let response = Response<[UserInfo]>()
-                response.data = UserInfo.convertUserInfos(with: objects)
+//                response.data = UserInfo.convertUserInfos(with: objects)
                 response.status = .success
                 
                 completion(response)
@@ -81,13 +81,13 @@ class UserInfoApi: NSObject {
                 }
                 
             }
-            if let infos = UserInfo.convertUserInfos(with: objects) ,
-                let currentUserInfo = infos.first {
-                let response = Response<UserInfo>()
-                response.data = currentUserInfo
-                response.status = .success
-                completion(response)
-            }
+//            if let infos = UserInfo.convertUserInfos(with: objects) ,
+//                let currentUserInfo = infos.first {
+//                let response = Response<UserInfo>()
+//                response.data = currentUserInfo
+//                response.status = .success
+//                completion(response)
+//            }
         })
     }
     

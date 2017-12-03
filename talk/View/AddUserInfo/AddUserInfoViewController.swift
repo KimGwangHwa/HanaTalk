@@ -26,10 +26,11 @@ class AddUserInfoViewController: UITableViewController {
     }
 
     @IBAction func submitEvent(_ sender: UIButton) {
-        let userInfo = UserInfo.createNewRecord()
+        let userInfo = UserInfo()
         userInfo.birthday = Common.stringToDate(dateString: birthDayTextField.text, format: DATE_FORMAT_2)
         userInfo.nickName = nickNameTextField.text
         userInfo.sex = sexSegmentedControl.selectedSegmentIndex == 0 ? true : false
+        //userInfo.user =
         // userInfo.userId = DataManager.shared.currentUser?.objectId ?? ""
         userInfo.email = emailTextField.text ?? ""
         userInfo.phoneNumber = phoneNumberTextField.text ?? ""

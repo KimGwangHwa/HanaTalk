@@ -19,29 +19,8 @@ class DataManager: NSObject {
     }
     
     var currentUser: User? {
-        
-        let pfUser: PFUser = PFUser.current()
-        
-        
-        return PFUser.current()
-        
+        let pfUser = PFUser.current()
+        return User.convertUser(with: pfUser)
     }
-    
-    func currentUserInfo() -> UserInfo? {
-        
-        if let guardCurrentUser = currentUser {
-            return UserInfoDao.findBy(userId: guardCurrentUser.objectId)
-        }
-        return nil
-    }
-    
-    var chatRooms: [ChatRoom] {
-        if let chatRooms = ChatRoomDao.readAllData() {
-            return chatRooms
-        }
-        return []
-    }
-    
-    
 
 }

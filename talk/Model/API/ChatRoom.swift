@@ -9,11 +9,10 @@ import UIKit
 
 class ChatRoom: NSObject {
     public var userName: String?
-    public var unreadMessageCount: Int16
+    public var unreadMessageCount: Int = 0
     public var members: [String]?
-    public var memberCount: Int16
-    public var createdAt: Date?
-    public var objectId: String
+    public var memberCount: Int = 0
+    public var objectId: String?
     public var lastMessageId: String?
     public var name: String?
     public var url: String?

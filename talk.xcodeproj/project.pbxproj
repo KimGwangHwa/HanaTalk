@@ -30,7 +30,6 @@
 		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
 		342600051FC30C7A009857E7 /* PostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600041FC30C7A009857E7 /* PostsApi.swift */; };
-		342600071FC30C95009857E7 /* PostsDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600061FC30C95009857E7 /* PostsDao.swift */; };
 		342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600111FD3B2EA009857E7 /* UserInfo.swift */; };
 		342600141FD3B322009857E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600131FD3B322009857E7 /* User.swift */; };
 		342600161FD3B34B009857E7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600151FD3B34B009857E7 /* Message.swift */; };
@@ -64,9 +63,6 @@
 		346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA301F8F9A5E0065A762 /* SignUpViewController.swift */; };
 		346BAA351F92471B0065A762 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA341F92471B0065A762 /* Response.swift */; };
 		346BAA371F9E1FDD0065A762 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA361F9E1FDC0065A762 /* Const.swift */; };
-		346BAA3A1F9E202A0065A762 /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346BAA391F9E202A0065A762 /* UserDao.swift */; };
-		347DB0801F9F6F1E00192DC5 /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB07F1F9F6F1E00192DC5 /* UserInfoDao.swift */; };
-		347DB0821F9F6F2A00192DC5 /* FollowDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0811F9F6F2A00192DC5 /* FollowDao.swift */; };
 		347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0831F9F6F3700192DC5 /* MessageDao.swift */; };
 		347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
@@ -104,7 +100,6 @@
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		342600041FC30C7A009857E7 /* PostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsApi.swift; sourceTree = "<group>"; };
-		342600061FC30C95009857E7 /* PostsDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDao.swift; sourceTree = "<group>"; };
 		342600111FD3B2EA009857E7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		342600131FD3B322009857E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		342600151FD3B34B009857E7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -138,9 +133,6 @@
 		346BAA301F8F9A5E0065A762 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		346BAA341F92471B0065A762 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		346BAA361F9E1FDC0065A762 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		346BAA391F9E202A0065A762 /* UserDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
-		347DB07F1F9F6F1E00192DC5 /* UserInfoDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
-		347DB0811F9F6F2A00192DC5 /* FollowDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowDao.swift; sourceTree = "<group>"; };
 		347DB0831F9F6F3700192DC5 /* MessageDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
 		347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDao.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,12 +393,8 @@
 		346BAA381F9E1FEB0065A762 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				346BAA391F9E202A0065A762 /* UserDao.swift */,
-				347DB07F1F9F6F1E00192DC5 /* UserInfoDao.swift */,
-				347DB0811F9F6F2A00192DC5 /* FollowDao.swift */,
 				347DB0831F9F6F3700192DC5 /* MessageDao.swift */,
 				347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */,
-				342600061FC30C95009857E7 /* PostsDao.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -681,7 +669,6 @@
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
 				3461F5131F7636DB000D09D5 /* FindCell.swift in Sources */,
 				347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */,
-				346BAA3A1F9E202A0065A762 /* UserDao.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
 				3459A73A1F530B63000D2FC5 /* UIViewController.swift in Sources */,
@@ -689,12 +676,10 @@
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage.swift in Sources */,
-				347DB0821F9F6F2A00192DC5 /* FollowDao.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView.swift in Sources */,
 				341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
-				342600071FC30C95009857E7 /* PostsDao.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
 				342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */,
 				342600161FD3B34B009857E7 /* Message.swift in Sources */,
@@ -711,7 +696,6 @@
 				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
-				347DB0801F9F6F1E00192DC5 /* UserInfoDao.swift in Sources */,
 				34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,

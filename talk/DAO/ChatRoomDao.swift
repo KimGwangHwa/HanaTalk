@@ -8,7 +8,7 @@
 import UIKit
 
 class ChatRoomDao: NSObject {
-    
+    /*
     class func find(chatName: String) -> ChatRoom? {
         
         let fetchRequest = ChatRoom.fetchChatRoomRequest()
@@ -62,4 +62,5 @@ class ChatRoomDao: NSObject {
         return nil
         
     }
+ */
 }

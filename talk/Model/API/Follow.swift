@@ -8,9 +8,7 @@
 import UIKit
 
 class Follow: NSObject {
-    public var updateAt: Date
-    public var createAt: Date
-    public var followingId: String
-    public var objectId: String
-    public var userId: String
+    public var followingId: String?
+    public var objectId: String?
+    public var userId: String?
 }
