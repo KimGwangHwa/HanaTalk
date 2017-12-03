@@ -18,11 +18,7 @@ class AddUserInfoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     @IBAction func submitEvent(_ sender: UIButton) {
@@ -30,8 +26,6 @@ class AddUserInfoViewController: UITableViewController {
         userInfo.birthday = Common.stringToDate(dateString: birthDayTextField.text, format: DATE_FORMAT_2)
         userInfo.nickName = nickNameTextField.text
         userInfo.sex = sexSegmentedControl.selectedSegmentIndex == 0 ? true : false
-        //userInfo.user =
-        // userInfo.userId = DataManager.shared.currentUser?.objectId ?? ""
         userInfo.email = emailTextField.text ?? ""
         userInfo.phoneNumber = phoneNumberTextField.text ?? ""
         UserInfoApi.saveUserInfo(userInfo: userInfo) { (status) in

@@ -9,14 +9,14 @@ import UIKit
 import Parse
 
 enum GetUserInfoType: Int {
-    case Following
-    case Follower
+    case following
+    case follower
     
     var column: String {
-        if self == .Following {
-            return "userId"
-        } else if self == .Follower {
-            return "followingUserId"
+        if self == .following {
+            return "userInfo"
+        } else if self == .follower {
+            return "followingUserInfo"
         }
         return ""
     }
@@ -29,65 +29,46 @@ class UserInfoApi: NSObject {
     class func findUserInfo(with type: GetUserInfoType, completion: @escaping UserInfoListCompletionHandler) {
         
         let followQuery = PFQuery(className: "Follow")
-        guard let currentUser = DataManager.shared.currentUser else {
+        guard let currentUser = DataManager.shared.currentUser,
+              let currentUserObjectId = currentUser.objectId else {
             return
         }
-        
-        followQuery.whereKey(type.column, equalTo: currentUser.objectId)
+        followQuery.includeKey(GetUserInfoType.follower.column)
+        followQuery.includeKey(GetUserInfoType.following.column)
+        followQuery.whereKey(type.column, equalTo: PFObject(withoutDataWithClassName: "UserInfo", objectId: currentUserObjectId))
         followQuery.findObjectsInBackground { (objects, error) in
-            var objectIds = [String]()
+            var retObjects: [UserInfo]?
             if let guardObjects = objects {
-                for info in guardObjects {
-                    objectIds.append(info.objectId ?? "")
+                retObjects = [UserInfo]()
+                for object in guardObjects {
+                    if let pfUserInfo = object[type.column] as? PFObject {
+                        if let userInfo = UserInfo.convertUserInfo(with: pfUserInfo) {
+                            retObjects?.append(userInfo)
+                        }
+                    }
                 }
             }
-            
-            let query = PFQuery(className: "UserInfo")
-            query.whereKey("userId", containedIn: objectIds)
-            query.findObjectsInBackground(block: { (objects, error) in
-                let response = Response<[UserInfo]>()
-//                response.data = UserInfo.convertUserInfos(with: objects)
-                response.status = .success
-                
-                completion(response)
-            })
+            let response = Response<[UserInfo]>()
+            response.data = retObjects
+            response.status = error != nil ? .failure : .success
+            completion(response)
+
         }
     }
     
     class func findUserInfo(with userId: String, completion: @escaping UserInfoCompletionHandler) {
         
-//        let a = PFObject(className: "UserInfo")
-//        let image = R.image.flower_png8() ?? UIImage()
-//        let data = UIImagePNGRepresentation(image) ?? Data()
-//        var list = [PFFile]()
-//        guard let p = PFFile(data: data) else {
-//            return
-//        }
-//        list.append(p)
-//        a["test"] = list
-//
-//        a.saveInBackground()
-//        return
-        
         let query = PFQuery(className: "UserInfo")
-        query.whereKey("userId", equalTo: "uSMpMUKXr8")
+        query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: userId))
         query.findObjectsInBackground(block: { (objects, error) in
-            if let guardObj = objects {
-                if let guard2 = guardObj.first {
-                    if let b = guard2["test"] as? [PFFile] {
-                        print(b.first?.url)
-                    }
-                    
+            if let guardObjects = objects {
+                for object in guardObjects {
+                    let response = Response<UserInfo>()
+                    response.data = UserInfo.convertUserInfo(with: object)
+                    response.status = error != nil ? .failure : .success
+                    completion(response)
                 }
-                
             }
-//            if let infos = UserInfo.convertUserInfos(with: objects) ,
-//                let currentUserInfo = infos.first {
-//                let response = Response<UserInfo>()
-//                response.data = currentUserInfo
-//                response.status = .success
-//                completion(response)
-//            }
         })
     }
     
@@ -98,7 +79,7 @@ class UserInfoApi: NSObject {
         pfObject["phoneNumber"] = userInfo.phoneNumber ?? ""
         pfObject["statusMessage"] = userInfo.statusMessage ?? ""
         pfObject["birthday"] = userInfo.birthday ?? Date()
-//        pfObject["userId"] = userInfo.userId
+        pfObject["user"] = PFUser.current()
         pfObject["sex"] = userInfo.sex
         pfObject.saveInBackground { (isSuccess, error) in
             completion(isSuccess == true ? .success: .failure )

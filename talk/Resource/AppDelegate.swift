@@ -24,37 +24,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //        }
 //        return true
-        let a = PFObject(withoutDataWithClassName: "_User", objectId: "RRcC6BJkX1")
-        
-        let obj = PFObject(className: "UserInfo")
-
-        obj["user"] = a
-        obj["nickName"] = "nickName"
-        
-        obj.saveInBackground { (issuccess, error) in
-            
-        }
-        do {
-            try obj.pin()
-        } catch  {
-            
-        }
-        
-
-                let query = PFQuery(className:"UserInfo")
-                query.whereKey("nickName", equalTo:"nickName")
-                query.fromLocalDatastore()
-                query.findObjectsInBackground { (objects, error) in
-        
-                }
-
-        return true
-        
+//        let a = PFObject(withoutDataWithClassName: "_User", objectId: "RRcC6BJkX1")
+//
+//        let obj = PFObject(className: "UserInfo")
+//
+//        obj["user"] = a
+//        obj["nickName"] = "nickName"
+//
+//        obj.saveInBackground { (issuccess, error) in
+//
+//        }
+//        do {
+//            try obj.pin()
+//        } catch  {
+//
+//        }
+//
+//
+//                let query = PFQuery(className:"UserInfo")
+//                query.whereKey("nickName", equalTo:"nickName")
+//                query.fromLocalDatastore()
+//                query.findObjectsInBackground { (objects, error) in
+//
+//                }
+//
+//        return true
+//
         if DataManager.shared.currentUser != nil {
             self.window?.rootViewController = R.storyboard.home.instantiateInitialViewController()
             self.window?.makeKeyAndVisible()
         }
-        
         
         return true
     }
