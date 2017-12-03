@@ -31,6 +31,6 @@ extension UserInfo {
     @NSManaged public var sex: Bool
     @NSManaged public var statusMessage: String?
     @NSManaged public var updateAt: Date?
-    @NSManaged public var user: User
+    @NSManaged public var user: User?
 
 }

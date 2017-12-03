@@ -16,19 +16,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        initParse()
+//        let query = PFQuery(className:"UserInfo")
+//        query.whereKey("nickName", equalTo:"nickName")
+//        query.fromLocalDatastore()
+//        query.findObjectsInBackground { (objects, error) in
+//
+//        }
+//        return true
+        let a = PFObject(withoutDataWithClassName: "_User", objectId: "RRcC6BJkX1")
+        
+        let obj = PFObject(className: "UserInfo")
+
+        obj["user"] = a
+        obj["nickName"] = "nickName"
+        
+        obj.saveInBackground { (issuccess, error) in
+            
+        }
+        do {
+            try obj.pin()
+        } catch  {
+            
+        }
+        
+
+                let query = PFQuery(className:"UserInfo")
+                query.whereKey("nickName", equalTo:"nickName")
+                query.fromLocalDatastore()
+                query.findObjectsInBackground { (objects, error) in
+        
+                }
+
+        return true
         
         if DataManager.shared.currentUser != nil {
             self.window?.rootViewController = R.storyboard.home.instantiateInitialViewController()
             self.window?.makeKeyAndVisible()
         }
         
-        initParse()
         
         return true
     }
     
     private func initParse() {
         let configuration = ParseClientConfiguration {
+            $0.isLocalDatastoreEnabled = true
             $0.applicationId = SA_APPLICATIONID
             $0.clientKey = SA_CLIENT_KEY
             $0.server = SA_SERVER
