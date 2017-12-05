@@ -14,20 +14,24 @@ class PostsApi: NSObject {
     class func findAllPosts(completion: @escaping PostsListCompletionHandler) {
         
         let postsQuery = PFQuery(className: "Posts")
-        //query.includeKey("test")
+        postsQuery.includeKeys(["poster", "likeds", "messages"])
         postsQuery.findObjectsInBackground { (pfobjects, error) in
             
-//            if let postsList = Posts.convertPost(with: pfobjects) {
-////                for posts in postsList {
-////                    UserInfoApi.findUserInfo(with: posts.userId, completion: { (response) in
-////
-////                    })
-////                }
-//            }
-//            
+            if let guardObjects = pfobjects {
+                var retObjects = [Posts]()
+                for object in guardObjects {
+                    if let postsObject = Posts.convertPosts(with: object) {
+                        retObjects.append(postsObject)
+                    }
+                }
+                let response = Response<[Posts]>()
+                response.data = retObjects
+                response.status = error != nil ? .failure : .success
+                completion(response)
+
+            }
             
             
         }
-
     }
 }

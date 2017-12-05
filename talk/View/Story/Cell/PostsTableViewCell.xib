@@ -122,6 +122,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="crateDateLabel" destination="scq-DO-bBO" id="DlQ-ZG-oqu"/>
+                <outlet property="imageScrollView" destination="sSg-6d-Jcr" id="n1w-kS-zeU"/>
                 <outlet property="nickNameLabel" destination="bax-Za-1Rw" id="rQl-h3-ean"/>
                 <outlet property="pageControl" destination="Zur-Ct-bNS" id="hx2-0G-u3V"/>
                 <outlet property="titleLabel" destination="0NM-El-tZu" id="pMH-4k-y1W"/>

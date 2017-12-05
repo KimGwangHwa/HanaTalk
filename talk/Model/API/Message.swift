@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class Message: NSObject {
     public var objectId: String?
@@ -15,4 +16,8 @@ class Message: NSObject {
     public var isread: Bool = false
     public var messageType: String?
     public var chatName: String?
+    
+    class func convertMessage(with ojbect: PFObject?) -> Message? {
+        return nil;
+    }
 }

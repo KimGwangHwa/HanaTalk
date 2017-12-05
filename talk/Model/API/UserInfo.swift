@@ -42,6 +42,7 @@ class UserInfo: NSObject {
             retObject.postsCount = (guardObject["postsCount"] as? Int) ?? 0
             retObject.followingCount = (guardObject["followingCount"] as? Int) ?? 0
             retObject.followersCount = (guardObject["followersCount"] as? Int) ?? 0
+            return retObject
         }
         return nil
     }

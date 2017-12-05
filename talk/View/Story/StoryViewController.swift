@@ -9,11 +9,20 @@ import UIKit
 
 class StoryViewController: UITableViewController {
 
+    var dataSource: [Posts]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(R.nib.postsTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.postsTableViewCell.identifier)
+        viewSetUp()
+        
+        PostsApi.findAllPosts { (response) in
+            
+            if response.status == .success {
+                self.dataSource = response.data
+                self.tableView.reloadData()
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,16 +30,25 @@ class StoryViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // MARK: - Set Up
+    func viewSetUp() {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(R.nib.postsTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.postsTableViewCell.identifier)
+    }
+    
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 1
+        return dataSource?.count ?? 0
     }
 
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.postsTableViewCell.identifier) as? PostsTableViewCell {
-            cell.titleLabel.text = "xxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjfxxkajsdfjfsdljkasdjf"
+            cell.displayData = dataSource?[indexPath.row]
             return cell
         }
 
@@ -81,5 +99,4 @@ class StoryViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
