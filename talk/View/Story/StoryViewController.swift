@@ -33,6 +33,9 @@ class StoryViewController: UITableViewController {
     
     // MARK: - Set Up
     func viewSetUp() {
+        tableView.refshHeader = RefeshHeader(refreshingBlock: {
+            
+        });
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.postsTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.postsTableViewCell.identifier)
