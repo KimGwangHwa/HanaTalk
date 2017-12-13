@@ -33,14 +33,19 @@ class StoryViewController: UITableViewController {
     
     // MARK: - Set Up
     func viewSetUp() {
-        tableView.refshHeader = RefeshHeader(refreshingBlock: {
-            
-        });
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshControlEvent), for: .valueChanged)
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.postsTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.postsTableViewCell.identifier)
     }
     
+    // MARK: - Action
+    @objc func refreshControlEvent() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refreshControl?.endRefreshing()
+        }
+    }
     
     // MARK: - Table view data source
 
