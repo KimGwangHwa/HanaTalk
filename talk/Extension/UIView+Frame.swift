@@ -11,12 +11,8 @@ import UIKit
 
 extension UIView {
 
-
-    func rounded(cornerRadius: CGFloat = 0.5)  {
-        self.layer.cornerRadius = cornerRadius
-    }
     // MARK: x,y,width,height
-    var hn_x: CGFloat{
+    var x: CGFloat{
         get{
             return self.frame.origin.x
         }set{
@@ -24,7 +20,7 @@ extension UIView {
         }
     }
     
-    var hn_y: CGFloat{
+    var y: CGFloat{
         get{
             return self.frame.origin.y
         }set{
@@ -32,7 +28,7 @@ extension UIView {
         }
     }
     
-    var hn_width: CGFloat{
+    var width: CGFloat{
         get{
             return self.frame.size.width
         }set{
@@ -40,7 +36,7 @@ extension UIView {
         }
     }
     
-    var hn_height: CGFloat{
+    var height: CGFloat{
         get{
             return self.frame.size.height
         }set{
@@ -48,7 +44,7 @@ extension UIView {
         }
     }
     
-    var hn_size: CGSize{
+    var size: CGSize{
         get{
             return self.frame.size
         }set{
@@ -56,7 +52,7 @@ extension UIView {
         }
     }
     
-    var hn_origin: CGPoint{
+    var origin: CGPoint{
         get{
             return self.frame.origin
         }
