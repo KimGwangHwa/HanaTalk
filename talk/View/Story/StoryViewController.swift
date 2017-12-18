@@ -14,23 +14,9 @@ class StoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetUp()
-        
-        PostsApi.findAllPosts { (response) in
-            
-            if response.status == .success {
-                self.dataSource = response.data
-                self.tableView.reloadData()
-            }
-            
-        }
+        refreshControlEvent()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
     // MARK: - Set Up
     func viewSetUp() {
         refreshControl = UIRefreshControl()
@@ -42,9 +28,17 @@ class StoryViewController: UITableViewController {
     
     // MARK: - Action
     @objc func refreshControlEvent() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.refreshControl?.endRefreshing()
+        refreshControl?.beginRefreshing()
+        PostsApi.findAllPosts { (response) in
+            if response.status == .success {
+                self.dataSource = response.data
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            }
         }
+    }
+    
+    @IBAction func tapBarUploadEvent(_ sender: UIButton) {
     }
     
     // MARK: - Table view data source
