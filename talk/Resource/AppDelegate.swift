@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = ParseClientConfiguration {
             $0.isLocalDatastoreEnabled = true
             $0.applicationId = SA_APPLICATIONID
-            $0.clientKey = SA_CLIENT_KEY
+            $0.clientKey = SA_CLIENTKEY
             $0.server = SA_SERVER
         }
         Parse.initialize(with: configuration)
