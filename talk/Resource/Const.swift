@@ -13,13 +13,34 @@ let DATE_FORMAT_1 = "yyyyMMddHHmmss"
 let DATE_FORMAT_2 = "yyyy/MM/dd"
 
 // MARK: SASHIDO
-
+// TODO: R.swift Can Not?
 // ApplicationId
-let SA_APPLICATIONID = "OLADltW3Rh2urhQu6N03lTFQJqIUOLoPUVQUmSWJ"
-// clientKey
-let SA_CLIENT_KEY = "CwgwqSRcJTamOCIlnefjiCV8UPqBKQKFBVJUmWLJ"
-// server
-let SA_SERVER = "https://pg-app-hovattt1c895ae0yjki7hueyw5qd2x.scalabl.cloud/1/"
+var SA_APPLICATIONID: String {
+    if let privateInfo = Bundle.main.infoDictionary?["PrivateInfo"] as? [String: String] {
+        if let value = privateInfo["SA_ApplicationId"] {
+            return value
+        }
+    }
+    return ""
+}
+
+var SA_CLIENTKEY: String {
+    if let privateInfo = Bundle.main.infoDictionary?["PrivateInfo"] as? [String: String] {
+        if let value = privateInfo["SA_ClientKey"] {
+            return value
+        }
+    }
+    return ""
+}
+
+var SA_SERVER: String {
+    if let privateInfo = Bundle.main.infoDictionary?["PrivateInfo"] as? [String: String] {
+        if let value = privateInfo["SA_Server"] {
+            return value
+        }
+    }
+    return ""
+}
 
 // MARK: SBDMain
 
