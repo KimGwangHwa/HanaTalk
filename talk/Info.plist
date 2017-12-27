@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PrivateInfo</key>
+	<dict>
+		<key>SA_Server</key>
+		<string>https://pg-app-hovattt1c895ae0yjki7hueyw5qd2x.scalabl.cloud/1/</string>
+		<key>SA_ClientKey</key>
+		<string>CwgwqSRcJTamOCIlnefjiCV8UPqBKQKFBVJUmWLJ</string>
+		<key>SA_ApplicationId</key>
+		<string>OLADltW3Rh2urhQu6N03lTFQJqIUOLoPUVQUmSWJ</string>
+	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Privacy - Photo Library Usage Description</string>
 	<key>NSCameraUsageDescription</key>
