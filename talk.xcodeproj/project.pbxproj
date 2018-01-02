@@ -40,6 +40,10 @@
 		342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888631FB9D33000D7EB61 /* StoryViewController.swift */; };
 		342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */; };
 		342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */; };
+		343071681FFB417800503F77 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343071671FFB417800503F77 /* AlbumViewController.swift */; };
+		3430716A1FFB418800503F77 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343071691FFB418800503F77 /* Album.storyboard */; };
+		343071701FFB424700503F77 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430716E1FFB424700503F77 /* AlbumCell.swift */; };
+		343071711FFB424700503F77 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3430716F1FFB424700503F77 /* AlbumCell.xib */; };
 		34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B731FA8B81C0045CA60 /* UserApi.swift */; };
 		34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B751FA8B83E0045CA60 /* UserInfoApi.swift */; };
 		34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B771FA8B8510045CA60 /* FollowApi.swift */; };
@@ -112,6 +116,10 @@
 		342888631FB9D33000D7EB61 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
+		343071671FFB417800503F77 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		343071691FFB418800503F77 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
+		3430716E1FFB424700503F77 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		3430716F1FFB424700503F77 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		34385B731FA8B81C0045CA60 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		34385B751FA8B83E0045CA60 /* UserInfoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoApi.swift; sourceTree = "<group>"; };
 		34385B771FA8B8510045CA60 /* FollowApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
@@ -194,6 +202,7 @@
 				341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */,
 				342888611FB9D2AE00D7EB61 /* Story.storyboard */,
 				347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */,
+				343071691FFB418800503F77 /* Album.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -201,6 +210,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				343071661FFB415E00503F77 /* Album */,
 				347CAACE1FE7F3E9006562E6 /* UploadStory */,
 				346219611F66CA66004998E8 /* CustomView */,
 				342888601FB9D29800D7EB61 /* Story */,
@@ -325,6 +335,24 @@
 			children = (
 				342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */,
 				342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		343071661FFB415E00503F77 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				3430716B1FFB420600503F77 /* Cell */,
+				343071671FFB417800503F77 /* AlbumViewController.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		3430716B1FFB420600503F77 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3430716E1FFB424700503F77 /* AlbumCell.swift */,
+				3430716F1FFB424700503F77 /* AlbumCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -591,8 +619,10 @@
 				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
 				342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */,
 				3461F50E1F763672000D09D5 /* Find.storyboard in Resources */,
+				3430716A1FFB418800503F77 /* Album.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
+				343071711FFB424700503F77 /* AlbumCell.xib in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
@@ -702,6 +732,7 @@
 				347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
+				343071701FFB424700503F77 /* AlbumCell.swift in Sources */,
 				3459A73A1F530B63000D2FC5 /* UIViewController+VisibleViewController.swift in Sources */,
 				34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */,
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
@@ -709,6 +740,7 @@
 				346219671F696D56004998E8 /* UIImage+Color.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
 				341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */,
+				343071681FFB417800503F77 /* AlbumViewController.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,

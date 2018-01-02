@@ -49,16 +49,27 @@
                                 <rect key="frame" x="315" y="0.0" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="App-Store"/>
+                                <connections>
+                                    <action selector="uploadButtonEvent:" destination="3Bh-8F-ZoR" eventType="touchUpInside" id="CHw-Ee-6hn"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="tapBarUploadEvent:" destination="3Bh-8F-ZoR" id="GMi-La-XJD"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="YV9-Sp-Mqv" kind="presentation" identifier="showAlbum" id="YCC-MU-tld"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAd-P9-kWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-251" y="235"/>
+        </scene>
+        <!--Album-->
+        <scene sceneID="OLc-Fy-YlT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Album" id="YV9-Sp-Mqv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qc4-di-gx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424" y="51"/>
         </scene>
     </scenes>
     <resources>

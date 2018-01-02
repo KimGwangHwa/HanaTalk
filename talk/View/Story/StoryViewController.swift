@@ -37,6 +37,26 @@ class StoryViewController: UITableViewController {
             }
         }
     }
+    @IBAction func uploadButtonEvent(_ sender: UIButton) {
+        
+        let alertController = UIAlertController()
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (alert) in
+            
+        }
+        
+        let albumAction = UIAlertAction(title: "Album", style: .default) { (alert) in
+            self.performSegue(withIdentifier: R.segue.storyViewController.showAlbum.identifier, sender: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(cameraAction)
+        alertController.addAction(albumAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func tapBarUploadEvent(_ sender: UIButton) {
     }
