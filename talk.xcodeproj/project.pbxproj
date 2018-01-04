@@ -75,6 +75,8 @@
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
 		349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */; };
+		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
+		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
 		34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */; };
 		34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
@@ -153,6 +155,8 @@
 		349EAD581F2F55CE005833ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349EAD661F2F59CF005833ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
+		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoInput.storyboard; sourceTree = "<group>"; };
 		34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputViewController.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				342888611FB9D2AE00D7EB61 /* Story.storyboard */,
 				347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */,
 				343071691FFB418800503F77 /* Album.storyboard */,
+				34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				34CA961C1FFCA89000F1FA1C /* Peek */,
 				343071661FFB415E00503F77 /* Album */,
 				347CAACE1FE7F3E9006562E6 /* UploadStory */,
 				346219611F66CA66004998E8 /* CustomView */,
@@ -518,6 +524,14 @@
 			path = InterfaceBuilder;
 			sourceTree = "<group>";
 		};
+		34CA961C1FFCA89000F1FA1C /* Peek */ = {
+			isa = PBXGroup;
+			children = (
+				34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */,
+			);
+			path = Peek;
+			sourceTree = "<group>";
+		};
 		34E7EDF81F30BDA900D87C1C /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +647,7 @@
 				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
 				34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */,
 				347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */,
+				34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +776,7 @@
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
+				34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
 				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,

@@ -44,7 +44,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Story" id="vAi-hq-Gvk">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="jCj-t6-3lE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="jCj-t6-3lE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lI3-NC-UhJ">
                                 <rect key="frame" x="315" y="0.0" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
