@@ -19,22 +19,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="109"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zLY-bj-p2l">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zLY-bj-p2l">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="109"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OId-vT-wd8">
+                        <rect key="frame" x="106" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="8iP-Mg-ioM"/>
+                            <constraint firstAttribute="height" constant="44" id="Q8n-mL-PWm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <connections>
+                            <action selector="selectedButtonEvent:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5Xl-fa-glW"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <color key="backgroundColor" red="0.054901960780000002" green="0.14117647059999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="zLY-bj-p2l" secondAttribute="trailing" id="2lV-dA-tiR"/>
+                <constraint firstAttribute="trailing" secondItem="OId-vT-wd8" secondAttribute="trailing" id="5sT-Dm-HVM"/>
                 <constraint firstItem="zLY-bj-p2l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NGv-bq-cm6"/>
                 <constraint firstItem="zLY-bj-p2l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OvX-ab-pAw"/>
+                <constraint firstItem="OId-vT-wd8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pej-QB-dIN"/>
                 <constraint firstAttribute="bottom" secondItem="zLY-bj-p2l" secondAttribute="bottom" id="wb0-XJ-ChJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="150" height="109"/>
             <connections>
                 <outlet property="imageView" destination="zLY-bj-p2l" id="FdJ-8a-1x2"/>
+                <outlet property="selectedButton" destination="OId-vT-wd8" id="xQz-hW-BbW"/>
             </connections>
             <point key="canvasLocation" x="31" y="29.5"/>
         </collectionViewCell>

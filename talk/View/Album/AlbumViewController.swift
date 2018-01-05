@@ -9,10 +9,15 @@ import UIKit
 import AVFoundation
 import Photos
 
-class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
+class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var dataSource = [UIImage]()
+    var selectedDictionary = [IndexPath: Int]()
+    var selectedCount = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,9 +40,10 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func setUpView() {
-        registerForPreviewing(with: self, sourceView: view)
+        registerForPreviewing(with: self, sourceView: collectionView)
 
         collectionView.register(R.nib.albumCell(), forCellWithReuseIdentifier: R.reuseIdentifier.albumCell.identifier)
+        collectionView.allowsMultipleSelection = true
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 2.5
         let rowCount: CGFloat = 3
@@ -49,14 +55,10 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.collectionViewLayout = layout
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    // MARK: - CollectionView Delegate
-    
+}
+// MARK: - CollectionView Delegate
+extension AlbumViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -64,11 +66,16 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.albumCell.identifier, for: indexPath) as? AlbumCell {
             cell.imageView.image = dataSource[indexPath.row]
+            cell.selectedCount = selectedDictionary[indexPath]
+            cell.delegate = self
             return cell
         }
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.cellForItem(at: indexPath)?.isHighlighted = true
+    }
 }
 
 // MARK: 3D Touch
@@ -99,4 +106,23 @@ extension AlbumViewController {
 //        return [action1]
 //    }
 }
+
+// MARK: AlbumCellDelegate
+extension AlbumViewController {
+    
+    func albumCell(_ cell: AlbumCell, didSelectedAlbumImage image: UIImage?, state: Bool) {
+        if state == true {
+            selectedCount += 1
+            if let indexPath = collectionView.indexPath(for: cell) {
+                cell.selectedCount = selectedCount
+                selectedDictionary[indexPath] = selectedCount
+            }
+        } else {
+            selectedCount -= 1
+        }
+    }
+    
+}
+
+
 
