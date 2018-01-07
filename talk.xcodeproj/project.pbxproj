@@ -17,6 +17,7 @@
 		3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */; };
 		3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */; };
 		3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */; };
+		3409FBA420025942001FF169 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FBA320025942001FF169 /* BaseViewController.swift */; };
 		341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */; };
 		341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
@@ -58,7 +59,6 @@
 		3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */; };
 		3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7321F526496000D2FC5 /* UserInfoViewController.swift */; };
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
-		3459A73A1F530B63000D2FC5 /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7391F530B63000D2FC5 /* UIViewController+VisibleViewController.swift */; };
 		3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */; };
 		3461F50E1F763672000D09D5 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461F50D1F763672000D09D5 /* Find.storyboard */; };
 		3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F50F1F7636C0000D09D5 /* FindViewController.swift */; };
@@ -99,6 +99,7 @@
 		3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryTextCell.xib; sourceTree = "<group>"; };
 		3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryImageCell.swift; sourceTree = "<group>"; };
 		3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryImageCell.xib; sourceTree = "<group>"; };
+		3409FBA320025942001FF169 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserInfo.storyboard; sourceTree = "<group>"; };
 		341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
@@ -140,7 +141,6 @@
 		3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteChatManager.swift; sourceTree = "<group>"; };
 		3459A7321F526496000D2FC5 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
-		3459A7391F530B63000D2FC5 /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		3461F50D1F763672000D09D5 /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
 		3461F50F1F7636C0000D09D5 /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +249,7 @@
 				34211D181F3A0714000F0C94 /* SignUp */,
 				34211D1A1F3A0714000F0C94 /* TalkLog */,
 				34211D1F1F3A0714000F0C94 /* TalkRoom */,
+				3409FBA320025942001FF169 /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,7 +386,6 @@
 		344C27411F3358C200FD5805 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3459A7391F530B63000D2FC5 /* UIViewController+VisibleViewController.swift */,
 				346219661F696D56004998E8 /* UIImage+Color.swift */,
 				3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */,
 			);
@@ -771,7 +771,7 @@
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
 				343071701FFB424700503F77 /* AlbumCell.swift in Sources */,
-				3459A73A1F530B63000D2FC5 /* UIViewController+VisibleViewController.swift in Sources */,
+				3409FBA420025942001FF169 /* BaseViewController.swift in Sources */,
 				34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */,
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,

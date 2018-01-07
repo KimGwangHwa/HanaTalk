@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
+class AlbumViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     

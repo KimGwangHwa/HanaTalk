@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UploadStoryViewController: UIViewController {
+class UploadStoryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
