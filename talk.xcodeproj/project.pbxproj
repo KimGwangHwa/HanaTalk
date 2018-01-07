@@ -13,6 +13,10 @@
 		340627281F53320D00821E39 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627241F53320D00821E39 /* SendTextCell.swift */; };
 		340627291F53320D00821E39 /* SendTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627251F53320D00821E39 /* SendTextCell.xib */; };
 		3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406272E1F5ADAC500821E39 /* DataManager.swift */; };
+		3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FB9920025682001FF169 /* UploadStoryTextCell.swift */; };
+		3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */; };
+		3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */; };
+		3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */; };
 		341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */; };
 		341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
@@ -91,6 +95,10 @@
 		340627241F53320D00821E39 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
 		340627251F53320D00821E39 /* SendTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendTextCell.xib; sourceTree = "<group>"; };
 		3406272E1F5ADAC500821E39 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		3409FB9920025682001FF169 /* UploadStoryTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryTextCell.swift; sourceTree = "<group>"; };
+		3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryTextCell.xib; sourceTree = "<group>"; };
+		3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryImageCell.swift; sourceTree = "<group>"; };
+		3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryImageCell.xib; sourceTree = "<group>"; };
 		341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserInfo.storyboard; sourceTree = "<group>"; };
 		341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
@@ -181,6 +189,17 @@
 				1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3409FB942002562E001FF169 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3409FB9920025682001FF169 /* UploadStoryTextCell.swift */,
+				3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */,
+				3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */,
+				3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		341D1AD71FB1E0180070ECAC /* AddUserInfo */ = {
@@ -442,6 +461,7 @@
 		347CAACE1FE7F3E9006562E6 /* UploadStory */ = {
 			isa = PBXGroup;
 			children = (
+				3409FB942002562E001FF169 /* Cell */,
 				347CAACF1FE7F413006562E6 /* UploadStoryViewController.swift */,
 			);
 			path = UploadStory;
@@ -636,6 +656,7 @@
 				3430716A1FFB418800503F77 /* Album.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
+				3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */,
 				343071711FFB424700503F77 /* AlbumCell.xib in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
@@ -647,6 +668,7 @@
 				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
 				34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */,
 				347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */,
+				3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */,
 				34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +761,7 @@
 				340627261F53320D00821E39 /* ReceiveTextCell.swift in Sources */,
 				34211D281F3A0714000F0C94 /* ContactCell.swift in Sources */,
 				3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */,
+				3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */,
 				347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */,
 				34385B7C1FA8B86D0045CA60 /* ChatRoomApi.swift in Sources */,
 				3461F51C1F7BD473000D09D5 /* UserInfoCell.swift in Sources */,
@@ -771,6 +794,7 @@
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				342600051FC30C7A009857E7 /* PostsApi.swift in Sources */,
+				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
 				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,

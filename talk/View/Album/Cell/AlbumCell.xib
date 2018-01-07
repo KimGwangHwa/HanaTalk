@@ -24,6 +24,7 @@
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OId-vT-wd8">
                         <rect key="frame" x="106" y="0.0" width="44" height="44"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.53725490200000003" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44" id="8iP-Mg-ioM"/>
                             <constraint firstAttribute="height" constant="44" id="Q8n-mL-PWm"/>

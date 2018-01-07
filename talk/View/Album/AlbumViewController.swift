@@ -55,8 +55,21 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.collectionViewLayout = layout
 
     }
-    
 }
+
+// MARK: - Action
+extension AlbumViewController {
+    
+    @IBAction func tapNextButtonEvent(_ sender: UIButton) {
+        self.performSegue(withIdentifier: R.segue.albumViewController.showUploadStory.identifier, sender: nil)
+    }
+    
+    @IBAction func tapBackButtonEvent(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
 // MARK: - CollectionView Delegate
 extension AlbumViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
