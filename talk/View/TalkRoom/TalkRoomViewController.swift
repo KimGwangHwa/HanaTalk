@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TalkRoomViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
+class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!

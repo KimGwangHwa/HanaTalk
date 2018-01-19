@@ -1,29 +1,22 @@
 //
-//  BaseViewController.swift
+//  UIViewController+Extension.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2018/01/07.
+//  Created by 61-201405-2054 on 2018/01/19.
 //
 
+import Foundation
 import UIKit
 
-class BaseViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let image = UIImage.colorImage(color: UIColor.red, size: CGSize(width: 10, height: 10))
-//        navigationItem.backBarButtonItem = UIBarButtonItem(customView: UIImageView(image: image))
-        UINavigationBar.appearance().backIndicatorImage = image
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
-        UINavigationBar.appearance().tintColor = UIColor.red
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+extension UIViewController {
     
+    
+//    let image = UIImage.colorImage(color: UIColor.red, size: CGSize(width: 10, height: 10))
+//    //        navigationItem.backBarButtonItem = UIBarButtonItem(customView: UIImageView(image: image))
+//    UINavigationBar.appearance().backIndicatorImage = image
+//    UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
+//    UINavigationBar.appearance().tintColor = UIColor.red
+
     func topVisibleViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topVisibleViewController(controller: navigationController.visibleViewController)
@@ -53,16 +46,5 @@ class BaseViewController: UIViewController {
         }
         return nil
     }
-
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

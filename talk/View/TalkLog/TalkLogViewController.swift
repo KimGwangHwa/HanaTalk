@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TalkLogViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
+class TalkLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DidReceiveMessageDelegate {
 
     
     private var dataSource: [ChatRoom] = [] //DataManager.shared.chatRooms

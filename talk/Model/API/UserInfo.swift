@@ -36,9 +36,9 @@ class UserInfo: NSObject {
             retObject.email =  guardObject["email"] as? String
             retObject.profileImage = guardObject["profileImageUrl"] as? String
             retObject.nickName =  guardObject["nickName"] as? String
-            if let guardUser = User.convertUser(with: guardObject["user"] as? PFObject) {
-                retObject.user = guardUser
-            }
+//            if let guardUser = User.convertUser(with: guardObject["user"] as? PFObject) {
+//                retObject.user = guardUser
+//            }
             retObject.postsCount = (guardObject["postsCount"] as? Int) ?? 0
             retObject.followingCount = (guardObject["followingCount"] as? Int) ?? 0
             retObject.followersCount = (guardObject["followersCount"] as? Int) ?? 0

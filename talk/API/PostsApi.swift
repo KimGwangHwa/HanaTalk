@@ -12,7 +12,7 @@ class PostsApi: NSObject {
     typealias PostsListCompletionHandler = (Response<[Posts]>) -> Void
     
     class func findAllPosts(completion: @escaping PostsListCompletionHandler) {
-        
+
         let postsQuery = PFQuery(className: "Posts")
         postsQuery.includeKeys(["poster", "likeds", "messages"])
         postsQuery.findObjectsInBackground { (pfobjects, error) in
@@ -30,8 +30,6 @@ class PostsApi: NSObject {
                 completion(response)
 
             }
-            
-            
         }
     }
 }

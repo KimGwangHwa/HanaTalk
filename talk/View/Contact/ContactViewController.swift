@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     // SectionTitles

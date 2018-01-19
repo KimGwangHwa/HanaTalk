@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FindViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class FindViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!

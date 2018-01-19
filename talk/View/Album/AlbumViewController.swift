@@ -9,14 +9,12 @@ import UIKit
 import AVFoundation
 import Photos
 
-class AlbumViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
+class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataSource = [UIImage]()
-    var selectedDictionary = [IndexPath: Int]()
-    var selectedCount = 0
-    
+    var selectedImages = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +53,16 @@ class AlbumViewController: BaseViewController, UICollectionViewDelegate, UIColle
         collectionView.collectionViewLayout = layout
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let guardIdentifier = segue.identifier, guardIdentifier == R.segue.albumViewController.showUploadStory.identifier {
+            if let uploadViewController = segue.destination as? UploadStoryViewController {
+                uploadViewController.uploadImages = selectedImages
+            }
+        }
+    }
+
 }
 
 // MARK: - Action
@@ -67,7 +75,6 @@ extension AlbumViewController {
     @IBAction func tapBackButtonEvent(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-
 }
 
 // MARK: - CollectionView Delegate
@@ -79,7 +86,10 @@ extension AlbumViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.albumCell.identifier, for: indexPath) as? AlbumCell {
             cell.imageView.image = dataSource[indexPath.row]
-            cell.selectedCount = selectedDictionary[indexPath]
+            cell.selectedCount = nil
+            if let index = selectedImages.index(of: dataSource[indexPath.row]) {
+                cell.selectedCount = index + 1
+            }
             cell.delegate = self
             return cell
         }
@@ -124,15 +134,20 @@ extension AlbumViewController {
 extension AlbumViewController {
     
     func albumCell(_ cell: AlbumCell, didSelectedAlbumImage image: UIImage?, state: Bool) {
+        guard let selectedImage = image else {
+            return
+        }
         if state == true {
-            selectedCount += 1
-            if let indexPath = collectionView.indexPath(for: cell) {
-                cell.selectedCount = selectedCount
-                selectedDictionary[indexPath] = selectedCount
+            if !selectedImages.contains(selectedImage) {
+                selectedImages.append(selectedImage)
             }
         } else {
-            selectedCount -= 1
+            guard let index = selectedImages.index(of: selectedImage) else {
+                return
+            }
+            selectedImages.remove(at: index)
         }
+        collectionView.reloadData()
     }
     
 }

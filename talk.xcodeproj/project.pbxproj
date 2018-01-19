@@ -17,7 +17,6 @@
 		3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */; };
 		3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */; };
 		3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */; };
-		3409FBA420025942001FF169 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FBA320025942001FF169 /* BaseViewController.swift */; };
 		341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */; };
 		341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
@@ -83,6 +82,7 @@
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
 		34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */; };
 		34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */; };
+		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,6 @@
 		3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryTextCell.xib; sourceTree = "<group>"; };
 		3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryImageCell.swift; sourceTree = "<group>"; };
 		3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryImageCell.xib; sourceTree = "<group>"; };
-		3409FBA320025942001FF169 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserInfo.storyboard; sourceTree = "<group>"; };
 		341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoInput.storyboard; sourceTree = "<group>"; };
 		34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputViewController.swift; sourceTree = "<group>"; };
+		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,7 +249,6 @@
 				34211D181F3A0714000F0C94 /* SignUp */,
 				34211D1A1F3A0714000F0C94 /* TalkLog */,
 				34211D1F1F3A0714000F0C94 /* TalkRoom */,
-				3409FBA320025942001FF169 /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,22 +387,9 @@
 			children = (
 				346219661F696D56004998E8 /* UIImage+Color.swift */,
 				3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */,
+				7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		344C27491F3361D600FD5805 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3459A7041F3B3B6C000D2FC5 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		3459A7301F526481000D2FC5 /* UserInfo */ = {
@@ -515,8 +501,6 @@
 		349EAD5F1F2F59CF005833ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3459A7041F3B3B6C000D2FC5 /* CoreData */,
-				344C27491F3361D600FD5805 /* View */,
 				34E7EDF81F30BDA900D87C1C /* API */,
 				346BAA341F92471B0065A762 /* Response.swift */,
 			);
@@ -748,7 +732,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -771,7 +755,6 @@
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
 				343071701FFB424700503F77 /* AlbumCell.swift in Sources */,
-				3409FBA420025942001FF169 /* BaseViewController.swift in Sources */,
 				34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */,
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
@@ -798,6 +781,7 @@
 				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
+				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
 				34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */,

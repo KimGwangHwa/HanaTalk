@@ -68,7 +68,7 @@ class StoryViewController: UITableViewController {
         return dataSource?.count ?? 0
     }
 
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.postsTableViewCell.identifier) as? PostsTableViewCell {
             cell.displayData = dataSource?[indexPath.row]
             return cell

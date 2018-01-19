@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoInputViewController: BaseViewController {
+class InfoInputViewController: UIViewController {
 
     enum InfoType {
         case nickName

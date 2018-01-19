@@ -26,4 +26,4 @@ let SA_SERVER = "https://pg-app-hovattt1c895ae0yjki7hueyw5qd2x.scalabl.cloud/1/"
 // ApplicationId
 
 let SB_APPLICATIONID = "DD21A9CC-A953-4633-A9B9-0E3B94137F1D"
-
+let UploadImageMaxCount = 6

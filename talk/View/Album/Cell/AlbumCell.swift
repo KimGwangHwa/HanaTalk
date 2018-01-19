@@ -16,8 +16,10 @@ class AlbumCell: UICollectionViewCell {
     var selectedCount: Int? {
         didSet {
             if let guardCount = selectedCount {
+                selectedButton.isSelected = true
                 selectedButton.setTitle(String(guardCount), for: .selected)
             } else {
+                selectedButton.isSelected = false
                 selectedButton.setTitle(nil, for: .selected)
             }
         }
@@ -32,9 +34,8 @@ class AlbumCell: UICollectionViewCell {
     }
     
     @IBAction func selectedButtonEvent(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
         if (delegate != nil) {
-            delegate?.albumCell(self, didSelectedAlbumImage: imageView.image, state: sender.isSelected)
+            delegate?.albumCell(self, didSelectedAlbumImage: imageView.image, state: !sender.isSelected)
         }
     }
 }

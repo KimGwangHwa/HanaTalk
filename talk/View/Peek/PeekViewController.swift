@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PeekViewController: BaseViewController {
+class PeekViewController: UIViewController {
     
     public var image: UIImage?
     @IBOutlet weak var imageView: UIImageView!
