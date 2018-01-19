@@ -18,6 +18,9 @@ class Posts: NSObject {
     public var contents: String?
     public var createdAt: Date?
     
+    // For uploading variable
+    public var images: [UIImage]?
+    
     class func convertPosts(with object: PFObject?) -> Posts? {
         if let guardObject = object {
             let post = Posts()

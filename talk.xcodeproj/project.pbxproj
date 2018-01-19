@@ -82,6 +82,7 @@
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
 		34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */; };
 		34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */; };
+		7ABD8AF12011F61800B047B3 /* UploadImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
@@ -166,6 +167,7 @@
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoInput.storyboard; sourceTree = "<group>"; };
 		34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputViewController.swift; sourceTree = "<group>"; };
+		7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageApi.swift; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +344,7 @@
 				34385B791FA8B85D0045CA60 /* MessageApi.swift */,
 				34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */,
 				342600041FC30C7A009857E7 /* PostsApi.swift */,
+				7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,
 				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
+				7ABD8AF12011F61800B047B3 /* UploadImageApi.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */,
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,

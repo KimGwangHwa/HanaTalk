@@ -32,4 +32,16 @@ class PostsApi: NSObject {
             }
         }
     }
+    
+    class func uploadPosts(_ posts: Posts, completion: @escaping StatusCompletionHandler) {
+        let pfObject = PFObject(className: "Posts")
+        //pfObject["poster"] = PFObject(withoutDataWithClassName: "UserInfo", objectId: posts.poster?.objectId)
+        pfObject["contents"] = posts.contents
+        pfObject.saveInBackground { (isSuccess, error) in
+            UploadImageApi.uploadImagesInBackground(posts.images, className: "Posts", objectId: pfObject.objectId ?? "", columnName: "imageUrls", completion: { (status) in
+                completion(isSuccess == true ? .success: .failure )
+            })
+        }
+    }
+    
 }

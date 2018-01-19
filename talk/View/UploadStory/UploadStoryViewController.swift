@@ -23,6 +23,17 @@ class UploadStoryViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.register(R.nib.uploadStoryTextCell(), forCellReuseIdentifier: R.reuseIdentifier.uploadStoryTextCell.identifier)
         tableView.register(R.nib.uploadStoryImageCell(), forCellReuseIdentifier: R.reuseIdentifier.uploadStoryImageCell.identifier)
     }
+    
+    @IBAction func uploadButtonEvent(_ sender: UIButton) {
+        var p = Posts()
+        p.images = uploadImages
+        p.contents = "1924"
+        
+        
+        PostsApi.uploadPosts(p) { (status) in
+            
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate UITableViewDataSource
