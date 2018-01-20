@@ -26,7 +26,14 @@ class Posts: NSObject {
             let post = Posts()
 //            post.title = guardObject["title"] as? String
             post.objectId = guardObject.objectId
-            post.imageUrls = guardObject["imageUrls"] as? [String]
+            if let imageFiles = guardObject["imageUrls"] as? [PFFile] {
+                var imageUrls = [String]()
+                for file in imageFiles {
+                    imageUrls.append(file.url!)
+                }
+                post.imageUrls = imageUrls
+
+            }
             post.contents = guardObject["contents"] as? String
             post.poster = UserInfo.convertUserInfo(with: guardObject["poster"] as? PFObject)
             post.createdAt = guardObject.createdAt
