@@ -15,7 +15,8 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     var dataSource = [UIImage]()
     var selectedImages = [UIImage]()
-    
+    var photoAssets = [PHAsset]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,13 +29,45 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
         let assets: PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
         assets.enumerateObjects { (asset, index, stop) in
             let manager: PHImageManager = PHImageManager()
-            manager.requestImageData(for: asset, options: nil) { (data, info, orientation, hashtable) in
-                if let image = UIImage(data: data!) {
-                    self.dataSource.append(image)
+            manager.requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
+                if let guardImage = UIImage(data: data ?? Data()) {
+                    self.dataSource.append(guardImage)
                     self.collectionView.reloadData()
                 }
+            })
+//            manager.requestImage(for: asset, targetSize: CGSize.zero, contentMode: .aspectFit, options: nil, resultHandler: { (image, hashtable) in
+//                if let guardImage = image {
+//                    self.dataSource.append(guardImage)
+//                    self.collectionView.reloadData()
+//                }
+//            })
+        }
+    }
+    
+    func libraryRequestAuthorization() {
+        PHPhotoLibrary.requestAuthorization { (status) in
+            switch status {
+            case .notDetermined:
+                break
+            case .restricted:
+                break
+            case .denied:
+                break
+            case .authorized:
+                break
             }
         }
+    }
+    
+    func getAllPhotosInfo() {
+        let assets: PHFetchResult = PHAsset.fetchAssets(with: .image, options: nil)
+        assets.enumerateObjects({ [weak self] (asset, index, stop) -> Void in
+            guard let wself = self else {
+                return
+            }
+            wself.photoAssets.append(asset as PHAsset)
+        })
+        collectionView.reloadData()
     }
     
     func setUpView() {

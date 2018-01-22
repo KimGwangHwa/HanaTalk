@@ -9,11 +9,18 @@ import UIKit
 
 class UploadStoryTextCell: UITableViewCell {
 
+    @IBOutlet weak var inputTextView: UITextView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    var title: String? {
+        return inputTextView.text
+    }
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

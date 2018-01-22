@@ -10,6 +10,9 @@ import UIKit
 class UploadStoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var textCell: UploadStoryTextCell?
+    
+    
     var uploadImages: [UIImage]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +28,11 @@ class UploadStoryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func uploadButtonEvent(_ sender: UIButton) {
-        var p = Posts()
-        p.images = uploadImages
-        p.contents = "1924"
-        
-        
-        PostsApi.uploadPosts(p) { (status) in
-            
+        let postsItem = Posts()
+        postsItem.images = uploadImages
+        postsItem.contents = textCell?.title
+        PostsApi.uploadPosts(postsItem) { (status) in
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
 }
@@ -48,7 +49,8 @@ extension UploadStoryViewController {
 
         switch indexPath.row {
         case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.uploadStoryTextCell.identifier, for: indexPath) as? UploadStoryTextCell {
+            textCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.uploadStoryTextCell.identifier, for: indexPath) as? UploadStoryTextCell
+            if let cell = textCell {
                 return cell
             }
         case 1:

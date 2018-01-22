@@ -21,6 +21,10 @@ class PostsTableViewCell: UITableViewCell {
     
     public var displayData: Posts? {
         didSet {
+            for subView in imageScrollView.subviews {
+                subView.removeFromSuperview()
+            }
+            
             if let guardDisplayData = displayData {
                 if let guardPoster = guardDisplayData.poster {
                     nickNameLabel.text = guardPoster.nickName
@@ -37,6 +41,8 @@ class PostsTableViewCell: UITableViewCell {
 
                     for imageUrl in guardImageUrls {
                         let imageView = UIImageView(frame: CGRect(x: offsetX, y: offsetY, width: width, height: height))
+                        imageView.backgroundColor = UIColor.black
+                        imageView.contentMode = .scaleAspectFit
                         imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: nil)
                         imageScrollView.addSubview(imageView)
                         offsetX += width
