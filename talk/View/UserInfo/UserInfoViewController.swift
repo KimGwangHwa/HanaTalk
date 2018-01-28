@@ -2,156 +2,108 @@
 //  UserInfoViewController.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2017/08/27.
-//
+//  Created by ひかりちゃん on 2018/01/28.
 //
 
 import UIKit
 
-class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    public var userId: String = ""
-    @IBOutlet weak var tableview: UITableView!
-    private var reuseIdentifiers = [R.reuseIdentifier.profileImageCell.identifier, R.reuseIdentifier.nickName.identifier, R.reuseIdentifier.statusCell.identifier, R.reuseIdentifier.phoneNumberCell.identifier, R.reuseIdentifier.emailCell.identifier, R.reuseIdentifier.sexCell.identifier, R.reuseIdentifier.birthdayCell.identifier, R.reuseIdentifier.postsCell.identifier, R.reuseIdentifier.followingCell.identifier, R.reuseIdentifier.followerCell.identifier, R.reuseIdentifier.actionCell.identifier]
+private let postsCellReuseIdentifier = R.reuseIdentifier.userInfoPostsCell.identifier
+private let headerReuseIdentifier = R.reuseIdentifier.userInfoHeaderView.identifier
 
-    private var userInfo: UserInfo? = nil
-    
+private let postsCellNib = R.nib.userInfoPostsCell()
+private let collectionHeaderNib = R.nib.userInfoHeaderView()
+
+
+class UserInfoViewController: UICollectionViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
-        readData()
+        
+        // Register cell classes
+        self.collectionView?.register(collectionHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
+        self.collectionView?.register(postsCellNib, forCellWithReuseIdentifier: postsCellReuseIdentifier)
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = UIScreen.main.bounds.size.width / 3
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 202)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        self.collectionView?.collectionViewLayout = layout
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }    
-    func readData() {
-        UserInfoApi.findUserInfo(with: userId) { (response) in
-            if response.status == .success {
-                self.userInfo = response.data
-                self.tableview.reloadData()
-            }
-        }
-    }
-    
-    func setUpView() {
-        tableview.tableFooterView = UIView(frame: CGRect.zero)
     }
 
-    // MARK: - ActionEvent
+    /*
+    // MARK: - Navigation
 
-    @IBAction func followEvent(_ sender: UIButton) {
-    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
     }
-    
-    @IBAction func sendMessageEvent(_ sender: UIButton) {
-    
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    // Rows
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reuseIdentifiers.count
-    }
-    
-    // CellForRow
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifiers[indexPath.row], for: indexPath) as? UserInfoCell {
-            cell.userInfo = userInfo
-            return cell
-        }
-        return UITableViewCell()
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if reuseIdentifiers[indexPath.row] == R.reuseIdentifier.profileImageCell.identifier {
-            return 100
-        }
-        return 44
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    */
+
+    // MARK: UICollectionViewDataSource
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let cellIdentifier = reuseIdentifiers[indexPath.row]
-        if cellIdentifier == R.reuseIdentifier.profileImageCell.identifier {
-            showAlertSheet()
-        } else if cellIdentifier == R.reuseIdentifier.nickName.identifier || cellIdentifier == R.reuseIdentifier.statusCell.identifier || cellIdentifier == R.reuseIdentifier.phoneNumberCell.identifier || cellIdentifier == R.reuseIdentifier.emailCell.identifier || cellIdentifier == R.reuseIdentifier.birthdayCell.identifier {
-            
-            if let inputViewController = R.storyboard.infoInput.infoInputViewController() {
-                if cellIdentifier == R.reuseIdentifier.nickName.identifier {
-                    inputViewController.type = .nickName
-                } else if cellIdentifier == R.reuseIdentifier.statusCell.identifier {
-                    inputViewController.type = .statusMessage
-                } else if cellIdentifier == R.reuseIdentifier.phoneNumberCell.identifier {
-                    inputViewController.type = .phoneNumber
-                } else if cellIdentifier == R.reuseIdentifier.emailCell.identifier {
-                    inputViewController.type = .email
-                } else if cellIdentifier == R.reuseIdentifier.birthdayCell.identifier {
-                    inputViewController.type = .birthDay
-                }
-                navigationController?.pushViewController(inputViewController, animated: true)
-            }
 
-        } else if cellIdentifier == R.reuseIdentifier.postsCell.identifier || cellIdentifier == R.reuseIdentifier.followingCell.identifier || cellIdentifier == R.reuseIdentifier.followerCell.identifier {
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return 1
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postsCellReuseIdentifier, for: indexPath) as? UserInfoPostsCell {
             
+            return cell
         }
-        
+        return UICollectionViewCell()
     }
     
-    // MARK: - ImagePickerController delegate
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        albumImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        
-//        DataManager.shared.currentUserInfo?.uploadProfilePicture(image: albumImage!, completion: { (isSuccess) in
-//            self.tableView.reloadData()
-//        })
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    // MARK: - UIAlertController
-    
-    func showAlertSheet() {
-        let alertViewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
-            alertViewController.dismiss(animated: true, completion: nil)
-        }))
-        alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert) in
-            alertViewController.dismiss(animated: true, completion: nil)
-            let sourceType: UIImagePickerControllerSourceType = .camera
-            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-                let picker = UIImagePickerController()
-                picker.sourceType = sourceType
-                picker.delegate = self
-                self.present(picker, animated: true, completion: nil)
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionElementKindSectionHeader {
+            if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as? UserInfoHeaderView {
+
+                return header;
             }
-        }))
-        alertViewController.addAction(UIAlertAction(title: "Album", style: .default, handler: { (alert) in
-            alertViewController.dismiss(animated: true, completion: nil)
-            let sourceType: UIImagePickerControllerSourceType = .savedPhotosAlbum
-            if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-                let picker = UIImagePickerController()
-                picker.sourceType = sourceType
-                picker.delegate = self
-                self.present(picker, animated: true, completion: nil)
-            }
-            
-        }))
-        present(alertViewController, animated: true, completion: nil)
+        }
+        return UICollectionReusableView()
     }
 
+    // MARK: UICollectionViewDelegate
+
+    /*
+    // Uncomment this method to specify if the specified item should be highlighted during tracking
+    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    */
+
+    /*
+    // Uncomment this method to specify if the specified item should be selected
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    */
+
+    /*
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return false
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    
+    }
+    */
+
 }

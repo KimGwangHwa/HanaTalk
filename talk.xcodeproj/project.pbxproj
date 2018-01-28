@@ -57,7 +57,6 @@
 		3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */; };
 		3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7241F50496B000D2FC5 /* HomeViewController.swift */; };
 		3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */; };
-		3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7321F526496000D2FC5 /* UserInfoViewController.swift */; };
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
 		3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */; };
 		3461F50E1F763672000D09D5 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3461F50D1F763672000D09D5 /* Find.storyboard */; };
@@ -82,8 +81,11 @@
 		34A13B8D2016098A00E6688E /* EditUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B8B2016098A00E6688E /* EditUserInfoCell.swift */; };
 		34A13B8E2016098A00E6688E /* EditUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13B8C2016098A00E6688E /* EditUserInfoCell.xib */; };
 		34A13B9020160CCB00E6688E /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B8F20160CCB00E6688E /* EditUserInfoViewController.swift */; };
-		34A13B932016118D00E6688E /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B912016118D00E6688E /* UserInfoCell.swift */; };
-		34A13B942016118D00E6688E /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13B922016118D00E6688E /* UserInfoCell.xib */; };
+		34A13B9A201CD35F00E6688E /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B99201CD35F00E6688E /* UserInfoViewController.swift */; };
+		34A13B9D201D688E00E6688E /* UserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B9B201D688E00E6688E /* UserInfoHeaderView.swift */; };
+		34A13B9E201D688E00E6688E /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13B9C201D688E00E6688E /* UserInfoHeaderView.xib */; };
+		34A13BA1201D690700E6688E /* UserInfoPostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A13B9F201D690700E6688E /* UserInfoPostsCell.swift */; };
+		34A13BA2201D690700E6688E /* UserInfoPostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
 		34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */; };
@@ -146,7 +148,6 @@
 		3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		3459A7241F50496B000D2FC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteChatManager.swift; sourceTree = "<group>"; };
-		3459A7321F526496000D2FC5 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		3461F50D1F763672000D09D5 /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
@@ -173,8 +174,11 @@
 		34A13B8B2016098A00E6688E /* EditUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoCell.swift; sourceTree = "<group>"; };
 		34A13B8C2016098A00E6688E /* EditUserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserInfoCell.xib; sourceTree = "<group>"; };
 		34A13B8F20160CCB00E6688E /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
-		34A13B912016118D00E6688E /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
-		34A13B922016118D00E6688E /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		34A13B99201CD35F00E6688E /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		34A13B9B201D688E00E6688E /* UserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderView.swift; sourceTree = "<group>"; };
+		34A13B9C201D688E00E6688E /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoHeaderView.xib; sourceTree = "<group>"; };
+		34A13B9F201D690700E6688E /* UserInfoPostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPostsCell.swift; sourceTree = "<group>"; };
+		34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoPostsCell.xib; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoInput.storyboard; sourceTree = "<group>"; };
@@ -414,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				3459A7361F528978000D2FC5 /* Cell */,
-				3459A7321F526496000D2FC5 /* UserInfoViewController.swift */,
+				34A13B99201CD35F00E6688E /* UserInfoViewController.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -422,8 +426,10 @@
 		3459A7361F528978000D2FC5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				34A13B912016118D00E6688E /* UserInfoCell.swift */,
-				34A13B922016118D00E6688E /* UserInfoCell.xib */,
+				34A13B9B201D688E00E6688E /* UserInfoHeaderView.swift */,
+				34A13B9C201D688E00E6688E /* UserInfoHeaderView.xib */,
+				34A13B9F201D690700E6688E /* UserInfoPostsCell.swift */,
+				34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 				3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */,
 				343071711FFB424700503F77 /* AlbumCell.xib in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
+				34A13B9E201D688E00E6688E /* UserInfoHeaderView.xib in Resources */,
 				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
 				34A13B892016086B00E6688E /* EditUserInfo.storyboard in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
@@ -691,9 +698,9 @@
 				3461F5141F7636DB000D09D5 /* FindCell.xib in Resources */,
 				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
 				34211D261F3A0714000F0C94 /* TalkLog.storyboard in Resources */,
-				34A13B942016118D00E6688E /* UserInfoCell.xib in Resources */,
 				347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */,
 				3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */,
+				34A13BA2201D690700E6688E /* UserInfoPostsCell.xib in Resources */,
 				34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,7 +793,6 @@
 				340627261F53320D00821E39 /* ReceiveTextCell.swift in Sources */,
 				34211D281F3A0714000F0C94 /* ContactCell.swift in Sources */,
 				34A13B9020160CCB00E6688E /* EditUserInfoViewController.swift in Sources */,
-				3459A7331F526496000D2FC5 /* UserInfoViewController.swift in Sources */,
 				3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */,
 				347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */,
 				34385B7C1FA8B86D0045CA60 /* ChatRoomApi.swift in Sources */,
@@ -820,6 +826,7 @@
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				342600051FC30C7A009857E7 /* PostsApi.swift in Sources */,
+				34A13B9A201CD35F00E6688E /* UserInfoViewController.swift in Sources */,
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
 				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
@@ -827,7 +834,8 @@
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
 				34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
-				34A13B932016118D00E6688E /* UserInfoCell.swift in Sources */,
+				34A13B9D201D688E00E6688E /* UserInfoHeaderView.swift in Sources */,
+				34A13BA1201D690700E6688E /* UserInfoPostsCell.swift in Sources */,
 				34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */,
 				34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */,
 				34211D2D1F3A0714000F0C94 /* TalkLogCell.swift in Sources */,
