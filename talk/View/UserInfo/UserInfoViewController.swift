@@ -24,7 +24,7 @@ class UserInfoViewController: UICollectionViewController {
         self.collectionView?.register(postsCellNib, forCellWithReuseIdentifier: postsCellReuseIdentifier)
         let layout = UICollectionViewFlowLayout()
         let itemWidth = UIScreen.main.bounds.size.width / 3
-        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 202)
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 250)
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         self.collectionView?.collectionViewLayout = layout
     }
