@@ -25,7 +25,7 @@ class UserInfoHeaderView: UICollectionReusableView {
     @IBOutlet weak var followingCountButton: UIButton!
     
     let stringBoldAttributes: [NSAttributedStringKey : Any] = [
-        .foregroundColor : UIColor.white,
+        .foregroundColor : UIColor.black,
         .font : UIFont.systemFont(ofSize: 24.0)
     ]
     let stringNormalAttributes: [NSAttributedStringKey : Any] = [
