@@ -56,10 +56,27 @@ class UserInfoApi: NSObject {
         }
     }
     
-    class func findUserInfo(with userId: String, completion: @escaping UserInfoCompletionHandler) {
+    class func findCurrentUserInfo(completion: @escaping UserInfoCompletionHandler) {
+        let query = PFQuery(className: "UserInfo")
+        if let guardCurrentUser = DataManager.shared.currentUser {
+            query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardCurrentUser.objectId))
+        }
+        query.findObjectsInBackground(block: { (objects, error) in
+            if let guardObjects = objects {
+                for object in guardObjects {
+                    let response = Response<UserInfo>()
+                    response.data = UserInfo.convertUserInfo(with: object)
+                    response.status = error != nil ? .failure : .success
+                    completion(response)
+                }
+            }
+        })
+    }
+    
+    class func findUserInfoWithObjectId(_ objectId: String, completion: @escaping UserInfoCompletionHandler) {
         
         let query = PFQuery(className: "UserInfo")
-        query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: userId))
+        query.whereKey("objectId", equalTo: objectId)
         query.findObjectsInBackground(block: { (objects, error) in
             if let guardObjects = objects {
                 for object in guardObjects {

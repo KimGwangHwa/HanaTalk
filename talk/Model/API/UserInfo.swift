@@ -34,7 +34,7 @@ class UserInfo: NSObject {
             retObject.birthday = guardObject["birthday"] as? Date
             retObject.statusMessage =  guardObject["statusMessage"] as? String
             retObject.email =  guardObject["email"] as? String
-            retObject.profileImage = guardObject["profileImageUrl"] as? String
+            retObject.profileImage = guardObject["profileImage"] as? String
             retObject.nickName =  guardObject["nickName"] as? String
 //            if let guardUser = User.convertUser(with: guardObject["user"] as? PFObject) {
 //                retObject.user = guardUser

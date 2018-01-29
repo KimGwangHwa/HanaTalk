@@ -17,6 +17,7 @@ class UserInfoHeaderView: UICollectionReusableView {
 
     weak var delegate: UserInfoHeaderViewDelegate?
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var postsCountButton: UIButton!
@@ -31,7 +32,7 @@ class UserInfoHeaderView: UICollectionReusableView {
         .foregroundColor : UIColor.gray,
         .font : UIFont.systemFont(ofSize: 14.0)
     ]
-
+    
     func setAttributeTitleWithButton(_ button: UIButton, title: String) {
         let attributedString = NSMutableAttributedString()
         attributedString.append(NSAttributedString(string: title + "\n", attributes: stringBoldAttributes))
@@ -49,6 +50,24 @@ class UserInfoHeaderView: UICollectionReusableView {
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
     }
+    
+    var userinfo: UserInfo? {
+        didSet {
+            if let guardUserInfo = userinfo {
+                setAttributeTitleWithButton(postsCountButton, title: String(guardUserInfo.postsCount))
+                setAttributeTitleWithButton(followingCountButton, title: String(guardUserInfo.followingCount))
+                setAttributeTitleWithButton(followedCountButton, title: String(guardUserInfo.followersCount))
+                if let guardImageUrl = guardUserInfo.profileImage {
+                    imageView.sd_setImage(with: URL(string: guardImageUrl)
+                        , placeholderImage: nil)
+                }
+                nickNameLabel.text = guardUserInfo.nickName
+                statusLabel.text = guardUserInfo.statusMessage
+            }
+            
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

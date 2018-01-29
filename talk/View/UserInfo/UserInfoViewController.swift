@@ -15,11 +15,25 @@ private let collectionHeaderNib = R.nib.userInfoHeaderView()
 
 
 class UserInfoViewController: UICollectionViewController {
-
+    
+    var dataSource: UserInfo?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register cell classes
+        setUp()
+        loadRomoteData()
+    }
+    
+    func loadRomoteData() {
+        UserInfoApi.findCurrentUserInfo { (response) in
+            self.dataSource = response.data
+            self.collectionView?.reloadData()
+        }
+    }
+    
+    func setUp() {
         self.collectionView?.register(collectionHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
         self.collectionView?.register(postsCellNib, forCellWithReuseIdentifier: postsCellReuseIdentifier)
         let layout = UICollectionViewFlowLayout()
@@ -68,7 +82,7 @@ class UserInfoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as? UserInfoHeaderView {
-
+                header.userinfo = dataSource
                 return header;
             }
         }
