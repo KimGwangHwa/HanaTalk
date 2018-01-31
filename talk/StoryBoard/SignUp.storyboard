@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Gl-hh-kJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Gl-hh-kJv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +42,7 @@
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRu-Tu-17D">
-                                                    <rect key="frame" x="137" y="218" width="100" height="30"/>
+                                                    <rect key="frame" x="137" y="259" width="100" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Submit">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +51,30 @@
                                                         <action selector="submitEvent:" destination="5Gl-hh-kJv" eventType="touchUpInside" id="h6n-do-xZi"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-A4-Sdl">
+                                                    <rect key="frame" x="87" y="30" width="64" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="women"/>
+                                                    <connections>
+                                                        <action selector="sexButtonEvent:" destination="5Gl-hh-kJv" eventType="touchUpInside" id="ZZ0-9X-Q7P"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndd-lw-Y7j">
+                                                    <rect key="frame" x="223" y="30" width="64" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="man"/>
+                                                    <state key="selected" title="S"/>
+                                                    <connections>
+                                                        <action selector="sexButtonEvent:" destination="5Gl-hh-kJv" eventType="touchUpInside" id="vDz-Jb-ZhF"/>
+                                                    </connections>
+                                                </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-LB-Ee1">
+                                                    <rect key="frame" x="87" y="212" width="200" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -64,8 +88,11 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="eMailTextField" destination="YNs-LB-Ee1" id="IHA-Zr-GL4"/>
+                        <outlet property="menButton" destination="ndd-lw-Y7j" id="2VQ-KA-eRN"/>
+                        <outlet property="nickNameTextField" destination="xe6-ul-GVw" id="atY-bT-EuD"/>
                         <outlet property="passwordTextField" destination="bN0-e4-hJP" id="O0O-er-Lnv"/>
-                        <outlet property="userIdTextField" destination="xe6-ul-GVw" id="adQ-J6-bBS"/>
+                        <outlet property="womenButton" destination="BcO-A4-Sdl" id="08K-Bp-3cb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBN-xG-akq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,4 +100,8 @@
             <point key="canvasLocation" x="80.799999999999997" y="761.46926536731644"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="man" width="64" height="64"/>
+        <image name="women" width="64" height="64"/>
+    </resources>
 </document>

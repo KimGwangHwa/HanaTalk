@@ -17,8 +17,6 @@
 		3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */; };
 		3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */; };
 		3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */; };
-		341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */; };
-		341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
 		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
@@ -88,8 +86,6 @@
 		34A13BA2201D690700E6688E /* UserInfoPostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
-		34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */; };
-		34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */; };
 		7ABD8AF12011F61800B047B3 /* UploadImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
@@ -108,8 +104,6 @@
 		3409FB9A20025682001FF169 /* UploadStoryTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryTextCell.xib; sourceTree = "<group>"; };
 		3409FB9F200256B1001FF169 /* UploadStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryImageCell.swift; sourceTree = "<group>"; };
 		3409FBA0200256B1001FF169 /* UploadStoryImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadStoryImageCell.xib; sourceTree = "<group>"; };
-		341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserInfo.storyboard; sourceTree = "<group>"; };
-		341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -181,8 +175,6 @@
 		34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoPostsCell.xib; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
-		34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoInput.storyboard; sourceTree = "<group>"; };
-		34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputViewController.swift; sourceTree = "<group>"; };
 		7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageApi.swift; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,14 +213,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		341D1AD71FB1E0180070ECAC /* AddUserInfo */ = {
-			isa = PBXGroup;
-			children = (
-				341D1AD81FB1E0180070ECAC /* AddUserInfoViewController.swift */,
-			);
-			path = AddUserInfo;
-			sourceTree = "<group>";
-		};
 		34211D081F3A0714000F0C94 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,8 +224,6 @@
 				34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */,
 				3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */,
 				3461F50D1F763672000D09D5 /* Find.storyboard */,
-				34FB87CB1F7F3EFB00253C92 /* InfoInput.storyboard */,
-				341D1AD11FB0A1990070ECAC /* AddUserInfo.storyboard */,
 				342888611FB9D2AE00D7EB61 /* Story.storyboard */,
 				347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */,
 				343071691FFB418800503F77 /* Album.storyboard */,
@@ -260,8 +242,6 @@
 				347CAACE1FE7F3E9006562E6 /* UploadStory */,
 				346219611F66CA66004998E8 /* CustomView */,
 				342888601FB9D29800D7EB61 /* Story */,
-				341D1AD71FB1E0180070ECAC /* AddUserInfo */,
-				34FB87CD1F7F3FD900253C92 /* InfoInput */,
 				3461F5051F763640000D09D5 /* Find */,
 				3459A7301F526481000D2FC5 /* UserInfo */,
 				34211D101F3A0714000F0C94 /* Contact */,
@@ -592,14 +572,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		34FB87CD1F7F3FD900253C92 /* InfoInput */ = {
-			isa = PBXGroup;
-			children = (
-				34FB87CE1F7F3FE900253C92 /* InfoInputViewController.swift */,
-			);
-			path = InfoInput;
-			sourceTree = "<group>";
-		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,7 +648,6 @@
 				34A13B8E2016098A00E6688E /* EditUserInfoCell.xib in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
 				340627291F53320D00821E39 /* SendTextCell.xib in Resources */,
-				34FB87CC1F7F3EFB00253C92 /* InfoInput.storyboard in Resources */,
 				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
 				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
 				34211D291F3A0714000F0C94 /* ContactCell.xib in Resources */,
@@ -692,7 +663,6 @@
 				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
 				34A13B892016086B00E6688E /* EditUserInfo.storyboard in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
-				341D1AD21FB0A1990070ECAC /* AddUserInfo.storyboard in Resources */,
 				34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */,
 				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
 				3461F5141F7636DB000D09D5 /* FindCell.xib in Resources */,
@@ -807,7 +777,6 @@
 				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage+Color.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
-				341D1AD91FB1E0190070ECAC /* AddUserInfoViewController.swift in Sources */,
 				343071681FFB417800503F77 /* AlbumViewController.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
 				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
@@ -828,7 +797,6 @@
 				342600051FC30C7A009857E7 /* PostsApi.swift in Sources */,
 				34A13B9A201CD35F00E6688E /* UserInfoViewController.swift in Sources */,
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
-				34FB87CF1F7F3FE900253C92 /* InfoInputViewController.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,

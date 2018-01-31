@@ -39,7 +39,13 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="GI3-fG-wet">
-                        <barButtonItem key="rightBarButtonItem" title="Setting" id="VJf-qd-0xc"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="22f-Jr-dIT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vRI-Hj-QFP">
+                                <rect key="frame" x="327" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="setting"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </collectionViewController>
@@ -48,4 +54,7 @@
             <point key="canvasLocation" x="-88" y="165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="setting" width="32" height="32"/>
+    </resources>
 </document>
