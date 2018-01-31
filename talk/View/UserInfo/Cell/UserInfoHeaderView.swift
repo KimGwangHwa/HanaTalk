@@ -63,8 +63,12 @@ class UserInfoHeaderView: UICollectionReusableView {
                 }
                 nickNameLabel.text = guardUserInfo.nickName
                 statusLabel.text = guardUserInfo.statusMessage
+                if guardUserInfo.sex == true {
+                    imageView.layer.borderColor = PinkColor.cgColor
+                } else {
+                    imageView.layer.borderColor = UIColor.black.cgColor
+                }
             }
-            
         }
     }
     

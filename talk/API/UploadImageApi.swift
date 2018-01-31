@@ -22,7 +22,7 @@ class UploadImageApi: NSObject {
 //        }
 //    }
     
-    class func uploadImagesInBackground(_ images: [UIImage]?, className: String, objectId: String, columnName: String, completion: @escaping StatusCompletionHandler) {
+    class func uploadImagesInBackground(_ images: [UIImage]?, className: String, objectId: String?, columnName: String, completion: @escaping StatusCompletionHandler) {
         var uploadImages = [PFFile]()
         
         let pfObject = PFObject(withoutDataWithClassName: className, objectId: objectId)

@@ -56,37 +56,39 @@ class UserInfoApi: NSObject {
         }
     }
     
-    class func findCurrentUserInfo(completion: @escaping UserInfoCompletionHandler) {
+    class func findCurrentUserInfo(by userObjectId: String? = nil, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
         if let guardCurrentUser = DataManager.shared.currentUser {
             query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardCurrentUser.objectId))
         }
-        query.findObjectsInBackground(block: { (objects, error) in
-            if let guardObjects = objects {
-                for object in guardObjects {
-                    let response = Response<UserInfo>()
-                    response.data = UserInfo.convertUserInfo(with: object)
-                    response.status = error != nil ? .failure : .success
-                    completion(response)
-                }
+        if let guardObjectid = userObjectId {
+            query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardObjectid))
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if let guardObject = objects?.first {
+                let response = Response<UserInfo>()
+                response.data = UserInfo.convertUserInfo(with: guardObject)
+                response.status = error != nil ? .failure : .success
+                guardObject.pinInBackground()
+                completion(response)
             }
-        })
+        }
     }
     
-    class func findUserInfoWithObjectId(_ objectId: String, completion: @escaping UserInfoCompletionHandler) {
-        
+    class func findUserInfo(by objectId: String?, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
-        query.whereKey("objectId", equalTo: objectId)
-        query.findObjectsInBackground(block: { (objects, error) in
-            if let guardObjects = objects {
-                for object in guardObjects {
-                    let response = Response<UserInfo>()
-                    response.data = UserInfo.convertUserInfo(with: object)
-                    response.status = error != nil ? .failure : .success
-                    completion(response)
-                }
+        if let guradObjectId = objectId {
+            query.whereKey("objectId", equalTo: guradObjectId)
+        }
+        query.findObjectsInBackground { (objects, error) in
+            if let guardObject = objects?.first {
+                let response = Response<UserInfo>()
+                response.data = UserInfo.convertUserInfo(with: guardObject)
+                response.status = error != nil ? .failure : .success
+                completion(response)
             }
-        })
+        }
     }
     
     class func saveUserInfo(userInfo: UserInfo, completion: @escaping StatusCompletionHandler) {
@@ -100,6 +102,7 @@ class UserInfoApi: NSObject {
         pfObject["sex"] = userInfo.sex
         pfObject.saveInBackground { (isSuccess, error) in
             completion(isSuccess == true ? .success: .failure )
+            pfObject.pinInBackground()
         }
     }
     func saveProfile(imageData:Data, completion: @escaping StatusCompletionHandler) {

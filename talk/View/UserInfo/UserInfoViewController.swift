@@ -16,9 +16,9 @@ private let collectionHeaderNib = R.nib.userInfoHeaderView()
 
 class UserInfoViewController: UICollectionViewController {
     
-    var dataSource: UserInfo?
-    
-    
+    var dataSource: [Posts]?
+    var userInfo: UserInfo?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +28,11 @@ class UserInfoViewController: UICollectionViewController {
     
     func loadRomoteData() {
         UserInfoApi.findCurrentUserInfo { (response) in
-            self.dataSource = response.data
-            self.collectionView?.reloadData()
+            self.userInfo = response.data
+            PostsApi.findPosts(by: self.userInfo?.objectId, completion: { (postsRepsponse) in
+                self.dataSource = postsRepsponse.data
+                self.collectionView?.reloadData()
+            })
         }
     }
     
@@ -60,20 +63,21 @@ class UserInfoViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        if let count = dataSource?.count {
+            return count
+        }
+        return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postsCellReuseIdentifier, for: indexPath) as? UserInfoPostsCell {
-            
+            let posts = dataSource?[indexPath.row]
+            if let imageURL = posts?.imageUrls?.first {
+                cell.imageView.sd_setImage(with: URL(string: imageURL)
+                    , placeholderImage: nil)
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -82,11 +86,15 @@ class UserInfoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as? UserInfoHeaderView {
-                header.userinfo = dataSource
+                header.userinfo = userInfo
                 return header;
             }
         }
         return UICollectionReusableView()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 
     // MARK: UICollectionViewDelegate
