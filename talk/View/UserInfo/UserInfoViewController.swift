@@ -12,7 +12,7 @@ private let headerReuseIdentifier = R.reuseIdentifier.userInfoHeaderView.identif
 
 private let postsCellNib = R.nib.userInfoPostsCell()
 private let collectionHeaderNib = R.nib.userInfoHeaderView()
-
+private let segueEditIdentifier = R.segue.userInfoViewController.showEditUserInfo.identifier
 
 class UserInfoViewController: UICollectionViewController {
     
@@ -46,21 +46,6 @@ class UserInfoViewController: UICollectionViewController {
         self.collectionView?.collectionViewLayout = layout
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,6 +71,7 @@ class UserInfoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as? UserInfoHeaderView {
+                header.delegate = self
                 header.userinfo = userInfo
                 return header;
             }
@@ -97,35 +83,24 @@ class UserInfoViewController: UICollectionViewController {
         
     }
 
-    // MARK: UICollectionViewDelegate
+}
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+//MARK: UserInfoHeaderViewDelegate
+extension UserInfoViewController: UserInfoHeaderViewDelegate {
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapPosts atObject: UserInfo?) {
+      
+        
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowed atObject: UserInfo?) {
     }
-    */
+    
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowing atObject: UserInfo?) {
+        
+    }
+    
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapEdit atObject: UserInfo?) {
+        self.performSegue(withIdentifier: segueEditIdentifier, sender: nil);
+    }
 
 }

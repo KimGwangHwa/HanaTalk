@@ -9,11 +9,28 @@ import UIKit
 
 class EditUserInfoCell: UITableViewCell {
 
-    @IBOutlet weak var infoImageView: UIView!
+    var userInfo: UserInfo? {
+        didSet {
+            if let guardUserInfo = userInfo  {
+                if let guardImageUrl = guardUserInfo.profileImage {
+                    profileImageView.sd_setImage(with: URL(string: guardImageUrl), placeholderImage: nil)
+                }
+                nickNameTextField.text = guardUserInfo.nickName
+                statusTextField.text = guardUserInfo.statusMessage
+                birthdayTextField.text = Common.dateToString(date: guardUserInfo.birthday, format: DATE_FORMAT_2)
+                emailTextField.text = guardUserInfo.email
+                IDTextField.text = guardUserInfo.objectId
+            }
+        }
+    }
+    
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
-    @IBOutlet weak var sexTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var IDTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -18,8 +18,6 @@ class DataManager: NSObject {
         
     }
     
-    var currentUserInfoObjectId: String?    // read from local
-    
     var currentuserInfo: UserInfo? {
         let query = PFQuery(className: "UserInfo")
         query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: PFUser.current()?.objectId))

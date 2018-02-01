@@ -48,6 +48,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="ZeZ-cu-4Qi" kind="show" identifier="showEditUserInfo" id="RhB-aH-gDx"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLz-PJ-4CU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,13 +8,15 @@
 import UIKit
 
 protocol UserInfoHeaderViewDelegate: class {
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapPosts object: Any)
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowed object: Any)
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowing object: Any)
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapPosts atObject: UserInfo?)
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowed atObject: UserInfo?)
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowing atObject: UserInfo?)
+    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapEdit atObject: UserInfo?)
 }
 
 class UserInfoHeaderView: UICollectionReusableView {
 
+    @IBOutlet weak var editButton: UIButton!
     weak var delegate: UserInfoHeaderViewDelegate?
     
     @IBOutlet weak var imageView: UIImageView!
@@ -72,6 +74,11 @@ class UserInfoHeaderView: UICollectionReusableView {
         }
     }
     
+    @IBAction func editButtonEvent(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.userInfoHeaderView(self, didTapEdit: userinfo)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

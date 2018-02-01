@@ -26,7 +26,11 @@ class SignUpViewController: UITableViewController {
     
     @IBAction func sexButtonEvent(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-
+        if womenButton.isSelected {
+            menButton.isSelected = true
+        } else if (menButton.isSelected) {
+            womenButton.isSelected = true
+        }
         if sender == womenButton && sender.isSelected {
             isMan = false
         } else {

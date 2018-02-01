@@ -9,6 +9,8 @@ import UIKit
 
 class EditUserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var userInfo: UserInfo?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -38,6 +40,7 @@ extension EditUserInfoViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.editUserInfoCell.identifier, for: indexPath) as? EditUserInfoCell {
+            cell.userInfo = userInfo
             return cell
         }
         return UITableViewCell()

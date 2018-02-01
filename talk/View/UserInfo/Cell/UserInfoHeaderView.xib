@@ -82,6 +82,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="editButtonEvent:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="nVg-vl-Enh"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -107,6 +110,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
+                <outlet property="editButton" destination="XpM-mk-qYd" id="o41-Ps-AV3"/>
                 <outlet property="followedCountButton" destination="8vE-0g-inG" id="Zu9-Cj-o4m"/>
                 <outlet property="followingCountButton" destination="Q6a-ha-CwC" id="Wt8-Pb-huZ"/>
                 <outlet property="imageView" destination="FTg-RJ-DIY" id="14c-nY-rJN"/>
