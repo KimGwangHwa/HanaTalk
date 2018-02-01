@@ -11,24 +11,21 @@ import Parse
 class FollowApi: NSObject {
     typealias FollowListCompletionHandler = (Response<[Follow]>) -> Void
     
-    class func findFollower(with completion: @escaping FollowListCompletionHandler) {
-        findFollowing(by: "following", completion: completion)
+    class func findFollower(by userObjectId: String?, completion: @escaping FollowListCompletionHandler) {
+        findFollow(by: "following", userObjectId: userObjectId, completion: completion)
     }
     
-    class func findFollowing(with completion: @escaping FollowListCompletionHandler) {
-        findFollowing(by: "userInfo", completion: completion)
+    class func findFollowing(by userObjectId: String?, completion: @escaping FollowListCompletionHandler) {
+        findFollow(by: "userInfo", userObjectId: userObjectId, completion: completion)
     }
     
-    class func findFollowing(by column: String, completion: @escaping FollowListCompletionHandler) {
+    class func findFollow(by column: String, userObjectId: String?, completion: @escaping FollowListCompletionHandler) {
         
         let followQuery = PFQuery(className: "Follow")
-        guard let currentUser = DataManager.shared.currentUser,
-            let currentUserObjectId = currentUser.objectId else {
-                return
-        }
-        followQuery.includeKey(GetUserInfoType.follower.column)
-        followQuery.includeKey(GetUserInfoType.following.column)
-        followQuery.whereKey(column, equalTo: PFObject(withoutDataWithClassName: "UserInfo", objectId: currentUserObjectId))
+
+        followQuery.includeKey("following")
+        followQuery.includeKey("userInfo")
+        followQuery.whereKey(column, equalTo: PFObject(withoutDataWithClassName: "UserInfo", objectId: userObjectId))
         followQuery.findObjectsInBackground { (objects, error) in
             var retObjects: [Follow]?
             if let guardObjects = objects {

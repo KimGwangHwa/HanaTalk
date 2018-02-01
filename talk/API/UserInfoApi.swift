@@ -11,11 +11,8 @@ import Parse
 class UserInfoApi: NSObject {
     typealias UserInfoCompletionHandler = (Response<UserInfo>) -> Void
     
-    class func findCurrentUserInfo(by userObjectId: String? = nil, completion: @escaping UserInfoCompletionHandler) {
+    class func findCurrentUserInfo(by userObjectId: String?, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
-        if let guardCurrentUser = DataManager.shared.currentUser {
-            query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardCurrentUser.objectId))
-        }
         if let guardObjectid = userObjectId {
             query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardObjectid))
         }

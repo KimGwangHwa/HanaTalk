@@ -75,7 +75,10 @@
                         <constraint firstAttribute="height" constant="25" id="14c-39-tMB"/>
                         <constraint firstAttribute="width" constant="25" id="a8b-Ap-gI7"/>
                     </constraints>
-                    <state key="normal" image="edit"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Edit">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <real key="value" value="14.5"/>
@@ -121,7 +124,4 @@
             <point key="canvasLocation" x="25.5" y="-80"/>
         </collectionReusableView>
     </objects>
-    <resources>
-        <image name="edit" width="64" height="64"/>
-    </resources>
 </document>

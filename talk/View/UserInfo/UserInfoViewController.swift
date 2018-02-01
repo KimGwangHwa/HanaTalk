@@ -27,7 +27,7 @@ class UserInfoViewController: UICollectionViewController {
     }
     
     func loadRomoteData() {
-        UserInfoApi.findCurrentUserInfo { (response) in
+        UserInfoApi.findCurrentUserInfo(by: DataManager.shared.currentUser?.objectId) { (response) in
             self.userInfo = response.data
             PostsApi.findPosts(by: self.userInfo?.objectId, completion: { (postsRepsponse) in
                 self.dataSource = postsRepsponse.data
@@ -83,6 +83,14 @@ class UserInfoViewController: UICollectionViewController {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueEditIdentifier {
+            if let viewController = segue.destination as? EditUserInfoViewController{
+                viewController.userInfo = userInfo
+            }
+        }
+    }
+    
 }
 
 //MARK: UserInfoHeaderViewDelegate

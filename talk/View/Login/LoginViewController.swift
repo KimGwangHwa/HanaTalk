@@ -25,11 +25,10 @@ class LoginViewController: UITableViewController {
         user.password = passwordTextField.text ?? ""
         UserApi.login(user: user) { (status) in
             if status == .success {
-                UserInfoApi.findCurrentUserInfo(completion: { (response) in
+                UserInfoApi.findCurrentUserInfo(by: DataManager.shared.currentUser?.objectId, completion: { (response) in
                     if response.status == .success {
                         if response.data == nil {
                             self.performSegue(withIdentifier: R.segue.loginViewController.signUp.identifier, sender: nil)
-
                         } else {
                             if let viewController = R.storyboard.home.homeViewController() {
                                 self.navigationController?.pushViewController(viewController, animated: true)
