@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDc-94-MgR" customClass="CustomBadgeView" customModule="talk" customModuleProvider="target">
-                        <rect key="frame" x="15" y="8" width="50" height="50"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="OS0-So-Cgw"/>
-                            <constraint firstAttribute="width" constant="50" id="RCa-kz-Ogj"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-VG-OhP">
-                        <rect key="frame" x="80" y="8" width="200" height="20"/>
+                        <rect key="frame" x="70" y="11" width="174" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="UqL-9I-6VA"/>
                         </constraints>
@@ -36,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYn-aI-jtU">
-                        <rect key="frame" x="80" y="36" width="200" height="20"/>
+                        <rect key="frame" x="70" y="39" width="174" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="lXI-ah-ldw"/>
                         </constraints>
@@ -44,29 +37,41 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el9-uo-OKi">
-                        <rect key="frame" x="280" y="23" width="22" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el9-uo-OKi">
+                        <rect key="frame" x="244" y="23" width="50" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="ecd-FN-tHU"/>
-                            <constraint firstAttribute="width" constant="22" id="j3T-93-hBf"/>
+                            <constraint firstAttribute="width" constant="50" id="j3T-93-hBf"/>
                         </constraints>
+                        <state key="normal" title="Follow"/>
+                        <connections>
+                            <action selector="followButtonEvent:" destination="27S-gN-PsY" eventType="touchUpInside" id="7Sv-PF-Fv6"/>
+                        </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-KO-GoR">
+                        <rect key="frame" x="5" y="5" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Isb-O2-JET"/>
+                            <constraint firstAttribute="width" constant="60" id="trR-eY-b8q"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="el9-uo-OKi" firstAttribute="centerY" secondItem="gDy-wJ-r7D" secondAttribute="centerY" id="2vY-Yr-43d"/>
-                    <constraint firstItem="EYn-aI-jtU" firstAttribute="leading" secondItem="HDc-94-MgR" secondAttribute="trailing" constant="15" id="Dtu-Kt-lkW"/>
+                    <constraint firstAttribute="bottom" secondItem="Y1o-KO-GoR" secondAttribute="bottom" constant="4.5" id="Bw4-Hm-7vB"/>
                     <constraint firstItem="ebj-VG-OhP" firstAttribute="top" secondItem="gDy-wJ-r7D" secondAttribute="topMargin" id="E51-9E-SHP"/>
+                    <constraint firstItem="ebj-VG-OhP" firstAttribute="leading" secondItem="Y1o-KO-GoR" secondAttribute="trailing" constant="5" id="JjV-TA-zji"/>
+                    <constraint firstItem="Y1o-KO-GoR" firstAttribute="top" secondItem="gDy-wJ-r7D" secondAttribute="top" constant="5" id="Kog-Dv-ZNf"/>
+                    <constraint firstItem="EYn-aI-jtU" firstAttribute="leading" secondItem="Y1o-KO-GoR" secondAttribute="trailing" constant="5" id="NMP-nQ-OYK"/>
+                    <constraint firstItem="Y1o-KO-GoR" firstAttribute="leading" secondItem="gDy-wJ-r7D" secondAttribute="leading" constant="5" id="QSa-jM-aTI"/>
                     <constraint firstItem="el9-uo-OKi" firstAttribute="leading" secondItem="EYn-aI-jtU" secondAttribute="trailing" id="SZw-0E-2hT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="el9-uo-OKi" secondAttribute="trailing" constant="10" id="Tnw-Q6-RTD"/>
-                    <constraint firstItem="HDc-94-MgR" firstAttribute="leading" secondItem="gDy-wJ-r7D" secondAttribute="leadingMargin" constant="7" id="fvc-i0-eNi"/>
-                    <constraint firstItem="ebj-VG-OhP" firstAttribute="leading" secondItem="HDc-94-MgR" secondAttribute="trailing" constant="15" id="gsH-gN-Jws"/>
-                    <constraint firstItem="HDc-94-MgR" firstAttribute="top" secondItem="gDy-wJ-r7D" secondAttribute="topMargin" id="rkK-mP-bSL"/>
                     <constraint firstItem="EYn-aI-jtU" firstAttribute="top" secondItem="ebj-VG-OhP" secondAttribute="bottom" constant="8" id="vsX-kn-8qQ"/>
                     <constraint firstItem="el9-uo-OKi" firstAttribute="leading" secondItem="ebj-VG-OhP" secondAttribute="trailing" id="wut-6s-8hB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="iconImageView" destination="HDc-94-MgR" id="T6B-1V-0wI"/>
+                <outlet property="iconImageView" destination="Y1o-KO-GoR" id="B0r-19-roC"/>
                 <outlet property="nickNameLabel" destination="ebj-VG-OhP" id="kaQ-sA-a1P"/>
                 <outlet property="statusMessageLabel" destination="EYn-aI-jtU" id="K49-EA-8ma"/>
             </connections>

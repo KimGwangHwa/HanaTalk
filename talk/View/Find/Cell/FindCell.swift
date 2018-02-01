@@ -8,13 +8,22 @@
 
 import UIKit
 
+protocol FindCellDelegate: class {
+    func findCell(_ cell: FindCell, didTapFollow atObject: UserInfo?)
+}
 class FindCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: CustomBadgeView!
-    
+    weak var delegate: FindCellDelegate?
+
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
-    
     @IBOutlet weak var statusMessageLabel: UILabel!
+    
+    var userInfo: UserInfo? {
+        didSet {
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +34,11 @@ class FindCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func followButtonEvent(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.findCell(self, didTapFollow: userInfo)
+        }
     }
     
 }

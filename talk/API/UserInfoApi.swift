@@ -10,7 +10,8 @@ import Parse
 
 class UserInfoApi: NSObject {
     typealias UserInfoCompletionHandler = (Response<UserInfo>) -> Void
-    
+    typealias UserInfoListCompletionHandler = (Response<[UserInfo]>) -> Void
+
     class func findCurrentUserInfo(by userObjectId: String?, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
         if let guardObjectid = userObjectId {
@@ -28,11 +29,15 @@ class UserInfoApi: NSObject {
         }
     }
     
-    class func findUserInfo(by objectId: String?, completion: @escaping UserInfoCompletionHandler) {
+    class func findUserInfo(by objectId: String?, nickname: String? = nil, completion: @escaping UserInfoCompletionHandler) {
         let query = PFQuery(className: "UserInfo")
         if let guradObjectId = objectId {
             query.whereKey("objectId", equalTo: guradObjectId)
         }
+        if let guardNickName = nickname {
+            query.whereKey("nickName", equalTo: guardNickName)
+        }
+    
         query.findObjectsInBackground { (objects, error) in
             if let guardObject = objects?.first {
                 let response = Response<UserInfo>()

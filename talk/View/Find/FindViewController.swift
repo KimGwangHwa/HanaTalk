@@ -13,10 +13,22 @@ class FindViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    var dataSource: [UserInfo]?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
+    }
+    
+    func searchFromRemoteData() {
+        UserInfoApi.findUserInfo(by: nil, nickname: inputTextField.text) { (response) in
+            if let guardUserInfo = response.data {
+                self.dataSource = [guardUserInfo]
+            }
+            self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,19 +57,21 @@ class FindViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSource?.count ?? 0
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// MARK: - Navigation
+extension FindViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchFromRemoteData()
+        return true
+    }
+    
+}
+

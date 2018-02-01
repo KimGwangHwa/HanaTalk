@@ -18,6 +18,14 @@
             </objects>
             <point key="canvasLocation" x="535" y="20"/>
         </scene>
+        <!--Find-->
+        <scene sceneID="6fZ-ay-ee7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Find" id="h4f-9z-yeA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tv-oM-3h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="155"/>
+        </scene>
         <!--Title-->
         <scene sceneID="toq-wm-F7K">
             <objects>
@@ -54,6 +62,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="addUser"/>
                                 </button>
+                                <connections>
+                                    <segue destination="h4f-9z-yeA" kind="presentation" id="dbh-gA-1rH"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
