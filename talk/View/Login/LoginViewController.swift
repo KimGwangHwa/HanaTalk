@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UITableViewController {
 
@@ -20,22 +21,11 @@ class LoginViewController: UITableViewController {
     }
     
     @IBAction func tapLoginButton(_ sender: UIButton) {
-        let user = User()
-        user.userName = userIdTextField.text ?? ""
-        user.password = passwordTextField.text ?? ""
-        UserApi.login(user: user) { (status) in
-            if status == .success {
-                UserInfoApi.findCurrentUserInfo(by: DataManager.shared.currentUser?.objectId, completion: { (response) in
-                    if response.status == .success {
-                        if response.data == nil {
-                            self.performSegue(withIdentifier: R.segue.loginViewController.signUp.identifier, sender: nil)
-                        } else {
-                            if let viewController = R.storyboard.home.homeViewController() {
-                                self.navigationController?.pushViewController(viewController, animated: true)
-                            }
-                        }
-                    }
-                })
+        PFUser.logInWithUsername(inBackground: userIdTextField.text ?? "", password: passwordTextField.text ?? "") { (user, error) in
+            if error != nil {
+                if let viewController = R.storyboard.home.homeViewController() {
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
             }
         }
     }

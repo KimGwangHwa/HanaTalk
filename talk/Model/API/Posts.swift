@@ -8,54 +8,42 @@
 import UIKit
 import Parse
 
-class Posts: NSObject {
-    public var poster: UserInfo?
+class Posts: PFObject, PFSubclassing {
+    
+    static func parseClassName() -> String {
+        return "Posts"
+    }
+
+    @NSManaged var poster: UserInfo?
 //    public var title: String?
-    public var objectId: String?
-    public var imageUrls: [String]?
-    public var messages: [Message]?
-    public var likeds: [UserInfo]?
-    public var contents: String?
-    public var createdAt: Date?
+    @NSManaged var imageUrls: [String]?
+    @NSManaged var messages: [Message]?
+    @NSManaged var likeds: [UserInfo]?
+    @NSManaged var contents: String?
     
     // For uploading variable
-    public var images: [UIImage]?
+    var images: [UIImage]?
     
-    class func convertPosts(with object: PFObject?) -> Posts? {
-        if let guardObject = object {
-            let post = Posts()
-//            post.title = guardObject["title"] as? String
-            post.objectId = guardObject.objectId
-            if let imageFiles = guardObject["imageUrls"] as? [PFFile] {
-                var imageUrls = [String]()
-                for file in imageFiles {
-                    imageUrls.append(file.url!)
-                }
-                post.imageUrls = imageUrls
-
-            }
-            post.contents = guardObject["contents"] as? String
-            post.poster = UserInfo.convertUserInfo(with: guardObject["poster"] as? PFObject)
-            post.createdAt = guardObject.createdAt
-            
-            if let messageObjects = guardObject["messages"] as? [PFObject] {
-                var messages = [Message]()
-                for messageObject in messageObjects {
-                    messages.append(Message.convertMessage(with: messageObject) ?? Message())
-                }
-                post.messages = messages
-            }
-            
-            if let likedObjects = guardObject["likeds"] as? [PFObject] {
-                var likeds = [UserInfo]()
-                for likedObject in likedObjects {
-                    likeds.append(UserInfo.convertUserInfo(with: likedObject) ?? UserInfo())
-                }
-                post.likeds = likeds
-            }
-            return post
+    
+    class func findPosts(by userInfo: UserInfo? = nil, completion: @escaping ([Posts]?, Bool) -> Void) {
+        let postsQuery = PFQuery(className: "Posts")
+        if let guardUserInfo = userInfo {
+            postsQuery.whereKey("poster", equalTo: guardUserInfo)
         }
-        return nil
-        
+        postsQuery.includeKeys(["poster", "likeds", "messages"])
+        postsQuery.findObjectsInBackground { (pfobjects, error) in
+            
+            if let guardObjects = pfobjects {
+                var retObjects = [Posts]()
+                for object in guardObjects {
+                    if let postsObject = object as? Posts {
+                        retObjects.append(postsObject)
+                    }
+                }
+                completion(retObjects, true)
+            } else {
+                completion(nil, false)
+            }
+        }
     }
 }

@@ -31,9 +31,10 @@ class UploadStoryViewController: UIViewController, UITableViewDelegate, UITableV
         let postsItem = Posts()
         postsItem.images = uploadImages
         postsItem.contents = textCell?.title
-        PostsApi.uploadPosts(postsItem) { (status) in
-            self.navigationController?.dismiss(animated: true, completion: nil)
-        }
+        // TODO:
+        //        PostsApi.uploadPosts(postsItem) { (status) in
+//            self.navigationController?.dismiss(animated: true, completion: nil)
+//        }
     }
 }
 

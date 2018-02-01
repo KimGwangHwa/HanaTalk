@@ -27,10 +27,10 @@ class UserInfoViewController: UICollectionViewController {
     }
     
     func loadRomoteData() {
-        UserInfoApi.findCurrentUserInfo(by: DataManager.shared.currentUser?.objectId) { (response) in
-            self.userInfo = response.data
-            PostsApi.findPosts(by: self.userInfo?.objectId, completion: { (postsRepsponse) in
-                self.dataSource = postsRepsponse.data
+        UserInfo.findUserInfo(byUserObjectId: DataManager.shared.currentUser?.objectId) { (userInfo, isSuccess) in
+            self.userInfo = userInfo
+            Posts.findPosts(by: userInfo, completion: { (postsList, isSuccess) in
+                self.dataSource = postsList
                 self.collectionView?.reloadData()
             })
         }

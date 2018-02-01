@@ -8,42 +8,69 @@
 import UIKit
 import Parse
 
-class UserInfo: NSObject {
-    public var birthday: Date?
-    public var createAt: Date?
-    public var email: String?
-    public var followersCount: Int = 0
-    public var followingCount: Int = 0
-    public var latitude: Double = 0.0
-    public var longitude: Double = 0.0
-    public var nickName: String?
-    public var objectId: String?
-    public var phoneNumber: String?
-    public var postsCount: Int = 0
-    public var profileImage: String?
-    public var sex: Bool = false
-    public var statusMessage: String?
-    public var updateAt: Date?
-    public var user: User?
+class UserInfo: PFObject, PFSubclassing {
+    static func parseClassName() -> String {
+        return "UserInfo"
+    }
     
-    class func convertUserInfo(with ojbect: PFObject?) -> UserInfo? {
-        
-        if let guardObject = ojbect {
-            let retObject: UserInfo = UserInfo()
-            retObject.objectId = guardObject.objectId
-            retObject.birthday = guardObject["birthday"] as? Date
-            retObject.statusMessage =  guardObject["statusMessage"] as? String
-            retObject.email =  guardObject["email"] as? String
-            retObject.profileImage = guardObject["profileImage"] as? String
-            retObject.nickName =  guardObject["nickName"] as? String
-//            if let guardUser = User.convertUser(with: guardObject["user"] as? PFObject) {
-//                retObject.user = guardUser
-//            }
-            retObject.postsCount = (guardObject["postsCount"] as? Int) ?? 0
-            retObject.followingCount = (guardObject["followingCount"] as? Int) ?? 0
-            retObject.followersCount = (guardObject["followersCount"] as? Int) ?? 0
-            return retObject
+    @NSManaged  var birthday: Date?
+    @NSManaged  var createAt: Date?
+    @NSManaged  var email: String?
+    @NSManaged  var followersCount: Int
+    @NSManaged  var followingCount: Int
+    @NSManaged  var latitude: Double
+    @NSManaged  var longitude: Double
+    @NSManaged  var nickName: String?
+    @NSManaged  var phoneNumber: String?
+    @NSManaged  var postsCount: Int
+    @NSManaged  var profileImage: String?
+    @NSManaged  var sex: Bool
+    @NSManaged  var statusMessage: String?
+    @NSManaged  var updateAt: Date?
+    @NSManaged  var user: PFUser?
+
+    
+    class func getCurrentUserInfo() -> UserInfo? {
+        let query = PFQuery(className: "UserInfo")
+        query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: PFUser.current()?.objectId))
+        query.fromLocalDatastore()
+        do {
+            let pfObject = try query.getFirstObject() as? UserInfo
+            return pfObject
+        } catch {
+            return nil
         }
-        return nil
+    }
+    
+    class func findUserInfo(byObjectId: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
+        findUserInfo(byObjectId: byObjectId, userObjectId: nil, nickName: nil, completion: completion)
+    }
+    
+    class func findUserInfo(byUserObjectId: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
+        findUserInfo(byObjectId: nil, userObjectId: byUserObjectId, nickName: nil, completion: completion)
+    }
+    class func findUserInfo(byNickName: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
+        findUserInfo(byObjectId: nil, userObjectId: nil, nickName: byNickName, completion: completion)
+    }
+    
+    class func findUserInfo(byObjectId: String?, userObjectId: String?, nickName: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
+        let query = PFQuery(className: "UserInfo")
+        if let guardObjectid = userObjectId {
+            query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardObjectid))
+        }
+        if let guardObjectid = byObjectId {
+            query.whereKey("objectId", equalTo: guardObjectid)
+        }
+        if let guardNickName = nickName {
+            query.whereKey("nickName", equalTo: guardNickName)
+        }
+        
+        query.findObjectsInBackground { (objects, error) in
+            if let guardObject = objects?.first as? UserInfo {
+                completion(guardObject, true)
+            } else {
+                completion(nil, false)
+            }
+        }
     }
 }

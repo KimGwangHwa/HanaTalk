@@ -29,12 +29,11 @@ class StoryViewController: UITableViewController {
     // MARK: - Action
     @objc func refreshControlEvent() {
         refreshControl?.beginRefreshing()
-        PostsApi.findAllPosts { (response) in
-            if response.status == .success {
-                self.dataSource = response.data
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            }
+        Posts.findPosts { (postsList, isSuccess) in
+            self.dataSource = postsList
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+
         }
     }
     @IBAction func uploadButtonEvent(_ sender: UIButton) {

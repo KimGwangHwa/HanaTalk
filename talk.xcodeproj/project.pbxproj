@@ -31,9 +31,7 @@
 		34211D2E1F3A0714000F0C94 /* TalkLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */; };
 		34211D2F1F3A0714000F0C94 /* TalkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */; };
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
-		342600051FC30C7A009857E7 /* PostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600041FC30C7A009857E7 /* PostsApi.swift */; };
 		342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600111FD3B2EA009857E7 /* UserInfo.swift */; };
-		342600141FD3B322009857E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600131FD3B322009857E7 /* User.swift */; };
 		342600161FD3B34B009857E7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600151FD3B34B009857E7 /* Message.swift */; };
 		342600181FD3B392009857E7 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600171FD3B392009857E7 /* ChatRoom.swift */; };
 		3426001A1FD3B3C4009857E7 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600191FD3B3C4009857E7 /* Follow.swift */; };
@@ -46,8 +44,6 @@
 		3430716A1FFB418800503F77 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343071691FFB418800503F77 /* Album.storyboard */; };
 		343071701FFB424700503F77 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430716E1FFB424700503F77 /* AlbumCell.swift */; };
 		343071711FFB424700503F77 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3430716F1FFB424700503F77 /* AlbumCell.xib */; };
-		34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B731FA8B81C0045CA60 /* UserApi.swift */; };
-		34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B751FA8B83E0045CA60 /* UserInfoApi.swift */; };
 		34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B771FA8B8510045CA60 /* FollowApi.swift */; };
 		34385B7A1FA8B85D0045CA60 /* MessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B791FA8B85D0045CA60 /* MessageApi.swift */; };
 		34385B7C1FA8B86D0045CA60 /* ChatRoomApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */; };
@@ -118,9 +114,7 @@
 		34211D1D1F3A0714000F0C94 /* TalkLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkLogCell.xib; sourceTree = "<group>"; };
 		34211D1E1F3A0714000F0C94 /* TalkLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkLogViewController.swift; sourceTree = "<group>"; };
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
-		342600041FC30C7A009857E7 /* PostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsApi.swift; sourceTree = "<group>"; };
 		342600111FD3B2EA009857E7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		342600131FD3B322009857E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		342600151FD3B34B009857E7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		342600171FD3B392009857E7 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		342600191FD3B3C4009857E7 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
@@ -133,8 +127,6 @@
 		343071691FFB418800503F77 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		3430716E1FFB424700503F77 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		3430716F1FFB424700503F77 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
-		34385B731FA8B81C0045CA60 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
-		34385B751FA8B83E0045CA60 /* UserInfoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoApi.swift; sourceTree = "<group>"; };
 		34385B771FA8B8510045CA60 /* FollowApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowApi.swift; sourceTree = "<group>"; };
 		34385B791FA8B85D0045CA60 /* MessageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageApi.swift; sourceTree = "<group>"; };
 		34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomApi.swift; sourceTree = "<group>"; };
@@ -337,12 +329,9 @@
 		342600101FD3B257009857E7 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				34385B731FA8B81C0045CA60 /* UserApi.swift */,
-				34385B751FA8B83E0045CA60 /* UserInfoApi.swift */,
 				34385B771FA8B8510045CA60 /* FollowApi.swift */,
 				34385B791FA8B85D0045CA60 /* MessageApi.swift */,
 				34385B7B1FA8B86D0045CA60 /* ChatRoomApi.swift */,
-				342600041FC30C7A009857E7 /* PostsApi.swift */,
 				7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */,
 			);
 			path = API;
@@ -563,7 +552,6 @@
 			isa = PBXGroup;
 			children = (
 				342600111FD3B2EA009857E7 /* UserInfo.swift */,
-				342600131FD3B322009857E7 /* User.swift */,
 				342600151FD3B34B009857E7 /* Message.swift */,
 				342600171FD3B392009857E7 /* ChatRoom.swift */,
 				342600191FD3B3C4009857E7 /* Follow.swift */,
@@ -779,7 +767,6 @@
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
 				343071681FFB417800503F77 /* AlbumViewController.swift in Sources */,
 				34385B781FA8B8510045CA60 /* FollowApi.swift in Sources */,
-				34385B741FA8B81C0045CA60 /* UserApi.swift in Sources */,
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
 				342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */,
 				342600161FD3B34B009857E7 /* Message.swift in Sources */,
@@ -794,13 +781,11 @@
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
-				342600051FC30C7A009857E7 /* PostsApi.swift in Sources */,
 				34A13B9A201CD35F00E6688E /* UserInfoViewController.swift in Sources */,
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
-				34385B761FA8B83E0045CA60 /* UserInfoApi.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				34A13B9D201D688E00E6688E /* UserInfoHeaderView.swift in Sources */,
 				34A13BA1201D690700E6688E /* UserInfoPostsCell.swift in Sources */,
@@ -812,7 +797,6 @@
 				346219601F65051E004998E8 /* Common.swift in Sources */,
 				346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */,
 				3426001A1FD3B3C4009857E7 /* Follow.swift in Sources */,
-				342600141FD3B322009857E7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

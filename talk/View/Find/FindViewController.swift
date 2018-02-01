@@ -23,8 +23,8 @@ class FindViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func searchFromRemoteData() {
-        UserInfoApi.findUserInfo(by: nil, nickname: inputTextField.text) { (response) in
-            if let guardUserInfo = response.data {
+        UserInfo.findUserInfo(byNickName: inputTextField.text) { (userInfo, isSuccess) in
+            if let guardUserInfo = userInfo {
                 self.dataSource = [guardUserInfo]
             }
             self.tableView.reloadData()

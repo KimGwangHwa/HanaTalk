@@ -39,25 +39,33 @@ class SignUpViewController: UITableViewController {
     }
     
     @IBAction func submitEvent(_ sender: Any) {
-        let signupUser = User()
-        signupUser.userName = eMailTextField.text ?? ""
+        let signupUser = PFUser()
+        signupUser.username = eMailTextField.text ?? ""
         signupUser.password = passwordTextField.text ?? ""
-
-        UserApi.signUp(user: signupUser) { (status) in
-            if status == .success {
+        signupUser.signUpInBackground { (isSuccess, error) in
+            if isSuccess {
                 
                 let userinfo = UserInfo()
                 userinfo.email = self.eMailTextField.text
                 userinfo.sex = self.isMan
                 userinfo.nickName = self.nickNameTextField.text
-                UserInfoApi.saveUserInfo(userInfo: userinfo, completion: { (state) in
-                    if state == .success {
+                userinfo.saveInBackground(block: { (isSuccess, error) in
+                    if isSuccess {
                         if let viewController = R.storyboard.home.homeViewController() {
                             self.navigationController?.pushViewController(viewController, animated: true)
                         }
                     }
                 })
+                // TODO:
+                //                UserInfoApi.saveUserInfo(userInfo: userinfo, completion: { (state) in
+                //                    if state == .success {
+                //                        if let viewController = R.storyboard.home.homeViewController() {
+                //                            self.navigationController?.pushViewController(viewController, animated: true)
+                //                        }
+                //                    }
+                //                })
             }
+
         }
     }
     

@@ -17,11 +17,11 @@ class Follow: NSObject {
         if let guardObject = ojbect {
             let retObject: Follow = Follow()
             retObject.objectId = guardObject.objectId
-            if let userInfo = guardObject["userInfo"] as? PFObject {
-                retObject.userInfo = UserInfo.convertUserInfo(with: userInfo)
+            if let userInfo = guardObject["userInfo"] as? UserInfo {
+                retObject.userInfo = userInfo
             }
-            if let following = guardObject["following"] as? PFObject {
-                retObject.following = UserInfo.convertUserInfo(with: following)
+            if let following = guardObject["following"] as? UserInfo {
+                retObject.following = following
             }
             return retObject
         }
