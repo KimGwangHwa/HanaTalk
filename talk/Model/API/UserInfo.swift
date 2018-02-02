@@ -13,22 +13,15 @@ class UserInfo: PFObject, PFSubclassing {
         return "UserInfo"
     }
     
-    @NSManaged  var birthday: Date?
-    @NSManaged  var createAt: Date?
-    @NSManaged  var email: String?
-    @NSManaged  var followersCount: Int
-    @NSManaged  var followingCount: Int
-    @NSManaged  var latitude: Double
-    @NSManaged  var longitude: Double
-    @NSManaged  var nickName: String?
-    @NSManaged  var phoneNumber: String?
-    @NSManaged  var postsCount: Int
-    @NSManaged  var profileImage: String?
-    @NSManaged  var sex: Bool
-    @NSManaged  var statusMessage: String?
-    @NSManaged  var updateAt: Date?
-    @NSManaged  var user: PFUser?
-
+    @NSManaged var birthday: Date?
+    @NSManaged var email: String?
+    @NSManaged var nickName: String?
+    @NSManaged var phoneNumber: String?
+    @NSManaged var profile: PFFile?
+    @NSManaged var sex: Bool
+    @NSManaged var statusMessage: String?
+    @NSManaged var user: PFUser?
+    @NSManaged var location: PFGeoPoint?
     
     class func getCurrentUserInfo() -> UserInfo? {
         let query = PFQuery(className: "UserInfo")

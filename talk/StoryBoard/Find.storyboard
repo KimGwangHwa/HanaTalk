@@ -81,11 +81,20 @@
                     <connections>
                         <outlet property="inputTextField" destination="Vge-wF-Afw" id="XQE-MR-qSe"/>
                         <outlet property="tableView" destination="wia-9r-VPf" id="rde-Qn-rLI"/>
+                        <segue destination="51G-zB-dIc" kind="show" identifier="showUserInfo" id="4CN-zc-s8J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InN-7W-7dr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-226.40000000000001" y="128.18590704647679"/>
+        </scene>
+        <!--UserInfo-->
+        <scene sceneID="1LX-IS-Z3w">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserInfo" id="51G-zB-dIc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LuM-Oe-yYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="348" y="55"/>
         </scene>
     </scenes>
 </document>

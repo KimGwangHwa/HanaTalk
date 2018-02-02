@@ -66,9 +66,12 @@ class UserInfoHeaderView: UICollectionReusableView {
                 Posts.countPosts(by: guardUserInfo, completion: { (count, isSuccess) in
                     self.setAttributeTitleWithButton(self.postsCountButton, title: String(count))
                 })
-                if let guardImageUrl = guardUserInfo.profileImage {
-                    imageView.sd_setImage(with: URL(string: guardImageUrl)
-                        , placeholderImage: nil)
+                if let guardFile = guardUserInfo.profile {
+                    guardFile.getDataInBackground(block: { (data, error) in
+                        if let guardData = data {
+                            self.imageView.image = UIImage(data: guardData)
+                        }
+                    })
                 }
                 nickNameLabel.text = guardUserInfo.nickName
                 statusLabel.text = guardUserInfo.statusMessage

@@ -57,7 +57,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="scF-fD-HRG">
                     <rect key="frame" x="0.0" y="105" width="375" height="95"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwd-bt-CxB">
+                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwd-bt-CxB">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPj-SP-B6H">
@@ -69,18 +69,14 @@
                                     <state key="normal" title="Message"/>
                                 </button>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="5Uv-8t-W6C" firstAttribute="width" secondItem="Qwd-bt-CxB" secondAttribute="width" multiplier="1:2" id="GFR-zY-h3s"/>
-                                <constraint firstItem="NPj-SP-B6H" firstAttribute="width" secondItem="Qwd-bt-CxB" secondAttribute="width" multiplier="1:2" id="PQz-mw-YyA"/>
-                            </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-1e-mf0">
                             <rect key="frame" x="0.0" y="40" width="375" height="55"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-0g-inG">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EB-Pp-qFw">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="55"/>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EB-Pp-qFw">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-0g-inG">
                                     <rect key="frame" x="125" y="0.0" width="125" height="55"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-ha-CwC">
@@ -88,7 +84,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="55" id="8FE-jV-d80"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="8FE-jV-d80"/>
                                 <constraint firstItem="8vE-0g-inG" firstAttribute="width" secondItem="1k8-1e-mf0" secondAttribute="width" multiplier="1:3" id="d9w-BN-fzR"/>
                                 <constraint firstItem="Q6a-ha-CwC" firstAttribute="width" secondItem="1k8-1e-mf0" secondAttribute="width" multiplier="1:3" id="n3d-i7-kwa"/>
                                 <constraint firstItem="6EB-Pp-qFw" firstAttribute="width" secondItem="1k8-1e-mf0" secondAttribute="width" multiplier="1:3" id="tVZ-Ti-Hdz"/>
@@ -97,8 +93,13 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="1k8-1e-mf0" secondAttribute="bottom" id="23n-nX-NER"/>
+                        <constraint firstItem="Qwd-bt-CxB" firstAttribute="leading" secondItem="scF-fD-HRG" secondAttribute="leading" id="MLc-ST-Meo"/>
+                        <constraint firstItem="Qwd-bt-CxB" firstAttribute="top" secondItem="scF-fD-HRG" secondAttribute="top" id="Osc-gx-jLV"/>
+                        <constraint firstItem="NPj-SP-B6H" firstAttribute="width" secondItem="scF-fD-HRG" secondAttribute="width" multiplier="1:2" id="gIm-dH-s8M"/>
+                        <constraint firstItem="5Uv-8t-W6C" firstAttribute="width" secondItem="scF-fD-HRG" secondAttribute="width" multiplier="1:2" id="idV-16-ZDx"/>
                         <constraint firstAttribute="trailing" secondItem="1k8-1e-mf0" secondAttribute="trailing" id="jfX-Eq-7rr"/>
                         <constraint firstItem="1k8-1e-mf0" firstAttribute="leading" secondItem="scF-fD-HRG" secondAttribute="leading" id="nRd-pn-ZQU"/>
+                        <constraint firstAttribute="trailing" secondItem="Qwd-bt-CxB" secondAttribute="trailing" id="rO9-Gp-ieT"/>
                     </constraints>
                 </stackView>
             </subviews>

@@ -24,8 +24,11 @@ class ContactCell: UITableViewCell {
         didSet {
             nickNameLabel.text = user?.nickName
             descriptionLabel.text = user?.statusMessage
-            customBadgeView.imageView.sd_setImage(with: URL(string: user?.profileImage ?? "")
-                , placeholderImage: nil)
+            user?.profile?.getDataInBackground(block: { (data, error) in
+                if let guardData = data {
+                    self.customBadgeView.imageView.image = UIImage(data: guardData)
+                }
+            })
         }
     }
     

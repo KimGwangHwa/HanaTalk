@@ -21,7 +21,19 @@ class FindCell: UITableViewCell {
     
     var userInfo: UserInfo? {
         didSet {
-            
+            if let guardUserInfo = userInfo {
+                if let guardFile = guardUserInfo.profile {
+                    guardFile.getDataInBackground(block: { (data, error) in
+                        if let guardData = data {
+                            self.iconImageView.image = UIImage(data: guardData)
+                        }
+                    })
+//                    iconImageView.sd_setImage(with: URL(string: guardImageUrl)
+//                        , placeholderImage: nil)
+                }
+                nickNameLabel.text = guardUserInfo.nickName
+                statusMessageLabel.text = guardUserInfo.statusMessage
+            }
         }
     }
     

@@ -12,8 +12,14 @@ class EditUserInfoCell: UITableViewCell {
     var userInfo: UserInfo? {
         didSet {
             if let guardUserInfo = userInfo  {
-                if let guardImageUrl = guardUserInfo.profileImage {
-                    profileImageView.sd_setImage(with: URL(string: guardImageUrl), placeholderImage: nil)
+                if let guardFile = guardUserInfo.profile {
+                    guardFile.getDataInBackground(block: { (data, error) in
+                        if let guardData = data {
+                            self.profileImageView.image = UIImage(data: guardData)
+                        }
+                    })
+
+//                    profileImageView.sd_setImage(with: URL(string: guardImageUrl), placeholderImage: nil)
                 }
                 nickNameTextField.text = guardUserInfo.nickName
                 statusTextField.text = guardUserInfo.statusMessage

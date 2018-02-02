@@ -532,10 +532,10 @@
 			isa = PBXGroup;
 			children = (
 				342600111FD3B2EA009857E7 /* UserInfo.swift */,
-				342600151FD3B34B009857E7 /* Message.swift */,
-				342600171FD3B392009857E7 /* ChatRoom.swift */,
 				342600191FD3B3C4009857E7 /* Follow.swift */,
 				3426001B1FD3B3F4009857E7 /* Posts.swift */,
+				342600151FD3B34B009857E7 /* Message.swift */,
+				342600171FD3B392009857E7 /* ChatRoom.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

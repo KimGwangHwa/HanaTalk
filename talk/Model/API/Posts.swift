@@ -15,15 +15,10 @@ class Posts: PFObject, PFSubclassing {
     }
 
     @NSManaged var poster: UserInfo?
-//    public var title: String?
     @NSManaged var imageFiles: [PFFile]?
     @NSManaged var messages: [Message]?
     @NSManaged var likeds: [UserInfo]?
     @NSManaged var contents: String?
-    
-    // For uploading variable
-//    var images: [UIImage]?
-    
     
     class func findPosts(by userInfo: UserInfo? = nil, completion: @escaping ([Posts]?, Bool) -> Void) {
         let postsQuery = PFQuery(className: "Posts")
