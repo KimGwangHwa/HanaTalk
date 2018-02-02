@@ -51,19 +51,12 @@ class SignUpViewController: UITableViewController {
                 userinfo.nickName = self.nickNameTextField.text
                 userinfo.saveInBackground(block: { (isSuccess, error) in
                     if isSuccess {
+                        userinfo.pinInBackground()
                         if let viewController = R.storyboard.home.homeViewController() {
                             self.navigationController?.pushViewController(viewController, animated: true)
                         }
                     }
                 })
-                // TODO:
-                //                UserInfoApi.saveUserInfo(userInfo: userinfo, completion: { (state) in
-                //                    if state == .success {
-                //                        if let viewController = R.storyboard.home.homeViewController() {
-                //                            self.navigationController?.pushViewController(viewController, animated: true)
-                //                        }
-                //                    }
-                //                })
             }
 
         }

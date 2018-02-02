@@ -23,6 +23,9 @@ class LoginViewController: UITableViewController {
     @IBAction func tapLoginButton(_ sender: UIButton) {
         PFUser.logInWithUsername(inBackground: userIdTextField.text ?? "", password: passwordTextField.text ?? "") { (user, error) in
             if error != nil {
+                UserInfo.findUserInfo(byUserObjectId: user?.objectId, completion: { (userInfo, isSuccess) in
+                    userInfo?.pinInBackground()
+                })
                 if let viewController = R.storyboard.home.homeViewController() {
                     self.navigationController?.pushViewController(viewController, animated: true)
                 }

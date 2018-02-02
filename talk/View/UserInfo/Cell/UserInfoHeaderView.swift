@@ -56,9 +56,16 @@ class UserInfoHeaderView: UICollectionReusableView {
     var userinfo: UserInfo? {
         didSet {
             if let guardUserInfo = userinfo {
-                setAttributeTitleWithButton(postsCountButton, title: String(guardUserInfo.postsCount))
-                setAttributeTitleWithButton(followingCountButton, title: String(guardUserInfo.followingCount))
-                setAttributeTitleWithButton(followedCountButton, title: String(guardUserInfo.followersCount))
+                
+                Follow.countFollower(by: guardUserInfo.objectId) { (count, isSuccess) in
+                    self.setAttributeTitleWithButton(self.followedCountButton, title: String(count))
+                }
+                Follow.countFollowing(by: guardUserInfo.objectId, completion: { (count, isSuccess) in
+                    self.setAttributeTitleWithButton(self.followingCountButton, title: String(count))
+                })
+                Posts.countPosts(by: guardUserInfo, completion: { (count, isSuccess) in
+                    self.setAttributeTitleWithButton(self.postsCountButton, title: String(count))
+                })
                 if let guardImageUrl = guardUserInfo.profileImage {
                     imageView.sd_setImage(with: URL(string: guardImageUrl)
                         , placeholderImage: nil)

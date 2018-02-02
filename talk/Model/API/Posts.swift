@@ -46,4 +46,19 @@ class Posts: PFObject, PFSubclassing {
             }
         }
     }
+    
+    class func countPosts(by userInfo: UserInfo?, completion: @escaping (Int, Bool) -> Void) {
+        let postsQuery = PFQuery(className: "Posts")
+        if let guardUserInfo = userInfo {
+            postsQuery.whereKey("poster", equalTo: guardUserInfo)
+        }
+        postsQuery.countObjectsInBackground { (count, error) in
+            if error == nil {
+                completion(Int(count), true)
+            }
+        }
+    }
+    
+    
+    
 }
