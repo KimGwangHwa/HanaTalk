@@ -29,12 +29,11 @@ class UploadStoryViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func uploadButtonEvent(_ sender: UIButton) {
         let postsItem = Posts()
-        postsItem.images = uploadImages
+        postsItem.imageFiles = Common.imagesToFiles(uploadImages)
         postsItem.contents = textCell?.title
-        // TODO:
-        //        PostsApi.uploadPosts(postsItem) { (status) in
-//            self.navigationController?.dismiss(animated: true, completion: nil)
-//        }
+        postsItem.saveInBackground { (isSuccess, error) in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
