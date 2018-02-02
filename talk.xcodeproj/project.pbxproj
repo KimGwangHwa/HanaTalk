@@ -79,7 +79,6 @@
 		34A13BA2201D690700E6688E /* UserInfoPostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
-		7ABD8AF12011F61800B047B3 /* UploadImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
@@ -161,7 +160,6 @@
 		34A13BA0201D690700E6688E /* UserInfoPostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoPostsCell.xib; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
-		7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageApi.swift; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,14 +318,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		342600101FD3B257009857E7 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				7ABD8AF02011F61800B047B3 /* UploadImageApi.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		342888601FB9D29800D7EB61 /* Story */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,7 +449,6 @@
 		349EAD481F2F55CE005833ED /* talk */ = {
 			isa = PBXGroup;
 			children = (
-				342600101FD3B257009857E7 /* API */,
 				34211D081F3A0714000F0C94 /* StoryBoard */,
 				34211D0F1F3A0714000F0C94 /* View */,
 				344C27411F3358C200FD5805 /* Extension */,
@@ -763,7 +752,6 @@
 				34A13B8D2016098A00E6688E /* EditUserInfoCell.swift in Sources */,
 				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
 				340627211F5331E700821E39 /* R.generated.swift in Sources */,
-				7ABD8AF12011F61800B047B3 /* UploadImageApi.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				3461F5101F7636C0000D09D5 /* FindViewController.swift in Sources */,
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,
