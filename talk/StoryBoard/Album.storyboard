@@ -72,6 +72,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="0dD-SU-PYY" id="enl-FV-LbQ"/>
+                        <outlet property="finishButton" destination="eqk-ME-KZ3" id="Yz6-TJ-1pL"/>
                         <segue destination="wrQ-cQ-poy" kind="show" identifier="ShowUploadStory" id="M4x-Ef-9Dx"/>
                     </connections>
                 </viewController>

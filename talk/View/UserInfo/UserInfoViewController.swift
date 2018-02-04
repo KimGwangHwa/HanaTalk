@@ -12,7 +12,7 @@ private let headerReuseIdentifier = R.reuseIdentifier.userInfoHeaderView.identif
 
 private let postsCellNib = R.nib.userInfoPostsCell()
 private let collectionHeaderNib = R.nib.userInfoHeaderView()
-private let segueEditIdentifier = R.segue.userInfoViewController.showEditUserInfo.identifier
+private let showEditIdentifier = R.segue.userInfoViewController.showEditUserInfo.identifier
 
 class UserInfoViewController: UICollectionViewController {
     
@@ -85,13 +85,41 @@ class UserInfoViewController: UICollectionViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueEditIdentifier {
-            if let viewController = segue.destination as? EditUserInfoViewController{
-                viewController.userInfo = userInfo
+        if segue.identifier == showEditIdentifier {
+            if let viewController = segue.destination as? EditUserInfoViewController {
+                viewController.userInfo = sender as? UserInfo
+                viewController.delegate = self
             }
         }
     }
+    //MARK: Action
+    @IBAction func settingButtonEvent(_ sender: UIButton) {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            self.performSegue(withIdentifier: showEditIdentifier, sender: self.userInfo);
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Message", style: .default, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Follow", style: .default, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    @IBAction func addUserButtonEvent(_ sender: UIButton) {
+    }
     
+}
+
+// MARK: EditUserInfoViewControllerDelegate
+extension UserInfoViewController: EditUserInfoViewControllerDelegate {
+    func editUserInfoViewController(_ viewController: EditUserInfoViewController, didEditingFinish atObject: UserInfo?) {
+        userInfo = atObject
+        collectionView?.reloadData()
+    }
 }
 
 //MARK: UserInfoHeaderViewDelegate
@@ -109,7 +137,6 @@ extension UserInfoViewController: UserInfoHeaderViewDelegate {
     }
     
     func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapEdit atObject: UserInfo?) {
-        self.performSegue(withIdentifier: segueEditIdentifier, sender: nil);
     }
 
 }

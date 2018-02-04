@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol EditUserInfoCellDelegate: class {
+    func editUserInfoCellDidTapEdit()
+}
+
 class EditUserInfoCell: UITableViewCell {
 
+    weak var delegate: EditUserInfoCellDelegate?
+    
     var userInfo: UserInfo? {
         didSet {
             if let guardUserInfo = userInfo  {
@@ -37,15 +43,35 @@ class EditUserInfoCell: UITableViewCell {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var IDTextField: UITextField!
     
+    @IBAction func editButtonEvent(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.editUserInfoCellDidTapEdit()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        nickNameTextField.delegate = self
+        statusTextField.delegate = self
+        birthdayTextField.delegate = self
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+}
+
+// MARK: UITextFieldDelegate
+extension EditUserInfoCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

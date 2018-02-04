@@ -48,6 +48,7 @@ class SignUpViewController: UITableViewController {
                 let userinfo = UserInfo()
                 userinfo.email = self.eMailTextField.text
                 userinfo.sex = self.isMan
+                userinfo.user = signupUser
                 userinfo.nickName = self.nickNameTextField.text
                 userinfo.saveInBackground(block: { (isSuccess, error) in
                     if isSuccess {

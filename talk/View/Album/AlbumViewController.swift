@@ -9,12 +9,21 @@ import UIKit
 import AVFoundation
 import Photos
 
-class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate, AlbumCellDelegate {
+protocol AlbumViewControllerDelegate: class {
+    func albumViewController(_ viewController: AlbumViewController, didSelect atImage: UIImage?)
+}
 
+
+class AlbumViewController: UIViewController, AlbumCellDelegate {
+
+    weak var delegate: AlbumViewControllerDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var finishButton: UIButton!
     
     var dataSource = [UIImage]()
     var selectedImages = [UIImage]()
+    var cellSelectedImage: UIImage?
+    
     var photoAssets = [PHAsset]()
 
     override func viewDidLoad() {
@@ -71,6 +80,9 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func setUpView() {
+        if delegate != nil {
+            finishButton.setTitle("OK", for: .normal)
+        }
         registerForPreviewing(with: self, sourceView: collectionView)
 
         collectionView.register(R.nib.albumCell(), forCellWithReuseIdentifier: R.reuseIdentifier.albumCell.identifier)
@@ -102,7 +114,12 @@ class AlbumViewController: UIViewController, UICollectionViewDelegate, UICollect
 extension AlbumViewController {
     
     @IBAction func tapNextButtonEvent(_ sender: UIButton) {
-        self.performSegue(withIdentifier: R.segue.albumViewController.showUploadStory.identifier, sender: nil)
+        if delegate != nil {
+            dismiss(animated: true, completion: nil)
+            delegate?.albumViewController(self, didSelect: cellSelectedImage)
+        } else {
+            self.performSegue(withIdentifier: R.segue.albumViewController.showUploadStory.identifier, sender: nil)
+        }
     }
     
     @IBAction func tapBackButtonEvent(_ sender: UIButton) {
@@ -111,7 +128,7 @@ extension AlbumViewController {
 }
 
 // MARK: - CollectionView Delegate
-extension AlbumViewController {
+extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSource, UIViewControllerPreviewingDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -119,11 +136,14 @@ extension AlbumViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.albumCell.identifier, for: indexPath) as? AlbumCell {
             cell.imageView.image = dataSource[indexPath.row]
-            cell.selectedCount = nil
-            if let index = selectedImages.index(of: dataSource[indexPath.row]) {
-                cell.selectedCount = index + 1
+            if delegate != nil {
+                cell.selectedButton.isHidden = true
+            } else {
+                if let index = selectedImages.index(of: dataSource[indexPath.row]) {
+                    cell.selectedCount = index + 1
+                }
+                cell.delegate = self
             }
-            cell.delegate = self
             return cell
         }
         return UICollectionViewCell()
@@ -131,6 +151,7 @@ extension AlbumViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.cellForItem(at: indexPath)?.isHighlighted = true
+        cellSelectedImage = dataSource[indexPath.row]
     }
 }
 
