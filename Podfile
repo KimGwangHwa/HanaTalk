@@ -9,6 +9,7 @@ target 'talk' do
   pod 'SendBirdSDK'
   pod 'R.swift'
   pod ‘Parse’
+  pod ‘GzipSwift’
   #pod 'Realm'
   pod 'SDWebImage'
 

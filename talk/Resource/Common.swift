@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Gzip
 
 class Common: NSObject {
     
@@ -59,17 +60,18 @@ class Common: NSObject {
         return nil
     }
     
-    class func imagesToFiles(_ images: [UIImage]?) -> [PFFile]? {
+    class func imagesToFile(_ images: [UIImage]?) -> PFFile? {
         if let guardImages = images {
-            var files = [PFFile]()
+            var base64Strings = [String]()
             
             for image in guardImages {
-                if let imageData = UIImagePNGRepresentation(image), let pfile = PFFile(data: imageData) {
-                    files.append(pfile)
-                }
+                base64Strings.append(self.imageToString(image: image) ?? "")
             }
-        
-            return files
+            let jsonData = try? JSONSerialization.data(withJSONObject: base64Strings, options: [])
+            if let guardJsonData = jsonData,
+                let zipData = try? guardJsonData.gzipped() {
+                return PFFile(data: zipData)
+            }
         }
         return nil
     }
