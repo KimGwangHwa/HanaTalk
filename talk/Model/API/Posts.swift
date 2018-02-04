@@ -16,6 +16,8 @@ class Posts: PFObject, PFSubclassing {
 
     @NSManaged var poster: UserInfo?
     @NSManaged var imageFiles: [PFFile]?
+    @NSManaged var imageUrls: [String]?
+
     @NSManaged var messages: [Message]?
     @NSManaged var likeds: [UserInfo]?
     @NSManaged var contents: String?

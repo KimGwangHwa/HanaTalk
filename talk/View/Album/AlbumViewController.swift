@@ -38,12 +38,19 @@ class AlbumViewController: UIViewController, AlbumCellDelegate {
         let assets: PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
         assets.enumerateObjects { (asset, index, stop) in
             let manager: PHImageManager = PHImageManager()
-            manager.requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
-                if let guardImage = UIImage(data: data ?? Data()) {
+            manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { (image, _) in
+                if let guardImage = image {
                     self.dataSource.append(guardImage)
                     self.collectionView.reloadData()
                 }
+
             })
+//            manager.requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
+//                if let guardImage = UIImage(data: data ?? Data()) {
+//                    self.dataSource.append(guardImage)
+//                    self.collectionView.reloadData()
+//                }
+//            })
 //            manager.requestImage(for: asset, targetSize: CGSize.zero, contentMode: .aspectFit, options: nil, resultHandler: { (image, hashtable) in
 //                if let guardImage = image {
 //                    self.dataSource.append(guardImage)

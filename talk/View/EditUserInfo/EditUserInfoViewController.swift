@@ -50,7 +50,7 @@ class EditUserInfoViewController: UIViewController {
     @IBAction func saveButtonEvent(_ sender: UIButton) {
         
         userInfo?.nickName = infoCell?.nickNameTextField.text
-        userInfo?.statusMessage = infoCell?.statusTextField.text
+//        userInfo?.statusMessage = infoCell?.statusTextField.text
         userInfo?.birthday = Common.stringToDate(dateString: infoCell?.birthdayTextField.text, format: DATE_FORMAT_2)
         
         userInfo?.saveInBackground(block: { (isSuccess, error) in
