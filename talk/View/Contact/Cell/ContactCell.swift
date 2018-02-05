@@ -22,8 +22,8 @@ class ContactCell: UITableViewCell {
     }
     var user: UserInfo? {
         didSet {
-            nickNameLabel.text = user?.nickName
-            descriptionLabel.text = user?.statusMessage
+            nickNameLabel.text = user?.nickname
+            descriptionLabel.text = user?.status
             user?.profile?.getDataInBackground(block: { (data, error) in
                 if let guardData = data {
                     self.customBadgeView.imageView.image = UIImage(data: guardData)

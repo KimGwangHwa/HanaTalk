@@ -31,8 +31,8 @@ class FindCell: UITableViewCell {
 //                    iconImageView.sd_setImage(with: URL(string: guardImageUrl)
 //                        , placeholderImage: nil)
                 }
-                nickNameLabel.text = guardUserInfo.nickName
-                statusMessageLabel.text = guardUserInfo.statusMessage
+                nickNameLabel.text = guardUserInfo.nickname
+                statusMessageLabel.text = guardUserInfo.status
             }
         }
     }

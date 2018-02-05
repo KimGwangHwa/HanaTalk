@@ -27,8 +27,8 @@ class EditUserInfoCell: UITableViewCell {
 
 //                    profileImageView.sd_setImage(with: URL(string: guardImageUrl), placeholderImage: nil)
                 }
-                nickNameTextField.text = guardUserInfo.nickName
-                statusTextField.text = guardUserInfo.statusMessage
+                nickNameTextField.text = guardUserInfo.nickname
+                statusTextField.text = guardUserInfo.status
                 birthdayTextField.text = Common.dateToString(date: guardUserInfo.birthday, format: DATE_FORMAT_2)
                 emailTextField.text = guardUserInfo.email
                 IDTextField.text = guardUserInfo.objectId

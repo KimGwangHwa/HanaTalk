@@ -58,7 +58,7 @@ class TalkRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setUpView() {
-        title = receiverUserInfo?.nickName
+        title = receiverUserInfo?.nickname
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0

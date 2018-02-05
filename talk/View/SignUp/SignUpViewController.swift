@@ -49,7 +49,7 @@ class SignUpViewController: UITableViewController {
                 userinfo.email = self.eMailTextField.text
                 userinfo.sex = self.isMan
                 userinfo.user = signupUser
-                userinfo.nickName = self.nickNameTextField.text
+                userinfo.nickname = self.nickNameTextField.text
                 userinfo.saveInBackground(block: { (isSuccess, error) in
                     if isSuccess {
                         userinfo.pinInBackground()

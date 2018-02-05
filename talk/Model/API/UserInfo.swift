@@ -15,11 +15,11 @@ class UserInfo: PFObject, PFSubclassing {
     
     @NSManaged var birthday: Date?
     @NSManaged var email: String?
-    @NSManaged var nickName: String?
+    @NSManaged var nickname: String?
     @NSManaged var phoneNumber: String?
     @NSManaged var profile: PFFile?
     @NSManaged var sex: Bool
-    @NSManaged var statusMessage: String?
+    @NSManaged var status: String?
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     

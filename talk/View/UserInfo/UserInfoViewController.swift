@@ -59,11 +59,11 @@ class UserInfoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postsCellReuseIdentifier, for: indexPath) as? UserInfoPostsCell {
             let posts = dataSource?[indexPath.row]
-            if let file = posts?.imageFiles?.first,
-                let urlString = file.url {
-                cell.imageView.sd_setImage(with: URL(string: urlString)
-                    , placeholderImage: nil)
-            }
+//            if let file = posts?.imageFiles?.first,
+//                let urlString = file.url {
+//                cell.imageView.sd_setImage(with: URL(string: urlString)
+//                    , placeholderImage: nil)
+//            }
             return cell
         }
         return UICollectionViewCell()
