@@ -2,141 +2,132 @@
 //  UserInfoViewController.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2018/01/28.
+//  Created by ひかりちゃん on 2018/02/11.
 //
 
 import UIKit
 
-private let postsCellReuseIdentifier = R.reuseIdentifier.userInfoPostsCell.identifier
-private let headerReuseIdentifier = R.reuseIdentifier.userInfoHeaderView.identifier
-
-private let postsCellNib = R.nib.userInfoPostsCell()
-private let collectionHeaderNib = R.nib.userInfoHeaderView()
-private let showEditIdentifier = R.segue.userInfoViewController.showEditUserInfo.identifier
-
-class UserInfoViewController: UICollectionViewController {
+enum InfoSection: Int {
     
-    var dataSource: [Posts]?
-    var userInfo: UserInfo?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setUp()
-        loadRomoteData()
+    case profile = 0
+    case contactInfo = 1
+    case keyWord = 2
+    case bio = 3
+    
+    static var sectionCount: Int {
+        return 4
     }
     
-    func loadRomoteData() {
-        UserInfo.findUserInfo(byUserObjectId: DataManager.shared.currentUser?.objectId) { (userInfo, isSuccess) in
-            self.userInfo = userInfo
-            Posts.findPosts(by: userInfo, completion: { (postsList, isSuccess) in
-                self.dataSource = postsList
-                self.collectionView?.reloadData()
-            })
+    func rowCount(isEditMode: Bool = false) -> Int {
+        switch self {
+        case .profile:
+            return 1
+        case .contactInfo:
+            if isEditMode == true {
+                return 6
+            }
+            return 4
+        case .keyWord:
+            return 1
+        case .bio:
+            return 1
         }
     }
     
-    func setUp() {
-        self.collectionView?.register(collectionHeaderNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
-        self.collectionView?.register(postsCellNib, forCellWithReuseIdentifier: postsCellReuseIdentifier)
-        let layout = UICollectionViewFlowLayout()
-        let itemWidth = UIScreen.main.bounds.size.width / 3
-        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 250)
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        self.collectionView?.collectionViewLayout = layout
+    var sectionName: String {
+        switch self {
+        case .profile:
+            return ""
+        case .contactInfo:
+            return "Contact Info"
+        case .keyWord:
+            return "Key Word"
+        case .bio:
+            return "Bio"
+        }
+    }
+}
+
+class UserInfoViewController: UITableViewController {
+
+    var userInfo: UserInfo?
+    @IBOutlet weak var keyWordLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var infoFullNameLabel: UILabel!
+    @IBOutlet weak var infoEmailLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        loadRomoteData()
+    }
+    
+    func setUpView() {
+        tableView.tableFooterView = UIView(frame: .zero)
+        userInfo?.profile?.getDataInBackground(block: { (data, error) in
+            if let guardData = data {
+                self.profileImageView.image = UIImage(data: guardData)
+            }
+        })
+        fullNameLabel.text = userInfo?.nickname
+        emailLabel.text = userInfo?.email
+        infoEmailLabel.text = userInfo?.email
+        infoFullNameLabel.text = userInfo?.nickname
+        phoneNumberLabel.text = userInfo?.phoneNumber
+        keyWordLabel.text = userInfo?.keyword
+        bioLabel.text = userInfo?.bio
+        
+    }
+    func loadRomoteData() {
+        if let guardUserInfo = DataManager.shared.currentuserInfo {
+            userInfo = guardUserInfo
+            self.setUpView()
+        } else {
+            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
+                self.userInfo = userInfo
+                self.setUpView()
+            }
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - Table view data source
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        if let count = dataSource?.count {
-            return count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return InfoSection.sectionCount
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if let enumInfo = InfoSection(rawValue: section) {
+            return enumInfo.rowCount()
         }
         return 0
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postsCellReuseIdentifier, for: indexPath) as? UserInfoPostsCell {
-            let posts = dataSource?[indexPath.row]
-//            if let file = posts?.imageFiles?.first,
-//                let urlString = file.url {
-//                cell.imageView.sd_setImage(with: URL(string: urlString)
-//                    , placeholderImage: nil)
-//            }
-            return cell
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+ 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView()
+        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
+        if let enumInfo = InfoSection(rawValue: section) {
+            sectionLabel.text = enumInfo.sectionName
+            sectionLabel.backgroundColor = UIColor.white
+            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
         }
-        return UICollectionViewCell()
+        sectionHeaderView.addSubview(sectionLabel)
+        return sectionHeaderView
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as? UserInfoHeaderView {
-                header.delegate = self
-                header.userinfo = userInfo
-                return header;
-            }
-        }
-        return UICollectionReusableView()
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == showEditIdentifier {
-            if let viewController = segue.destination as? EditUserInfoViewController {
-                viewController.userInfo = sender as? UserInfo
-                viewController.delegate = self
-            }
-        }
-    }
-    //MARK: Action
-    @IBAction func settingButtonEvent(_ sender: UIButton) {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            self.performSegue(withIdentifier: showEditIdentifier, sender: self.userInfo);
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            
-        }))
-        alert.addAction(UIAlertAction(title: "Message", style: .default, handler: { (action) in
-            
-        }))
-        alert.addAction(UIAlertAction(title: "Follow", style: .default, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    @IBAction func addUserButtonEvent(_ sender: UIButton) {
-    }
-    
-}
-
-// MARK: EditUserInfoViewControllerDelegate
-extension UserInfoViewController: EditUserInfoViewControllerDelegate {
-    func editUserInfoViewController(_ viewController: EditUserInfoViewController, didEditingFinish atObject: UserInfo?) {
-        userInfo = atObject
-        collectionView?.reloadData()
-    }
-}
-
-//MARK: UserInfoHeaderViewDelegate
-extension UserInfoViewController: UserInfoHeaderViewDelegate {
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapPosts atObject: UserInfo?) {
-      
-        
-    }
-    
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowed atObject: UserInfo?) {
-    }
-    
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapFollowing atObject: UserInfo?) {
-        
-    }
-    
-    func userInfoHeaderView(_ headerView: UserInfoHeaderView, didTapEdit atObject: UserInfo?) {
-    }
-
 }

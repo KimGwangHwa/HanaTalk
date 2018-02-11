@@ -22,6 +22,11 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var status: String?
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
+    @NSManaged var bio: String?
+    @NSManaged var keyword: String?
+
+    
+    
     
     class func getCurrentUserInfo() -> UserInfo? {
         let query = PFQuery(className: "UserInfo")

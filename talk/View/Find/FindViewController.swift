@@ -44,7 +44,7 @@ class FindViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showUserInfo {
             if let userInfoViewController = segue.destination as? UserInfoViewController {
-                userInfoViewController.userInfo = sender as? UserInfo
+                //userInfoViewController.userInfo = sender as? UserInfo
             }
         }
     }

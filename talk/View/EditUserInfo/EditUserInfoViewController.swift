@@ -2,23 +2,25 @@
 //  EditUserInfoViewController.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2018/01/22.
+//  Created by ひかりちゃん on 2018/02/11.
 //
 
 import UIKit
 
-protocol EditUserInfoViewControllerDelegate: class {
-    func editUserInfoViewController(_ viewController: EditUserInfoViewController, didEditingFinish atObject: UserInfo?)
-}
-class EditUserInfoViewController: UIViewController {
-    weak var delegate: EditUserInfoViewControllerDelegate?
-    var userInfo: UserInfo?
-    var infoCell: EditUserInfoCell?
+class EditUserInfoViewController: UITableViewController {
+
+    let showAlbumIdentifier = R.segue.editUserInfoViewController.showAlbum.identifier
     
-    private let showAlbumIdentifier = R.segue.editUserInfoViewController.showAlbum.identifier
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
+    @IBOutlet weak var sexTextField: UITextField!
+    @IBOutlet weak var idLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var keywordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,14 +28,20 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setUpView() {
-        tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: R.reuseIdentifier.editUserInfoCell.identifier)
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let userInfo = DataManager.shared.currentuserInfo
+        userInfo?.profile?.getDataInBackground(block: { (data, error) in
+            if let guardData = data {
+                self.profileImageView.image = UIImage(data: guardData)
+            }
+        })
+        fullNameTextField.text = userInfo?.nickname
+        mailTextField.text = userInfo?.email
+        phoneNumberTextField.text = userInfo?.phoneNumber
+        birthdayTextField.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
+        sexTextField.text = userInfo?.sex ?? true ? "MAN":"WOMEN"
+        bioTextField.text = userInfo?.bio
+        keywordTextField.text = userInfo?.keyword
+        idLabel.text = userInfo?.objectId
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,34 +55,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     // MARK: Action
-    @IBAction func saveButtonEvent(_ sender: UIButton) {
-        
-        userInfo?.nickname = infoCell?.nickNameTextField.text
-//        userInfo?.statusMessage = infoCell?.statusTextField.text
-        userInfo?.birthday = Common.stringToDate(dateString: infoCell?.birthdayTextField.text, format: DATE_FORMAT_2)
-        
-        userInfo?.saveInBackground(block: { (isSuccess, error) in
-            if isSuccess {
-                if self.delegate != nil {
-                    self.self.delegate?.editUserInfoViewController(self, didEditingFinish: self.userInfo)
-                }
-                self.navigationController?.popViewController(animated: true)
-            }
-        })
-    }
-    
-}
-
-extension EditUserInfoViewController: AlbumViewControllerDelegate {
-    func albumViewController(_ viewController: AlbumViewController, didSelect atImage: UIImage?) {
-        userInfo?.profile = Common.imageToFile(atImage)
-        self.tableView.reloadData()
-    }
-}
-
-// MARK: UITableViewDelegate, UITableViewDataSource
-extension EditUserInfoViewController: EditUserInfoCellDelegate {
-    func editUserInfoCellDidTapEdit() {
+    @IBAction func chageProfileButtonEvent(_ sender: UIButton) {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
             let imageViewController = UIImagePickerController()
@@ -90,36 +71,81 @@ extension EditUserInfoViewController: EditUserInfoCellDelegate {
         }))
         present(alert, animated: true, completion: nil)
     }
-}
+    
+    @IBAction func closeButtonEvent(_ sender: UIButton) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonEvent(_ sender: UIButton) {
+        let userInfo = DataManager.shared.currentuserInfo
+        userInfo?.profile = Common.imageToFile(profileImageView.image)
+        userInfo?.nickname = fullNameTextField.text
+        userInfo?.email = mailTextField.text
+        userInfo?.phoneNumber = phoneNumberTextField.text
+        userInfo?.birthday = Common.stringToDate(dateString: bioTextField.text, format: DATE_FORMAT_1)
+        userInfo?.bio = bioTextField.text
+        userInfo?.keyword = keywordTextField.text
+        
+        userInfo?.saveInBackground(block: { (isSuccess, error) in
+            userInfo?.pinInBackground()
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return InfoSection.sectionCount
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let enumInfo = InfoSection(rawValue: section) {
+            return enumInfo.rowCount(isEditMode: true)
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView()
+        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
+        if let enumInfo = InfoSection(rawValue: section) {
+            sectionLabel.text = enumInfo.sectionName
+            sectionLabel.backgroundColor = UIColor.white
+            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        }
+        sectionHeaderView.addSubview(sectionLabel)
+        return sectionHeaderView
+    }
+}
 
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            userInfo?.profile = Common.imageToFile(image)
-            self.tableView.reloadData()
+            profileImageView.image = image;
         }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
-// MARK: UITableViewDelegate, UITableViewDataSource
-extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+// MARK: AlbumViewControllerDelegate
+extension EditUserInfoViewController: AlbumViewControllerDelegate {
+    func albumViewController(_ viewController: AlbumViewController, didSelect atImage: UIImage?) {
+        profileImageView.image = atImage;
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        infoCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.editUserInfoCell.identifier, for: indexPath) as? EditUserInfoCell
-        if let cell = infoCell {
-            infoCell = cell
-            cell.userInfo = userInfo
-            cell.delegate = self
-            return cell
-        }
-        return UITableViewCell()
-    }
-    
 }
+
+
