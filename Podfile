@@ -12,5 +12,5 @@ target 'talk' do
   pod ‘GzipSwift’
   #pod 'Realm'
   pod 'SDWebImage'
-
+  pod 'NextGrowingTextView'
 end

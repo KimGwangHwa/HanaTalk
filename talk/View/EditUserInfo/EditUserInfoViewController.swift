@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NextGrowingTextView
 
 class EditUserInfoViewController: UITableViewController {
 
@@ -19,8 +20,13 @@ class EditUserInfoViewController: UITableViewController {
     @IBOutlet weak var sexTextField: UITextField!
     @IBOutlet weak var idLabel: UILabel!
     
-    @IBOutlet weak var bioTextField: UITextField!
+    @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var keywordTextField: UITextField!
+    
+    
+    var bioHeight: CGFloat = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,9 +45,13 @@ class EditUserInfoViewController: UITableViewController {
         phoneNumberTextField.text = userInfo?.phoneNumber
         birthdayTextField.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
         sexTextField.text = userInfo?.sex ?? true ? "MAN":"WOMEN"
-        bioTextField.text = userInfo?.bio
+        //bioTextView.textView.text = userInfo?.bio
+//        bioTextView.placeholderAttributedText = NSAttributedString(string: "Bio", attributes: [NSAttributedStringKey.font: self.bioTextView.textView.font!, NSAttributedStringKey.foregroundColor: UIColor.gray])
+
         keywordTextField.text = userInfo?.keyword
         idLabel.text = userInfo?.objectId
+        //tableView.reloadData()
+        //tableView.estimatedRowHeight = 10000
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,8 +92,8 @@ class EditUserInfoViewController: UITableViewController {
         userInfo?.nickname = fullNameTextField.text
         userInfo?.email = mailTextField.text
         userInfo?.phoneNumber = phoneNumberTextField.text
-        userInfo?.birthday = Common.stringToDate(dateString: bioTextField.text, format: DATE_FORMAT_1)
-        userInfo?.bio = bioTextField.text
+        userInfo?.birthday = Common.stringToDate(dateString: birthdayTextField.text, format: DATE_FORMAT_1)
+        userInfo?.bio = bioTextView.text
         userInfo?.keyword = keywordTextField.text
         
         userInfo?.saveInBackground(block: { (isSuccess, error) in
@@ -114,6 +124,11 @@ class EditUserInfoViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100000
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = UIView()
         let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
@@ -124,6 +139,10 @@ class EditUserInfoViewController: UITableViewController {
         }
         sectionHeaderView.addSubview(sectionLabel)
         return sectionHeaderView
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
@@ -139,6 +158,15 @@ extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+// MARK: UITextViewDelegate
+extension EditUserInfoViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
 }
 
 // MARK: AlbumViewControllerDelegate

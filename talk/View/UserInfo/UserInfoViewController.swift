@@ -85,15 +85,19 @@ class UserInfoViewController: UITableViewController {
         
     }
     func loadRomoteData() {
-        if let guardUserInfo = DataManager.shared.currentuserInfo {
-            userInfo = guardUserInfo
+        UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
+            self.userInfo = userInfo
             self.setUpView()
-        } else {
-            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
-                self.userInfo = userInfo
-                self.setUpView()
-            }
         }
+//        if let guardUserInfo = DataManager.shared.currentuserInfo {
+//            userInfo = guardUserInfo
+//            self.setUpView()
+//        } else {
+//            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
+//                self.userInfo = userInfo
+//                self.setUpView()
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,15 +123,15 @@ class UserInfoViewController: UITableViewController {
         return UITableViewAutomaticDimension
     }
  
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = UIView()
-        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
-        if let enumInfo = InfoSection(rawValue: section) {
-            sectionLabel.text = enumInfo.sectionName
-            sectionLabel.backgroundColor = UIColor.white
-            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        }
-        sectionHeaderView.addSubview(sectionLabel)
-        return sectionHeaderView
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let sectionHeaderView = UIView()
+//        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
+//        if let enumInfo = InfoSection(rawValue: section) {
+//            sectionLabel.text = enumInfo.sectionName
+//            sectionLabel.backgroundColor = UIColor.white
+//            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
+//        }
+//        sectionHeaderView.addSubview(sectionLabel)
+//        return sectionHeaderView
+//    }
 }
