@@ -10,9 +10,9 @@ import UIKit
 enum InfoSection: Int {
     
     case profile = 0
-    case contactInfo = 1
-    case keyWord = 2
-    case bio = 3
+    case bio = 1
+    case contactInfo = 2
+    case keyWord = 3
     
     static var sectionCount: Int {
         return 4
@@ -82,7 +82,7 @@ class UserInfoViewController: UITableViewController {
         phoneNumberLabel.text = userInfo?.phoneNumber
         keyWordLabel.text = userInfo?.keyword
         bioLabel.text = userInfo?.bio
-        
+        tableView.reloadData()
     }
     func loadRomoteData() {
         UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
