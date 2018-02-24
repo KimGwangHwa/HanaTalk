@@ -17,15 +17,13 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var email: String?
     @NSManaged var nickname: String?
     @NSManaged var phoneNumber: String?
-    @NSManaged var profile: PFFile?
     @NSManaged var sex: Bool
     @NSManaged var status: String?
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var bio: String?
     @NSManaged var keyword: String?
-
-    
+    @NSManaged var profileUrl: String?
     
     
     class func getCurrentUserInfo() -> UserInfo? {

@@ -35,11 +35,7 @@ class EditUserInfoViewController: UITableViewController {
     
     func setUpView() {
         let userInfo = DataManager.shared.currentuserInfo
-        userInfo?.profile?.getDataInBackground(block: { (data, error) in
-            if let guardData = data {
-                self.profileImageView.image = UIImage(data: guardData)
-            }
-        })
+        profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
         fullNameTextField.text = userInfo?.nickname
         mailTextField.text = userInfo?.email
         phoneNumberTextField.text = userInfo?.phoneNumber
@@ -88,18 +84,20 @@ class EditUserInfoViewController: UITableViewController {
     
     @IBAction func saveButtonEvent(_ sender: UIButton) {
         let userInfo = DataManager.shared.currentuserInfo
-        userInfo?.profile = Common.imageToFile(profileImageView.image)
-        userInfo?.nickname = fullNameTextField.text
-        userInfo?.email = mailTextField.text
-        userInfo?.phoneNumber = phoneNumberTextField.text
-        userInfo?.birthday = Common.stringToDate(dateString: birthdayTextField.text, format: DATE_FORMAT_1)
-        userInfo?.bio = bioTextView.text
-        userInfo?.keyword = keywordTextField.text
-        
-        userInfo?.saveInBackground(block: { (isSuccess, error) in
-            userInfo?.pinInBackground()
-            self.dismiss(animated: true, completion: nil)
-        })
+        Common.upload(image: profileImageView.image) { (stringUrl) in
+            userInfo?.profileUrl = stringUrl
+            userInfo?.nickname = self.fullNameTextField.text
+            userInfo?.email = self.mailTextField.text
+            userInfo?.phoneNumber = self.phoneNumberTextField.text
+            userInfo?.birthday = Common.stringToDate(dateString: self.birthdayTextField.text, format: DATE_FORMAT_1)
+            userInfo?.bio = self.bioTextView.text
+            userInfo?.keyword = self.keywordTextField.text
+            
+            userInfo?.saveInBackground(block: { (isSuccess, error) in
+                userInfo?.pinInBackground()
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {

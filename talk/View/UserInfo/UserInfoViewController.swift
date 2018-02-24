@@ -64,17 +64,20 @@ class UserInfoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpView()
         loadRomoteData()
     }
     
     func setUpView() {
+//        profileImageView.layer.borderWidth = 1
+//        profileImageView.layer.borderColor = UIColor.gray.cgColor
         tableView.tableFooterView = UIView(frame: .zero)
-        userInfo?.profile?.getDataInBackground(block: { (data, error) in
-            if let guardData = data {
-                self.profileImageView.image = UIImage(data: guardData)
-            }
-        })
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func loadDataOfView() {
+        profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
         fullNameLabel.text = userInfo?.nickname
         emailLabel.text = userInfo?.email
         infoEmailLabel.text = userInfo?.email
@@ -84,10 +87,11 @@ class UserInfoViewController: UITableViewController {
         bioLabel.text = userInfo?.bio
         tableView.reloadData()
     }
+    
     func loadRomoteData() {
         UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
             self.userInfo = userInfo
-            self.setUpView()
+            self.loadDataOfView()
         }
 //        if let guardUserInfo = DataManager.shared.currentuserInfo {
 //            userInfo = guardUserInfo
