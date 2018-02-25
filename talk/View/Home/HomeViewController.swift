@@ -25,9 +25,9 @@ class HomeViewController: UITabBarController {
             for itemViewController in self.viewControllers ?? [] {
                 if let navViewController = itemViewController as? UINavigationController {
                     if let navRootViewController = navViewController.viewControllers.first {
-                        if let asTalkLogViewController = navRootViewController as? TalkLogViewController {
-                            RemoteChatManager.shared.addDelegate(asTalkLogViewController)
-                        }
+//                        if let asTalkLogViewController = navRootViewController as? TalkLogViewController {
+//                            RemoteChatManager.shared.addDelegate(asTalkLogViewController)
+//                        }
                     }
                 }
                 
