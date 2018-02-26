@@ -26,7 +26,7 @@ class LoginViewController: UITableViewController {
                 UserInfo.findUserInfo(byUserObjectId: user?.objectId, completion: { (userInfo, isSuccess) in
                     userInfo?.pinInBackground()
                 })
-                if let viewController = R.storyboard.home.homeViewController() {
+                if let viewController = R.storyboard.matching.matchingViewController() {
                     self.navigationController?.pushViewController(viewController, animated: true)
                 }
             }

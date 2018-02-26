@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        return true
 //
         if DataManager.shared.currentUser != nil {
-            self.window?.rootViewController = R.storyboard.home.instantiateInitialViewController()
+            self.window?.rootViewController = R.storyboard.matching().instantiateInitialViewController()
             self.window?.makeKeyAndVisible()
         }
         

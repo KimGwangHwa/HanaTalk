@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		340627211F5331E700821E39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627201F5331E700821E39 /* R.generated.swift */; };
 		340627261F53320D00821E39 /* ReceiveTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627221F53320D00821E39 /* ReceiveTextCell.swift */; };
 		340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340627231F53320D00821E39 /* ReceiveTextCell.xib */; };
 		340627281F53320D00821E39 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340627241F53320D00821E39 /* SendTextCell.swift */; };
@@ -20,7 +19,6 @@
 		341628CF202FDA2F000E2FE7 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341628CE202FDA2F000E2FE7 /* UserInfoViewController.swift */; };
 		341628DF20300776000E2FE7 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341628DE20300776000E2FE7 /* EditUserInfoViewController.swift */; };
 		34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D091F3A0714000F0C94 /* Contact.storyboard */; };
-		34211D231F3A0714000F0C94 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0A1F3A0714000F0C94 /* Home.storyboard */; };
 		34211D241F3A0714000F0C94 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0B1F3A0714000F0C94 /* Login.storyboard */; };
 		34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0C1F3A0714000F0C94 /* SignUp.storyboard */; };
 		34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */; };
@@ -44,7 +42,6 @@
 		343071711FFB424700503F77 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3430716F1FFB424700503F77 /* AlbumCell.xib */; };
 		3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441E8592013A271004DB937 /* AVFoundation.framework */; };
 		3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */; };
-		3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7241F50496B000D2FC5 /* HomeViewController.swift */; };
 		3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */; };
 		3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */; };
 		3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */; };
@@ -58,6 +55,11 @@
 		3476B0A82042B57B0078256D /* FindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B0A62042B57B0078256D /* FindCell.swift */; };
 		3476B0A92042B57B0078256D /* FindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3476B0A72042B57B0078256D /* FindCell.xib */; };
 		3476B0AB2042B5960078256D /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3476B0AA2042B5960078256D /* Find.storyboard */; };
+		3476B0AF20443C850078256D /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B0AE20443C850078256D /* MatchingViewController.swift */; };
+		3476B0B120443C960078256D /* Matching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3476B0B020443C960078256D /* Matching.storyboard */; };
+		3476B0B320443D2F0078256D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B0B220443D2F0078256D /* R.generated.swift */; };
+		3476B0B620443F150078256D /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3476B0B520443F150078256D /* SideMenu.storyboard */; };
+		3476B0B8204440BB0078256D /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B0B7204440BB0078256D /* SideMenuViewController.swift */; };
 		347CAAD01FE7F413006562E6 /* UploadStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CAACF1FE7F413006562E6 /* UploadStoryViewController.swift */; };
 		347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */; };
 		347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0831F9F6F3700192DC5 /* MessageDao.swift */; };
@@ -80,7 +82,6 @@
 /* Begin PBXFileReference section */
 		1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.release.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.release.xcconfig"; sourceTree = "<group>"; };
 		30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		340627201F5331E700821E39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		340627221F53320D00821E39 /* ReceiveTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveTextCell.swift; sourceTree = "<group>"; };
 		340627231F53320D00821E39 /* ReceiveTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTextCell.xib; sourceTree = "<group>"; };
 		340627241F53320D00821E39 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		341628CE202FDA2F000E2FE7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		341628DE20300776000E2FE7 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		34211D091F3A0714000F0C94 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
-		34211D0A1F3A0714000F0C94 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		34211D0B1F3A0714000F0C94 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		34211D0C1F3A0714000F0C94 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TalkRoom.storyboard; sourceTree = "<group>"; };
@@ -117,7 +117,6 @@
 		3430716F1FFB424700503F77 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		3441E8592013A271004DB937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		3459A7241F50496B000D2FC5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteChatManager.swift; sourceTree = "<group>"; };
 		3459A7341F5264B2000D2FC5 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
@@ -131,6 +130,11 @@
 		3476B0A62042B57B0078256D /* FindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCell.swift; sourceTree = "<group>"; };
 		3476B0A72042B57B0078256D /* FindCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindCell.xib; sourceTree = "<group>"; };
 		3476B0AA2042B5960078256D /* Find.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
+		3476B0AE20443C850078256D /* MatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
+		3476B0B020443C960078256D /* Matching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Matching.storyboard; sourceTree = "<group>"; };
+		3476B0B220443D2F0078256D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		3476B0B520443F150078256D /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		3476B0B7204440BB0078256D /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		347CAACF1FE7F413006562E6 /* UploadStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadStoryViewController.swift; sourceTree = "<group>"; };
 		347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadStory.storyboard; sourceTree = "<group>"; };
 		347DB0831F9F6F3700192DC5 /* MessageDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
@@ -189,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				34211D091F3A0714000F0C94 /* Contact.storyboard */,
-				34211D0A1F3A0714000F0C94 /* Home.storyboard */,
 				34211D0B1F3A0714000F0C94 /* Login.storyboard */,
 				34211D0C1F3A0714000F0C94 /* SignUp.storyboard */,
 				34211D0E1F3A0714000F0C94 /* TalkRoom.storyboard */,
@@ -201,6 +204,8 @@
 				34A13B882016086B00E6688E /* EditUserInfo.storyboard */,
 				349B65562042A52500576F39 /* TalkHistory.storyboard */,
 				3476B0AA2042B5960078256D /* Find.storyboard */,
+				3476B0B020443C960078256D /* Matching.storyboard */,
+				3476B0B520443F150078256D /* SideMenu.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -208,6 +213,8 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3476B0B420443F0A0078256D /* SideMenu */,
+				3476B0AC20443C290078256D /* Matching */,
 				3476B0A22042B53F0078256D /* Find */,
 				349B65552042A51300576F39 /* TalkHistory */,
 				34A13B872016084700E6688E /* EditUserInfo */,
@@ -247,7 +254,6 @@
 		34211D151F3A0714000F0C94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3459A7241F50496B000D2FC5 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -377,6 +383,30 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3476B0AC20443C290078256D /* Matching */ = {
+			isa = PBXGroup;
+			children = (
+				3476B0AD20443C290078256D /* Cell */,
+				3476B0AE20443C850078256D /* MatchingViewController.swift */,
+			);
+			path = Matching;
+			sourceTree = "<group>";
+		};
+		3476B0AD20443C290078256D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3476B0B420443F0A0078256D /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3476B0B7204440BB0078256D /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		347CAACE1FE7F3E9006562E6 /* UploadStory */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,9 +490,9 @@
 		349EAD651F2F59CF005833ED /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3476B0B220443D2F0078256D /* R.generated.swift */,
 				349EAD501F2F55CE005833ED /* talk.xcdatamodeld */,
 				346BAA361F9E1FDC0065A762 /* Const.swift */,
-				340627201F5331E700821E39 /* R.generated.swift */,
 				349EAD661F2F59CF005833ED /* AppDelegate.swift */,
 				349EAD671F2F59CF005833ED /* InterfaceBuilder */,
 				3462195F1F65051E004998E8 /* Common.swift */,
@@ -581,6 +611,7 @@
 			files = (
 				349B65572042A52500576F39 /* TalkHistory.storyboard in Resources */,
 				349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */,
+				3476B0B120443C960078256D /* Matching.storyboard in Resources */,
 				340627291F53320D00821E39 /* SendTextCell.xib in Resources */,
 				34211D221F3A0714000F0C94 /* Contact.storyboard in Resources */,
 				34211D251F3A0714000F0C94 /* SignUp.storyboard in Resources */,
@@ -589,6 +620,7 @@
 				342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */,
 				3430716A1FFB418800503F77 /* Album.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
+				3476B0B620443F150078256D /* SideMenu.storyboard in Resources */,
 				349B655E2042A61F00576F39 /* TalkHistoryCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */,
@@ -598,7 +630,6 @@
 				34A13B892016086B00E6688E /* EditUserInfo.storyboard in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
 				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
-				34211D231F3A0714000F0C94 /* Home.storyboard in Resources */,
 				347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */,
 				3409FBA2200256B1001FF169 /* UploadStoryImageCell.xib in Resources */,
 				34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */,
@@ -704,10 +735,10 @@
 				347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */,
 				349B655D2042A61F00576F39 /* TalkHistoryCell.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
+				3476B0AF20443C850078256D /* MatchingViewController.swift in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
 				343071701FFB424700503F77 /* AlbumCell.swift in Sources */,
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
-				3459A7251F50496B000D2FC5 /* HomeViewController.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage+Color.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
 				349B65592042A56900576F39 /* TalkHistoryViewController.swift in Sources */,
@@ -718,13 +749,13 @@
 				342600181FD3B392009857E7 /* ChatRoom.swift in Sources */,
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,
 				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
-				340627211F5331E700821E39 /* R.generated.swift in Sources */,
 				3476B0A82042B57B0078256D /* FindCell.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
+				3476B0B320443D2F0078256D /* R.generated.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
@@ -734,6 +765,7 @@
 				34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */,
 				3406272F1F5ADAC500821E39 /* DataManager.swift in Sources */,
 				347CAAD01FE7F413006562E6 /* UploadStoryViewController.swift in Sources */,
+				3476B0B8204440BB0078256D /* SideMenuViewController.swift in Sources */,
 				346219601F65051E004998E8 /* Common.swift in Sources */,
 				346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */,
 				3426001A1FD3B3C4009857E7 /* Follow.swift in Sources */,

@@ -53,7 +53,7 @@ class SignUpViewController: UITableViewController {
                 userinfo.saveInBackground(block: { (isSuccess, error) in
                     if isSuccess {
                         userinfo.pinInBackground()
-                        if let viewController = R.storyboard.home.homeViewController() {
+                        if let viewController = R.storyboard.matching.matchingViewController() {
                             self.navigationController?.pushViewController(viewController, animated: true)
                         }
                     }
