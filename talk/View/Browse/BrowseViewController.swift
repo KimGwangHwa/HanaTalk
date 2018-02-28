@@ -1,15 +1,15 @@
 //
-//  MatchingViewController.swift
+//  BrowseViewController.swift
 //  talk
 //
-//  Created by ひかりちゃん on 2018/02/26.
+//  Created by ひかりちゃん on 2018/02/28.
 //
 
 import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MatchingViewController: UICollectionViewController {
+class BrowseViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +19,11 @@ class MatchingViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.addChildViewController(UIViewController())
-        
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func menuButtonEvent(_ sender: UIButton) {
+
+    @IBAction func sideMenuEvent(_ sender: UIButton) {
         SideMenuViewController.show()
     }
     

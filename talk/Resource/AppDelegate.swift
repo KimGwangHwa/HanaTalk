@@ -51,7 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        return true
 //
         if DataManager.shared.currentUser != nil {
-            self.window?.rootViewController = R.storyboard.matching().instantiateInitialViewController()
+            
+            let browseViewController = R.storyboard.browse().instantiateInitialViewController()
+            let matchingViewController = R.storyboard.matching().instantiateInitialViewController()
+            let talkHistoryViewController = R.storyboard.talkHistory().instantiateInitialViewController()
+            
+            let sidMenuViewController = SideMenuViewController.shared
+            self.window?.rootViewController = sidMenuViewController
+
+            sidMenuViewController?.addChildViewController(browseViewController, iconImage: #imageLiteral(resourceName: "search"), description: "Browse")
+            sidMenuViewController?.addChildViewController(matchingViewController, iconImage: #imageLiteral(resourceName: "hear"), description: "My matches")
+            sidMenuViewController?.addChildViewController(talkHistoryViewController, iconImage: #imageLiteral(resourceName: "messages"), description: "Messages")
+
+
             self.window?.makeKeyAndVisible()
         }
         

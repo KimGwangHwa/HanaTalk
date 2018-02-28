@@ -23,6 +23,10 @@ class TalkHistoryViewController: UITableViewController {
         tableView.register(R.nib.talkHistoryCell(), forCellReuseIdentifier: cellIdentifier)
     }
     
+    @IBAction func sideMenuEvent(_ sender: UIButton) {
+        SideMenuViewController.show()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

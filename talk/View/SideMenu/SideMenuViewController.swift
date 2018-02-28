@@ -7,16 +7,34 @@
 
 import UIKit
 
+
 class SideMenuViewController: UIViewController {
     
-    private static let sideMenuViewController = R.storyboard.sideMenu.sideMenuViewController()
+    static var shared = R.storyboard.sideMenu.sideMenuViewController()
+
     private static let sideMenuWidth: CGFloat = 220.0
     private static let animateDuration: TimeInterval = 0.35
+    
+    var normalDataSource = [Int: (image: UIImage, text: String)]()
+//    var normalDataSource: [Int: (image: UIImage, text: String)] = [SideMenuCategory.browse.rawValue: (#imageLiteral(resourceName: "search"), "Browse"), SideMenuCategory.event.rawValue: (#imageLiteral(resourceName: "event"), "Event"), SideMenuCategory.matches.rawValue: (#imageLiteral(resourceName: "hear"), "My matches"), SideMenuCategory.messages.rawValue: (#imageLiteral(resourceName: "messages"), "Messages"), SideMenuCategory.favorites.rawValue: (#imageLiteral(resourceName: "favorite"), "Favorites"), SideMenuCategory.settings.rawValue: (#imageLiteral(resourceName: "setting"), "Settings"), ]
+
+    func addChildViewController(_ viewController: UIViewController?, iconImage: UIImage, description: String) {
+        if let guardViewController = viewController {
+            self.addChildViewController(guardViewController)
+            if let index = self.childViewControllers.index(of: guardViewController) {
+                normalDataSource[index] = (image: iconImage, text: description)
+            }
+        }
+    }
+    
+    let sideHeaderIdentifier = R.reuseIdentifier.sideHeaderCell.identifier
+    let normalIdentifier = R.reuseIdentifier.sideNormalCell.identifier
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sideView: UIView!
     @IBOutlet weak var overlayView: UIView!
-    
+    @IBOutlet weak var childView: UIView!
     @IBOutlet weak var sideConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +43,17 @@ class SideMenuViewController: UIViewController {
     }
 
     func setUpView() {
+        self.sideConstraint.constant = -SideMenuViewController.sideMenuWidth
+        if let firstViewController = childViewControllers.first {
+            firstViewController.didMove(toParentViewController: self)
+            childView.addSubview(firstViewController.view)
+        }
+        
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(R.nib.sideHeaderCell(), forCellReuseIdentifier: sideHeaderIdentifier)
+        tableView.register(R.nib.sideNormalCell(), forCellReuseIdentifier: normalIdentifier)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,7 +70,7 @@ class SideMenuViewController: UIViewController {
     }
     
     class func show() {
-        if let viewController = sideMenuViewController {
+        if let viewController = shared {
             UIApplication.shared.keyWindow?.addSubview(viewController.view)
             viewController.sideConstraint.constant = 0
             UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
@@ -57,15 +83,15 @@ class SideMenuViewController: UIViewController {
     }
     
     class func dismiss() {
-        if let viewController = sideMenuViewController {
+        if let viewController = shared {
             viewController.sideConstraint.constant = -sideMenuWidth
             UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
                 viewController.overlayView.alpha = 0
                 viewController.view.layoutIfNeeded()
             }) { (isFinish) in
-                if isFinish == true {
-                    viewController.view.removeFromSuperview()
-                }
+//                if isFinish == true {
+//                    viewController.view.removeFromSuperview()
+//                }
             }
         }
     }
@@ -85,13 +111,46 @@ class SideMenuViewController: UIViewController {
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if section == 0 {
+            return 1
+        } else {
+            return normalDataSource.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
-        return cell
+        
+        if indexPath.section == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: sideHeaderIdentifier, for: indexPath) as? SideHeaderCell {
+                return cell
+            }
+
+        } else {
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: normalIdentifier, for: indexPath) as? SideNormalCell {
+                
+                cell.iconImageView.image = normalDataSource[indexPath.row]?.image
+                cell.descriptionLabel.text = normalDataSource[indexPath.row]?.text
+                return cell
+            }
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        for subView in childView.subviews {
+            subView.removeFromSuperview()
+        }
+        
+        childView.addSubview(childViewControllers[indexPath.row].view)
+        SideMenuViewController.dismiss()
     }
 }
 
