@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NextGrowingTextView
 
 class EditUserInfoViewController: UITableViewController {
 
