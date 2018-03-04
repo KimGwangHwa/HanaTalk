@@ -24,8 +24,8 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var bio: String?
     @NSManaged var keyword: String?
     @NSManaged var profileUrl: String?
-    
-    
+    @NSManaged var album: [String]?
+
     class func getCurrentUserInfo() -> UserInfo? {
         let query = PFQuery(className: "UserInfo")
         query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: PFUser.current()?.objectId))

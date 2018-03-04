@@ -34,7 +34,6 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sideView: UIView!
     @IBOutlet weak var overlayView: UIView!
-    @IBOutlet weak var childView: UIView!
     @IBOutlet weak var sideConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +45,9 @@ class SideMenuViewController: UIViewController {
         self.sideConstraint.constant = -SideMenuViewController.sideMenuWidth
         if let firstViewController = childViewControllers.first {
             firstViewController.didMove(toParentViewController: self)
-            childView.addSubview(firstViewController.view)
+            view.addSubview(firstViewController.view)
         }
+        
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.estimatedRowHeight = 60.0
@@ -66,12 +66,15 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func viewTapEvent(_ sender: UITapGestureRecognizer) {
-        SideMenuViewController.dismiss()
+        dismiss {
+            
+        }
     }
     
     class func show() {
         if let viewController = shared {
-            UIApplication.shared.keyWindow?.addSubview(viewController.view)
+            viewController.view.bringSubview(toFront: viewController.sideView)
+            viewController.sideView.setNeedsLayout()
             viewController.sideConstraint.constant = 0
             UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
                 viewController.overlayView.alpha = 0.5
@@ -82,16 +85,16 @@ class SideMenuViewController: UIViewController {
         }
     }
     
-    class func dismiss() {
-        if let viewController = shared {
-            viewController.sideConstraint.constant = -sideMenuWidth
-            UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
-                viewController.overlayView.alpha = 0
-                viewController.view.layoutIfNeeded()
-            }) { (isFinish) in
-//                if isFinish == true {
-//                    viewController.view.removeFromSuperview()
-//                }
+    func dismiss(completion: @escaping ()-> Void) {
+
+        sideConstraint.constant = -SideMenuViewController.sideMenuWidth
+        UIView.animate(withDuration: SideMenuViewController.animateDuration, delay: 0, options: .curveEaseInOut, animations: {
+            self.overlayView.alpha = 0
+            self.view.layoutIfNeeded()
+        }) { (isFinish) in
+            if isFinish == true {
+                self.view.sendSubview(toBack: self.sideView)
+                completion()
             }
         }
     }
@@ -145,12 +148,16 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        for subView in childView.subviews {
-            subView.removeFromSuperview()
+
+        dismiss {
+            for subView in self.view.subviews.filter({$0 != self.sideView}) {
+                subView.removeFromSuperview()
+            }
+            
+            self.childViewControllers[indexPath.row].didMove(toParentViewController: self)
+            self.view.addSubview(self.childViewControllers[indexPath.row].view)
         }
-        
-        childView.addSubview(childViewControllers[indexPath.row].view)
-        SideMenuViewController.dismiss()
+//
     }
 }
 

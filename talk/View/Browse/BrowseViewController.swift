@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import UPCarouselFlowLayout
 
 private let reuseIdentifier = R.reuseIdentifier.browseCell.identifier
 
@@ -29,10 +28,8 @@ class BrowseViewController: UIViewController {
         // Register cell classes
         self.collectionView?.register(R.nib.browseCell(), forCellWithReuseIdentifier: reuseIdentifier)
 
-        let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
-        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
-        layout.itemSize = CGSize(width: 300, height: 500)
-        
+        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = BrowseCell.itemSize
     }
 
     
@@ -60,11 +57,13 @@ extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrowseCell {
+            cell.userInfo = DataManager.shared.currentuserInfo
+            
+            return cell
+        }
         
-        // Configure the cell
-        
-        return cell
+        return UICollectionViewCell()
 
     }
     
