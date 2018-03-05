@@ -7,29 +7,17 @@
 
 import UIKit
 
+let sideMenuOffsetX: CGFloat = -220.0
+let animateDuration: TimeInterval = 0.35
 
 class SideMenuViewController: UIViewController {
     
     static var shared = R.storyboard.sideMenu.sideMenuViewController()
 
-    private static let sideMenuWidth: CGFloat = 220.0
-    private static let animateDuration: TimeInterval = 0.35
-    
     var normalDataSource = [Int: (image: UIImage, text: String)]()
-//    var normalDataSource: [Int: (image: UIImage, text: String)] = [SideMenuCategory.browse.rawValue: (#imageLiteral(resourceName: "search"), "Browse"), SideMenuCategory.event.rawValue: (#imageLiteral(resourceName: "event"), "Event"), SideMenuCategory.matches.rawValue: (#imageLiteral(resourceName: "hear"), "My matches"), SideMenuCategory.messages.rawValue: (#imageLiteral(resourceName: "messages"), "Messages"), SideMenuCategory.favorites.rawValue: (#imageLiteral(resourceName: "favorite"), "Favorites"), SideMenuCategory.settings.rawValue: (#imageLiteral(resourceName: "setting"), "Settings"), ]
-
-    func addChildViewController(_ viewController: UIViewController?, iconImage: UIImage, description: String) {
-        if let guardViewController = viewController {
-            self.addChildViewController(guardViewController)
-            if let index = self.childViewControllers.index(of: guardViewController) {
-                normalDataSource[index] = (image: iconImage, text: description)
-            }
-        }
-    }
     
     let sideHeaderIdentifier = R.reuseIdentifier.sideHeaderCell.identifier
     let normalIdentifier = R.reuseIdentifier.sideNormalCell.identifier
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sideView: UIView!
@@ -42,7 +30,16 @@ class SideMenuViewController: UIViewController {
     }
 
     func setUpView() {
-        self.sideConstraint.constant = -SideMenuViewController.sideMenuWidth
+        
+        let browseViewController = R.storyboard.browse().instantiateInitialViewController()
+        normalDataSource[0] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
+        self.addChildViewController(browseViewController!)
+
+        let talkHistoryViewController = R.storyboard.talkHistory().instantiateInitialViewController()
+        normalDataSource[1] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
+        self.addChildViewController(talkHistoryViewController!)
+
+        self.sideConstraint.constant = sideMenuOffsetX
         if let firstViewController = childViewControllers.first {
             firstViewController.didMove(toParentViewController: self)
             view.addSubview(firstViewController.view)
@@ -87,8 +84,8 @@ class SideMenuViewController: UIViewController {
     
     func dismiss(completion: @escaping ()-> Void) {
 
-        sideConstraint.constant = -SideMenuViewController.sideMenuWidth
-        UIView.animate(withDuration: SideMenuViewController.animateDuration, delay: 0, options: .curveEaseInOut, animations: {
+        sideConstraint.constant = sideMenuOffsetX
+        UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
             self.overlayView.alpha = 0
             self.view.layoutIfNeeded()
         }) { (isFinish) in
@@ -130,6 +127,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: sideHeaderIdentifier, for: indexPath) as? SideHeaderCell {
+                cell.userInfo = DataManager.shared.currentuserInfo
+                cell.delegate = self
                 return cell
             }
 
@@ -148,7 +147,10 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        if indexPath.section == 0 {
+            return
+        }
         dismiss {
             for subView in self.view.subviews.filter({$0 != self.sideView}) {
                 subView.removeFromSuperview()
@@ -157,7 +159,20 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
             self.childViewControllers[indexPath.row].didMove(toParentViewController: self)
             self.view.addSubview(self.childViewControllers[indexPath.row].view)
         }
-//
+    }
+}
+
+
+// MARK: - SideHeaderCellDelegate
+
+extension SideMenuViewController: SideHeaderCellDelegate {
+    
+    func didTouchEditProfileButton() {
+        dismiss {
+            if let editUserInfo = R.storyboard.editUserInfo.instantiateInitialViewController() {
+                self.present(editUserInfo, animated: true, completion: nil)
+            }
+        }
     }
 }
 

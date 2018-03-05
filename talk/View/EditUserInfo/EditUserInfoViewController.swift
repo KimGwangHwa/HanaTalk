@@ -33,6 +33,9 @@ class EditUserInfoViewController: UITableViewController {
     }
     
     func setUpView() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+
         let userInfo = DataManager.shared.currentuserInfo
         profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
         fullNameTextField.text = userInfo?.nickname
@@ -124,18 +127,6 @@ class EditUserInfoViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100000
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = UIView()
-        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
-        if let enumInfo = InfoSection(rawValue: section) {
-            sectionLabel.text = enumInfo.sectionName
-            sectionLabel.backgroundColor = UIColor.white
-            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        }
-        sectionHeaderView.addSubview(sectionLabel)
-        return sectionHeaderView
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
