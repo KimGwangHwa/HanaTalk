@@ -9,8 +9,13 @@ import UIKit
 
 let cellIdentifiler = "BrowseCell"
 
+protocol BrowseCellDelegate: class {
+    func didTouchProfileImage(with Object: UserInfo?)
+}
+
 class BrowseCell: UICollectionViewCell {
 
+    weak var delegate: BrowseCellDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -47,6 +52,20 @@ class BrowseCell: UICollectionViewCell {
     }
     
     @IBAction func heartEvent(_ sender: UIButton) {
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if ((event?.touches(for: profileImageView)) != nil) {
+            if let guardDelegate = delegate {
+                guardDelegate.didTouchProfileImage(with: userInfo)
+            }
+        }
+    }
+    
+    @IBAction func profileImageTapEvent(_ sender: UITapGestureRecognizer) {
+        if let guardDelegate = delegate {
+            guardDelegate.didTouchProfileImage(with: userInfo)
+        }
     }
     
 }

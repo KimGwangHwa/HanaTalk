@@ -42,6 +42,10 @@ class SideMenuViewController: UIViewController {
         normalDataSource[2] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
         self.addChildViewController(talkHistoryViewController!)
 
+        let settingViewController = R.storyboard.setting().instantiateInitialViewController()
+        normalDataSource[3] = (image: #imageLiteral(resourceName: "setting"), text: "Setting")
+        self.addChildViewController(settingViewController!)
+
         self.sideConstraint.constant = sideMenuOffsetX
         
         let filterViewControllers = childViewControllers.filter({$0 == browseViewController})
@@ -161,7 +165,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SideMenuViewController: SideHeaderCellDelegate {
     
-    func didTouchEditProfileButton() {
+    func didTouchEditProfileButton(with Object: UserInfo?) {
         dismiss {
             if let editUserInfo = R.storyboard.editUserInfo().instantiateInitialViewController() {
                 self.present(editUserInfo, animated: true, completion: nil)

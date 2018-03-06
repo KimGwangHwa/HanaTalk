@@ -49,6 +49,20 @@ class UserInfo: PFObject, PFSubclassing {
         findUserInfo(byObjectId: nil, userObjectId: nil, nickName: byNickName, completion: completion)
     }
     
+    class func findAll(completion: @escaping ([UserInfo]?, Bool) -> Void) {
+        let query = PFQuery(className: "UserInfo")
+        
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if let guardObjects = objects as? [UserInfo] {
+                    completion(guardObjects, true)
+                } else {
+                    completion(nil, false)
+                }
+            }
+        }
+    }
+    
     class func findUserInfo(byObjectId: String?, userObjectId: String?, nickName: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
         let query = PFQuery(className: "UserInfo")
         if let guardObjectid = userObjectId {

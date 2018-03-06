@@ -12,6 +12,9 @@ private let reuseIdentifier = R.reuseIdentifier.browseCell.identifier
 class BrowseViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var dataSource: [UserInfo]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +23,7 @@ class BrowseViewController: UIViewController {
 
 
         setupLayout()
-        
+        loadRemoteData()
     }
 
     fileprivate func setupLayout() {
@@ -32,6 +35,12 @@ class BrowseViewController: UIViewController {
         layout.itemSize = BrowseCell.itemSize
     }
 
+    func loadRemoteData() {
+        UserInfo.findAll  { (objects, isSuccess) in
+            self.dataSource = objects
+            self.collectionView.reloadData()
+        }
+    }
     
     @IBAction func sideMenuButtonEvent(_ sender: UIButton) {
         SideMenuViewController.show()
@@ -44,7 +53,7 @@ class BrowseViewController: UIViewController {
 
 }
 
-// MARK: - Card Collection Delegate & DataSource
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
 
@@ -53,20 +62,33 @@ extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if let count = dataSource?.count {
+            return count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrowseCell {
-            cell.userInfo = DataManager.shared.currentuserInfo
-            
+            cell.userInfo = dataSource?[indexPath.row]
+            cell.delegate = self
             return cell
         }
         
         return UICollectionViewCell()
 
     }
-    
-
 }
+
+// MARK: - BrowseCellDelegate
+extension BrowseViewController: BrowseCellDelegate {
+    
+    func didTouchProfileImage(with Object: UserInfo?) {
+        if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
+            userInfoViewController.userInfo = Object
+            navigationController?.pushViewController(userInfoViewController, animated: true)
+        }
+    }
+}
+
 

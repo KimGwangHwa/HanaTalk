@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SideHeaderCellDelegate: class {
-    func didTouchEditProfileButton()
+    func didTouchEditProfileButton(with Object: UserInfo?)
 }
 
 class SideHeaderCell: UITableViewCell {
@@ -31,7 +31,7 @@ class SideHeaderCell: UITableViewCell {
 
     @IBAction func editProfileButton(_ sender: UIButton) {
         if let guardDelegate = delegate {
-            guardDelegate.didTouchEditProfileButton()
+            guardDelegate.didTouchEditProfileButton(with: userInfo)
         }
     }
     

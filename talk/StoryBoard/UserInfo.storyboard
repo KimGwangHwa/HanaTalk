@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Pvn-18-eJa" kind="relationship" relationship="rootViewController" id="uJ1-uu-lua"/>
+                        <segue destination="Pvn-18-eJa" kind="relationship" relationship="rootViewController" id="5f3-pq-9CO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c20-sn-2VM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,7 +29,7 @@
         <!--User Info View Controller-->
         <scene sceneID="4Av-9w-w7f">
             <objects>
-                <tableViewController id="Pvn-18-eJa" customClass="UserInfoViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserInfoViewController" id="Pvn-18-eJa" customClass="UserInfoViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5O4-HP-oZA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,26 +384,22 @@
                             <outlet property="delegate" destination="Pvn-18-eJa" id="Z3C-TA-B01"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Cyx-8b-6I1">
-                        <barButtonItem key="leftBarButtonItem" style="done" id="w5g-a0-rwc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qcg-q9-RQm">
+                    <navigationItem key="navigationItem" id="9XW-hV-khI">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="x0o-6d-oVn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fKm-ts-glK">
                                 <rect key="frame" x="16" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="menu"/>
-                                <connections>
-                                    <action selector="menuButtonEvent:" destination="Pvn-18-eJa" eventType="touchUpInside" id="dSU-Zt-1mb"/>
-                                </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" id="taZ-zp-Aah">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eXU-Nd-y90">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="neh-oJ-jgZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DDt-Yc-zUR">
                                 <rect key="frame" x="327" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="album"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bioLabel" destination="Mku-x8-wmg" id="Hjp-te-wpY"/>
                         <outlet property="emailLabel" destination="9pa-m6-cWO" id="T08-zu-Vs1"/>

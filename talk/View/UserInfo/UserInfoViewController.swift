@@ -89,8 +89,12 @@ class UserInfoViewController: UITableViewController {
     }
     
     func loadRomoteData() {
-        UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
-            self.userInfo = userInfo
+        if userInfo == nil {
+            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
+                self.userInfo = userInfo
+            }
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
             self.loadDataOfView()
         }
 //        if let guardUserInfo = DataManager.shared.currentuserInfo {

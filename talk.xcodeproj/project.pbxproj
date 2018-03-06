@@ -81,6 +81,8 @@
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
 		349EAD6B1F2F59CF005833ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */; };
 		34A13B892016086B00E6688E /* EditUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A13B882016086B00E6688E /* EditUserInfo.storyboard */; };
+		34C40DFE204EC48200F160D0 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C40DFD204EC48200F160D0 /* Setting.storyboard */; };
+		34C40E00204EC49800F160D0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C40DFF204EC49800F160D0 /* SettingViewController.swift */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
@@ -166,6 +168,8 @@
 		349EAD661F2F59CF005833ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349EAD681F2F59CF005833ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34A13B882016086B00E6688E /* EditUserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditUserInfo.storyboard; sourceTree = "<group>"; };
+		34C40DFD204EC48200F160D0 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		34C40DFF204EC49800F160D0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				3476B0B020443C960078256D /* Matching.storyboard */,
 				3476B0B520443F150078256D /* SideMenu.storyboard */,
 				3476B0C82046D7820078256D /* Browse.storyboard */,
+				34C40DFD204EC48200F160D0 /* Setting.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 		34211D0F1F3A0714000F0C94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				34C40DFC204EC47600F160D0 /* Setting */,
 				3476B0C72046D7730078256D /* Browse */,
 				3476B0B420443F0A0078256D /* SideMenu */,
 				3476B0AC20443C290078256D /* Matching */,
@@ -548,6 +554,14 @@
 			path = EditUserInfo;
 			sourceTree = "<group>";
 		};
+		34C40DFC204EC47600F160D0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				34C40DFF204EC49800F160D0 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		34CA961C1FFCA89000F1FA1C /* Peek */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +672,7 @@
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */,
 				343071711FFB424700503F77 /* AlbumCell.xib in Resources */,
+				34C40DFE204EC48200F160D0 /* Setting.storyboard in Resources */,
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				3476B0CF2046D8CE0078256D /* BrowseCell.xib in Resources */,
 				3476B0C0204455900078256D /* SideHeaderCell.xib in Resources */,
@@ -797,6 +812,7 @@
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
 				3476B0B320443D2F0078256D /* R.generated.swift in Sources */,
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
+				34C40E00204EC49800F160D0 /* SettingViewController.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
 				341628DF20300776000E2FE7 /* EditUserInfoViewController.swift in Sources */,
