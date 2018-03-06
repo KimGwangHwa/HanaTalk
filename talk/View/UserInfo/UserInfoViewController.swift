@@ -72,8 +72,8 @@ class UserInfoViewController: UITableViewController {
 //        profileImageView.layer.borderWidth = 1
 //        profileImageView.layer.borderColor = UIColor.gray.cgColor
         tableView.tableFooterView = UIView(frame: .zero)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func loadDataOfView() {
@@ -109,6 +109,10 @@ class UserInfoViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func menuButtonEvent(_ sender: UIButton) {
+        SideMenuViewController.show()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

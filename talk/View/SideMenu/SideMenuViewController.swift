@@ -30,17 +30,22 @@ class SideMenuViewController: UIViewController {
     }
 
     func setUpView() {
-        
+        let userInfoViewController = R.storyboard.userInfo().instantiateInitialViewController()
+        normalDataSource[0] = (image: UIImage(), text: "")
+        self.addChildViewController(userInfoViewController!)
+
         let browseViewController = R.storyboard.browse().instantiateInitialViewController()
-        normalDataSource[0] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
+        normalDataSource[1] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
         self.addChildViewController(browseViewController!)
 
         let talkHistoryViewController = R.storyboard.talkHistory().instantiateInitialViewController()
-        normalDataSource[1] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
+        normalDataSource[2] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
         self.addChildViewController(talkHistoryViewController!)
 
         self.sideConstraint.constant = sideMenuOffsetX
-        if let firstViewController = childViewControllers.first {
+        
+        let filterViewControllers = childViewControllers.filter({$0 == browseViewController})
+        if let firstViewController = filterViewControllers.first {
             firstViewController.didMove(toParentViewController: self)
             view.addSubview(firstViewController.view)
         }
@@ -111,21 +116,13 @@ class SideMenuViewController: UIViewController {
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return normalDataSource.count
-        }
+        return normalDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
+        if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: sideHeaderIdentifier, for: indexPath) as? SideHeaderCell {
                 cell.userInfo = DataManager.shared.currentuserInfo
                 cell.delegate = self
@@ -148,9 +145,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            return
-        }
         dismiss {
             for subView in self.view.subviews.filter({$0 != self.sideView}) {
                 subView.removeFromSuperview()
@@ -169,7 +163,7 @@ extension SideMenuViewController: SideHeaderCellDelegate {
     
     func didTouchEditProfileButton() {
         dismiss {
-            if let editUserInfo = R.storyboard.editUserInfo.instantiateInitialViewController() {
+            if let editUserInfo = R.storyboard.editUserInfo().instantiateInitialViewController() {
                 self.present(editUserInfo, animated: true, completion: nil)
             }
         }
