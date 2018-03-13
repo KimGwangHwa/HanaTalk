@@ -47,20 +47,14 @@ enum InfoSection: Int {
         }
     }
 }
+let profileCellIdentifier = R.reuseIdentifier.profileCell.identifier
+let bioCellIdentifier = R.reuseIdentifier.bioCell.identifier
+let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.identifier
 
-class UserInfoViewController: UITableViewController {
+class UserInfoViewController: UIViewController {
 
     var userInfo: UserInfo?
-    @IBOutlet weak var keyWordLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    @IBOutlet weak var infoFullNameLabel: UILabel!
-    @IBOutlet weak var infoEmailLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,40 +66,22 @@ class UserInfoViewController: UITableViewController {
 //        profileImageView.layer.borderWidth = 1
 //        profileImageView.layer.borderColor = UIColor.gray.cgColor
         tableView.tableFooterView = UIView(frame: .zero)
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
+        //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    func loadDataOfView() {
-        profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
-        fullNameLabel.text = userInfo?.nickname
-        emailLabel.text = userInfo?.email
-        infoEmailLabel.text = userInfo?.email
-        infoFullNameLabel.text = userInfo?.nickname
-        phoneNumberLabel.text = userInfo?.phoneNumber
-        keyWordLabel.text = userInfo?.keyword
-        bioLabel.text = userInfo?.bio
-        tableView.reloadData()
-    }
     
     func loadRomoteData() {
         if userInfo == nil {
             UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
                 self.userInfo = userInfo
+                self.tableView.reloadData()
             }
         } else {
             self.navigationItem.leftBarButtonItem = nil
-            self.loadDataOfView()
+            self.tableView.reloadData()
         }
-//        if let guardUserInfo = DataManager.shared.currentuserInfo {
-//            userInfo = guardUserInfo
-//            self.setUpView()
-//        } else {
-//            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
-//                self.userInfo = userInfo
-//                self.setUpView()
-//            }
-//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,28 +89,10 @@ class UserInfoViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func menuButtonEvent(_ sender: UIButton) {
-        SideMenuViewController.show()
+    @IBAction func closeButtonEvent(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return InfoSection.sectionCount
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if let enumInfo = InfoSection(rawValue: section) {
-            return enumInfo.rowCount()
-        }
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
- 
 //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        let sectionHeaderView = UIView()
 //        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
@@ -146,4 +104,46 @@ class UserInfoViewController: UITableViewController {
 //        sectionHeaderView.addSubview(sectionLabel)
 //        return sectionHeaderView
 //    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
+                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
+                cell.nickNameLabel.text = userInfo?.nickname
+                cell.descriptionLabel.text = userInfo?.status
+                return cell
+            }
+        case 1:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: bioCellIdentifier, for: indexPath) as? BioCell {
+                cell.bioLabel.text = userInfo?.bio
+                return cell
+            }
+        case 2:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: contactInfoCellIdentifier, for: indexPath) as? ContactInfoCell {
+                cell.emailLabel.text = userInfo?.email
+                cell.phoneNumberLabel.text = userInfo?.phoneNumber
+                cell.birthdayLabel.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
+                //cell.sexLabel.text = (userInfo?.sex)! ? "man":"women"
+                return cell
+            }
+        default:
+            break
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
 }

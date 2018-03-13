@@ -30,8 +30,8 @@ class SideMenuViewController: UIViewController {
     }
 
     func setUpView() {
+        normalDataSource[0] = (image: UIImage(), text: "Profile")
         let userInfoViewController = R.storyboard.userInfo().instantiateInitialViewController()
-        normalDataSource[0] = (image: UIImage(), text: "")
         self.addChildViewController(userInfoViewController!)
 
         let browseViewController = R.storyboard.browse().instantiateInitialViewController()
@@ -148,7 +148,9 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if indexPath.row == 0 {
+            return
+        }
         dismiss {
             for subView in self.view.subviews.filter({$0 != self.sideView}) {
                 subView.removeFromSuperview()
@@ -167,7 +169,7 @@ extension SideMenuViewController: SideHeaderCellDelegate {
     
     func didTouchEditProfileButton(with Object: UserInfo?) {
         dismiss {
-            if let editUserInfo = R.storyboard.editUserInfo().instantiateInitialViewController() {
+            if let editUserInfo = R.storyboard.userInfo().instantiateInitialViewController() {
                 self.present(editUserInfo, animated: true, completion: nil)
             }
         }
