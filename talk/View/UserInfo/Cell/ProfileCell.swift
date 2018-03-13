@@ -7,20 +7,34 @@
 
 import UIKit
 
+protocol ProfileCellDelegate: class {
+    func didTouchEditProfile()
+}
+
 class ProfileCell: UITableViewCell {
 
+    weak var delegate: ProfileCellDelegate?
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var nickNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func editButtonEvent(_ sender: UIButton) {
+        if let guardDelegate = delegate {
+            guardDelegate.didTouchEditProfile()
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
+    @IBAction func eventButtonEvent(_ sender: UIButton) {
+        
+    }
 }

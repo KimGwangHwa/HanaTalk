@@ -23,7 +23,6 @@ class ContactCell: UITableViewCell {
     var user: UserInfo? {
         didSet {
             nickNameLabel.text = user?.nickname
-            descriptionLabel.text = user?.status
             customBadgeView.imageView.sd_setImage(with: URL(string: user?.profileUrl ?? ""), placeholderImage: nil)
         }
     }

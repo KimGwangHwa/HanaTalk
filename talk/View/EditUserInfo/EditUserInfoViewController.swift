@@ -7,96 +7,45 @@
 
 import UIKit
 
-class EditUserInfoViewController: UITableViewController {
+fileprivate let bioCellIdentifier = R.reuseIdentifier.editBioCell.identifier
+fileprivate let profileCellIdentifier = R.reuseIdentifier.editProfileCell.identifier
+fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.editContactInfoCell.identifier
 
-    let showAlbumIdentifier = R.segue.editUserInfoViewController.showAlbum.identifier
+class EditUserInfoViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var mailTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var birthdayTextField: UITextField!
-    @IBOutlet weak var sexTextField: UITextField!
-    @IBOutlet weak var idLabel: UILabel!
+    var nicknameTextField: UITextField!
+    var mailAddressTextField: UITextField!
+    var phoneNumberTextField: UITextField!
+    var birthDayTextField: UITextField!
+    var sexTextField: UITextField!
+    var bioTextView: UITextView!
     
-    @IBOutlet weak var bioTextView: UITextView!
-    @IBOutlet weak var keywordTextField: UITextField!
-    
-    
-    var bioHeight: CGFloat = 0
-    
+    var profileImage: UIImage?
+    let userInfo = DataManager.shared.currentuserInfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpView()
     }
     
-    func setUpView() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-
-        let userInfo = DataManager.shared.currentuserInfo
-        profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
-        fullNameTextField.text = userInfo?.nickname
-        mailTextField.text = userInfo?.email
-        phoneNumberTextField.text = userInfo?.phoneNumber
-        birthdayTextField.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
-        sexTextField.text = userInfo?.sex ?? true ? "MAN":"WOMEN"
-        //bioTextView.textView.text = userInfo?.bio
-//        bioTextView.placeholderAttributedText = NSAttributedString(string: "Bio", attributes: [NSAttributedStringKey.font: self.bioTextView.textView.font!, NSAttributedStringKey.foregroundColor: UIColor.gray])
-
-        keywordTextField.text = userInfo?.keyword
-        idLabel.text = userInfo?.objectId
-        //tableView.reloadData()
-        //tableView.estimatedRowHeight = 10000
+    @IBAction func backButtonEvent(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == showAlbumIdentifier {
-            
-            if let navigationViewController = segue.destination as? UINavigationController,
-                let viewController = navigationViewController.viewControllers.first as? AlbumViewController {
-                viewController.delegate = self
-            }
-        }
-    }
-    
-    // MARK: Action
-    @IBAction func chageProfileButtonEvent(_ sender: UIButton) {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            let imageViewController = UIImagePickerController()
-            imageViewController.delegate = self
-            imageViewController.sourceType = .camera
-            self.present(imageViewController, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
-            self.performSegue(withIdentifier: self.showAlbumIdentifier, sender: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func closeButtonEvent(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true, completion: nil)
-    }
     
     @IBAction func saveButtonEvent(_ sender: UIButton) {
-        let userInfo = DataManager.shared.currentuserInfo
-        Common.upload(image: profileImageView.image) { (stringUrl) in
-            userInfo?.profileUrl = stringUrl
-            userInfo?.nickname = self.fullNameTextField.text
-            userInfo?.email = self.mailTextField.text
-            userInfo?.phoneNumber = self.phoneNumberTextField.text
-            userInfo?.birthday = Common.stringToDate(dateString: self.birthdayTextField.text, format: DATE_FORMAT_1)
-            userInfo?.bio = self.bioTextView.text
-            userInfo?.keyword = self.keywordTextField.text
+        Common.upload(image: profileImage) { (stringUrl) in
+            self.userInfo?.profileUrl = stringUrl
+            self.userInfo?.nickname = self.nicknameTextField.text
+            self.userInfo?.email = self.mailAddressTextField.text
+            self.userInfo?.phoneNumber = self.phoneNumberTextField.text
+            self.userInfo?.birthday = Common.stringToDate(dateString: self.birthDayTextField.text, format: DATE_FORMAT_1)
+            self.userInfo?.bio = self.bioTextView.text
             
-            userInfo?.saveInBackground(block: { (isSuccess, error) in
-                userInfo?.pinInBackground()
+            self.userInfo?.saveInBackground(block: { (isSuccess, error) in
+                self.userInfo?.pinInBackground()
                 self.dismiss(animated: true, completion: nil)
             })
         }
@@ -106,39 +55,60 @@ class EditUserInfoViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return InfoSection.sectionCount
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let enumInfo = InfoSection(rawValue: section) {
-            return enumInfo.rowCount(isEditMode: true)
+// MARK: - Table view data source
+extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? EditProfileCell {
+                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
+                cell.delegate = self
+                return cell
+            }
+        case 1:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: bioCellIdentifier, for: indexPath) as? EditBioCell {
+                cell.textView.text = userInfo?.bio
+                return cell
+            }
+        case 2:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: contactInfoCellIdentifier, for: indexPath) as? EditContactInfoCell {
+                cell.nicknameTextField.text = userInfo?.nickname
+                cell.mailAddressTextField.text  = userInfo?.email
+                cell.phoneNumberTextField.text = userInfo?.phoneNumber
+                cell.birthDayTextField.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
+                if let sex = userInfo?.sex {
+                    cell.sexTextField.text = sex ? "man" : "women"
+                }
+                return cell
+            }
+        default:
+            break
         }
-        return 0
+        return UITableViewCell()
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100000
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
 }
 
 // MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.image = image;
+            profileImage = image;
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -160,8 +130,32 @@ extension EditUserInfoViewController: UITextViewDelegate {
 // MARK: AlbumViewControllerDelegate
 extension EditUserInfoViewController: AlbumViewControllerDelegate {
     func albumViewController(_ viewController: AlbumViewController, didSelect atImage: UIImage?) {
-        profileImageView.image = atImage;
+        profileImage = atImage;
     }
 }
+
+// MARK: EditProfileCellDelegate
+extension EditUserInfoViewController: EditProfileCellDelegate {
+    func didTouchChangeProfile() {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            let imageViewController = UIImagePickerController()
+            imageViewController.delegate = self
+            imageViewController.sourceType = .camera
+            self.present(imageViewController, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
+            if let albumViewController = R.storyboard.album.albumViewController() {
+                albumViewController.delegate = self
+                self.present(albumViewController, animated: true, completion: nil)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 
 

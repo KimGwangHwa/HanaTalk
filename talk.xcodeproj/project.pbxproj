@@ -72,6 +72,9 @@
 		347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */; };
 		347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0831F9F6F3700192DC5 /* MessageDao.swift */; };
 		347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */; };
+		3486C0482057F9C600FF3B23 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C0472057F9C600FF3B23 /* EditProfileCell.swift */; };
+		3486C04A2057F9F100FF3B23 /* EditBioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C0492057F9F100FF3B23 /* EditBioCell.swift */; };
+		3486C04C2057FA0800FF3B23 /* EditContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */; };
 		349B65572042A52500576F39 /* TalkHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349B65562042A52500576F39 /* TalkHistory.storyboard */; };
 		349B65592042A56900576F39 /* TalkHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B65582042A56900576F39 /* TalkHistoryViewController.swift */; };
 		349B655D2042A61F00576F39 /* TalkHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B655B2042A61F00576F39 /* TalkHistoryCell.swift */; };
@@ -160,6 +163,9 @@
 		347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadStory.storyboard; sourceTree = "<group>"; };
 		347DB0831F9F6F3700192DC5 /* MessageDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
 		347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDao.swift; sourceTree = "<group>"; };
+		3486C0472057F9C600FF3B23 /* EditProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileCell.swift; path = talk/View/EditUserInfo/EditProfileCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C0492057F9F100FF3B23 /* EditBioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditBioCell.swift; path = talk/View/EditUserInfo/EditBioCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditContactInfoCell.swift; path = talk/View/EditUserInfo/EditContactInfoCell.swift; sourceTree = SOURCE_ROOT; };
 		349B65562042A52500576F39 /* TalkHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TalkHistory.storyboard; sourceTree = "<group>"; };
 		349B65582042A56900576F39 /* TalkHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHistoryViewController.swift; sourceTree = "<group>"; };
 		349B655B2042A61F00576F39 /* TalkHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHistoryCell.swift; sourceTree = "<group>"; };
@@ -461,6 +467,16 @@
 			path = UploadStory;
 			sourceTree = "<group>";
 		};
+		3486C0462057F9A100FF3B23 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3486C0472057F9C600FF3B23 /* EditProfileCell.swift */,
+				3486C0492057F9F100FF3B23 /* EditBioCell.swift */,
+				3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		349B65552042A51300576F39 /* TalkHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +572,7 @@
 		34A13B872016084700E6688E /* EditUserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				3486C0462057F9A100FF3B23 /* Cell */,
 				341628DE20300776000E2FE7 /* EditUserInfoViewController.swift */,
 			);
 			path = EditUserInfo;
@@ -804,6 +821,7 @@
 				34C40E02205159FC00F160D0 /* ProfileCell.swift in Sources */,
 				347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */,
 				3476B0CE2046D8CE0078256D /* BrowseCell.swift in Sources */,
+				3486C04C2057FA0800FF3B23 /* EditContactInfoCell.swift in Sources */,
 				349B655D2042A61F00576F39 /* TalkHistoryCell.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				3476B0AF20443C850078256D /* MatchingViewController.swift in Sources */,
@@ -812,6 +830,7 @@
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3476B0BF204455900078256D /* SideHeaderCell.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage+Color.swift in Sources */,
+				3486C04A2057F9F100FF3B23 /* EditBioCell.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
 				3476B0CB2046D7E60078256D /* BrowseViewController.swift in Sources */,
 				349B65592042A56900576F39 /* TalkHistoryViewController.swift in Sources */,
@@ -833,6 +852,7 @@
 				3459A7271F504AA6000D2FC5 /* RemoteChatManager.swift in Sources */,
 				34C40E00204EC49800F160D0 /* SettingViewController.swift in Sources */,
 				346219631F66CACE004998E8 /* CustomBadgeView.swift in Sources */,
+				3486C0482057F9C600FF3B23 /* EditProfileCell.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
 				34C40E0620515A4200F160D0 /* ContactInfoCell.swift in Sources */,
 				341628DF20300776000E2FE7 /* EditUserInfoViewController.swift in Sources */,

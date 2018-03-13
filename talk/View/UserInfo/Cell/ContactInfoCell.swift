@@ -9,6 +9,7 @@ import UIKit
 
 class ContactInfoCell: UITableViewCell {
 
+    @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!

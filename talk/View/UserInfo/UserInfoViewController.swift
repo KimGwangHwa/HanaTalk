@@ -7,49 +7,9 @@
 
 import UIKit
 
-enum InfoSection: Int {
-    
-    case profile = 0
-    case bio = 1
-    case contactInfo = 2
-    case keyWord = 3
-    
-    static var sectionCount: Int {
-        return 4
-    }
-    
-    func rowCount(isEditMode: Bool = false) -> Int {
-        switch self {
-        case .profile:
-            return 1
-        case .contactInfo:
-            if isEditMode == true {
-                return 6
-            }
-            return 4
-        case .keyWord:
-            return 1
-        case .bio:
-            return 1
-        }
-    }
-    
-    var sectionName: String {
-        switch self {
-        case .profile:
-            return ""
-        case .contactInfo:
-            return "Contact Info"
-        case .keyWord:
-            return "Key Word"
-        case .bio:
-            return "Bio"
-        }
-    }
-}
-let profileCellIdentifier = R.reuseIdentifier.profileCell.identifier
-let bioCellIdentifier = R.reuseIdentifier.bioCell.identifier
-let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.identifier
+fileprivate let profileCellIdentifier = R.reuseIdentifier.profileCell.identifier
+fileprivate let bioCellIdentifier = R.reuseIdentifier.bioCell.identifier
+fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.identifier
 
 class UserInfoViewController: UIViewController {
 
@@ -93,17 +53,6 @@ class UserInfoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let sectionHeaderView = UIView()
-//        let sectionLabel : UILabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.width, height: 28))
-//        if let enumInfo = InfoSection(rawValue: section) {
-//            sectionLabel.text = enumInfo.sectionName
-//            sectionLabel.backgroundColor = UIColor.white
-//            sectionLabel.font = UIFont.boldSystemFont(ofSize: 18)
-//        }
-//        sectionHeaderView.addSubview(sectionLabel)
-//        return sectionHeaderView
-//    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -116,7 +65,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
                 cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
                 cell.nickNameLabel.text = userInfo?.nickname
-                cell.descriptionLabel.text = userInfo?.status
+                cell.delegate = self
                 return cell
             }
         case 1:
@@ -126,10 +75,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 2:
             if let cell = tableView.dequeueReusableCell(withIdentifier: contactInfoCellIdentifier, for: indexPath) as? ContactInfoCell {
+                cell.nicknameLabel.text = userInfo?.nickname
                 cell.emailLabel.text = userInfo?.email
                 cell.phoneNumberLabel.text = userInfo?.phoneNumber
                 cell.birthdayLabel.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
-                //cell.sexLabel.text = (userInfo?.sex)! ? "man":"women"
+                if let sex = userInfo?.sex {
+                    cell.sexLabel.text = sex ? "man":"women"
+                }
                 return cell
             }
         default:
@@ -147,3 +99,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+// MARK: - ProfileCellDelegate
+extension UserInfoViewController: ProfileCellDelegate {
+    func didTouchEditProfile() {
+        if let editUserInfo = R.storyboard.editUserInfo.editUserInfoViewController() {
+            present(editUserInfo, animated: true, completion: nil)
+        }
+    }
+}
+

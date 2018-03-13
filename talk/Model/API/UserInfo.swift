@@ -18,7 +18,6 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var nickname: String?
     @NSManaged var phoneNumber: String?
     @NSManaged var sex: Bool
-    @NSManaged var status: String?
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var bio: String?
