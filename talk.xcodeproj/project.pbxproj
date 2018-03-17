@@ -81,6 +81,7 @@
 		3486C05E205D046C00FF3B23 /* TalkHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C05A205D046C00FF3B23 /* TalkHistoryCell.swift */; };
 		3486C062205D06E800FF3B23 /* MatchingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C060205D06E800FF3B23 /* MatchingStatusCell.swift */; };
 		3486C063205D06E800FF3B23 /* MatchingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3486C061205D06E800FF3B23 /* MatchingStatusCell.xib */; };
+		3486C065205D145900FF3B23 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C064205D145900FF3B23 /* ParseHelper.swift */; };
 		349B65572042A52500576F39 /* TalkHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349B65562042A52500576F39 /* TalkHistory.storyboard */; };
 		349B65592042A56900576F39 /* TalkHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B65582042A56900576F39 /* TalkHistoryViewController.swift */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
@@ -176,6 +177,7 @@
 		3486C05A205D046C00FF3B23 /* TalkHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkHistoryCell.swift; sourceTree = "<group>"; };
 		3486C060205D06E800FF3B23 /* MatchingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStatusCell.swift; sourceTree = "<group>"; };
 		3486C061205D06E800FF3B23 /* MatchingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchingStatusCell.xib; sourceTree = "<group>"; };
+		3486C064205D145900FF3B23 /* ParseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		349B65562042A52500576F39 /* TalkHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TalkHistory.storyboard; sourceTree = "<group>"; };
 		349B65582042A56900576F39 /* TalkHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHistoryViewController.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -547,6 +549,7 @@
 				3459A70D1F3B3CC8000D2FC5 /* CoreDataHelper.swift */,
 				3459A7261F504AA6000D2FC5 /* RemoteChatManager.swift */,
 				3406272E1F5ADAC500821E39 /* DataManager.swift */,
+				3486C064205D145900FF3B23 /* ParseHelper.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				3409FBA1200256B1001FF169 /* UploadStoryImageCell.swift in Sources */,
 				347DB0841F9F6F3700192DC5 /* MessageDao.swift in Sources */,
 				349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */,
+				3486C065205D145900FF3B23 /* ParseHelper.swift in Sources */,
 				341628CF202FDA2F000E2FE7 /* UserInfoViewController.swift in Sources */,
 				34C40E0420515A2A00F160D0 /* BioCell.swift in Sources */,
 				34C40E02205159FC00F160D0 /* ProfileCell.swift in Sources */,

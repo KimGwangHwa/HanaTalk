@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        initParse()
+//        if let notificationPayload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary {
+//        }
+        ParseHelper.installations(with: application)
+
 //        let query = PFQuery(className:"UserInfo")
 //        query.whereKey("nickName", equalTo:"nickName")
 //        query.fromLocalDatastore()
@@ -60,17 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    private func initParse() {
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "ArTrHaVDOzyC4Wbr0up1BMnGfNauYTKhZunQZ1PK"
-            $0.clientKey = "EUwwJWILGla9CLLHv8sKe6cicLU3HBYD8PyrARS1"
-            $0.server = "https://parseapi.back4app.com"
-            $0.isLocalDatastoreEnabled = true
-        }
-        Parse.initialize(with: configuration)
-    }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -93,6 +83,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        ParseHelper.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: deviceToken)
+    }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+    }
 }
 
