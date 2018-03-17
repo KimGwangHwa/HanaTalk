@@ -71,6 +71,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: bioCellIdentifier, for: indexPath) as? EditBioCell {
                 cell.textView.text = userInfo?.bio
+                cell.textView.delegate = self
                 return cell
             }
         case 2:

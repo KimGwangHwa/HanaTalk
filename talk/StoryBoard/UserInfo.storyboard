@@ -328,10 +328,20 @@
                                     <action selector="closeButtonEvent:" destination="xAV-Yz-xRN" eventType="touchUpInside" id="sms-Wm-QS5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-hM-zd7">
+                                <rect key="frame" x="315" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="AM7-e4-z0t"/>
+                                    <constraint firstAttribute="height" constant="44" id="qaZ-be-Olg"/>
+                                </constraints>
+                                <state key="normal" image="album"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="s0I-hM-zd7" firstAttribute="top" secondItem="71q-mQ-0wo" secondAttribute="bottom" id="4Rn-vQ-ZD4"/>
                             <constraint firstAttribute="trailing" secondItem="Eam-YL-XHr" secondAttribute="trailing" id="4Xi-R8-xrb"/>
+                            <constraint firstItem="s0I-hM-zd7" firstAttribute="trailing" secondItem="G14-ye-ihF" secondAttribute="trailingMargin" id="4xa-pR-oDa"/>
                             <constraint firstItem="Eam-YL-XHr" firstAttribute="top" secondItem="G14-ye-ihF" secondAttribute="top" id="DpV-1y-Gpy"/>
                             <constraint firstItem="2OS-SC-qwT" firstAttribute="leading" secondItem="G14-ye-ihF" secondAttribute="leading" constant="15" id="L3K-Oi-rbQ"/>
                             <constraint firstItem="dCq-Xb-pH6" firstAttribute="top" secondItem="YMK-NI-qbr" secondAttribute="bottom" id="LOc-mX-QCR"/>
@@ -353,6 +363,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="album" width="32" height="32"/>
         <image name="close" width="24" height="24"/>
         <image name="redHeart" width="128" height="128"/>
     </resources>

@@ -75,10 +75,14 @@
 		3486C0482057F9C600FF3B23 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C0472057F9C600FF3B23 /* EditProfileCell.swift */; };
 		3486C04A2057F9F100FF3B23 /* EditBioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C0492057F9F100FF3B23 /* EditBioCell.swift */; };
 		3486C04C2057FA0800FF3B23 /* EditContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */; };
+		3486C05B205D046C00FF3B23 /* TalkHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3486C057205D046C00FF3B23 /* TalkHistoryCell.xib */; };
+		3486C05C205D046C00FF3B23 /* MatchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C058205D046C00FF3B23 /* MatchingCell.swift */; };
+		3486C05D205D046C00FF3B23 /* MatchingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3486C059205D046C00FF3B23 /* MatchingCell.xib */; };
+		3486C05E205D046C00FF3B23 /* TalkHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C05A205D046C00FF3B23 /* TalkHistoryCell.swift */; };
+		3486C062205D06E800FF3B23 /* MatchingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C060205D06E800FF3B23 /* MatchingStatusCell.swift */; };
+		3486C063205D06E800FF3B23 /* MatchingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3486C061205D06E800FF3B23 /* MatchingStatusCell.xib */; };
 		349B65572042A52500576F39 /* TalkHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349B65562042A52500576F39 /* TalkHistory.storyboard */; };
 		349B65592042A56900576F39 /* TalkHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B65582042A56900576F39 /* TalkHistoryViewController.swift */; };
-		349B655D2042A61F00576F39 /* TalkHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349B655B2042A61F00576F39 /* TalkHistoryCell.swift */; };
-		349B655E2042A61F00576F39 /* TalkHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349B655C2042A61F00576F39 /* TalkHistoryCell.xib */; };
 		349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD501F2F55CE005833ED /* talk.xcdatamodeld */; };
 		349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349EAD531F2F55CE005833ED /* Assets.xcassets */; };
 		349EAD6A1F2F59CF005833ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349EAD661F2F59CF005833ED /* AppDelegate.swift */; };
@@ -163,13 +167,17 @@
 		347CAAD11FE7F42C006562E6 /* UploadStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadStory.storyboard; sourceTree = "<group>"; };
 		347DB0831F9F6F3700192DC5 /* MessageDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
 		347DB0851F9F6F4600192DC5 /* ChatRoomDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDao.swift; sourceTree = "<group>"; };
-		3486C0472057F9C600FF3B23 /* EditProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileCell.swift; path = talk/View/EditUserInfo/EditProfileCell.swift; sourceTree = SOURCE_ROOT; };
-		3486C0492057F9F100FF3B23 /* EditBioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditBioCell.swift; path = talk/View/EditUserInfo/EditBioCell.swift; sourceTree = SOURCE_ROOT; };
-		3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditContactInfoCell.swift; path = talk/View/EditUserInfo/EditContactInfoCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C0472057F9C600FF3B23 /* EditProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileCell.swift; path = talk/View/EditUserInfo/Cell/EditProfileCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C0492057F9F100FF3B23 /* EditBioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditBioCell.swift; path = talk/View/EditUserInfo/Cell/EditBioCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C04B2057FA0800FF3B23 /* EditContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditContactInfoCell.swift; path = talk/View/EditUserInfo/Cell/EditContactInfoCell.swift; sourceTree = SOURCE_ROOT; };
+		3486C057205D046C00FF3B23 /* TalkHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkHistoryCell.xib; sourceTree = "<group>"; };
+		3486C058205D046C00FF3B23 /* MatchingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCell.swift; sourceTree = "<group>"; };
+		3486C059205D046C00FF3B23 /* MatchingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchingCell.xib; sourceTree = "<group>"; };
+		3486C05A205D046C00FF3B23 /* TalkHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkHistoryCell.swift; sourceTree = "<group>"; };
+		3486C060205D06E800FF3B23 /* MatchingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingStatusCell.swift; sourceTree = "<group>"; };
+		3486C061205D06E800FF3B23 /* MatchingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchingStatusCell.xib; sourceTree = "<group>"; };
 		349B65562042A52500576F39 /* TalkHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TalkHistory.storyboard; sourceTree = "<group>"; };
 		349B65582042A56900576F39 /* TalkHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHistoryViewController.swift; sourceTree = "<group>"; };
-		349B655B2042A61F00576F39 /* TalkHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHistoryCell.swift; sourceTree = "<group>"; };
-		349B655C2042A61F00576F39 /* TalkHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkHistoryCell.xib; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349EAD511F2F55CE005833ED /* talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talk.xcdatamodel; sourceTree = "<group>"; };
 		349EAD531F2F55CE005833ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -467,7 +475,20 @@
 			path = UploadStory;
 			sourceTree = "<group>";
 		};
-		3486C0462057F9A100FF3B23 /* Cell */ = {
+		3486C056205D046C00FF3B23 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3486C058205D046C00FF3B23 /* MatchingCell.swift */,
+				3486C059205D046C00FF3B23 /* MatchingCell.xib */,
+				3486C05A205D046C00FF3B23 /* TalkHistoryCell.swift */,
+				3486C057205D046C00FF3B23 /* TalkHistoryCell.xib */,
+				3486C060205D06E800FF3B23 /* MatchingStatusCell.swift */,
+				3486C061205D06E800FF3B23 /* MatchingStatusCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3486C05F205D048800FF3B23 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				3486C0472057F9C600FF3B23 /* EditProfileCell.swift */,
@@ -480,19 +501,10 @@
 		349B65552042A51300576F39 /* TalkHistory */ = {
 			isa = PBXGroup;
 			children = (
-				349B655A2042A5FF00576F39 /* Cell */,
+				3486C056205D046C00FF3B23 /* Cell */,
 				349B65582042A56900576F39 /* TalkHistoryViewController.swift */,
 			);
 			path = TalkHistory;
-			sourceTree = "<group>";
-		};
-		349B655A2042A5FF00576F39 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				349B655B2042A61F00576F39 /* TalkHistoryCell.swift */,
-				349B655C2042A61F00576F39 /* TalkHistoryCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		349EAD3D1F2F55CE005833ED = {
@@ -572,7 +584,7 @@
 		34A13B872016084700E6688E /* EditUserInfo */ = {
 			isa = PBXGroup;
 			children = (
-				3486C0462057F9A100FF3B23 /* Cell */,
+				3486C05F205D048800FF3B23 /* Cell */,
 				341628DE20300776000E2FE7 /* EditUserInfoViewController.swift */,
 			);
 			path = EditUserInfo;
@@ -702,7 +714,6 @@
 				3430716A1FFB418800503F77 /* Album.storyboard in Resources */,
 				340627271F53320D00821E39 /* ReceiveTextCell.xib in Resources */,
 				3476B0B620443F150078256D /* SideMenu.storyboard in Resources */,
-				349B655E2042A61F00576F39 /* TalkHistoryCell.xib in Resources */,
 				34211D271F3A0714000F0C94 /* TalkRoom.storyboard in Resources */,
 				3409FB9C20025682001FF169 /* UploadStoryTextCell.xib in Resources */,
 				343071711FFB424700503F77 /* AlbumCell.xib in Resources */,
@@ -710,8 +721,11 @@
 				349EAD541F2F55CE005833ED /* Assets.xcassets in Resources */,
 				3476B0CF2046D8CE0078256D /* BrowseCell.xib in Resources */,
 				3476B0C0204455900078256D /* SideHeaderCell.xib in Resources */,
+				3486C05D205D046C00FF3B23 /* MatchingCell.xib in Resources */,
 				342888691FB9D7E900D7EB61 /* PostsTableViewCell.xib in Resources */,
+				3486C063205D06E800FF3B23 /* MatchingStatusCell.xib in Resources */,
 				34A13B892016086B00E6688E /* EditUserInfo.storyboard in Resources */,
+				3486C05B205D046C00FF3B23 /* TalkHistoryCell.xib in Resources */,
 				3459A7351F5264B2000D2FC5 /* UserInfo.storyboard in Resources */,
 				34211D241F3A0714000F0C94 /* Login.storyboard in Resources */,
 				347CAAD21FE7F42C006562E6 /* UploadStory.storyboard in Resources */,
@@ -822,7 +836,6 @@
 				347DB0861F9F6F4600192DC5 /* ChatRoomDao.swift in Sources */,
 				3476B0CE2046D8CE0078256D /* BrowseCell.swift in Sources */,
 				3486C04C2057FA0800FF3B23 /* EditContactInfoCell.swift in Sources */,
-				349B655D2042A61F00576F39 /* TalkHistoryCell.swift in Sources */,
 				349EAD521F2F55CE005833ED /* talk.xcdatamodeld in Sources */,
 				3476B0AF20443C850078256D /* MatchingViewController.swift in Sources */,
 				342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */,
@@ -830,6 +843,7 @@
 				346BAA371F9E1FDD0065A762 /* Const.swift in Sources */,
 				3476B0BF204455900078256D /* SideHeaderCell.swift in Sources */,
 				346219671F696D56004998E8 /* UIImage+Color.swift in Sources */,
+				3486C062205D06E800FF3B23 /* MatchingStatusCell.swift in Sources */,
 				3486C04A2057F9F100FF3B23 /* EditBioCell.swift in Sources */,
 				3461F4FD1F6E6CAE000D09D5 /* UIView+Frame.swift in Sources */,
 				3476B0CB2046D7E60078256D /* BrowseViewController.swift in Sources */,
@@ -842,6 +856,7 @@
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,
 				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
 				3476B0C320457B630078256D /* SideNormalCell.swift in Sources */,
+				3486C05C205D046C00FF3B23 /* MatchingCell.swift in Sources */,
 				3476B0A82042B57B0078256D /* FindCell.swift in Sources */,
 				34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */,
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,
@@ -855,6 +870,7 @@
 				3486C0482057F9C600FF3B23 /* EditProfileCell.swift in Sources */,
 				7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */,
 				34C40E0620515A4200F160D0 /* ContactInfoCell.swift in Sources */,
+				3486C05E205D046C00FF3B23 /* TalkHistoryCell.swift in Sources */,
 				341628DF20300776000E2FE7 /* EditUserInfoViewController.swift in Sources */,
 				34211D2B1F3A0714000F0C94 /* LoginViewController.swift in Sources */,
 				3476B0A52042B5630078256D /* FindViewController.swift in Sources */,
