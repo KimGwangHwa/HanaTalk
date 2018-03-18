@@ -10,7 +10,7 @@ import Parse
 
 class UserInfo: PFObject, PFSubclassing {
     static func parseClassName() -> String {
-        return "UserInfo"
+        return UserInfoClassName
     }
     
     @NSManaged var birthday: Date?
@@ -26,8 +26,8 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var album: [String]?
 
     class func getCurrentUserInfo() -> UserInfo? {
-        let query = PFQuery(className: "UserInfo")
-        query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: PFUser.current()?.objectId))
+        let query = PFQuery(className: UserInfoClassName)
+        query.whereKey(UserColumnName, equalTo: PFObject(withoutDataWithClassName: UserClassName, objectId: PFUser.current()?.objectId))
         query.fromLocalDatastore()
         do {
             let pfObject = try query.getFirstObject() as? UserInfo
@@ -49,7 +49,7 @@ class UserInfo: PFObject, PFSubclassing {
     }
     
     class func findAll(completion: @escaping ([UserInfo]?, Bool) -> Void) {
-        let query = PFQuery(className: "UserInfo")
+        let query = PFQuery(className: UserInfoClassName)
         
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
@@ -63,15 +63,15 @@ class UserInfo: PFObject, PFSubclassing {
     }
     
     class func findUserInfo(byObjectId: String?, userObjectId: String?, nickName: String?, completion: @escaping (UserInfo?, Bool) -> Void) {
-        let query = PFQuery(className: "UserInfo")
+        let query = PFQuery(className: UserInfoClassName)
         if let guardObjectid = userObjectId {
-            query.whereKey("user", equalTo: PFObject(withoutDataWithClassName: "_User", objectId: guardObjectid))
+            query.whereKey(UserColumnName, equalTo: PFObject(withoutDataWithClassName: UserClassName, objectId: guardObjectid))
         }
         if let guardObjectid = byObjectId {
-            query.whereKey("objectId", equalTo: guardObjectid)
+            query.whereKey(ObjectIdColumnName, equalTo: guardObjectid)
         }
         if let guardNickName = nickName {
-            query.whereKey("nickName", equalTo: guardNickName)
+            query.whereKey(NicknameColumnName, equalTo: guardNickName)
         }
         
         query.findObjectsInBackground { (objects, error) in

@@ -10,12 +10,6 @@ import Parse
 
 class ParseHelper: NSObject {
     
-    static let shared = ParseHelper()
-    
-    private override init() {
-        super.init()
-    }
-    
     class func installations(with application: UIApplication) {
         let configuration = ParseClientConfiguration {
             $0.applicationId = "ArTrHaVDOzyC4Wbr0up1BMnGfNauYTKhZunQZ1PK"
@@ -44,5 +38,34 @@ class ParseHelper: NSObject {
         installation?.saveInBackground() 
     }
     
+    // MARK: - Core Data stack
+    
+    func sendLiked(with receiver: UserInfo?, completion: @escaping  (Bool) -> Void) {
+        let push = PFPush()
+        push.setChannel(receiver?.objectId ?? "")
+        //push.setData()
+        push.sendInBackground { (isSuccess, error) in
+            completion(isSuccess)
+        }
+    }
+    
+    func sendText(_ text: String?, receiver: UserInfo?, completion: @escaping  (Bool) -> Void) {
+        let push = PFPush()
+        push.setChannel(receiver?.objectId ?? "")
+        push.setMessage(text)
+        push.sendInBackground { (isSuccess, error) in
+            completion(isSuccess)
+        }
 
+    }
+    
+    func sendImage(_ image: UIImage?, receiver: UserInfo?, completion: @escaping  (Bool) -> Void) {
+        let push = PFPush()
+        push.setChannel(receiver?.objectId ?? "")
+        //push.setData()
+        push.sendInBackground { (isSuccess, error) in
+            completion(isSuccess)
+        }
+    }
+    
 }

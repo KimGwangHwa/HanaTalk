@@ -29,4 +29,16 @@ let SB_APPLICATIONID = "DD21A9CC-A953-4633-A9B9-0E3B94137F1D"
 let UploadImageMaxCount = 6
 let PinkColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(192) / 255.0, blue: CGFloat(203) / 255.0, alpha: 1)
 
+// MARK: - ClassName
+let UserInfoClassName = "UserInfo"
+let LikeClassName = "Like"
+let UserClassName = "_User"
+
+// MARK: - ColumnName
+let UserColumnName = "user"
+let ObjectIdColumnName = "objectId"
+let NicknameColumnName = "nickname"
+
+
+
 
