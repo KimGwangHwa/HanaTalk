@@ -133,6 +133,7 @@
 		342888631FB9D33000D7EB61 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		342888661FB9D7E900D7EB61 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		342888671FB9D7E900D7EB61 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
+		342CC8FA20613B5E0082385F /* talk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = talk.entitlements; sourceTree = "<group>"; };
 		343071671FFB417800503F77 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		343071691FFB418800503F77 /* Album.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
 		3430716E1FFB424700503F77 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
@@ -532,6 +533,7 @@
 		349EAD481F2F55CE005833ED /* talk */ = {
 			isa = PBXGroup;
 			children = (
+				342CC8FA20613B5E0082385F /* talk.entitlements */,
 				34211D081F3A0714000F0C94 /* StoryBoard */,
 				34211D0F1F3A0714000F0C94 /* View */,
 				344C27411F3358C200FD5805 /* Extension */,
@@ -678,9 +680,14 @@
 				TargetAttributes = {
 					349EAD451F2F55CE005833ED = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 9VLE4ZJUBP;
+						DevelopmentTeam = 4CT46N9425;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1005,11 +1012,12 @@
 			baseConfigurationReference = ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
+				CODE_SIGN_ENTITLEMENTS = talk/talk.entitlements;
+				DEVELOPMENT_TEAM = 4CT46N9425;
 				INFOPLIST_FILE = talk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -1021,11 +1029,12 @@
 			baseConfigurationReference = 1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VLE4ZJUBP;
+				CODE_SIGN_ENTITLEMENTS = talk/talk.entitlements;
+				DEVELOPMENT_TEAM = 4CT46N9425;
 				INFOPLIST_FILE = talk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.talk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
