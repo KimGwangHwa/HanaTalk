@@ -11,6 +11,7 @@ let cellIdentifiler = "BrowseCell"
 
 protocol BrowseCellDelegate: class {
     func didTouchProfileImage(with Object: UserInfo?)
+    func didTouchLiked(with Object: UserInfo?)
 }
 
 class BrowseCell: UICollectionViewCell {
@@ -52,6 +53,9 @@ class BrowseCell: UICollectionViewCell {
     }
     
     @IBAction func heartEvent(_ sender: UIButton) {
+        if let guardDelegate = delegate {
+            guardDelegate.didTouchLiked(with: userInfo)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,12 +63,6 @@ class BrowseCell: UICollectionViewCell {
             if let guardDelegate = delegate {
                 guardDelegate.didTouchProfileImage(with: userInfo)
             }
-        }
-    }
-    
-    @IBAction func profileImageTapEvent(_ sender: UITapGestureRecognizer) {
-        if let guardDelegate = delegate {
-            guardDelegate.didTouchProfileImage(with: userInfo)
         }
     }
     

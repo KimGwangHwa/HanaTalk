@@ -97,6 +97,7 @@
 		34C40E0620515A4200F160D0 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C40E0520515A4200F160D0 /* ContactInfoCell.swift */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
+		34E2BA252063E47500E9B01C /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2BA242063E47500E9B01C /* Notification+Name.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
 /* End PBXBuildFile section */
@@ -197,6 +198,7 @@
 		34C40E0520515A4200F160D0 /* ContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
+		34E2BA242063E47500E9B01C /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -385,6 +387,7 @@
 				346219661F696D56004998E8 /* UIImage+Color.swift */,
 				3461F4FC1F6E6CAE000D09D5 /* UIView+Frame.swift */,
 				7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */,
+				34E2BA242063E47500E9B01C /* Notification+Name.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				346219601F65051E004998E8 /* Common.swift in Sources */,
 				346BAA311F8F9A5E0065A762 /* SignUpViewController.swift in Sources */,
 				3486C067205D7C0700FF3B23 /* Like.swift in Sources */,
+				34E2BA252063E47500E9B01C /* Notification+Name.swift in Sources */,
 				3426001A1FD3B3C4009857E7 /* Follow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

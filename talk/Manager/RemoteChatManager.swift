@@ -30,7 +30,7 @@ class RemoteChatManager: NSObject, SBDChannelDelegate {
     
     private override init() {
         super.init()
-        SBDMain.initWithApplicationId(SB_APPLICATIONID)
+        SBDMain.initWithApplicationId("")
         // delegate
         SBDMain.add(self, identifier: "")
     }

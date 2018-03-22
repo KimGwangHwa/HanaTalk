@@ -89,6 +89,14 @@ extension BrowseViewController: BrowseCellDelegate {
             navigationController?.pushViewController(userInfoViewController, animated: true)
         }
     }
+    
+    func didTouchLiked(with Object: UserInfo?) {
+        Like.saveLiked(userInfo: Object) { (isSuccess) in
+            if isSuccess == true {
+                ParseHelper.sendLiked(with: Object, completion: nil)
+            }
+        }
+    }
 }
 
 
