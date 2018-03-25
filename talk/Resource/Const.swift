@@ -9,14 +9,6 @@
 import UIKit
 
 
-// MARK: - Enum
-// MARK: - Push Notification Type
-enum PushNotificationType: String {
-    case image = "image"
-    case text = "text"
-    case object = "object"
-}
-
 // DateFormat
 let DATE_FORMAT_1 = "yyyyMMddHHmmss"
 let DATE_FORMAT_2 = "yyyy/MM/dd"
@@ -44,12 +36,13 @@ let SendPushFunction = "sendPush"
 let kPushNotificationAlert = "alert"
 let kPushNotificationSounds = "sounds"
 let kPushNotificationBadge = "badge"
+
 let kPushNotificationType = "type"
 let kPushNotificationImageURL = "imageUrl"
 let kPushNotificationText = "text"
-let kPushNotificationObjectId = "objectId"
 let kPushNotificationChannels = "channels"
-let kPushNotificationIsRead = "isRead"
+let kPushNotificationFrom = "from"
+let kPushNotificationTo = "to"
 
 
 

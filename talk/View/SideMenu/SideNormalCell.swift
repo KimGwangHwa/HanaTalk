@@ -44,24 +44,24 @@ extension SideNormalCell {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-        
-        if let userInfo = notification?.userInfo {
-            switch type {
-            case .browse:
-                break
-            case .messages:
-                if let pushType = userInfo[kPushNotificationType] as? String, pushType == PushNotificationType.object.rawValue {
-                    badgeButton.isHidden = false
-                }
-                
-                break
-            case .setting:
-                break
-                
-            default: break
-            }
-
-        }
+//        
+//        if let userInfo = notification?.userInfo {
+//            switch type {
+//            case .browse:
+//                break
+//            case .messages:
+//                if let pushType = userInfo[kPushNotificationType] as? String, pushType == MessageType.none {
+//                    badgeButton.isHidden = false
+//                }
+//                
+//                break
+//            case .setting:
+//                break
+//                
+//            default: break
+//            }
+//
+//        }
     }
     
     @objc func pushNotificationDidRead(notification: Notification?) {

@@ -19,7 +19,7 @@ class SendTextCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-            messageLabel.text = message?.textMessage
+            messageLabel.text = message?.text
         }
     }
 
