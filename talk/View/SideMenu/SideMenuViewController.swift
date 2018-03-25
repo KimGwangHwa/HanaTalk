@@ -164,7 +164,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 // MARK: - SideHeaderCellDelegate
-
 extension SideMenuViewController: SideHeaderCellDelegate {
     
     func didTouchEditProfileButton(with Object: UserInfo?) {
@@ -175,8 +174,6 @@ extension SideMenuViewController: SideHeaderCellDelegate {
         }
     }
 }
-
-
 
 
 

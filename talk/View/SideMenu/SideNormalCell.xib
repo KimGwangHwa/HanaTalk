@@ -35,7 +35,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-4t-W2g">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-4t-W2g">
                         <rect key="frame" x="260" y="7" width="10" height="10"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -63,6 +63,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="badgeButton" destination="hU9-4t-W2g" id="m4x-Ct-l9v"/>
                 <outlet property="descriptionLabel" destination="wmG-Vv-xhf" id="fZ1-e4-NsJ"/>
                 <outlet property="iconImageView" destination="Pdr-FI-Hyz" id="Z58-hA-ID2"/>
             </connections>

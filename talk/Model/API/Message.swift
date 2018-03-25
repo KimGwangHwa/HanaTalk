@@ -8,16 +8,12 @@
 import UIKit
 import Parse
 
-class Message: NSObject {
-    public var objectId: String?
-    public var sender: String?
-    public var receiver: String?
-    public var textMessage: String?
-    public var isread: Bool = false
-    public var messageType: String?
-    public var chatName: String?
+class Message: PFObject, PFSubclassing {
     
-    class func convertMessage(with ojbect: PFObject?) -> Message? {
-        return nil;
+    static func parseClassName() -> String {
+        return UserInfoClassName
     }
+
+    @NSManaged var type: String?
+
 }

@@ -7,14 +7,24 @@
 
 import UIKit
 
+enum SideNormalCellType {
+    case none
+    case browse
+    case messages
+    case setting
+}
+
 class SideNormalCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var badgeButton: UIButton!
+    var type: SideNormalCellType = .none
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        addObserver()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,3 +34,39 @@ class SideNormalCell: UITableViewCell {
     }
     
 }
+
+// MARK: - NotificationCenter
+extension SideNormalCell {
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidReceive(notification:)), name: .PushNotificationDidRecive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidRead(notification:)), name: .PushNotificationDidRead, object: nil)
+
+    }
+    
+    @objc func pushNotificationDidReceive(notification: Notification?) {
+        
+        if let userInfo = notification?.userInfo {
+            switch type {
+            case .browse:
+                break
+            case .messages:
+                if let pushType = userInfo[kPushNotificationType] as? String, pushType == PushNotificationType.object.rawValue {
+                    badgeButton.isHidden = false
+                }
+                
+                break
+            case .setting:
+                break
+                
+            default: break
+            }
+
+        }
+    }
+    
+    @objc func pushNotificationDidRead(notification: Notification?) {
+
+    }
+
+}
+

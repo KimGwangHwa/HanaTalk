@@ -46,29 +46,59 @@ class ParseHelper: NSObject {
     // MARK: - Push Notification
     
     class func sendLiked(with receiver: UserInfo?, completion: ((Bool) -> Void)?) {
+        let objectId = receiver?.objectId ?? ""
+        let nickname = receiver?.nickname ?? ""
+        
         PFCloud.callFunction(inBackground: SendPushFunction, withParameters: [
-            "channel" : receiver?.objectId ?? "",
-            "message" : "like of" + (receiver?.nickname)!
-            ])
+            kPushNotificationChannels : objectId,
+            kPushNotificationAlert : nickname,
+            kPushNotificationObjectId : objectId,
+            kPushNotificationIsRead : false
+        ]) { (response, error) in
+            if let guardCompletion = completion {
+                guardCompletion(error == nil ? true : false)
+            }
+        }
     }
     
-    class func sendText(_ text: String?, receiver: UserInfo?, completion: @escaping  (Bool) -> Void) {
-        let push = PFPush()
-        push.setChannel(receiver?.objectId ?? "")
-        push.setMessage(text)
-        push.sendInBackground { (isSuccess, error) in
-            completion(isSuccess)
+    class func sendText(_ text: String?, receiver: UserInfo?, completion: ((Bool) -> Void)?) {
+        let objectId = receiver?.objectId ?? ""
+        let textString = text ?? ""
+        PFCloud.callFunction(inBackground: SendPushFunction, withParameters: [
+            kPushNotificationChannels : objectId,
+            kPushNotificationAlert : textString,
+            kPushNotificationText : textString,
+            kPushNotificationType: PushNotificationType.text
+            
+        ]) { (response, error) in
+            if let guardCompletion = completion {
+                guardCompletion(error == nil ? true : false)
+            }
         }
 
     }
     
-    class func sendImage(_ image: UIImage?, receiver: UserInfo?, completion: @escaping  (Bool) -> Void) {
-        let push = PFPush()
-        push.setChannel(receiver?.objectId ?? "")
-        //push.setData()
-        push.sendInBackground { (isSuccess, error) in
-            completion(isSuccess)
-        }
+    class func sendImage(_ image: UIImage?, receiver: UserInfo?, completion: ((Bool) -> Void)?) {
+        let objectId = receiver?.objectId ?? ""
+        let pffile = Common.imageToFile(image)
+        pffile?.saveInBackground(block: { (isSuccess, error) in
+            let imageUrl = pffile?.url ?? ""
+            
+            PFCloud.callFunction(inBackground: SendPushFunction, withParameters: [
+                kPushNotificationChannels : objectId,
+                kPushNotificationAlert : "image",
+                kPushNotificationImageURL : imageUrl,
+                kPushNotificationType: PushNotificationType.image
+                
+            ]) { (response, error) in
+                if let guardCompletion = completion {
+                    guardCompletion(error == nil ? true : false)
+                }
+            }
+
+        })
+        
+
     }
     
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {

@@ -9,4 +9,6 @@ import Foundation
 
 extension Notification.Name {
     static let PushNotificationDidRecive = Notification.Name("PushNotificationDidRecive")
+    static let PushNotificationDidRead = Notification.Name("PushNotificationDidRead")
+    
 }

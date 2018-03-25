@@ -28,6 +28,7 @@ let PinkColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(192) / 255.0, 
 let UserInfoClassName = "UserInfo"
 let LikeClassName = "Like"
 let UserClassName = "_User"
+let MessageClassName = "Message"
 
 // MARK: - ColumnName
 let UserColumnName = "user"
@@ -48,6 +49,7 @@ let kPushNotificationImageURL = "imageUrl"
 let kPushNotificationText = "text"
 let kPushNotificationObjectId = "objectId"
 let kPushNotificationChannels = "channels"
+let kPushNotificationIsRead = "isRead"
 
 
 

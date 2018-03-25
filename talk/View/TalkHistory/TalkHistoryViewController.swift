@@ -17,7 +17,7 @@ class TalkHistoryViewController: UIViewController {
         super.viewDidLoad()
 
         setUpView()
-        
+        addObserver()
     }
 
     func setUpView() {
@@ -70,7 +70,21 @@ extension TalkHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         
         return UITableViewCell()
     }
+}
+
+// MARK: - NotificationCenter
+extension TalkHistoryViewController {
+
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidReceive(notification:)), name: .PushNotificationDidRecive, object: nil)
+
+    }
+    
+    @objc func pushNotificationDidReceive(notification: Notification?) {
+        
+    }
 
     
 }
+
 
