@@ -7,8 +7,7 @@
 
 import UIKit
 
-let sideMenuOffsetX: CGFloat = -220.0
-let animateDuration: TimeInterval = 0.35
+fileprivate let sideMenuOffsetX: CGFloat = -220.0
 
 class SideMenuViewController: UIViewController {
     
@@ -27,6 +26,7 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         
         setUpView()
+        addObserver()
     }
 
     func setUpView() {
@@ -82,7 +82,7 @@ class SideMenuViewController: UIViewController {
             viewController.view.bringSubview(toFront: viewController.sideView)
             viewController.sideView.setNeedsLayout()
             viewController.sideConstraint.constant = 0
-            UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
                 viewController.overlayView.alpha = 0.5
                 viewController.view.layoutIfNeeded()
             }) { (isFinish) in
@@ -94,7 +94,7 @@ class SideMenuViewController: UIViewController {
     func dismiss(completion: @escaping ()-> Void) {
 
         sideConstraint.constant = sideMenuOffsetX
-        UIView.animate(withDuration: animateDuration, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
             self.overlayView.alpha = 0
             self.view.layoutIfNeeded()
         }) { (isFinish) in
@@ -173,6 +173,31 @@ extension SideMenuViewController: SideHeaderCellDelegate {
             }
         }
     }
+}
+
+extension SideMenuViewController {
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidReceive(notification:)), name: .PushNotificationDidRecive, object: nil)
+    }
+    
+    @objc func pushNotificationDidReceive(notification: Notification?) {
+        
+        
+        if let message = notification?.object as? Message {
+            switch message.type {
+            case MessageType.liked.rawValue:
+                HanaAlertView.show(in: self)
+                
+                break
+            default:
+                break
+            }
+
+        }
+        
+    }
+    
 }
 
 

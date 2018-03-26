@@ -44,5 +44,6 @@ let kPushNotificationChannels = "channels"
 let kPushNotificationFrom = "from"
 let kPushNotificationTo = "to"
 
+let ModalAnimateDuration: TimeInterval = 0.35
 
 

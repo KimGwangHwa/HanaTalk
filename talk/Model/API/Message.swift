@@ -27,7 +27,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var sender: UserInfo?
     @NSManaged var receiver: UserInfo?
 
-
+    // MARK: - Dao
     class func newMessage(with receiver: UserInfo?, text: String?) -> Message {
         let message = Message()
         message.type = MessageType.text.rawValue
