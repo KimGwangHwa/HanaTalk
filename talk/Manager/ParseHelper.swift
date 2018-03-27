@@ -75,7 +75,6 @@ class ParseHelper: NSObject {
     
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {
 //        PFPush.handle(userInfo)
-        
         NotificationCenter.default.post(name: .PushNotificationDidRecive, object: Message.newReceiveRemoteNotification(userInfo), userInfo: userInfo)
     }
     

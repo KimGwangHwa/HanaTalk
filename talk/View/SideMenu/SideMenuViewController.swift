@@ -183,12 +183,10 @@ extension SideMenuViewController {
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
         
-        
         if let message = notification?.object as? Message {
             switch message.type {
             case MessageType.liked.rawValue:
-                HanaAlertView.show(in: self)
-                
+                HanaAlertView.show(in: self, object: message)
                 break
             default:
                 break

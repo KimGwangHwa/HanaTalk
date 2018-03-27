@@ -7,7 +7,6 @@
 
 import UIKit
 
-fileprivate let AlertHeight: CGFloat = 200
 fileprivate let ScreenWidth = UIScreen.main.bounds.width
 fileprivate let ScreenHeight = UIScreen.main.bounds.height
 fileprivate let ShowAlpha: CGFloat = 0.5
@@ -17,7 +16,9 @@ class HanaAlertView: UIView {
     
     private var overlayView = UIView()
     private var alertView = UIView()
-
+    var title: String?
+    var imageURL: String?
+    var imageDescription: String?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -38,14 +39,79 @@ class HanaAlertView: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         overlayView.addGestureRecognizer(tap)
         
-        
-        alertView.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: AlertHeight)
         alertView.backgroundColor = UIColor.white
+        let spaceHeight: CGFloat = 10
+
+        var offsetY: CGFloat = spaceHeight
+        let titleHeight: CGFloat = 20
+        let titleFontSize: CGFloat = 16
+
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: titleHeight))
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
+        titleLabel.textAlignment = .center
+        alertView.addSubview(titleLabel)
         
+        offsetY += (spaceHeight + titleHeight)
+        
+        let iconWidth: CGFloat = 100
+        let iconHeight: CGFloat = iconWidth
+
+        let iconImageView = UIImageView(frame: CGRect(x: (ScreenWidth - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
+        iconImageView.clipsToBounds = true
+        iconImageView.layer.cornerRadius = iconWidth/2
+        iconImageView.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: nil)
+        alertView.addSubview(iconImageView)
+       
+        offsetY += (spaceHeight + iconHeight)
+
+        let descriptionHeight: CGFloat = 20
+        let descriptionFontSize: CGFloat = 16
+
+        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: descriptionHeight))
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.text = imageDescription
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: descriptionFontSize)
+        alertView.addSubview(descriptionLabel)
+        
+        offsetY += (spaceHeight + descriptionHeight)
+        
+        let eventButtonWidth: CGFloat = 100
+        let eventButtonHeight: CGFloat = 40
+        let cornerRadius: CGFloat = 5.0
+        let eventButton = UIButton(type: .custom)
+        eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
+        eventButton.setTitle("Event", for: .normal)
+        eventButton.setTitleColor(UIColor.white, for: .normal)
+        let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
+        eventButton.setBackgroundImage(backgroundImage, for: .normal)
+        eventButton.clipsToBounds = true
+        eventButton.layer.cornerRadius = cornerRadius
+        alertView.addSubview(eventButton)
+        
+        offsetY += (spaceHeight + eventButtonHeight)
+
+        alertView.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: offsetY)
+
     }
     
     @objc func tapped(_ gestureRecognizer: UITapGestureRecognizer) {
-
+        dismiss()
+    }
+    
+    func show(in viewController: UIViewController) {
+        viewController.view.addSubview(self)
+        setUpView()
+        UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
+            var frame = self.alertView.frame
+            frame.origin.y = ScreenHeight - self.alertView.height
+            self.alertView.frame = frame
+            self.overlayView.alpha = ShowAlpha
+            
+        }, completion: nil)
+    }
+    
+    func dismiss() {
         UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
             var frame = self.alertView.frame
             frame.origin.y = ScreenHeight
@@ -57,19 +123,20 @@ class HanaAlertView: UIView {
             }
         }
     }
+    
+    class func show(in viewController: UIViewController, object: Message?) {
         
-    class func show(in viewController: UIViewController) {
-        let view = HanaAlertView()
-        view.setUpView()
-        
-        viewController.view.addSubview(view)
-        UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
-            var frame = view.alertView.frame
-            frame.origin.y = ScreenHeight - AlertHeight
-            view.alertView.frame = frame
-            view.overlayView.alpha = ShowAlpha
+        UserInfo.findUserInfo(byObjectId: object?.sender?.objectId) { (userInfo, isSuccess) in
+            if isSuccess == true {
+                let view = HanaAlertView()
+                view.imageDescription = userInfo?.nickname
+                view.imageURL = userInfo?.profileUrl
+                view.title = object?.type == MessageType.liked.rawValue ? "liked":"matching"
+                view.show(in: viewController)
+                
+            }
 
-        }, completion: nil)        
+        }
     }
 
 }
