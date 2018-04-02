@@ -186,9 +186,23 @@ extension SideMenuViewController {
         if let message = notification?.object as? Message {
             switch message.type {
             case MessageType.liked.rawValue:
-                HanaAlertView.show(in: self, object: message)
+                HanaAlertView.show(in: self, object: message, actionCompletion: { (userInfo, isMatched) in
+                    if isMatched {
+                        if let talkRoomViewController = R.storyboard.talkRoom.talkRoomViewController() {
+                            self.present(talkRoomViewController, animated: true, completion: nil)
+                        }
+                    } else {
+                        if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
+                            userInfoViewController.userInfo = userInfo
+                            self.present(userInfoViewController, animated: true, completion: nil)
+                        }
+                    }
+                })
                 break
             default:
+                if let talkRoomViewController = R.storyboard.talkRoom.talkRoomViewController() {
+                    self.present(talkRoomViewController, animated: true, completion: nil)
+                }
                 break
             }
 
@@ -197,6 +211,5 @@ extension SideMenuViewController {
     }
     
 }
-
 
 

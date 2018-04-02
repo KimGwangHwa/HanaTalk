@@ -26,6 +26,8 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var imageURL: String?
     @NSManaged var sender: UserInfo?
     @NSManaged var receiver: UserInfo?
+    @NSManaged var title: String?
+
 
     // MARK: - Dao
     class func newMessage(with receiver: UserInfo?, text: String?) -> Message {
@@ -54,6 +56,7 @@ class Message: PFObject, PFSubclassing {
         message.isAlreadyRead = false
         message.receiver = receiver
         message.sender = DataManager.shared.currentuserInfo
+        message.title = "liked from " + (receiver?.nickname)!
         return message
     }
     
@@ -64,8 +67,18 @@ class Message: PFObject, PFSubclassing {
         message.sender = UserInfo(withoutDataWithObjectId: userInfo[kPushNotificationFrom] as? String)
         message.receiver = DataManager.shared.currentuserInfo
         return message
-
     }
-    
+
+    class func isMatched(of userInfo: UserInfo?) -> Bool {
+        let query = PFQuery(className: MessageClassName)
+        if let guardUserInfo = userInfo,
+            let currentUserInfo = DataManager.shared.currentuserInfo {
+            query.whereKey(TypeColumnName, equalTo: MessageType.liked.rawValue)
+            query.whereKey(ReceiverColumnName, equalTo: guardUserInfo)
+            query.whereKey(SenderColumnName, equalTo: currentUserInfo)
+        }
+        query.fromLocalDatastore()
+        return query.countObjects(nil) > 0 ? true : false
+    }
     
 }

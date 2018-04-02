@@ -272,7 +272,6 @@
 				342888601FB9D29800D7EB61 /* Story */,
 				3459A7301F526481000D2FC5 /* UserInfo */,
 				34211D101F3A0714000F0C94 /* Contact */,
-				34211D151F3A0714000F0C94 /* Home */,
 				34211D161F3A0714000F0C94 /* Login */,
 				34211D181F3A0714000F0C94 /* SignUp */,
 				34211D1F1F3A0714000F0C94 /* TalkRoom */,
@@ -296,13 +295,6 @@
 				34211D131F3A0714000F0C94 /* ContactCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		34211D151F3A0714000F0C94 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		34211D161F3A0714000F0C94 /* Login */ = {
@@ -1009,12 +1001,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = talk/talk.entitlements;
-				DEVELOPMENT_TEAM = 4CT46N9425;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = talk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1026,12 +1022,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = talk/talk.entitlements;
-				DEVELOPMENT_TEAM = 4CT46N9425;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = talk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};

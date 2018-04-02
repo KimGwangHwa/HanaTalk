@@ -14,6 +14,16 @@ fileprivate let DismissAlpha: CGFloat = 0
 
 class HanaAlertView: UIView {
     
+    var actionCompletion: ((_ userInfo: UserInfo?, _ isMatched: Bool) -> Void)?
+    var object: UserInfo? {
+        didSet {
+            isMathched = Message.isMatched(of: object)
+        }
+        
+    }
+    
+    var isMathched = false
+    
     private var overlayView = UIView()
     private var alertView = UIView()
     var title: String?
@@ -81,12 +91,19 @@ class HanaAlertView: UIView {
         let cornerRadius: CGFloat = 5.0
         let eventButton = UIButton(type: .custom)
         eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
-        eventButton.setTitle("Event", for: .normal)
+        
+        if isMathched {
+            eventButton.setTitle("UserInfo", for: .normal)
+        } else {
+            eventButton.setTitle("Message", for: .normal)
+        }
+        
         eventButton.setTitleColor(UIColor.white, for: .normal)
         let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
         eventButton.setBackgroundImage(backgroundImage, for: .normal)
         eventButton.clipsToBounds = true
         eventButton.layer.cornerRadius = cornerRadius
+        eventButton.addTarget(self, action: #selector(tappedEventButton), for: .touchUpInside)
         alertView.addSubview(eventButton)
         
         offsetY += (spaceHeight + eventButtonHeight)
@@ -99,7 +116,7 @@ class HanaAlertView: UIView {
         dismiss()
     }
     
-    func show(in viewController: UIViewController) {
+    private func show(in viewController: UIViewController) {
         viewController.view.addSubview(self)
         setUpView()
         UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
@@ -124,18 +141,22 @@ class HanaAlertView: UIView {
         }
     }
     
-    class func show(in viewController: UIViewController, object: Message?) {
+    @objc func tappedEventButton() {
+        actionCompletion!(object, isMathched)
+    }
+    
+    class func show(in viewController: UIViewController, object: Message?, actionCompletion: @escaping (_ userInfo: UserInfo?, _ isMatched: Bool) -> Void) {
         
         UserInfo.findUserInfo(byObjectId: object?.sender?.objectId) { (userInfo, isSuccess) in
             if isSuccess == true {
                 let view = HanaAlertView()
+                view.actionCompletion = actionCompletion
+                view.object = userInfo
                 view.imageDescription = userInfo?.nickname
                 view.imageURL = userInfo?.profileUrl
-                view.title = object?.type == MessageType.liked.rawValue ? "liked":"matching"
+                view.title = object?.title
                 view.show(in: viewController)
-                
             }
-
         }
     }
 

@@ -52,19 +52,19 @@ class ParseHelper: NSObject {
         let type =  message?.type ?? 0
         let from = message?.sender?.objectId ?? ""
         let to = message?.receiver?.objectId ?? ""
-
-        PFCloud.callFunction(inBackground: SendPushFunction, withParameters: [
-            kPushNotificationAlert : textString,
-            kPushNotificationSounds : "2",
-            kPushNotificationBadge : "1",
-            kPushNotificationChannels : [objectId],
+        let alert = message?.title ?? ""
+        
+        let push = PFPush()
+        push.setChannel(objectId)
+        push.setData([
+            kPushNotificationAlert : alert,
             kPushNotificationFrom : from,
             kPushNotificationTo : to,
             kPushNotificationText : textString,
             kPushNotificationType: type,
             kPushNotificationImageURL : imageURL
-            
-        ]) { (response, error) in
+            ])
+        push.sendInBackground { (isSuccess, error) in
             message?.pinInBackground()
             if let guardCompletion = completion {
                 guardCompletion(error == nil ? true : false)
@@ -75,7 +75,10 @@ class ParseHelper: NSObject {
     
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {
 //        PFPush.handle(userInfo)
-        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: Message.newReceiveRemoteNotification(userInfo), userInfo: userInfo)
+        let message = Message.newReceiveRemoteNotification(userInfo)
+        message.pinInBackground()
+        
+        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: message, userInfo: userInfo)
     }
     
 }
