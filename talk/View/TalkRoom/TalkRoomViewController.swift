@@ -104,8 +104,6 @@ extension TalkRoomViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidReceive(notification:)), name: .PushNotificationDidRecive, object: nil)
     }
     
-    
-
     @objc func pushNotificationDidReceive(notification: Notification?) {
         
     }

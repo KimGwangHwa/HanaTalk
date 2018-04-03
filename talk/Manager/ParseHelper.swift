@@ -73,7 +73,6 @@ class ParseHelper: NSObject {
                 guardCompletion(error == nil ? true : false)
             }
         }
-
     }
     
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {
