@@ -21,6 +21,7 @@ let UserInfoClassName = "UserInfo"
 let LikeClassName = "Like"
 let UserClassName = "_User"
 let MessageClassName = "Message"
+let TalkRoomClassName = "TalkRoom"
 
 // MARK: - ColumnName
 let UserColumnName = "user"
@@ -44,6 +45,8 @@ let kPushNotificationType = "type"
 let kPushNotificationImageURL = "imageUrl"
 let kPushNotificationText = "text"
 let kPushNotificationChannels = "channels"
+let kPushNotificationId = "objectId"
+let kPushNotificationTalkRoomId = "talkRommId"
 let kPushNotificationFrom = "from"
 let kPushNotificationTo = "to"
 

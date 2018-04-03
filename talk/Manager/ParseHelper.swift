@@ -53,6 +53,7 @@ class ParseHelper: NSObject {
         let from = message?.sender?.objectId ?? ""
         let to = message?.receiver?.objectId ?? ""
         let alert = message?.title ?? ""
+        let talkRoomId = message?.talkRoom?.objectId
         
         let push = PFPush()
         push.setChannel(objectId)
@@ -62,7 +63,9 @@ class ParseHelper: NSObject {
             kPushNotificationTo : to,
             kPushNotificationText : textString,
             kPushNotificationType: type,
-            kPushNotificationImageURL : imageURL
+            kPushNotificationImageURL : imageURL,
+            kPushNotificationId : objectId,
+            kPushNotificationTalkRoomId : talkRoomId ?? ""
             ])
         push.sendInBackground { (isSuccess, error) in
             message?.pinInBackground()

@@ -27,6 +27,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var sender: UserInfo?
     @NSManaged var receiver: UserInfo?
     @NSManaged var title: String?
+    @NSManaged var talkRoom: TalkRoom?
 
 
     // MARK: - Dao
@@ -64,6 +65,7 @@ class Message: PFObject, PFSubclassing {
         let message = Message()
         message.type = userInfo[kPushNotificationType] as! Int
         message.isAlreadyRead = false
+        message.objectId = userInfo[kPushNotificationId] as? String
         message.sender = UserInfo(withoutDataWithObjectId: userInfo[kPushNotificationFrom] as? String)
         message.receiver = DataManager.shared.currentuserInfo
         return message

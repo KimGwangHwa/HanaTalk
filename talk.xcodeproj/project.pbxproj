@@ -29,7 +29,6 @@
 		34211D301F3A0714000F0C94 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */; };
 		342600121FD3B2EA009857E7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600111FD3B2EA009857E7 /* UserInfo.swift */; };
 		342600161FD3B34B009857E7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600151FD3B34B009857E7 /* Message.swift */; };
-		342600181FD3B392009857E7 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600171FD3B392009857E7 /* ChatRoom.swift */; };
 		3426001A1FD3B3C4009857E7 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342600191FD3B3C4009857E7 /* Follow.swift */; };
 		3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426001B1FD3B3F4009857E7 /* Posts.swift */; };
 		342888621FB9D2AE00D7EB61 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342888611FB9D2AE00D7EB61 /* Story.storyboard */; };
@@ -95,6 +94,7 @@
 		34C40E0620515A4200F160D0 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C40E0520515A4200F160D0 /* ContactInfoCell.swift */; };
 		34CA961E1FFCA8A800F1FA1C /* Peek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */; };
 		34CA96201FFCA8F000F1FA1C /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */; };
+		34CE2E83207263C00078F732 /* TalkRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE2E82207263C00078F732 /* TalkRoom.swift */; };
 		34E2BA252063E47500E9B01C /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2BA242063E47500E9B01C /* Notification+Name.swift */; };
 		7ACAED9D2011BED6007C397E /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */; };
 		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
@@ -125,7 +125,6 @@
 		34211D211F3A0714000F0C94 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		342600111FD3B2EA009857E7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		342600151FD3B34B009857E7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		342600171FD3B392009857E7 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		342600191FD3B3C4009857E7 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		3426001B1FD3B3F4009857E7 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		342888611FB9D2AE00D7EB61 /* Story.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Story.storyboard; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		34C40E0520515A4200F160D0 /* ContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
 		34CA961D1FFCA8A800F1FA1C /* Peek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peek.storyboard; sourceTree = "<group>"; };
 		34CA961F1FFCA8F000F1FA1C /* PeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
+		34CE2E82207263C00078F732 /* TalkRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoom.swift; sourceTree = "<group>"; };
 		34E2BA242063E47500E9B01C /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		7ACAED9C2011BED6007C397E /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -619,8 +619,8 @@
 				342600191FD3B3C4009857E7 /* Follow.swift */,
 				3426001B1FD3B3F4009857E7 /* Posts.swift */,
 				342600151FD3B34B009857E7 /* Message.swift */,
-				342600171FD3B392009857E7 /* ChatRoom.swift */,
 				3486C066205D7C0700FF3B23 /* Like.swift */,
+				34CE2E82207263C00078F732 /* TalkRoom.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -853,7 +853,6 @@
 				3459A70E1F3B3CC8000D2FC5 /* CoreDataHelper.swift in Sources */,
 				342888681FB9D7E900D7EB61 /* PostsTableViewCell.swift in Sources */,
 				342600161FD3B34B009857E7 /* Message.swift in Sources */,
-				342600181FD3B392009857E7 /* ChatRoom.swift in Sources */,
 				346BAA351F92471B0065A762 /* Response.swift in Sources */,
 				342888641FB9D33000D7EB61 /* StoryViewController.swift in Sources */,
 				3476B0C320457B630078256D /* SideNormalCell.swift in Sources */,
@@ -863,6 +862,7 @@
 				3426001C1FD3B3F4009857E7 /* Posts.swift in Sources */,
 				34211D2A1F3A0714000F0C94 /* ContactViewController.swift in Sources */,
 				340627281F53320D00821E39 /* SendTextCell.swift in Sources */,
+				34CE2E83207263C00078F732 /* TalkRoom.swift in Sources */,
 				3409FB9B20025682001FF169 /* UploadStoryTextCell.swift in Sources */,
 				3476B0B320443D2F0078256D /* R.generated.swift in Sources */,
 				34C40E00204EC49800F160D0 /* SettingViewController.swift in Sources */,

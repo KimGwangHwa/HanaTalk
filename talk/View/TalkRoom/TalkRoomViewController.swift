@@ -15,7 +15,6 @@ class TalkRoomViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     
     private var receiverUserInfo: UserInfo? = nil
-    private var chatRoom: ChatRoom! = nil
     
     private var dataSource = [Message]()
 
