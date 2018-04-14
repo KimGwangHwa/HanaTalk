@@ -29,7 +29,7 @@ let ObjectIdColumnName = "objectId"
 let NicknameColumnName = "nickname"
 let SenderColumnName = "sender"
 let ReceiverColumnName = "receiver"
-let TypeColumnName = "receiver"
+let TypeColumnName = "type"
 
 // MARK: - Cloud Code Function
 let SendMailFunction = "sendMail"

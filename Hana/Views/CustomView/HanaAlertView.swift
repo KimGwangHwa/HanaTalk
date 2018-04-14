@@ -15,15 +15,10 @@ fileprivate let DismissAlpha: CGFloat = 0
 class HanaAlertView: UIView {
     
     var actionCompletion: ((_ userInfo: UserInfo?, _ isMatched: Bool) -> Void)?
-    var object: UserInfo? {
-        didSet {
-            isMathched = Message.isMatched(of: object)
-        }
-        
-    }
-    
+    var object: UserInfo?
+    var message: Message?
     var isMathched = false
-    
+
     private var overlayView = UIView()
     private var alertView = UIView()
     var title: String?
@@ -92,10 +87,15 @@ class HanaAlertView: UIView {
         let eventButton = UIButton(type: .custom)
         eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         
-        if isMathched {
-            eventButton.setTitle("UserInfo", for: .normal)
-        } else {
-            eventButton.setTitle("Message", for: .normal)
+        MessageDao.isMatched(of: object) { (isMathched) in
+            self.isMathched = isMathched
+            if isMathched {
+                eventButton.setTitle("Message", for: .normal)
+                self.message?.matched = true
+                self.message?.saveInBackground()
+            } else {
+                eventButton.setTitle("UserInfo", for: .normal)
+            }
         }
         
         eventButton.setTitleColor(UIColor.white, for: .normal)
@@ -150,6 +150,7 @@ class HanaAlertView: UIView {
         UserInfo.findUserInfo(byObjectId: object?.sender?.objectId) { (userInfo, isSuccess) in
             if isSuccess == true {
                 let view = HanaAlertView()
+                view.message = object
                 view.actionCompletion = actionCompletion
                 view.object = userInfo
                 view.imageDescription = userInfo?.nickname

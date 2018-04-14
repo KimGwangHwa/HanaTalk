@@ -30,6 +30,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var title: String?
     @NSManaged var talkRoom: TalkRoom?
     @NSManaged var sended: Bool
+    @NSManaged var matched: Bool
 
 
     // MARK: - Dao

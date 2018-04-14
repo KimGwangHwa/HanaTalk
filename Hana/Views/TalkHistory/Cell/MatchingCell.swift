@@ -11,7 +11,7 @@ class MatchingCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataSource: [UserInfo]?
+    var dataSource: [Message]?
     let itemCellIdentifier = R.reuseIdentifier.matchingStatusCell.identifier
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +21,14 @@ class MatchingCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.register(R.nib.matchingStatusCell(), forCellWithReuseIdentifier: itemCellIdentifier)
 
+        loadData()
+    }
+    
+    func loadData() {
+        MessageDao.findBeLikedMessages { (messages) in
+            self.dataSource = messages
+            self.collectionView.reloadData()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,10 +41,7 @@ class MatchingCell: UITableViewCell {
 
 extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if let guardDataSource = dataSource {
-//            return guardDataSource.count
-//        }
-        return 10
+        return dataSource?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

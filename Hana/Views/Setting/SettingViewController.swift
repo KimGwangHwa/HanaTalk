@@ -21,6 +21,11 @@ class SettingViewController: UIViewController {
     }
     
 
+    @IBAction func sideMenuEvent(_ sender: UIButton) {
+        SideMenuViewController.show()
+    }
+    
+    
     /*
     // MARK: - Navigation
 

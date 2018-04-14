@@ -96,9 +96,11 @@
 		34109E372076656300EC9CE0 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DDB2076656200EC9CE0 /* StoryViewController.swift */; };
 		34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DDD2076656200EC9CE0 /* CoreDataHelper.swift */; };
 		34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DDE2076656200EC9CE0 /* ParseHelper.swift */; };
+		3419C7462081C695005FFC8A /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7452081C695005FFC8A /* MessageDao.swift */; };
+		3419C7482081C87D005FFC8A /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7472081C87D005FFC8A /* DAO.swift */; };
+		3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7492081D21F005FFC8A /* UserInfoDao.swift */; };
 		3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441E8592013A271004DB937 /* AVFoundation.framework */; };
-		34C5E15F20766880003A41F5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5E15E20766880003A41F5 /* R.generated.swift */; };
-		804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */; };
+		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 /* End PBXBuildFile section */
 
@@ -196,9 +198,12 @@
 		34109DDD2076656200EC9CE0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		34109DDE2076656200EC9CE0 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		34109DDF2076656200EC9CE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3419C7452081C695005FFC8A /* MessageDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
+		3419C7472081C87D005FFC8A /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		3419C7492081D21F005FFC8A /* UserInfoDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		3441E8592013A271004DB937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* Hana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hana.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		34C5E15E20766880003A41F5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		34C5E160207668A6003A41F5 /* Hana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hana.entitlements; sourceTree = "<group>"; };
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */,
-				804786F12FEC50D2922F1B4E /* Pods_talk.framework in Frameworks */,
 				D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,13 +242,11 @@
 				34109D5D2076656200EC9CE0 /* StoryBoards */,
 				34109D6E2076656200EC9CE0 /* LaunchScreen.storyboard */,
 				34109D6F2076656200EC9CE0 /* Managers */,
-				34109D712076656200EC9CE0 /* DAO */,
 				34109D722076656200EC9CE0 /* Models */,
 				34109D7B2076656200EC9CE0 /* Extensions */,
 				34109D812076656200EC9CE0 /* Common */,
 				34109D852076656200EC9CE0 /* AppDelegate.swift */,
 				34109D862076656200EC9CE0 /* Resource */,
-				34109D8B2076656200EC9CE0 /* Controllers */,
 				34109D8C2076656200EC9CE0 /* Views */,
 				34109DDC2076656200EC9CE0 /* Helpers */,
 			);
@@ -282,16 +284,10 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		34109D712076656200EC9CE0 /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DAO;
-			sourceTree = "<group>";
-		};
 		34109D722076656200EC9CE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3419C7422081C64F005FFC8A /* DAO */,
 				34109D732076656200EC9CE0 /* Response.swift */,
 				34109D742076656200EC9CE0 /* API */,
 			);
@@ -335,18 +331,11 @@
 		34109D862076656200EC9CE0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				34C5E15E20766880003A41F5 /* R.generated.swift */,
+				3451464D2081A92800605651 /* R.generated.swift */,
 				34109D872076656200EC9CE0 /* Assets.xcassets */,
 				34109D882076656200EC9CE0 /* Default-568h@2x.png */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		34109D8B2076656200EC9CE0 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		34109D8C2076656200EC9CE0 /* Views */ = {
@@ -633,6 +622,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		3419C7422081C64F005FFC8A /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				3419C7452081C695005FFC8A /* MessageDao.swift */,
+				3419C7472081C87D005FFC8A /* DAO.swift */,
+				3419C7492081D21F005FFC8A /* UserInfoDao.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		349EAD3D1F2F55CE005833ED = {
 			isa = PBXGroup;
 			children = (
@@ -781,7 +780,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Hana/Resource\"";
 		};
 		553EE7F80FD0D0735136E45C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -864,12 +863,12 @@
 				34109E042076656300EC9CE0 /* MatchingViewController.swift in Sources */,
 				34109E122076656300EC9CE0 /* SignUpViewController.swift in Sources */,
 				34109DF72076656200EC9CE0 /* Follow.swift in Sources */,
-				34C5E15F20766880003A41F5 /* R.generated.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,
 				34109E1C2076656300EC9CE0 /* EditContactInfoCell.swift in Sources */,
 				34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */,
 				34109E152076656300EC9CE0 /* MatchingCell.swift in Sources */,
 				34109E262076656300EC9CE0 /* BioCell.swift in Sources */,
+				3419C7462081C695005FFC8A /* MessageDao.swift in Sources */,
 				34109E0A2076656300EC9CE0 /* ContactCell.swift in Sources */,
 				34109E362076656300EC9CE0 /* PostsTableViewCell.swift in Sources */,
 				34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */,
@@ -888,6 +887,7 @@
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,
 				34109E372076656300EC9CE0 /* StoryViewController.swift in Sources */,
 				34109E052076656300EC9CE0 /* UploadStoryViewController.swift in Sources */,
+				3419C7482081C87D005FFC8A /* DAO.swift in Sources */,
 				34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */,
 				34109E172076656300EC9CE0 /* MatchingStatusCell.swift in Sources */,
 				34109E252076656300EC9CE0 /* ContactInfoCell.swift in Sources */,
@@ -898,6 +898,7 @@
 				34109E0D2076656300EC9CE0 /* TalkRoomViewController.swift in Sources */,
 				34109E2E2076656300EC9CE0 /* FindViewController.swift in Sources */,
 				34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */,
+				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				34109E312076656300EC9CE0 /* AlbumCell.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
@@ -910,6 +911,7 @@
 				34109DF82076656200EC9CE0 /* Posts.swift in Sources */,
 				34109E2F2076656300EC9CE0 /* SettingViewController.swift in Sources */,
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,
+				3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,7 +967,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1017,7 +1019,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

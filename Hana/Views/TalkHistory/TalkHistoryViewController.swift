@@ -18,8 +18,13 @@ class TalkHistoryViewController: UIViewController {
 
         setUpView()
         addObserver()
+        loadData()
     }
-
+    
+    func loadData() {
+        
+    }
+    
     func setUpView() {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
