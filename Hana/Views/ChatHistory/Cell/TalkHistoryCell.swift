@@ -15,6 +15,16 @@ class TalkHistoryCell: UITableViewCell {
     @IBOutlet weak var talkDescriptionLabel: UILabel!
     @IBOutlet weak var talkBageLabel: UILabel!
     
+    var talkRoom: TalkRoom? {
+        didSet {
+            if let receiver = talkRoom?.members?.first {
+                iconImageView.sd_setImage(with: URL(string: receiver.profileUrl ?? ""), placeholderImage: nil)
+                talkNameLabel.text = receiver.nickname
+            }
+            talkDescriptionLabel.text = talkRoom?.lastMessage?.text
+            talkDateLabel.text = Common.dateToString(date: talkRoom?.lastMessage?.createdAt, format: DATE_FORMAT_1)
+        }
+    }
     
     
     override func awakeFromNib() {

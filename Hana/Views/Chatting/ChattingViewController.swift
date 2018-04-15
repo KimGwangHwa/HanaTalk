@@ -17,7 +17,8 @@ class ChattingViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextField: UITextField!
     
-    var receiver: UserInfo? = nil
+    var talkRoom: TalkRoom?
+    var receiver: UserInfo?
     private var sender: UserInfo! = DataManager.shared.currentuserInfo!
     
     private var dataSource = [Message]()
@@ -31,6 +32,18 @@ class ChattingViewController: UIViewController {
         super.viewDidLoad()
         addObserver()
         setUpView()
+        loadData()
+    }
+    
+    func loadData() {
+        if let guardTalkRoom = talkRoom {
+            MessageDao.findMessages(with: guardTalkRoom) { (messages) in
+                if let guardMessage = messages {
+                    self.dataSource.append(contentsOf: guardMessage)
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     func setUpView() {
@@ -55,6 +68,7 @@ class ChattingViewController: UIViewController {
             self.inputTextField.text = nil
             self.inputTextField.resignFirstResponder()
             self.tableView.reloadData()
+            TalkRoomDao.saveTalkRoom(with: self.receiver, lastMessage: message)
         }
     }
     

@@ -90,12 +90,22 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 return cell
             }
         }
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: historyCellIdentifier, for: indexPath) as? TalkHistoryCell {
-            return cell
+        if indexPath.section == Section.history.rawValue {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: historyCellIdentifier, for: indexPath) as? TalkHistoryCell {
+                cell.talkRoom = historys?[indexPath.row]
+                return cell
+            }
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let viewController = R.storyboard.chatting.chattingViewController() {
+            viewController.talkRoom = historys?[indexPath.row]
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
@@ -108,7 +118,7 @@ extension ChatHistoryViewController {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-        
+        loadData()
     }
 
     

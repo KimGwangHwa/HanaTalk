@@ -192,9 +192,9 @@ extension SideMenuViewController {
                 })
                 break
             default:
-                if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
-                    self.present(talkRoomViewController, animated: true, completion: nil)
-                }
+//                if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
+//                    self.present(talkRoomViewController, animated: true, completion: nil)
+//                }
                 break
             }
 

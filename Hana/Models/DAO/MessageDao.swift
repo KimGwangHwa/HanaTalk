@@ -35,13 +35,17 @@ class MessageDao: DAO {
         }
     }
     
-    class func findLikedMessages(closure: @escaping ([Message]?)-> Void)  {
+    class func findLikedMessages(closure: @escaping ([Message]?)-> Void) {
         if let currentUserInfo = DataManager.shared.currentuserInfo {
             localFind(with: MessageClassName, parameters: [TypeColumnName : MessageType.liked.rawValue,
                                                            SenderColumnName : currentUserInfo])   { (objects) in
                                                             closure(objects as? [Message])
             }
         }
+    }
+    
+    class func findMessages(with talkRoom: TalkRoom, closure: @escaping ([Message]?)-> Void) {
+        localFind(with: MessageClassName, parameters: [TalkRoomColumnName : talkRoom], closure: closure)
     }
     
     

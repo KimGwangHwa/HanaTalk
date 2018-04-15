@@ -64,7 +64,6 @@ class ParseHelper: NSObject {
             kPushNotificationText : textString,
             kPushNotificationType: type,
             kPushNotificationImageURL : imageURL,
-            kPushNotificationId : objectId,
             kPushNotificationTalkRoomId : talkRoomId ?? ""
             ])
         push.sendInBackground { (isSuccess, error) in

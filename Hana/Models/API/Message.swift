@@ -31,8 +31,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var talkRoom: TalkRoom?
     @NSManaged var sended: Bool
     @NSManaged var matched: Bool
-
-
+    
     // MARK: - Dao
     class func newMessage(with receiver: UserInfo?, text: String?) -> Message {
         let message = Message()
@@ -70,7 +69,7 @@ class Message: PFObject, PFSubclassing {
         let message = Message()
         message.type = userInfo[kPushNotificationType] as! Int
         message.read = false
-        message.objectId = userInfo[kPushNotificationId] as? String
+//        message.objectId = userInfo[kPushNotificationId] as? String
         message.sender = UserInfo(withoutDataWithObjectId: userInfo[kPushNotificationFrom] as? String)
         message.receiver = DataManager.shared.currentuserInfo
         return message
