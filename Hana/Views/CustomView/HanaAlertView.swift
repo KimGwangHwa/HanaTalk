@@ -92,7 +92,7 @@ class HanaAlertView: UIView {
             if isMathched {
                 eventButton.setTitle("Message", for: .normal)
                 self.message?.matched = true
-                self.message?.saveInBackground()
+                self.message?.pinInBackground()
             } else {
                 eventButton.setTitle("UserInfo", for: .normal)
             }

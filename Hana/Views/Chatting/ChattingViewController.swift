@@ -8,13 +8,17 @@
 
 import UIKit
 
-class TalkRoomViewController: UIViewController {
+class ChattingViewController: UIViewController {
+
+    fileprivate let reciveTextCellIdentifier = R.reuseIdentifier.receiveTextCell.identifier
+    fileprivate let SendTextCellIdentifier = R.reuseIdentifier.sendTextCell.identifier
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextField: UITextField!
     
-    private var receiverUserInfo: UserInfo? = nil
+    var receiver: UserInfo? = nil
+    private var sender: UserInfo! = DataManager.shared.currentuserInfo!
     
     private var dataSource = [Message]()
 
@@ -30,32 +34,28 @@ class TalkRoomViewController: UIViewController {
     }
     
     func setUpView() {
-        title = receiverUserInfo?.nickname
+        title = receiver?.nickname
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    // MARK: - DidReceiveMessageDelegate
-    
-    func didReceiveMessage(_ message: Message?, isSuccess: Bool) {
-        if let guardMessage = message {
-            dataSource.append(guardMessage)
-            tableView.reloadData()
-        }
-    }
-    
-    
-    
     // MARK: - TapEvent
     
-    @IBAction func tapTableViewEvent(_ sender: Any) {
+    @IBAction func tapTableViewEvent(_ sender: UIButton) {
         view.endEditing(false)
     }
 
-    @IBAction func sendEvent(_ sender: Any) {
+    @IBAction func sendEvent(_ sender: UIButton) {
+        let message = Message.newMessage(with: receiver, text: inputTextField.text)
         
+        ParseHelper.sendMessage(message) { (isSuccess) in
+            self.dataSource.append(message)
+            self.inputTextField.text = nil
+            self.inputTextField.resignFirstResponder()
+            self.tableView.reloadData()
+        }
     }
     
     deinit {
@@ -65,7 +65,7 @@ class TalkRoomViewController: UIViewController {
 }
 
 // MARK: - UITabelViewDelegate
-extension TalkRoomViewController: UITableViewDelegate, UITableViewDataSource {
+extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,29 +74,41 @@ extension TalkRoomViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataSource[indexPath.row]
-        /*
-         
-         if rowData.responderState == .Receive {
-         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.receiveTextCell.identifier, for: indexPath) as? ReceiveTextCell {
-         cell.message = dataSource[indexPath.row]
-         cell.receiver = receiverUserInfo
-         return cell
-         }
-         
-         } else if rowData.responderState == .Send {
-         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sendTextCell.identifier, for: indexPath) as? SendTextCell {
-         cell.message = dataSource[indexPath.row]
-         return cell
-         }
-         }
-         */
+        if rowData.sender == sender {
+            switch rowData.type {
+            case MessageType.image.rawValue:
+                break
+            case MessageType.text.rawValue:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: SendTextCellIdentifier, for: indexPath) as? SendTextCell {
+                    cell.message = rowData
+                    return cell
+                }
+                break
+            default:
+                break
+            }
+
+        } else if (rowData.sender == receiver) {
+            switch rowData.type {
+            case MessageType.image.rawValue:
+                break
+            case MessageType.text.rawValue:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: reciveTextCellIdentifier, for: indexPath) as? ReceiveTextCell {
+                    cell.message = rowData
+                    return cell
+                }
+                break
+            default:
+                break
+            }
+        }
         return UITableViewCell()
     }
 }
 
 // MARK: - NotificationCenter
 
-extension TalkRoomViewController {
+extension ChattingViewController {
     
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -105,7 +117,12 @@ extension TalkRoomViewController {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-        
+        if let guardMessage = notification?.object as? Message {
+            if guardMessage.sender?.objectId == receiver?.objectId {
+                dataSource.append(guardMessage)
+                tableView.reloadData()
+            }
+        }
     }
 
     @objc func keyboardWillShow(notification: Notification?) {

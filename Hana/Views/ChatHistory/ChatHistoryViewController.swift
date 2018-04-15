@@ -7,11 +7,21 @@
 
 import UIKit
 
-class TalkHistoryViewController: UIViewController {
+class ChatHistoryViewController: UIViewController {
 
+    fileprivate enum Section: Int {
+        case matching = 0
+        case history = 1
+        
+        static var count: Int = 2
+        
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     let historyCellIdentifier = R.reuseIdentifier.talkHistoryCell.identifier
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
+    var historys: [TalkRoom]?
+    var mathings: [Message]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +32,13 @@ class TalkHistoryViewController: UIViewController {
     }
     
     func loadData() {
-        
+        TalkRoomDao.findTalk { (rooms) in
+            self.historys = rooms
+            MessageDao.findBeLikedMessages { (messages) in
+                self.mathings = messages
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func setUpView() {
@@ -46,24 +62,31 @@ class TalkHistoryViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension TalkHistoryViewController: UITableViewDelegate, UITableViewDataSource {
+extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 1
+        if section == Section.matching.rawValue {
+            if let matchingCount = mathings?.count,
+                matchingCount > 0 {
+                return 1
+            }
+        } else if (section == Section.history.rawValue) {
+            return historys?.count ?? 0
         }
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.section == Section.matching.rawValue {
             if let cell = tableView.dequeueReusableCell(withIdentifier: matchingCellIdentifier, for: indexPath) as? MatchingCell {
+                cell.messages = mathings
+                cell.delegate = self
                 return cell
             }
         }
@@ -72,13 +95,12 @@ extension TalkHistoryViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         }
         
-        
         return UITableViewCell()
     }
 }
 
 // MARK: - NotificationCenter
-extension TalkHistoryViewController {
+extension ChatHistoryViewController {
 
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationDidReceive(notification:)), name: .PushNotificationDidRecive, object: nil)
@@ -90,6 +112,20 @@ extension TalkHistoryViewController {
     }
 
     
+}
+
+// MARK: - MatchingCellDelegate
+
+extension ChatHistoryViewController: MatchingCellDelegate {
+    
+    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Message) {
+        if object.matched {
+            if let viewController = R.storyboard.chatting.chattingViewController() {
+                viewController.receiver = object.sender
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
 }
 
 

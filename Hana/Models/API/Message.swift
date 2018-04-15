@@ -41,6 +41,7 @@ class Message: PFObject, PFSubclassing {
         message.text = text
         message.receiver = receiver
         message.sender = DataManager.shared.currentuserInfo
+        message.title = text
         return message
     }
     
@@ -51,6 +52,7 @@ class Message: PFObject, PFSubclassing {
         message.imageURL = imageURL
         message.receiver = receiver
         message.sender = DataManager.shared.currentuserInfo
+        message.title = "image"
         return message
     }
     

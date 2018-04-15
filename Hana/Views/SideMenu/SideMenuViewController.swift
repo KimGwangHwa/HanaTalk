@@ -38,7 +38,7 @@ class SideMenuViewController: UIViewController {
         normalDataSource[1] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
         self.addChildViewController(browseViewController!)
 
-        let talkHistoryViewController = R.storyboard.talkHistory().instantiateInitialViewController()
+        let talkHistoryViewController = R.storyboard.chatHistory().instantiateInitialViewController()
         normalDataSource[2] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
         self.addChildViewController(talkHistoryViewController!)
 
@@ -104,15 +104,6 @@ class SideMenuViewController: UIViewController {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -175,6 +166,7 @@ extension SideMenuViewController: SideHeaderCellDelegate {
     }
 }
 
+// MARK: - PushNotificationDidRecive
 extension SideMenuViewController {
     
     func addObserver() {
@@ -188,7 +180,7 @@ extension SideMenuViewController {
             case MessageType.liked.rawValue:
                 HanaAlertView.show(in: self, object: message, actionCompletion: { (userInfo, isMatched) in
                     if isMatched {
-                        if let talkRoomViewController = R.storyboard.talkRoom.talkRoomViewController() {
+                        if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
                             self.present(talkRoomViewController, animated: true, completion: nil)
                         }
                     } else {
@@ -200,7 +192,7 @@ extension SideMenuViewController {
                 })
                 break
             default:
-                if let talkRoomViewController = R.storyboard.talkRoom.talkRoomViewController() {
+                if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
                     self.present(talkRoomViewController, animated: true, completion: nil)
                 }
                 break

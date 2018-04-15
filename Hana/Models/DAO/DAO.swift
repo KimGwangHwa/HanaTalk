@@ -10,7 +10,7 @@ import Parse
 
 class DAO: NSObject {
     
-    class func localFind(with className: String, parameters:  [String : Any]?, closure: @escaping ([PFObject]?)-> Void ) {
+    class func localFind<T: PFObject>(with className: String, parameters:  [String : Any]? = nil, closure: @escaping ([T]?)-> Void ) {
         let query = PFQuery(className: className)
         
         for (key, value) in parameters ?? [:] {
@@ -19,11 +19,11 @@ class DAO: NSObject {
         }
         query.fromLocalDatastore()
         query.findObjectsInBackground { (objects, error) in
-            closure(objects)
+            closure(objects as? [T])
         }
     }
 
-    class func remoteFind(with className: String, parameters:  [String : Any]?, closure: @escaping ([PFObject]?, Bool)-> Void ) {
+    class func remoteFind<T: PFObject>(with className: String, parameters:  [String : Any]?, closure: @escaping ([T]?, Bool)-> Void ) {
         let query = PFQuery(className: className)
         
         for (key, value) in parameters ?? [:] {
@@ -32,7 +32,7 @@ class DAO: NSObject {
         }
         
         query.findObjectsInBackground { (objects, error) in
-            closure(objects, error == nil ? true: false)
+            closure(objects as? [T], error == nil ? true: false)
         }
     }
 

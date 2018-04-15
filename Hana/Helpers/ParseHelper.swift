@@ -45,7 +45,7 @@ class ParseHelper: NSObject {
     
     // MARK: - Push Notification
     
-    class func sendMessage(_ message: Message?, completion: ((Bool) -> Void)?) {
+    class func sendMessage(_ message: Message?, completion: ((Bool) -> Void)? = nil) {
         let objectId = message?.receiver?.objectId ?? ""
         let textString = message?.text ?? ""
         let imageURL = message?.imageURL ?? ""

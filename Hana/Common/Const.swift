@@ -46,7 +46,7 @@ let kPushNotificationImageURL = "imageUrl"
 let kPushNotificationText = "text"
 let kPushNotificationChannels = "channels"
 let kPushNotificationId = "objectId"
-let kPushNotificationTalkRoomId = "talkRommId"
+let kPushNotificationTalkRoomId = "talkRoomId"
 let kPushNotificationFrom = "from"
 let kPushNotificationTo = "to"
 
