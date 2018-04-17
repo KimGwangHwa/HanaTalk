@@ -35,5 +35,9 @@ class DAO: NSObject {
             closure(objects as? [T], error == nil ? true: false)
         }
     }
+    
+    
+    
+    
 
 }

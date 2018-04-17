@@ -21,7 +21,7 @@ class ChatHistoryViewController: UIViewController {
     let historyCellIdentifier = R.reuseIdentifier.talkHistoryCell.identifier
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
     var historys: [TalkRoom]?
-    var mathings: [Message]?
+    var mathings: [Like]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,10 @@ class ChatHistoryViewController: UIViewController {
     func loadData() {
         TalkRoomDao.findTalk { (rooms) in
             self.historys = rooms
-            MessageDao.findBeLikedMessages { (messages) in
-                self.mathings = messages
+            LikeDao.find(closure: { (likes, isSuccess) in
+                self.mathings = likes
                 self.tableView.reloadData()
-            }
+            })
         }
     }
     
@@ -85,7 +85,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == Section.matching.rawValue {
             if let cell = tableView.dequeueReusableCell(withIdentifier: matchingCellIdentifier, for: indexPath) as? MatchingCell {
-                cell.messages = mathings
+                cell.dataSource = mathings
                 cell.delegate = self
                 return cell
             }
@@ -128,10 +128,10 @@ extension ChatHistoryViewController {
 
 extension ChatHistoryViewController: MatchingCellDelegate {
     
-    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Message) {
+    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like) {
         if object.matched {
             if let viewController = R.storyboard.chatting.chattingViewController() {
-                viewController.receiver = object.sender
+                viewController.receiver = object.liked
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }

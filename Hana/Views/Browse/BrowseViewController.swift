@@ -91,7 +91,7 @@ extension BrowseViewController: BrowseCellDelegate {
     }
     
     func didTouchLiked(with Object: UserInfo?) {
-        ParseHelper.sendMessage(Message.newLikedMessage(with: Object), completion: nil)
+        ParseHelper.sendPush(with: Like(with: Object!), completion: nil)
     }
 }
 

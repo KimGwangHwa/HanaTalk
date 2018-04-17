@@ -61,15 +61,20 @@ class ChattingViewController: UIViewController {
     }
 
     @IBAction func sendEvent(_ sender: UIButton) {
-        let message = Message.newMessage(with: receiver, text: inputTextField.text)
-        
-        ParseHelper.sendMessage(message) { (isSuccess) in
+        let message = Message(with: receiver!, text: inputTextField.text!)
+        ParseHelper.sendPush(with: message) { (isSuccess) in
             self.dataSource.append(message)
             self.inputTextField.text = nil
             self.inputTextField.resignFirstResponder()
             self.tableView.reloadData()
-            TalkRoomDao.saveTalkRoom(with: self.receiver, lastMessage: message)
         }
+//        ParseHelper.sendMessage(message) { (isSuccess) in
+//            self.dataSource.append(message)
+//            self.inputTextField.text = nil
+//            self.inputTextField.resignFirstResponder()
+//            self.tableView.reloadData()
+//            TalkRoomDao.saveTalkRoom(with: self.receiver, lastMessage: message)
+//        }
     }
     
     deinit {

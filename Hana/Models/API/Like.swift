@@ -13,16 +13,14 @@ class Like: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return LikeClassName
     }
-    @NSManaged var userInfo: UserInfo?
-    @NSManaged var likedUserInfo: UserInfo?
+    @NSManaged var liked: UserInfo?
+    @NSManaged var likedBy: UserInfo?
+    @NSManaged var matched: Bool
 
-    class func saveLiked(userInfo: UserInfo?, completion: @escaping  (Bool) -> Void) {
-        let like = Like(className: LikeClassName)
-        like.userInfo = DataManager.shared.currentuserInfo
-        like.likedUserInfo = userInfo
-        like.saveInBackground { (isSuccess, error) in
-            completion(isSuccess)
-        }
+    init(with liked: UserInfo) {
+        super.init()
+        self.liked = liked
+        self.likedBy = DataManager.shared.currentuserInfo
     }
     
 }

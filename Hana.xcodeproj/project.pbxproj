@@ -102,6 +102,7 @@
 		3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C74B208314E8005FFC8A /* TalkRoomDao.swift */; };
 		3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441E8592013A271004DB937 /* AVFoundation.framework */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
+		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 /* End PBXBuildFile section */
 
@@ -206,6 +207,7 @@
 		3441E8592013A271004DB937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* Hana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hana.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BE7ED120862882000D8571 /* LikeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDao.swift; sourceTree = "<group>"; };
 		34C5E160207668A6003A41F5 /* Hana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hana.entitlements; sourceTree = "<group>"; };
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				3419C7472081C87D005FFC8A /* DAO.swift */,
 				3419C7492081D21F005FFC8A /* UserInfoDao.swift */,
 				3419C74B208314E8005FFC8A /* TalkRoomDao.swift */,
+				34BE7ED120862882000D8571 /* LikeDao.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				34109E2C2076656300EC9CE0 /* FindCell.swift in Sources */,
 				34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */,
 				34109E342076656300EC9CE0 /* LoginViewController.swift in Sources */,
+				34BE7ED220862882000D8571 /* LikeDao.swift in Sources */,
 				34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */,
 				34109DF32076656200EC9CE0 /* UserInfo.swift in Sources */,
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,

@@ -31,6 +31,10 @@ let SenderColumnName = "sender"
 let ReceiverColumnName = "receiver"
 let TypeColumnName = "type"
 let TalkRoomColumnName = "talkRoom"
+let LikedColumnName = "liked"
+let likedByColumnName = "likedBy"
+
+
 
 
 // MARK: - Cloud Code Function
@@ -43,14 +47,9 @@ let kPushNotificationAlert = "alert"
 let kPushNotificationSounds = "sounds"
 let kPushNotificationBadge = "badge"
 
-let kPushNotificationType = "type"
-let kPushNotificationImageURL = "imageUrl"
-let kPushNotificationText = "text"
-let kPushNotificationChannels = "channels"
 let kPushNotificationId = "objectId"
-let kPushNotificationTalkRoomId = "talkRoomId"
-let kPushNotificationFrom = "from"
-let kPushNotificationTo = "to"
+let kPushNotificationType = "type"
+
 
 let ModalAnimateDuration: TimeInterval = 0.35
 

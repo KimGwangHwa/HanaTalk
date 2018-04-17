@@ -13,9 +13,8 @@ class TalkRoom: PFObject, PFSubclassing {
         return TalkRoomClassName
     }
 
-    @NSManaged var unreadMessageCount: Int
+    @NSManaged var unreadCount: Int
     @NSManaged var members: [UserInfo]?
     @NSManaged var lastMessage: Message?
-//    @NSManaged var type: Int?
 
 }

@@ -8,14 +8,16 @@
 import UIKit
 
 protocol MatchingCellDelegate: class {
-    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Message)
+
+    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like)
+
 }
 
 class MatchingCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     weak var delegate: MatchingCellDelegate?
-    var messages: [Message]! {
+    var dataSource: [Like]! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -41,12 +43,12 @@ class MatchingCell: UITableViewCell {
 
 extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier, for: indexPath) as? MatchingStatusCell {
-            cell.message = messages[indexPath.row]
+            cell.model  = dataSource[indexPath.row]
             return cell
         }
         return UICollectionViewCell()
@@ -54,7 +56,7 @@ extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if delegate != nil {
-            delegate?.matchingCell(self, didSelectItemAt: messages[indexPath.row])
+            delegate?.matchingCell(self, didSelectItemAt: dataSource[indexPath.row])
         }
     }
     

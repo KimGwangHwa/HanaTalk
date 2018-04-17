@@ -87,16 +87,16 @@ class HanaAlertView: UIView {
         let eventButton = UIButton(type: .custom)
         eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         
-        MessageDao.isMatched(of: object) { (isMathched) in
-            self.isMathched = isMathched
-            if isMathched {
-                eventButton.setTitle("Message", for: .normal)
-                self.message?.matched = true
-                self.message?.pinInBackground()
-            } else {
-                eventButton.setTitle("UserInfo", for: .normal)
-            }
-        }
+//        MessageDao.isMatched(of: object) { (isMathched) in
+//            self.isMathched = isMathched
+//            if isMathched {
+//                eventButton.setTitle("Message", for: .normal)
+//                self.message?.matched = true
+//                self.message?.pinInBackground()
+//            } else {
+//                eventButton.setTitle("UserInfo", for: .normal)
+//            }
+//        }
         
         eventButton.setTitleColor(UIColor.white, for: .normal)
         let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
@@ -155,7 +155,7 @@ class HanaAlertView: UIView {
                 view.object = userInfo
                 view.imageDescription = userInfo?.nickname
                 view.imageURL = userInfo?.profileUrl
-                view.title = object?.title
+                //view.title = object?.title
                 view.show(in: viewController)
             }
         }
