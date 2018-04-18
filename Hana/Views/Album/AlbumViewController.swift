@@ -108,11 +108,11 @@ class AlbumViewController: UIViewController, AlbumCellDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let guardIdentifier = segue.identifier, guardIdentifier == R.segue.albumViewController.showUploadStory.identifier {
-            if let uploadViewController = segue.destination as? UploadStoryViewController {
-                uploadViewController.uploadImages = selectedImages
-            }
-        }
+//        if let guardIdentifier = segue.identifier, guardIdentifier == R.segue.albumViewController.showUploadStory.identifier {
+//            if let uploadViewController = segue.destination as? UploadStoryViewController {
+//                uploadViewController.uploadImages = selectedImages
+//            }
+//        }
     }
 
 }
@@ -125,7 +125,7 @@ extension AlbumViewController {
             dismiss(animated: true, completion: nil)
             delegate?.albumViewController(self, didSelect: cellSelectedImage)
         } else {
-            self.performSegue(withIdentifier: R.segue.albumViewController.showUploadStory.identifier, sender: nil)
+//            self.performSegue(withIdentifier: R.segue.albumViewController.showUploadStory.identifier, sender: nil)
         }
     }
     

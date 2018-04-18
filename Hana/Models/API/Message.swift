@@ -10,9 +10,8 @@ import Parse
 
 // MARK: - Message Type
 enum MessageType: Int {
-    case liked = 0
-    case image
-    case text
+    case text = 0
+    case image = 1
 }
 
 class Message: PFObject, PFSubclassing {
@@ -53,16 +52,4 @@ class Message: PFObject, PFSubclassing {
         super.init()
     }
         
-    class func isMatched(of userInfo: UserInfo?) -> Bool {
-        let query = PFQuery(className: MessageClassName)
-        if let guardUserInfo = userInfo,
-            let currentUserInfo = DataManager.shared.currentuserInfo {
-            query.whereKey(TypeColumnName, equalTo: MessageType.liked.rawValue)
-            query.whereKey(ReceiverColumnName, equalTo: guardUserInfo)
-            query.whereKey(SenderColumnName, equalTo: currentUserInfo)
-        }
-        query.fromLocalDatastore()
-        return query.countObjects(nil) > 0 ? true : false
-    }
-    
 }

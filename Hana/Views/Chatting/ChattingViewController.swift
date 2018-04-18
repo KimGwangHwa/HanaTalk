@@ -19,7 +19,7 @@ class ChattingViewController: UIViewController {
     
     var talkRoom: TalkRoom?
     var receiver: UserInfo?
-    private var sender: UserInfo! = DataManager.shared.currentuserInfo!
+    private var currentUserInfo: UserInfo! = DataManager.shared.currentuserInfo!
     
     private var dataSource = [Message]()
 
@@ -37,8 +37,8 @@ class ChattingViewController: UIViewController {
     
     func loadData() {
         if let guardTalkRoom = talkRoom {
-            MessageDao.findMessages(with: guardTalkRoom) { (messages) in
-                if let guardMessage = messages {
+            MessageDao.find(by: guardTalkRoom) { (objects, isSuccess) in
+                if let guardMessage = objects {
                     self.dataSource.append(contentsOf: guardMessage)
                     self.tableView.reloadData()
                 }
@@ -61,7 +61,9 @@ class ChattingViewController: UIViewController {
     }
 
     @IBAction func sendEvent(_ sender: UIButton) {
+
         let message = Message(with: receiver!, text: inputTextField.text!)
+        
         ParseHelper.sendPush(with: message) { (isSuccess) in
             self.dataSource.append(message)
             self.inputTextField.text = nil
@@ -93,7 +95,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataSource[indexPath.row]
-        if rowData.sender == sender {
+        if rowData.sender == currentUserInfo {
             switch rowData.type {
             case MessageType.image.rawValue:
                 break

@@ -174,30 +174,23 @@ extension SideMenuViewController {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-        
-        if let message = notification?.object as? Message {
-            switch message.type {
-            case MessageType.liked.rawValue:
-                HanaAlertView.show(in: self, object: message, actionCompletion: { (userInfo, isMatched) in
-                    if isMatched {
-                        if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
-                            self.present(talkRoomViewController, animated: true, completion: nil)
-                        }
-                    } else {
-                        if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-                            userInfoViewController.userInfo = userInfo
-                            self.present(userInfoViewController, animated: true, completion: nil)
-                        }
-                    }
-                })
-                break
-            default:
-//                if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
-//                    self.present(talkRoomViewController, animated: true, completion: nil)
+//
+//        if let message = notification?.object as? Message {
+//
+//        }
+        if let like = notification?.object as? Like  {
+            HanaAlertView.show(in: self, object: like) { (like) in
+//                if like?.matched {
+//                    if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
+//                        self.present(talkRoomViewController, animated: true, completion: nil)
+//                    }
+//                } else {
+//                    if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
+//                        userInfoViewController.userInfo = userInfo
+//                        self.present(userInfoViewController, animated: true, completion: nil)
+//                    }
 //                }
-                break
             }
-
         }
         
     }

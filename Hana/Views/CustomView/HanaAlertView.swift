@@ -13,25 +13,15 @@ fileprivate let ShowAlpha: CGFloat = 0.5
 fileprivate let DismissAlpha: CGFloat = 0
 
 class HanaAlertView: UIView {
-    
-    var actionCompletion: ((_ userInfo: UserInfo?, _ isMatched: Bool) -> Void)?
-    var object: UserInfo?
-    var message: Message?
-    var isMathched = false
+
+    var actionCompletion: ((Like) -> Void)?
 
     private var overlayView = UIView()
     private var alertView = UIView()
-    var title: String?
-    var imageURL: String?
-    var imageDescription: String?
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
+    var object: Like!
+    
+    
     func setUpView() {
         
         self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
@@ -52,7 +42,11 @@ class HanaAlertView: UIView {
         let titleFontSize: CGFloat = 16
 
         let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: titleHeight))
-        titleLabel.text = title
+        if object.matched {
+            titleLabel.text = "MATHCED"
+        } else {
+            titleLabel.text = "LIKED BY"
+        }
         titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
         titleLabel.textAlignment = .center
         alertView.addSubview(titleLabel)
@@ -65,7 +59,7 @@ class HanaAlertView: UIView {
         let iconImageView = UIImageView(frame: CGRect(x: (ScreenWidth - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = iconWidth/2
-        iconImageView.sd_setImage(with: URL(string: imageURL ?? ""), placeholderImage: nil)
+        iconImageView.sd_setImage(with: URL(string: object.likedBy?.profileUrl ?? ""), placeholderImage: nil)
         alertView.addSubview(iconImageView)
        
         offsetY += (spaceHeight + iconHeight)
@@ -75,7 +69,7 @@ class HanaAlertView: UIView {
 
         let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: descriptionHeight))
         descriptionLabel.textAlignment = .center
-        descriptionLabel.text = imageDescription
+        descriptionLabel.text = object.likedBy?.nickname
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: descriptionFontSize)
         alertView.addSubview(descriptionLabel)
         
@@ -87,16 +81,11 @@ class HanaAlertView: UIView {
         let eventButton = UIButton(type: .custom)
         eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         
-//        MessageDao.isMatched(of: object) { (isMathched) in
-//            self.isMathched = isMathched
-//            if isMathched {
-//                eventButton.setTitle("Message", for: .normal)
-//                self.message?.matched = true
-//                self.message?.pinInBackground()
-//            } else {
-//                eventButton.setTitle("UserInfo", for: .normal)
-//            }
-//        }
+        if object.matched {
+            eventButton.setTitle("Message", for: .normal)
+        } else {
+            eventButton.setTitle("UserInfo", for: .normal)
+        }
         
         eventButton.setTitleColor(UIColor.white, for: .normal)
         let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
@@ -142,23 +131,15 @@ class HanaAlertView: UIView {
     }
     
     @objc func tappedEventButton() {
-        actionCompletion!(object, isMathched)
+        actionCompletion!(object)
     }
     
-    class func show(in viewController: UIViewController, object: Message?, actionCompletion: @escaping (_ userInfo: UserInfo?, _ isMatched: Bool) -> Void) {
+    class func show(in viewController: UIViewController, object: Like, actionCompletion: @escaping (Like?) -> Void) {
         
-        UserInfo.findUserInfo(byObjectId: object?.sender?.objectId) { (userInfo, isSuccess) in
-            if isSuccess == true {
-                let view = HanaAlertView()
-                view.message = object
-                view.actionCompletion = actionCompletion
-                view.object = userInfo
-                view.imageDescription = userInfo?.nickname
-                view.imageURL = userInfo?.profileUrl
-                //view.title = object?.title
-                view.show(in: viewController)
-            }
-        }
+        let view = HanaAlertView()
+        view.actionCompletion = actionCompletion
+        view.object = object
+        view.show(in: viewController)
     }
 
 }
