@@ -16,8 +16,18 @@ class TalkRoom: PFObject, PFSubclassing {
     @NSManaged var unreadCount: Int
     @NSManaged var members: [UserInfo]?
     @NSManaged var lastMessage: Message?
-    @NSManaged var channel: String?
+    @NSManaged var channels: [String]?
     @NSManaged var name: String?
-    @NSManaged var type: String? 
+    @NSManaged var type: Int
+
+    init(members: [UserInfo]?) {
+        super.init()
+        self.members = members
+        var channels = [String]()
+        for member in members ?? [] {
+            channels.append(member.objectId ?? "")
+        }
+        self.channels = channels
+    }
 
 }

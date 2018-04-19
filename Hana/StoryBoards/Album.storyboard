@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hwc-kr-Ya1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hwc-kr-Ya1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Album-->
         <scene sceneID="umQ-HR-8WI">
             <objects>
-                <viewController storyboardIdentifier="AlbumViewController" id="NbB-o5-fMN" customClass="AlbumViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumViewController" id="NbB-o5-fMN" customClass="AlbumViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zC2-4U-tD9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,20 +73,11 @@
                     <connections>
                         <outlet property="collectionView" destination="0dD-SU-PYY" id="enl-FV-LbQ"/>
                         <outlet property="finishButton" destination="eqk-ME-KZ3" id="Yz6-TJ-1pL"/>
-                        <segue destination="wrQ-cQ-poy" kind="show" identifier="ShowUploadStory" id="M4x-Ef-9Dx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fC6-l9-W6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-46" y="81"/>
-        </scene>
-        <!--UploadStory-->
-        <scene sceneID="jzc-UU-m60">
-            <objects>
-                <viewControllerPlaceholder storyboardName="UploadStory" id="wrQ-cQ-poy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fnh-BV-atr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="545" y="73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DRf-xP-GYd">

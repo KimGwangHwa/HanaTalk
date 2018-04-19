@@ -54,19 +54,19 @@ class ParseHelper: NSObject {
         let channel = like.liked?.objectId ?? ""
         let objectId = like.objectId!
         let alert = "liked by  \(like.likedBy?.nickname ?? "" )"
-        sendPush(with: channel, objectId: objectId, alert: alert, type: .like, completion: completion)
+        sendPush(with: [channel], objectId: objectId, alert: alert, type: .like, completion: completion)
     }
     class func sendPush(with message: Message, completion: ((Bool) -> Void)? = nil) {
-        let channel = message.receiver?.objectId ?? ""
+        let channels = message.talkRoom?.channels
         let objectId = message.objectId!
         let alert = message.alert!
-        sendPush(with: channel, objectId: objectId, alert: alert, type: .message, completion: completion)
+        sendPush(with: channels, objectId: objectId, alert: alert, type: .message, completion: completion)
     }
     
-    class private func sendPush(with channel: String, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
+    class private func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
         
         let push = PFPush()
-        push.setChannel(channel)
+        push.setChannels(channels)
         push.setData([
             kPushNotificationAlert : alert,
             kPushNotificationBadge : 1,

@@ -62,21 +62,38 @@ class ChattingViewController: UIViewController {
 
     @IBAction func sendEvent(_ sender: UIButton) {
 
-        let message = Message(with: receiver!, text: inputTextField.text!)
-        
-        ParseHelper.sendPush(with: message) { (isSuccess) in
-            self.dataSource.append(message)
-            self.inputTextField.text = nil
-            self.inputTextField.resignFirstResponder()
-            self.tableView.reloadData()
+        let message = Message(text: inputTextField.text!)
+        message.saveInBackground { (isSuccess, error) in
+            if let guardTalkRoom = self.talkRoom {
+                message.talkRoom = guardTalkRoom
+                guardTalkRoom.lastMessage = message
+                ParseHelper.sendPush(with: message) { (isSuccess) in
+                    self.dataSource.append(message)
+                    self.inputTextField.text = nil
+                    self.inputTextField.resignFirstResponder()
+                    self.tableView.reloadData()
+                }
+                guardTalkRoom.saveInBackground()
+            }
+            if let guardReceiver = self.receiver {
+                let room = TalkRoom(members: [self.currentUserInfo, guardReceiver])
+                room.lastMessage = message
+                message.talkRoom = room
+                room.saveInBackground { (isSuccess, error) in
+                    ParseHelper.sendPush(with: message) { (isSuccess) in
+                        self.dataSource.append(message)
+                        self.inputTextField.text = nil
+                        self.inputTextField.resignFirstResponder()
+                        self.tableView.reloadData()
+                    }
+                }
+                self.receiver = nil
+                self.talkRoom = room
+            }
         }
-//        ParseHelper.sendMessage(message) { (isSuccess) in
-//            self.dataSource.append(message)
-//            self.inputTextField.text = nil
-//            self.inputTextField.resignFirstResponder()
-//            self.tableView.reloadData()
-//            TalkRoomDao.saveTalkRoom(with: self.receiver, lastMessage: message)
-//        }
+        
+        
+        
     }
     
     deinit {
