@@ -23,4 +23,8 @@ class Like: PFObject, PFSubclassing {
         self.likedBy = DataManager.shared.currentuserInfo
     }
     
+    override init() {
+        super.init()
+    }
+    
 }

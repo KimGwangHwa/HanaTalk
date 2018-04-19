@@ -21,7 +21,7 @@ class LikeDao: DAO {
     
     
     class func find(by objectId: String, closure: @escaping (Like?, Bool) -> Void) {
-        
+
         remoteFind(with: LikeClassName, parameters: [ObjectIdColumnName : objectId]) { (objects, isSuccess) in
             closure(objects?.first as? Like, true)
         }

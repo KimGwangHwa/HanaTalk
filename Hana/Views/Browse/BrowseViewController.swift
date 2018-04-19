@@ -91,7 +91,18 @@ extension BrowseViewController: BrowseCellDelegate {
     }
     
     func didTouchLiked(with Object: UserInfo?) {
-        ParseHelper.sendPush(with: Like(with: Object!), completion: nil)
+        LikeDao.findLiked(by: Object!) { (like, isSuccess) in
+            if like == nil {
+                let like = Like(with: Object!)
+                like.saveInBackground { (isSuccess, error) in
+                    ParseHelper.sendPush(with: like, completion: nil)
+                }
+            }
+            like?.matched = true
+            like?.saveInBackground(block: { (isSuccess, error) in
+                ParseHelper.sendPush(with: like!, completion: nil)
+            })
+        }
     }
 }
 

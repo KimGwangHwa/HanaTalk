@@ -63,37 +63,23 @@ class ChattingViewController: UIViewController {
     @IBAction func sendEvent(_ sender: UIButton) {
 
         let message = Message(text: inputTextField.text!)
-        message.saveInBackground { (isSuccess, error) in
-            if let guardTalkRoom = self.talkRoom {
-                message.talkRoom = guardTalkRoom
-                guardTalkRoom.lastMessage = message
-                ParseHelper.sendPush(with: message) { (isSuccess) in
-                    self.dataSource.append(message)
-                    self.inputTextField.text = nil
-                    self.inputTextField.resignFirstResponder()
-                    self.tableView.reloadData()
-                }
-                guardTalkRoom.saveInBackground()
-            }
-            if let guardReceiver = self.receiver {
-                let room = TalkRoom(members: [self.currentUserInfo, guardReceiver])
-                room.lastMessage = message
-                message.talkRoom = room
-                room.saveInBackground { (isSuccess, error) in
-                    ParseHelper.sendPush(with: message) { (isSuccess) in
-                        self.dataSource.append(message)
-                        self.inputTextField.text = nil
-                        self.inputTextField.resignFirstResponder()
-                        self.tableView.reloadData()
-                    }
-                }
-                self.receiver = nil
-                self.talkRoom = room
-            }
+        if let guardTalkRoom = talkRoom {
+            guardTalkRoom.lastMessage = message
+        } else {
+            talkRoom = TalkRoom(members: [receiver!, currentUserInfo])
         }
         
-        
-        
+        message.talkRoom = talkRoom
+        TalkRoom.saveAll(inBackground: [message,talkRoom!]) { (isSuccess, error) in
+            message.pinInBackground()
+            self.talkRoom?.pinInBackground()
+            ParseHelper.sendPush(with: message) { (isSuccess) in
+                self.dataSource.append(message)
+                self.inputTextField.text = nil
+                self.inputTextField.resignFirstResponder()
+                self.tableView.reloadData()
+            }
+        }
     }
     
     deinit {

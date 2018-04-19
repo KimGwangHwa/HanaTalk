@@ -51,10 +51,10 @@ class ParseHelper: NSObject {
     // MARK: - Push Notification
     
     class func sendPush(with like: Like, completion: ((Bool) -> Void)? = nil) {
-        let channel = like.liked?.objectId ?? ""
+        let channels = [like.liked?.objectId ?? "", like.likedBy?.objectId ?? ""]
         let objectId = like.objectId!
         let alert = "liked by  \(like.likedBy?.nickname ?? "" )"
-        sendPush(with: [channel], objectId: objectId, alert: alert, type: .like, completion: completion)
+        sendPush(with: channels, objectId: objectId, alert: alert, type: .like, completion: completion)
     }
     class func sendPush(with message: Message, completion: ((Bool) -> Void)? = nil) {
         let channels = message.talkRoom?.channels
@@ -66,12 +66,14 @@ class ParseHelper: NSObject {
     class private func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
         
         let push = PFPush()
-        push.setChannels(channels)
+        if let currentUserInfo = DataManager.shared.currentuserInfo {
+            push.setChannels(channels?.filter({$0 != currentUserInfo.objectId!}))
+        }
         push.setData([
             kPushNotificationAlert : alert,
             kPushNotificationBadge : 1,
             kPushNotificationId : objectId,
-            kPushNotificationType : type
+            kPushNotificationType : type.rawValue
             ])
         push.sendInBackground { (isSuccess, error) in
             if let guardCompletion = completion {

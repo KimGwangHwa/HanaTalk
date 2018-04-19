@@ -29,5 +29,8 @@ class TalkRoom: PFObject, PFSubclassing {
         }
         self.channels = channels
     }
+    override init() {
+        super.init()
+    }
 
 }
