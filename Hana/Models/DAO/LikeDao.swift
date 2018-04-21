@@ -16,7 +16,14 @@ class LikeDao: DAO {
             closure(nil, false)
             return
         }
-        remoteFind(with: LikeClassName, parameters: [LikedColumnName : currentUserInfo], closure: closure)
+        let predicate = NSPredicate(format: "(liked = %@ || likedBy = %@) && matched = %d", argumentArray: [currentUserInfo,currentUserInfo,true])
+        
+        let query = PFQuery(className: LikeClassName, predicate: predicate)
+        
+        query.findObjectsInBackground { (objects, error) in
+            closure(objects as? [Like], error == nil ? true: false)
+        }
+
     }
     
     

@@ -33,6 +33,7 @@ let TypeColumnName = "type"
 let TalkRoomColumnName = "talkRoom"
 let LikedColumnName = "liked"
 let likedByColumnName = "likedBy"
+let MatchedColumnName = "matched"
 
 
 
