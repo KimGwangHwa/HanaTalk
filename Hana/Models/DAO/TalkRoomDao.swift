@@ -11,9 +11,17 @@ import Parse
 class TalkRoomDao: DAO {
     // MARK: - Find
     
-    class func findTalk(closure: @escaping ([TalkRoom]?)-> Void) {
-        localFind(with: TalkRoomClassName, closure: closure)
+    class func findTalk(closure: @escaping ([TalkRoom]?, Bool)-> Void) {
+        let query = PFQuery(className: TalkRoomColumnName)
+        
+        query.whereKey("members", containedIn: [DataManager.shared.currentuserInfo!])
+
+        query.findObjectsInBackground { (objects, error) in
+            closure(objects as? [TalkRoom], error == nil ? false: true)
+        }
+
     }
+    
     
     // MARK: - Save Update
     

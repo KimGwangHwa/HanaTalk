@@ -32,12 +32,14 @@ class ChatHistoryViewController: UIViewController {
     }
     
     func loadData() {
-        TalkRoomDao.findTalk { (rooms) in
-            self.historys = rooms
-            LikeDao.find(closure: { (likes, isSuccess) in
-                self.mathings = likes
-                self.tableView.reloadData()
-            })
+        
+        LikeDao.find { (objects, isSuccess) in
+            self.mathings = objects
+            self.tableView.reloadData()
+        }
+        TalkRoomDao.findTalk { (objects, isSuccess) in
+            self.historys = objects
+            self.tableView.reloadData()
         }
     }
     

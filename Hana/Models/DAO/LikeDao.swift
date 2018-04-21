@@ -26,7 +26,7 @@ class LikeDao: DAO {
             closure(objects?.first as? Like, true)
         }
     }
-    
+ 
     class func findLiked(by userInfo: UserInfo, closure: @escaping (Like?, Bool) -> Void) {
         guard let currentUserInfo = DataManager.shared.currentuserInfo else {
             closure(nil, false)
