@@ -12,15 +12,30 @@ class TalkRoomDao: DAO {
     // MARK: - Find
     
     class func findTalk(closure: @escaping ([TalkRoom]?, Bool)-> Void) {
-        let query = PFQuery(className: TalkRoomColumnName)
-        
-        query.whereKey("members", containedIn: [DataManager.shared.currentuserInfo!])
+        if let currentUserInfo = DataManager.shared.currentuserInfo {
+            
+            let query = PFQuery(className: TalkRoomClassName)
+            query.includeKey("lastMessage")
+            query.whereKey("members", equalTo: currentUserInfo)
+            query.findObjectsInBackground { (objects, error) in
+                closure(objects as? [TalkRoom], error == nil ? true: false)
+            }
 
-        query.findObjectsInBackground { (objects, error) in
-            closure(objects as? [TalkRoom], error == nil ? false: true)
         }
-
     }
+    
+    class func findTalk(by receiver: UserInfo, closure: @escaping (TalkRoom?, Bool)-> Void) {
+        if let currentUserInfo = DataManager.shared.currentuserInfo {
+            let query = PFQuery(className: TalkRoomClassName)
+            query.includeKey("lastMessage")
+            query.whereKey("members", containsAllObjectsIn: [currentUserInfo, receiver])
+            
+            query.findObjectsInBackground { (objects, error) in
+                closure(objects?.first as? TalkRoom, error == nil ? true: false)
+            }
+        }
+    }
+    
     
     
     // MARK: - Save Update

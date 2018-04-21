@@ -22,11 +22,6 @@ class ChattingViewController: UIViewController {
     private var currentUserInfo: UserInfo! = DataManager.shared.currentuserInfo!
     
     private var dataSource = [Message]()
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.view.layoutIfNeeded()
-
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +31,21 @@ class ChattingViewController: UIViewController {
     }
     
     func loadData() {
+        loadTalkRoom()
+    }
+    
+    func loadTalkRoom() {
+        if let receiver = receiver {
+            TalkRoomDao.findTalk(by: receiver) { (object, isSuccess) in
+                self.talkRoom = object
+                self.loadMessage()
+            }
+        } else {
+            loadMessage()
+        }
+    }
+    
+    func loadMessage() {
         if let guardTalkRoom = talkRoom {
             MessageDao.find(by: guardTalkRoom) { (objects, isSuccess) in
                 if let guardMessage = objects {
@@ -45,6 +55,7 @@ class ChattingViewController: UIViewController {
             }
         }
     }
+    
     
     func setUpView() {
         title = receiver?.nickname
@@ -112,7 +123,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
                 break
             }
 
-        } else if (rowData.sender == receiver) {
+        } else {
             switch rowData.type {
             case MessageType.image.rawValue:
                 break

@@ -28,7 +28,6 @@ class DAO: NSObject {
         
         for (key, value) in parameters ?? [:] {
             query.whereKey(key, equalTo: value)
-            
         }
         
         query.findObjectsInBackground { (objects, error) in
