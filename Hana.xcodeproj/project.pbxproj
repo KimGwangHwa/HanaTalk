@@ -89,6 +89,8 @@
 		3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7492081D21F005FFC8A /* UserInfoDao.swift */; };
 		3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C74B208314E8005FFC8A /* TalkRoomDao.swift */; };
 		3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441E8592013A271004DB937 /* AVFoundation.framework */; };
+		34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D16208C391D00860BD9 /* HanaTextView.swift */; };
+		34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
@@ -181,6 +183,8 @@
 		3419C7492081D21F005FFC8A /* UserInfoDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		3419C74B208314E8005FFC8A /* TalkRoomDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomDao.swift; sourceTree = "<group>"; };
 		3441E8592013A271004DB937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		34499D16208C391D00860BD9 /* HanaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaTextView.swift; sourceTree = "<group>"; };
+		34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaInternalTextView.swift; sourceTree = "<group>"; };
 		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* Hana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE7ED120862882000D8571 /* LikeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDao.swift; sourceTree = "<group>"; };
@@ -484,6 +488,8 @@
 			children = (
 				34109DC12076656200EC9CE0 /* CustomBadgeView.swift */,
 				34109DC22076656200EC9CE0 /* HanaAlertView.swift */,
+				34499D16208C391D00860BD9 /* HanaTextView.swift */,
+				34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -830,6 +836,7 @@
 				34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */,
 				34109E342076656300EC9CE0 /* LoginViewController.swift in Sources */,
 				34BE7ED220862882000D8571 /* LikeDao.swift in Sources */,
+				34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */,
 				34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */,
 				34109DF32076656200EC9CE0 /* UserInfo.swift in Sources */,
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,
@@ -852,6 +859,7 @@
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
 				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
 				34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */,
+				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,
 				34109E182076656300EC9CE0 /* TalkHistoryCell.swift in Sources */,
 				34109E2F2076656300EC9CE0 /* SettingViewController.swift in Sources */,
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,

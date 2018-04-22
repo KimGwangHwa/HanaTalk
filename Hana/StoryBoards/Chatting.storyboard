@@ -33,9 +33,10 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T86-Kq-LqU">
-                                        <rect key="frame" x="307" y="5" width="60" height="40"/>
+                                        <rect key="frame" x="307" y="10" width="60" height="30"/>
                                         <color key="backgroundColor" red="0.015686274510000001" green="0.54117647059999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Q78-8H-pdu"/>
                                             <constraint firstAttribute="width" constant="60" id="r7C-mX-qLC"/>
                                         </constraints>
                                         <state key="normal" title="send">
@@ -54,25 +55,37 @@
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m1b-tC-JN3">
-                                        <rect key="frame" x="56" y="10" width="243" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-nK-GMH" customClass="HanaTextView" customModule="Hana" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="5" width="249" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zHV-iB-QT0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="zIV-Uo-APX" id="rYN-o2-dYk"/>
+                                        </connections>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="m1b-tC-JN3" secondAttribute="bottom" constant="10" id="BHo-UD-r0h"/>
+                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="centerY" secondItem="2Vi-We-Yt4" secondAttribute="centerY" id="5b4-sw-6h3"/>
                                     <constraint firstAttribute="bottom" secondItem="EJQ-ir-hvt" secondAttribute="bottom" constant="5" id="Bph-8y-SM9"/>
-                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="IcK-Tf-HkB"/>
-                                    <constraint firstAttribute="bottom" secondItem="T86-Kq-LqU" secondAttribute="bottom" constant="5" id="N3t-wi-8Zw"/>
-                                    <constraint firstItem="m1b-tC-JN3" firstAttribute="leading" secondItem="EJQ-ir-hvt" secondAttribute="trailing" constant="8" id="NwB-UH-YQC"/>
-                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="leading" secondItem="m1b-tC-JN3" secondAttribute="trailing" constant="8" id="PBn-L8-Y3a"/>
                                     <constraint firstItem="EJQ-ir-hvt" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="U6J-WO-gFw"/>
                                     <constraint firstAttribute="trailing" secondItem="T86-Kq-LqU" secondAttribute="trailing" constant="8" id="Wfi-bK-Q5h"/>
-                                    <constraint firstAttribute="height" constant="50" id="YPR-Qs-OKI"/>
-                                    <constraint firstItem="m1b-tC-JN3" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="10" id="rVq-ch-p27"/>
+                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="leading" secondItem="EJQ-ir-hvt" secondAttribute="trailing" constant="2" id="Whu-E7-5Lx"/>
+                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="XL3-44-Dlt"/>
+                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="leading" secondItem="kqY-nK-GMH" secondAttribute="trailing" constant="8" id="ae6-c8-HFd"/>
+                                    <constraint firstAttribute="bottom" secondItem="kqY-nK-GMH" secondAttribute="bottom" constant="5" id="iem-QA-V4I"/>
                                     <constraint firstItem="EJQ-ir-hvt" firstAttribute="leading" secondItem="2Vi-We-Yt4" secondAttribute="leading" constant="8" id="uxg-bj-ejd"/>
                                 </constraints>
                             </view>
@@ -84,7 +97,7 @@
                             <constraint firstAttribute="trailing" secondItem="2Vi-We-Yt4" secondAttribute="trailing" id="cQ4-q3-mPW"/>
                             <constraint firstAttribute="trailing" secondItem="6us-Wx-A88" secondAttribute="trailing" id="cnk-7E-WWA"/>
                             <constraint firstItem="6us-Wx-A88" firstAttribute="top" secondItem="Fte-dQ-rxJ" secondAttribute="top" id="dzw-ma-cCB"/>
-                            <constraint firstItem="2Vi-We-Yt4" firstAttribute="top" secondItem="6us-Wx-A88" secondAttribute="bottom" id="kJr-Q4-uSY"/>
+                            <constraint firstItem="2Vi-We-Yt4" firstAttribute="top" secondItem="6us-Wx-A88" secondAttribute="bottom" id="imp-WA-UYa"/>
                             <constraint firstItem="2Vi-We-Yt4" firstAttribute="leading" secondItem="Fte-dQ-rxJ" secondAttribute="leading" id="pAR-QU-q2I"/>
                             <constraint firstItem="mf8-bd-SpN" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="bottom" id="zGQ-at-eR4"/>
                         </constraints>
@@ -94,7 +107,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="zGQ-at-eR4" id="BID-xG-KTS"/>
-                        <outlet property="inputTextField" destination="m1b-tC-JN3" id="EYR-s1-zAU"/>
+                        <outlet property="inputTextView" destination="kqY-nK-GMH" id="eoV-QV-y0I"/>
                         <outlet property="tableView" destination="6us-Wx-A88" id="p7C-T0-889"/>
                     </connections>
                 </viewController>

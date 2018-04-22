@@ -15,7 +15,7 @@ class ChattingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var inputTextView: HanaTextView!
     
     var talkRoom: TalkRoom?
     var receiver: UserInfo?
@@ -73,7 +73,7 @@ class ChattingViewController: UIViewController {
 
     @IBAction func sendEvent(_ sender: UIButton) {
 
-        let message = Message(text: inputTextField.text!)
+        let message = Message(text: inputTextView.textView.text!)
         if let guardTalkRoom = talkRoom {
             guardTalkRoom.lastMessage = message
         } else {
@@ -86,8 +86,8 @@ class ChattingViewController: UIViewController {
             self.talkRoom?.pinInBackground()
             ParseHelper.sendPush(with: message) { (isSuccess) in
                 self.dataSource.append(message)
-                self.inputTextField.text = nil
-                self.inputTextField.resignFirstResponder()
+                self.inputTextView.textView.text = nil
+                self.inputTextView.textView.resignFirstResponder()
                 self.tableView.reloadData()
             }
         }
@@ -178,6 +178,4 @@ extension ChattingViewController {
             self.view.layoutIfNeeded()
         })
     }
-
-    
 }

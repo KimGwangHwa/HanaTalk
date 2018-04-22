@@ -12,5 +12,4 @@ target 'Hana' do
   pod ‘GzipSwift’
   #pod 'Realm'
   pod 'SDWebImage'
-  #pod 'UPCarouselFlowLayout'
 end
