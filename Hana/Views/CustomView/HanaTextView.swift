@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol HanaTextViewDelegate: class {
-    func didChangeHeight(_ height: CGFloat)
-}
-
 class HanaTextView: UIScrollView {
 
     //weak var delegate: HanaTextViewDelegate?
@@ -19,7 +15,7 @@ class HanaTextView: UIScrollView {
         return _textView
     }
     
-    open var minNumberOfLines: Int {
+    @IBInspectable var minNumberOfLines: Int {
         get {
             return _minNumberOfLines
         }
@@ -34,7 +30,7 @@ class HanaTextView: UIScrollView {
         }
     }
     
-    open var maxNumberOfLines: Int {
+    @IBInspectable var maxNumberOfLines: Int {
         get {
             return _maxNumberOfLines
         }
