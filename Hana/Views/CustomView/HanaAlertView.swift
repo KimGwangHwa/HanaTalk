@@ -11,6 +11,8 @@ fileprivate let ScreenWidth = UIScreen.main.bounds.width
 fileprivate let ScreenHeight = UIScreen.main.bounds.height
 fileprivate let ShowAlpha: CGFloat = 0.5
 fileprivate let DismissAlpha: CGFloat = 0
+fileprivate let AlertSpacing: CGFloat = 10
+fileprivate let AlertHeight: CGFloat = 300
 
 class HanaAlertView: UIView {
 
@@ -27,6 +29,11 @@ class HanaAlertView: UIView {
         self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
         self.addSubview(overlayView)
         self.addSubview(alertView)
+        
+        
+        alertView.frame = CGRect(x: AlertSpacing, y: ScreenHeight, width: ScreenWidth - (AlertSpacing*2), height: AlertHeight)
+        alertView.cornerRadius = 10
+
 
         overlayView.frame = self.bounds
         overlayView.alpha = DismissAlpha
@@ -41,7 +48,7 @@ class HanaAlertView: UIView {
         let titleHeight: CGFloat = 20
         let titleFontSize: CGFloat = 16
 
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: titleHeight))
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: titleHeight))
         if object.matched {
             titleLabel.text = "MATHCED"
         } else {
@@ -56,7 +63,7 @@ class HanaAlertView: UIView {
         let iconWidth: CGFloat = 100
         let iconHeight: CGFloat = iconWidth
 
-        let iconImageView = UIImageView(frame: CGRect(x: (ScreenWidth - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
+        let iconImageView = UIImageView(frame: CGRect(x: (alertView.width - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = iconWidth/2
         iconImageView.sd_setImage(with: URL(string: object.likedBy?.profileUrl ?? ""), placeholderImage: nil)
@@ -67,7 +74,7 @@ class HanaAlertView: UIView {
         let descriptionHeight: CGFloat = 20
         let descriptionFontSize: CGFloat = 16
 
-        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: ScreenWidth, height: descriptionHeight))
+        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: descriptionHeight))
         descriptionLabel.textAlignment = .center
         descriptionLabel.text = object.likedBy?.nickname
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: descriptionFontSize)
@@ -79,7 +86,7 @@ class HanaAlertView: UIView {
         let eventButtonHeight: CGFloat = 40
         let cornerRadius: CGFloat = 5.0
         let eventButton = UIButton(type: .custom)
-        eventButton.frame = CGRect(x: (ScreenWidth-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
+        eventButton.frame = CGRect(x: (alertView.width-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         
         if object.matched {
             eventButton.setTitle("Message", for: .normal)
@@ -97,7 +104,7 @@ class HanaAlertView: UIView {
         
         offsetY += (spaceHeight + eventButtonHeight)
 
-        alertView.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: offsetY)
+//        alertView.frame = CGRect(x: AlertSpacing, y: ScreenHeight, width: ScreenWidth - (AlertSpacing*2), height: offsetY)
 
     }
     
@@ -110,7 +117,7 @@ class HanaAlertView: UIView {
         setUpView()
         UIView.animate(withDuration: ModalAnimateDuration, delay: 0, options: .curveEaseInOut, animations: {
             var frame = self.alertView.frame
-            frame.origin.y = ScreenHeight - self.alertView.height
+            frame.origin.y = ScreenHeight - self.alertView.height - AlertSpacing
             self.alertView.frame = frame
             self.overlayView.alpha = ShowAlpha
             
