@@ -6,29 +6,54 @@
 //
 
 import UIKit
+import Parse
 
 class EnterVerificationCodeViewController: UIViewController {
 
-    var senderName: String?
-    
+    var senderName: String!
+    let emptyString = " "
+    let maxIndex = 4
     @IBOutlet weak var sendtoLabel: UILabel!
     @IBOutlet weak var code1textField: UITextField!
     @IBOutlet weak var code2textField: UITextField!
     @IBOutlet weak var code3textField: UITextField!
     @IBOutlet weak var code4textField: UITextField!
     
-    private var isDidAppear: Bool = false
     var textFields: [UITextField]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView() {
         textFields = [code1textField, code2textField, code3textField, code4textField]
-        sendtoLabel.text = R.string.localizable.sentTo(senderName!)
+        code1textField.text = emptyString
+        code2textField.text = emptyString
+        code3textField.text = emptyString
+        code4textField.text = emptyString
+        
+        sendtoLabel.text = R.string.localizable.sentTo(senderName)
         code1textField.becomeFirstResponder()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        isDidAppear = true
+    func confrimLoginCode() {
+        if let code1 = code1textField.text,
+            let code2 = code2textField.text,
+            let code3 = code3textField.text,
+            let code4 = code4textField.text {
+            let loginCode = (code1 + code2 + code3 + code4).replacingOccurrences(of: emptyString, with: "")
+            if loginCode.count == maxIndex {
+                loginProcessing(with: loginCode)
+            }
+        }
+    }
+    
+    func loginProcessing(with password: String) {
+        PFUser.logInWithUsername(inBackground: senderName, password: "") { (user, error) in
+            if error == nil {
+                
+            }
+        }
     }
     
     @IBAction func tappedResend(_ sender: UIButton) {
@@ -36,9 +61,30 @@ class EnterVerificationCodeViewController: UIViewController {
     }
 
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
-        if let index = textFields.index(of: sender) {
-            let afterIndex = textFields.index(after: index)
-            textFields[afterIndex].becomeFirstResponder()
+        let  char = sender.text?.cString(using: .utf8)
+        let isBackSpace = strcmp(char, "\\b")
+        if (sender.text == emptyString || isBackSpace == -92) {
+            debugPrint("Backspace was pressed")
+            // previous
+            if let index = textFields.index(of: sender) {
+                let beforeIndex = textFields.index(before: index)
+                if !(beforeIndex < 0) {
+                    textFields[beforeIndex].becomeFirstResponder()
+                    textFields[beforeIndex].text = emptyString
+                } else {
+                    sender.text = emptyString
+                }
+            }
+            
+        } else {
+            // next
+            if let index = textFields.index(of: sender) {
+                let afterIndex = textFields.index(after: index)
+                if afterIndex < textFields.count {
+                    textFields[afterIndex].becomeFirstResponder()
+                }
+            }
         }
+        confrimLoginCode()
     }
 }

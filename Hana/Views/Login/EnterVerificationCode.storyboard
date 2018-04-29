@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Verification Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tB-nO-sq9">
-                                <rect key="frame" x="37" y="30" width="300" height="44"/>
+                                <rect key="frame" x="37" y="60" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="jbZ-SU-99y"/>
                                     <constraint firstAttribute="height" constant="44" id="l74-j1-kDI"/>
@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edW-1w-IJi">
-                                <rect key="frame" x="87" y="82" width="200" height="44"/>
+                                <rect key="frame" x="87" y="112" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="C6I-BI-hrQ"/>
                                     <constraint firstAttribute="width" constant="200" id="lYP-Vs-pYs"/>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xzj-X9-aWl">
-                                <rect key="frame" x="37.5" y="134" width="300" height="50"/>
+                                <rect key="frame" x="37.5" y="164" width="300" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-DH-6b5">
                                         <rect key="frame" x="0.0" y="0.0" width="52.5" height="50"/>
@@ -48,6 +48,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="K8e-Bn-jcg"/>
+                                            <outlet property="delegate" destination="NgY-3B-V71" id="sUH-Of-QXq"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-ZP-hSy">
@@ -57,6 +58,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="Hfs-Ph-sUD"/>
+                                            <outlet property="delegate" destination="NgY-3B-V71" id="7t9-Qi-txg"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6A-Hx-LUH">
@@ -66,6 +68,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="Evg-we-hLk"/>
+                                            <outlet property="delegate" destination="NgY-3B-V71" id="TJ0-lu-p9K"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRr-rJ-jbG">
@@ -75,6 +78,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="4Tx-9L-5nB"/>
+                                            <outlet property="delegate" destination="NgY-3B-V71" id="vSF-ux-sDY"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -84,7 +88,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdM-Oh-UUU">
-                                <rect key="frame" x="87" y="234" width="200" height="44"/>
+                                <rect key="frame" x="87" y="264" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Zmw-tC-XLn"/>
                                     <constraint firstAttribute="width" constant="200" id="f8O-2O-dRF"/>
@@ -117,7 +121,7 @@
                             <constraint firstItem="xzj-X9-aWl" firstAttribute="top" secondItem="edW-1w-IJi" secondAttribute="bottom" constant="8" id="TMs-Fh-SWj"/>
                             <constraint firstItem="0tB-nO-sq9" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="Xiy-gn-KiW"/>
                             <constraint firstItem="YdM-Oh-UUU" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="dow-aD-E3S"/>
-                            <constraint firstItem="0tB-nO-sq9" firstAttribute="top" secondItem="KV7-sN-rQw" secondAttribute="top" constant="10" id="eav-kK-NOU"/>
+                            <constraint firstItem="0tB-nO-sq9" firstAttribute="top" secondItem="KV7-sN-rQw" secondAttribute="top" constant="40" id="eav-kK-NOU"/>
                             <constraint firstItem="xzj-X9-aWl" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="iyJ-6t-9cQ"/>
                             <constraint firstItem="edW-1w-IJi" firstAttribute="top" secondItem="0tB-nO-sq9" secondAttribute="bottom" constant="8" id="mEQ-cF-K6v"/>
                             <constraint firstItem="edW-1w-IJi" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="vfz-m4-HKF"/>

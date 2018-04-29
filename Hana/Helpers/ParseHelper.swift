@@ -7,7 +7,7 @@
 
 import UIKit
 import Parse
-
+import UserNotifications
 
 enum PushNotificationType: Int {
     case like
@@ -29,13 +29,19 @@ class ParseHelper: NSObject {
         }
         Parse.initialize(with: configuration)
         
-        // notification
-        let userNotificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.sound, UIUserNotificationType.badge]
         
-        let settings = UIUserNotificationSettings(types: userNotificationTypes, categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
+        let center = UNUserNotificationCenter.current()
 
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Allowed")
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                print("Didn't allowed")
+            }
+        }
     }
     
     class func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
@@ -108,3 +114,21 @@ class ParseHelper: NSObject {
     }
     
 }
+
+// MARK: - Send Cloud Code
+extension ParseHelper {
+
+     class func loginFromSMS(with tel: String) {
+        PFCloud.callFunction(inBackground: "sendSMS", withParameters: [
+            // These fields have to be defined earlier
+            "to": tel
+        ]) { (reponse, error) in
+            if error == nil {
+                // The function executed, but still has to check the response
+            } else {
+                // The function returned an error
+            }
+        }
+    }
+}
+

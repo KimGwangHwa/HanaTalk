@@ -39,6 +39,9 @@ class TelLoginViewController: UIViewController {
     }
 
     @IBAction func tappedLogin(_ sender: UIButton) {
+        
+        ParseHelper.loginFromSMS(with: telTextField.text!)
+        
         if let viewController = R.storyboard.enterVerificationCode.enterVerificationCodeViewController() {
             viewController.senderName = telTextField.text
             present(viewController, animated: true, completion: nil)
