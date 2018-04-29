@@ -49,7 +49,7 @@ class EnterVerificationCodeViewController: UIViewController {
     }
     
     func loginProcessing(with password: String) {
-        PFUser.logInWithUsername(inBackground: senderName, password: "") { (user, error) in
+        PFUser.logInWithUsername(inBackground: senderName, password: password) { (user, error) in
             if error == nil {
                 
             }
