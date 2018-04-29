@@ -17,7 +17,8 @@ class TelLoginViewController: UIViewController {
     let idDataSource = [iconCellId, inputCellId, actionCellId]
     
     private var telTextField: UITextField!
-    
+    private var loginButton: UIButton!
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,9 +29,13 @@ class TelLoginViewController: UIViewController {
     }
     
     func setUp() {
-//        tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
+    }
+    
+    @objc func textFieldDidChanged(_ sender: UITextField) {
+        loginButton.isEnabled = !(sender.text?.isEmpty)!
     }
 
     @IBAction func tappedLogin(_ sender: UIButton) {
@@ -57,12 +62,14 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
         if identifier == inputCellId {
             if let inputCell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as? TelLoginInputCell {
                 telTextField = inputCell.telTextField
+                telTextField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
                 return inputCell
             }
         }
         
         if identifier == actionCellId {
             if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? TelLoginActionCell {
+                loginButton = actionCell.loginButton
                 return actionCell
             }
         }
@@ -73,13 +80,6 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return idDataSource.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
 }
+
+

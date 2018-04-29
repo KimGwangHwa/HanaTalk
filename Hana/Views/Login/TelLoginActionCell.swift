@@ -9,6 +9,8 @@ import UIKit
 
 class TelLoginActionCell: UITableViewCell {
 
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
