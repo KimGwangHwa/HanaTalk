@@ -9,6 +9,8 @@ import UIKit
 
 class TelLoginInputCell: UITableViewCell {
 
+    @IBOutlet weak var telTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

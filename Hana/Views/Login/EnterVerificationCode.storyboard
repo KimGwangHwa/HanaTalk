@@ -5,24 +5,144 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Enter Verification Code View Controller-->
         <scene sceneID="QzW-a5-jXS">
             <objects>
-                <viewController id="NgY-3B-V71" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterVerificationCodeViewController" id="NgY-3B-V71" customClass="EnterVerificationCodeViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyS-Vb-nMJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Verification Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tB-nO-sq9">
+                                <rect key="frame" x="37" y="30" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="jbZ-SU-99y"/>
+                                    <constraint firstAttribute="height" constant="44" id="l74-j1-kDI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" name="gray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edW-1w-IJi">
+                                <rect key="frame" x="87" y="82" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="C6I-BI-hrQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="lYP-Vs-pYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xzj-X9-aWl">
+                                <rect key="frame" x="37.5" y="134" width="300" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-DH-6b5">
+                                        <rect key="frame" x="0.0" y="0.0" width="52.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="K8e-Bn-jcg"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-ZP-hSy">
+                                        <rect key="frame" x="82.5" y="0.0" width="52.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="Hfs-Ph-sUD"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6A-Hx-LUH">
+                                        <rect key="frame" x="165" y="0.0" width="52.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="Evg-we-hLk"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRr-rJ-jbG">
+                                        <rect key="frame" x="247.5" y="0.0" width="52.5" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="textFieldEditingChanged:" destination="NgY-3B-V71" eventType="editingChanged" id="4Tx-9L-5nB"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Qcc-og-xje"/>
+                                    <constraint firstAttribute="height" constant="50" id="wwE-eK-wtc"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdM-Oh-UUU">
+                                <rect key="frame" x="87" y="234" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Zmw-tC-XLn"/>
+                                    <constraint firstAttribute="width" constant="200" id="f8O-2O-dRF"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="i didn't receive a code ">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Resend">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="tappedResend:" destination="NgY-3B-V71" eventType="touchUpInside" id="0rt-43-1Kf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="back-gray"/>
+                        <constraints>
+                            <constraint firstItem="YdM-Oh-UUU" firstAttribute="top" secondItem="xzj-X9-aWl" secondAttribute="bottom" constant="50" id="NVp-gm-hS3"/>
+                            <constraint firstItem="xzj-X9-aWl" firstAttribute="top" secondItem="edW-1w-IJi" secondAttribute="bottom" constant="8" id="TMs-Fh-SWj"/>
+                            <constraint firstItem="0tB-nO-sq9" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="Xiy-gn-KiW"/>
+                            <constraint firstItem="YdM-Oh-UUU" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="dow-aD-E3S"/>
+                            <constraint firstItem="0tB-nO-sq9" firstAttribute="top" secondItem="KV7-sN-rQw" secondAttribute="top" constant="10" id="eav-kK-NOU"/>
+                            <constraint firstItem="xzj-X9-aWl" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="iyJ-6t-9cQ"/>
+                            <constraint firstItem="edW-1w-IJi" firstAttribute="top" secondItem="0tB-nO-sq9" secondAttribute="bottom" constant="8" id="mEQ-cF-K6v"/>
+                            <constraint firstItem="edW-1w-IJi" firstAttribute="centerX" secondItem="hyS-Vb-nMJ" secondAttribute="centerX" id="vfz-m4-HKF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KV7-sN-rQw"/>
                     </view>
+                    <connections>
+                        <outlet property="code1textField" destination="jYD-DH-6b5" id="LcB-iM-mny"/>
+                        <outlet property="code2textField" destination="2g4-ZP-hSy" id="FCD-S7-y1n"/>
+                        <outlet property="code3textField" destination="D6A-Hx-LUH" id="Pws-dP-Bid"/>
+                        <outlet property="code4textField" destination="fRr-rJ-jbG" id="QSa-X6-LXK"/>
+                        <outlet property="sendtoLabel" destination="edW-1w-IJi" id="WHq-WY-9jf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJK-8J-h4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="142"/>
+            <point key="canvasLocation" x="76" y="141.67916041979012"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="back-gray">
+            <color white="0.92799997329711914" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="gray">
+            <color white="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
 </document>

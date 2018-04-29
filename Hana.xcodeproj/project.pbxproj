@@ -96,6 +96,7 @@
 		3443096E2094B0AC00246418 /* TelLoginActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443096D2094B0AC00246418 /* TelLoginActionCell.swift */; };
 		344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */; };
 		344309722095955900246418 /* EnterVerificationCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344309712095955900246418 /* EnterVerificationCode.storyboard */; };
+		3443098820959F5900246418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3443098720959F5900246418 /* Localizable.strings */; };
 		34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D16208C391D00860BD9 /* HanaTextView.swift */; };
 		34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
@@ -197,6 +198,7 @@
 		3443096D2094B0AC00246418 /* TelLoginActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelLoginActionCell.swift; sourceTree = "<group>"; };
 		3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		344309712095955900246418 /* EnterVerificationCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnterVerificationCode.storyboard; sourceTree = "<group>"; };
+		3443098720959F5900246418 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		34499D16208C391D00860BD9 /* HanaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaTextView.swift; sourceTree = "<group>"; };
 		34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaInternalTextView.swift; sourceTree = "<group>"; };
 		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				3451464D2081A92800605651 /* R.generated.swift */,
 				34109D872076656200EC9CE0 /* Assets.xcassets */,
 				34109D882076656200EC9CE0 /* Default-568h@2x.png */,
+				3443098720959F5900246418 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -351,7 +354,6 @@
 				34109DCE2076656200EC9CE0 /* Album */,
 				34109DD32076656200EC9CE0 /* Peek */,
 				34109DD52076656200EC9CE0 /* Login */,
-				34109DD72076656200EC9CE0 /* Story */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -585,13 +587,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		34109DD72076656200EC9CE0 /* Story */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Story;
-			sourceTree = "<group>";
-		};
 		34109DDC2076656200EC9CE0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +721,7 @@
 				34109E322076656300EC9CE0 /* AlbumCell.xib in Resources */,
 				34109DEF2076656200EC9CE0 /* Find.storyboard in Resources */,
 				34109DED2076656200EC9CE0 /* SideMenu.storyboard in Resources */,
+				3443098820959F5900246418 /* Localizable.strings in Resources */,
 				34109DE92076656200EC9CE0 /* SignUp.storyboard in Resources */,
 				34109DE62076656200EC9CE0 /* UserInfo.storyboard in Resources */,
 				34109E022076656300EC9CE0 /* Default-568h@2x.png in Resources */,

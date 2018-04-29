@@ -108,6 +108,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="telTextField" destination="apL-dT-oBz" id="AYB-Yp-oO4"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TelLoginActionCell" rowHeight="120" id="9lr-8E-PJt" customClass="TelLoginActionCell" customModule="Hana" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="238" width="375" height="120"/>
@@ -130,6 +133,9 @@
                                                             <real key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedLogin:" destination="YVd-ZU-Oth" eventType="touchUpInside" id="aAg-Gi-KR9"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3p-lz-Yhd">
                                                     <rect key="frame" x="87" y="72" width="200" height="44"/>

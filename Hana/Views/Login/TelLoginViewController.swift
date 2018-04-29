@@ -16,6 +16,8 @@ class TelLoginViewController: UIViewController {
 
     let idDataSource = [iconCellId, inputCellId, actionCellId]
     
+    private var telTextField: UITextField!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -31,11 +33,12 @@ class TelLoginViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func tappedLogin(_ sender: UIButton) {
+        if let viewController = R.storyboard.enterVerificationCode.enterVerificationCodeViewController() {
+            viewController.senderName = telTextField.text
+            present(viewController, animated: true, completion: nil)
+        }
     }
-
 }
 
 // MARK: - TelLoginViewController
@@ -53,6 +56,7 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
         
         if identifier == inputCellId {
             if let inputCell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as? TelLoginInputCell {
+                telTextField = inputCell.telTextField
                 return inputCell
             }
         }
