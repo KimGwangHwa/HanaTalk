@@ -89,6 +89,13 @@
 		3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7492081D21F005FFC8A /* UserInfoDao.swift */; };
 		3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C74B208314E8005FFC8A /* TalkRoomDao.swift */; };
 		3441E85A2013A271004DB937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441E8592013A271004DB937 /* AVFoundation.framework */; };
+		3443096220949F9C00246418 /* TelLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3443096120949F9C00246418 /* TelLogin.storyboard */; };
+		344309642094AC1D00246418 /* TelLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344309632094AC1D00246418 /* TelLoginViewController.swift */; };
+		3443096A2094B07200246418 /* TelLoginIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344309692094B07200246418 /* TelLoginIconCell.swift */; };
+		3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443096B2094B09900246418 /* TelLoginInputCell.swift */; };
+		3443096E2094B0AC00246418 /* TelLoginActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443096D2094B0AC00246418 /* TelLoginActionCell.swift */; };
+		344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */; };
+		344309722095955900246418 /* EnterVerificationCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344309712095955900246418 /* EnterVerificationCode.storyboard */; };
 		34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D16208C391D00860BD9 /* HanaTextView.swift */; };
 		34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
@@ -183,6 +190,13 @@
 		3419C7492081D21F005FFC8A /* UserInfoDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		3419C74B208314E8005FFC8A /* TalkRoomDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomDao.swift; sourceTree = "<group>"; };
 		3441E8592013A271004DB937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3443096120949F9C00246418 /* TelLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TelLogin.storyboard; sourceTree = "<group>"; };
+		344309632094AC1D00246418 /* TelLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelLoginViewController.swift; sourceTree = "<group>"; };
+		344309692094B07200246418 /* TelLoginIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelLoginIconCell.swift; sourceTree = "<group>"; };
+		3443096B2094B09900246418 /* TelLoginInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelLoginInputCell.swift; sourceTree = "<group>"; };
+		3443096D2094B0AC00246418 /* TelLoginActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelLoginActionCell.swift; sourceTree = "<group>"; };
+		3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		344309712095955900246418 /* EnterVerificationCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnterVerificationCode.storyboard; sourceTree = "<group>"; };
 		34499D16208C391D00860BD9 /* HanaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaTextView.swift; sourceTree = "<group>"; };
 		34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaInternalTextView.swift; sourceTree = "<group>"; };
 		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -560,6 +574,13 @@
 			isa = PBXGroup;
 			children = (
 				34109DD62076656200EC9CE0 /* LoginViewController.swift */,
+				3443096120949F9C00246418 /* TelLogin.storyboard */,
+				344309632094AC1D00246418 /* TelLoginViewController.swift */,
+				344309692094B07200246418 /* TelLoginIconCell.swift */,
+				3443096B2094B09900246418 /* TelLoginInputCell.swift */,
+				3443096D2094B0AC00246418 /* TelLoginActionCell.swift */,
+				3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */,
+				344309712095955900246418 /* EnterVerificationCode.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -699,6 +720,7 @@
 				34109E112076656300EC9CE0 /* SendTextCell.xib in Resources */,
 				34109E0B2076656300EC9CE0 /* ContactCell.xib in Resources */,
 				34109DEE2076656200EC9CE0 /* Browse.storyboard in Resources */,
+				344309722095955900246418 /* EnterVerificationCode.storyboard in Resources */,
 				34109E212076656300EC9CE0 /* SideHeaderCell.xib in Resources */,
 				34109DF02076656200EC9CE0 /* LaunchScreen.storyboard in Resources */,
 				34109E322076656300EC9CE0 /* AlbumCell.xib in Resources */,
@@ -709,6 +731,7 @@
 				34109E022076656300EC9CE0 /* Default-568h@2x.png in Resources */,
 				34109DE22076656200EC9CE0 /* Setting.storyboard in Resources */,
 				34109DE32076656200EC9CE0 /* Chatting.storyboard in Resources */,
+				3443096220949F9C00246418 /* TelLogin.storyboard in Resources */,
 				34109E192076656300EC9CE0 /* MatchingStatusCell.xib in Resources */,
 				34109E2B2076656300EC9CE0 /* BrowseCell.xib in Resources */,
 				34109E162076656300EC9CE0 /* MatchingCell.xib in Resources */,
@@ -829,6 +852,7 @@
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,
 				34109E2A2076656300EC9CE0 /* BrowseViewController.swift in Sources */,
 				34109E132076656300EC9CE0 /* ChatHistoryViewController.swift in Sources */,
+				344309642094AC1D00246418 /* TelLoginViewController.swift in Sources */,
 				34109E0F2076656300EC9CE0 /* ReceiveTextCell.swift in Sources */,
 				34109E272076656300EC9CE0 /* CustomBadgeView.swift in Sources */,
 				34109DFE2076656300EC9CE0 /* Common.swift in Sources */,
@@ -839,6 +863,7 @@
 				34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */,
 				34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */,
 				34109DF32076656200EC9CE0 /* UserInfo.swift in Sources */,
+				344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */,
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,
 				3419C7482081C87D005FFC8A /* DAO.swift in Sources */,
 				34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */,
@@ -853,10 +878,12 @@
 				34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */,
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				34109E312076656300EC9CE0 /* AlbumCell.swift in Sources */,
+				3443096A2094B07200246418 /* TelLoginIconCell.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
 				34109DF42076656200EC9CE0 /* Like.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
+				3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */,
 				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
 				34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */,
 				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,
@@ -864,6 +891,7 @@
 				34109E2F2076656300EC9CE0 /* SettingViewController.swift in Sources */,
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,
 				3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */,
+				3443096E2094B0AC00246418 /* TelLoginActionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,7 +1017,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Hana/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1010,7 +1038,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Hana/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim9.hanatalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
