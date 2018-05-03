@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginSelectionCell" id="RBO-Iw-hFC" customClass="LoginSelectionCell" customModule="Hana" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RBO-Iw-hFC" id="o2V-VU-pgK">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rl-AO-LvS">
+                        <rect key="frame" x="30" y="208" width="315" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Ddv-Ru-2Xg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="Login With E-mail" backgroundImage="icon_enable"/>
+                        <state key="disabled" backgroundImage="icon_disable"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM4-45-U1k">
+                        <rect key="frame" x="30" y="150" width="315" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="jrg-h4-8gl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="Login With Tel" backgroundImage="icon_enable"/>
+                        <state key="disabled" backgroundImage="icon_disable"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2Rl-AO-LvS" firstAttribute="leading" secondItem="o2V-VU-pgK" secondAttribute="leading" constant="30" id="0z9-dE-xx2"/>
+                    <constraint firstItem="AM4-45-U1k" firstAttribute="top" secondItem="o2V-VU-pgK" secondAttribute="top" constant="150" id="Oys-Nu-2QE"/>
+                    <constraint firstAttribute="trailing" secondItem="2Rl-AO-LvS" secondAttribute="trailing" constant="30" id="aHt-ur-jJA"/>
+                    <constraint firstItem="AM4-45-U1k" firstAttribute="leading" secondItem="o2V-VU-pgK" secondAttribute="leading" constant="30" id="dX9-3r-29w"/>
+                    <constraint firstItem="2Rl-AO-LvS" firstAttribute="top" secondItem="AM4-45-U1k" secondAttribute="bottom" constant="8" id="iLS-t4-f5c"/>
+                    <constraint firstAttribute="bottom" secondItem="2Rl-AO-LvS" secondAttribute="bottom" constant="41.5" id="pMc-hU-x93"/>
+                    <constraint firstAttribute="trailing" secondItem="AM4-45-U1k" secondAttribute="trailing" constant="30" id="yfS-rc-Cce"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="loginMailButton" destination="2Rl-AO-LvS" id="elz-DL-CI1"/>
+                <outlet property="loginTelButton" destination="AM4-45-U1k" id="pdv-Xn-s0y"/>
+            </connections>
+            <point key="canvasLocation" x="268" y="52"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_disable" width="150" height="120"/>
+        <image name="icon_enable" width="136" height="120"/>
+    </resources>
+</document>

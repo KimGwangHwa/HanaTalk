@@ -7,14 +7,14 @@
 
 import UIKit
 
-fileprivate let iconCellId = R.reuseIdentifier.telLoginIconCell.identifier
+fileprivate let iconCellId = R.reuseIdentifier.loginIconCell.identifier
 fileprivate let inputCellId = R.reuseIdentifier.telLoginInputCell.identifier
-fileprivate let actionCellId = R.reuseIdentifier.telLoginActionCell.identifier
+fileprivate let actionCellId = R.reuseIdentifier.loginActionCell.identifier
 
 class TelLoginViewController: UIViewController {
 
 
-    let idDataSource = [iconCellId, inputCellId, actionCellId]
+    let identifierDataSource = [iconCellId, inputCellId, actionCellId]
     
     private var telTextField: UITextField!
     private var loginButton: UIButton!
@@ -31,7 +31,10 @@ class TelLoginViewController: UIViewController {
     func setUp() {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        tableView.register(R.nib.loginIconCell(), forCellReuseIdentifier: iconCellId)
+        tableView.register(R.nib.telLoginInputCell(), forCellReuseIdentifier: inputCellId)
+        tableView.register(R.nib.loginActionCell(), forCellReuseIdentifier: actionCellId)
+
     }
     
     @objc func textFieldDidChanged(_ sender: UITextField) {
@@ -55,9 +58,9 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
     // CellRow
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = idDataSource[indexPath.row]
+        let identifier = identifierDataSource[indexPath.row]
         if identifier == iconCellId {
-            if let iconCell = tableView.dequeueReusableCell(withIdentifier: iconCellId, for: indexPath) as? TelLoginIconCell {
+            if let iconCell = tableView.dequeueReusableCell(withIdentifier: iconCellId, for: indexPath) as? LoginIconCell {
                 return iconCell
             }
         }
@@ -71,7 +74,7 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if identifier == actionCellId {
-            if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? TelLoginActionCell {
+            if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? LoginActionCell {
                 loginButton = actionCell.loginButton
                 return actionCell
             }
@@ -81,7 +84,7 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
     
     // RowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return idDataSource.count
+        return identifierDataSource.count
     }
 }
 

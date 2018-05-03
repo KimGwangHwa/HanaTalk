@@ -7,9 +7,9 @@
 
 import UIKit
 
-fileprivate let iconCellId = R.reuseIdentifier.telLoginIconCell.identifier
-fileprivate let inputCellId = R.reuseIdentifier.telLoginInputCell.identifier
-fileprivate let actionCellId = R.reuseIdentifier.telLoginActionCell.identifier
+fileprivate let iconCellId = R.reuseIdentifier.loginIconCell.identifier
+fileprivate let inputCellId = R.reuseIdentifier.mailLoginInputCell.identifier
+fileprivate let actionCellId = R.reuseIdentifier.loginActionCell.identifier
 
 class MailLoginViewController: UIViewController {
     
@@ -29,7 +29,10 @@ class MailLoginViewController: UIViewController {
     func setUp() {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        tableView.register(R.nib.loginIconCell(), forCellReuseIdentifier: iconCellId)
+        tableView.register(R.nib.mailLoginInputCell(), forCellReuseIdentifier: inputCellId)
+        tableView.register(R.nib.loginActionCell(), forCellReuseIdentifier: actionCellId)
+
     }
     
     @objc func textFieldDidChanged(_ sender: UITextField) {
@@ -47,13 +50,13 @@ extension MailLoginViewController: UITableViewDelegate, UITableViewDataSource {
         
         let identifier = identifierDataSource[indexPath.row]
         if identifier == iconCellId {
-            if let iconCell = tableView.dequeueReusableCell(withIdentifier: iconCellId, for: indexPath) as? MailIconCell {
+            if let iconCell = tableView.dequeueReusableCell(withIdentifier: iconCellId, for: indexPath) as? LoginIconCell {
                 return iconCell
             }
         }
         
         if identifier == inputCellId {
-            if let inputCell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as? MailInputCell {
+            if let inputCell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as? MailLoginInputCell {
                 mailTextField = inputCell.mailTextField
                 mailTextField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
                 return inputCell
@@ -61,7 +64,7 @@ extension MailLoginViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if identifier == actionCellId {
-            if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? MailActionCell {
+            if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? LoginActionCell {
                 loginButton = actionCell.loginButton
                 return actionCell
             }

@@ -1,5 +1,5 @@
 //
-//  MailIconCell.swift
+//  LoginSelectionCell.swift
 //  Hana
 //
 //  Created by ひかりちゃん on 2018/05/03.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MailIconCell: UITableViewCell {
+class LoginSelectionCell: UITableViewCell {
 
+    @IBOutlet weak var loginMailButton: UIButton!
+    @IBOutlet weak var loginTelButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

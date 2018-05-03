@@ -1,14 +1,15 @@
 //
-//  TelLoginIconCell.swift
+//  MailLoginInputCell.swift
 //  Hana
 //
-//  Created by ひかりちゃん on 2018/04/28.
+//  Created by ひかりちゃん on 2018/05/03.
 //
 
 import UIKit
 
-class TelLoginIconCell: UITableViewCell {
+class MailLoginInputCell: UITableViewCell {
 
+    @IBOutlet weak var mailTextField: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +20,5 @@ class TelLoginIconCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

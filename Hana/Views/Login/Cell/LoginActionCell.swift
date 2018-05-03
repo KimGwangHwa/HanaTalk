@@ -1,15 +1,16 @@
 //
-//  MailActionCell.swift
+//  TelLoginActionCell.swift
 //  Hana
 //
-//  Created by ひかりちゃん on 2018/05/03.
+//  Created by ひかりちゃん on 2018/04/28.
 //
 
 import UIKit
 
-class MailActionCell: UITableViewCell {
+class LoginActionCell: UITableViewCell {
 
     @IBOutlet weak var loginButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
