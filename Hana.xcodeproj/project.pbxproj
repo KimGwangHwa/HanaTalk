@@ -100,6 +100,11 @@
 		34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D16208C391D00860BD9 /* HanaTextView.swift */; };
 		34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
+		34A71223209A45350050788C /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71222209A45350050788C /* MailLoginViewController.swift */; };
+		34A71225209A45410050788C /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A71224209A45410050788C /* MailLogin.storyboard */; };
+		34A71229209A48E30050788C /* MailIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71228209A48E30050788C /* MailIconCell.swift */; };
+		34A7122B209A48FA0050788C /* MailInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7122A209A48FA0050788C /* MailInputCell.swift */; };
+		34A7122D209A49080050788C /* MailActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7122C209A49080050788C /* MailActionCell.swift */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 /* End PBXBuildFile section */
@@ -203,6 +208,11 @@
 		34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanaInternalTextView.swift; sourceTree = "<group>"; };
 		3451464D2081A92800605651 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		349EAD461F2F55CE005833ED /* Hana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hana.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A71222209A45350050788C /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
+		34A71224209A45410050788C /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
+		34A71228209A48E30050788C /* MailIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailIconCell.swift; sourceTree = "<group>"; };
+		34A7122A209A48FA0050788C /* MailInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailInputCell.swift; sourceTree = "<group>"; };
+		34A7122C209A49080050788C /* MailActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailActionCell.swift; sourceTree = "<group>"; };
 		34BE7ED120862882000D8571 /* LikeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDao.swift; sourceTree = "<group>"; };
 		34C5E160207668A6003A41F5 /* Hana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hana.entitlements; sourceTree = "<group>"; };
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -575,12 +585,9 @@
 		34109DD52076656200EC9CE0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				34A71227209A45510050788C /* mail */,
+				34A71226209A45480050788C /* tel */,
 				34109DD62076656200EC9CE0 /* LoginViewController.swift */,
-				3443096120949F9C00246418 /* TelLogin.storyboard */,
-				344309632094AC1D00246418 /* TelLoginViewController.swift */,
-				344309692094B07200246418 /* TelLoginIconCell.swift */,
-				3443096B2094B09900246418 /* TelLoginInputCell.swift */,
-				3443096D2094B0AC00246418 /* TelLoginActionCell.swift */,
 				3443096F2095954900246418 /* EnterVerificationCodeViewController.swift */,
 				344309712095955900246418 /* EnterVerificationCode.storyboard */,
 			);
@@ -624,6 +631,30 @@
 				349EAD461F2F55CE005833ED /* Hana.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		34A71226209A45480050788C /* tel */ = {
+			isa = PBXGroup;
+			children = (
+				3443096120949F9C00246418 /* TelLogin.storyboard */,
+				344309632094AC1D00246418 /* TelLoginViewController.swift */,
+				344309692094B07200246418 /* TelLoginIconCell.swift */,
+				3443096B2094B09900246418 /* TelLoginInputCell.swift */,
+				3443096D2094B0AC00246418 /* TelLoginActionCell.swift */,
+			);
+			path = tel;
+			sourceTree = "<group>";
+		};
+		34A71227209A45510050788C /* mail */ = {
+			isa = PBXGroup;
+			children = (
+				34A71222209A45350050788C /* MailLoginViewController.swift */,
+				34A71224209A45410050788C /* MailLogin.storyboard */,
+				34A71228209A48E30050788C /* MailIconCell.swift */,
+				34A7122A209A48FA0050788C /* MailInputCell.swift */,
+				34A7122C209A49080050788C /* MailActionCell.swift */,
+			);
+			path = mail;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -712,6 +743,7 @@
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
 				34109DE52076656200EC9CE0 /* ChatHistory.storyboard in Resources */,
 				34109DE12076656200EC9CE0 /* Peek.storyboard in Resources */,
+				34A71225209A45410050788C /* MailLogin.storyboard in Resources */,
 				34109E112076656300EC9CE0 /* SendTextCell.xib in Resources */,
 				34109E0B2076656300EC9CE0 /* ContactCell.xib in Resources */,
 				34109DEE2076656200EC9CE0 /* Browse.storyboard in Resources */,
@@ -870,10 +902,12 @@
 				34109E1B2076656300EC9CE0 /* EditProfileCell.swift in Sources */,
 				34109E202076656300EC9CE0 /* SideNormalCell.swift in Sources */,
 				34109E0D2076656300EC9CE0 /* ChattingViewController.swift in Sources */,
+				34A7122B209A48FA0050788C /* MailInputCell.swift in Sources */,
 				34109E2E2076656300EC9CE0 /* FindViewController.swift in Sources */,
 				34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */,
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				34109E312076656300EC9CE0 /* AlbumCell.swift in Sources */,
+				34A71223209A45350050788C /* MailLoginViewController.swift in Sources */,
 				3443096A2094B07200246418 /* TelLoginIconCell.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
@@ -882,6 +916,8 @@
 				3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */,
 				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
 				34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */,
+				34A7122D209A49080050788C /* MailActionCell.swift in Sources */,
+				34A71229209A48E30050788C /* MailIconCell.swift in Sources */,
 				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,
 				34109E182076656300EC9CE0 /* TalkHistoryCell.swift in Sources */,
 				34109E2F2076656300EC9CE0 /* SettingViewController.swift in Sources */,

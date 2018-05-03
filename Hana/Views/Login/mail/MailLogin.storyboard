@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6uf-DC-xeK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mail Login View Controller-->
+        <scene sceneID="jjA-1H-vPf">
+            <objects>
+                <viewController id="6uf-DC-xeK" customClass="MailLoginViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sla-Up-kNn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-Uq-D78">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MailIconCell" rowHeight="100" id="MUu-nq-CEt" customClass="MailIconCell" customModule="Hana" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MUu-nq-CEt" id="uar-hp-VLG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="9fx-pj-oKf">
+                                                    <rect key="frame" x="137" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="833-5k-h8L"/>
+                                                        <constraint firstAttribute="height" constant="100" id="84t-jn-bfY"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9fx-pj-oKf" secondAttribute="bottom" id="d5J-gv-03A"/>
+                                                <constraint firstItem="9fx-pj-oKf" firstAttribute="top" secondItem="uar-hp-VLG" secondAttribute="top" id="t3q-1U-ubc"/>
+                                                <constraint firstItem="9fx-pj-oKf" firstAttribute="centerX" secondItem="uar-hp-VLG" secondAttribute="centerX" id="vD0-rw-VhW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MailInputCell" rowHeight="110" id="xzD-HP-uuo" customClass="MailInputCell" customModule="Hana" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128" width="375" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xzD-HP-uuo" id="hcI-1A-FHQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKw-tb-4Kt">
+                                                    <rect key="frame" x="37.5" y="0.0" width="300" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="gJY-8p-Zqh"/>
+                                                        <constraint firstAttribute="width" constant="300" id="reV-XN-gEg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhA-WG-BaJ">
+                                                    <rect key="frame" x="15" y="50" width="345" height="50"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mail" translatesAutoresizingMaskIntoConstraints="NO" id="iVF-hr-Wx1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="i8g-Lh-Axi"/>
+                                                                <constraint firstAttribute="height" constant="50" id="yLz-cR-qJP"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKd-J3-b9g">
+                                                            <rect key="frame" x="55" y="0.0" width="280" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="7ff-23-Xso"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="iVF-hr-Wx1" firstAttribute="top" secondItem="mhA-WG-BaJ" secondAttribute="top" id="3O3-4M-v8b"/>
+                                                        <constraint firstItem="UKd-J3-b9g" firstAttribute="top" secondItem="mhA-WG-BaJ" secondAttribute="top" id="86y-lq-GhC"/>
+                                                        <constraint firstAttribute="height" constant="50" id="9Nt-ry-a1h"/>
+                                                        <constraint firstItem="iVF-hr-Wx1" firstAttribute="leading" secondItem="mhA-WG-BaJ" secondAttribute="leading" id="spx-pf-bXA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UKd-J3-b9g" secondAttribute="trailing" constant="10" id="tjP-U8-S0s"/>
+                                                        <constraint firstItem="UKd-J3-b9g" firstAttribute="leading" secondItem="iVF-hr-Wx1" secondAttribute="trailing" constant="5" id="yf1-ap-cDe"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="mhA-WG-BaJ" secondAttribute="bottom" constant="10" id="2WA-Ef-wTg"/>
+                                                <constraint firstItem="mKw-tb-4Kt" firstAttribute="top" secondItem="hcI-1A-FHQ" secondAttribute="top" id="FK7-92-1F7"/>
+                                                <constraint firstItem="mKw-tb-4Kt" firstAttribute="centerX" secondItem="hcI-1A-FHQ" secondAttribute="centerX" id="LiJ-tS-qrA"/>
+                                                <constraint firstItem="mhA-WG-BaJ" firstAttribute="top" secondItem="mKw-tb-4Kt" secondAttribute="bottom" constant="30" id="RIV-My-Nfc"/>
+                                                <constraint firstItem="mhA-WG-BaJ" firstAttribute="leading" secondItem="hcI-1A-FHQ" secondAttribute="leading" constant="15" id="VYv-Y9-v5s"/>
+                                                <constraint firstAttribute="trailing" secondItem="mhA-WG-BaJ" secondAttribute="trailing" constant="15" id="rtB-ca-1Me"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="mailTextField" destination="UKd-J3-b9g" id="4m8-FU-5da"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MailActionCell" rowHeight="120" id="Bca-Xk-bBX" customClass="MailActionCell" customModule="Hana" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="238" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bca-Xk-bBX" id="cqd-UI-VED">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-sm-RJl">
+                                                    <rect key="frame" x="87" y="20" width="200" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Ku6-oI-lPb"/>
+                                                        <constraint firstAttribute="width" constant="200" id="b0q-0z-MVg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Login" backgroundImage="icon_enable"/>
+                                                    <state key="disabled" backgroundImage="icon_disable"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAO-dC-b6g">
+                                                    <rect key="frame" x="87" y="72" width="200" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="D4s-k3-69b"/>
+                                                        <constraint firstAttribute="width" constant="200" id="k7E-YT-YTD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Login With PhoneNumber"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="gAO-dC-b6g" secondAttribute="bottom" constant="4" id="609-YV-ht0"/>
+                                                <constraint firstItem="Lck-sm-RJl" firstAttribute="top" secondItem="cqd-UI-VED" secondAttribute="topMargin" constant="9" id="8pX-Z0-Eh8"/>
+                                                <constraint firstItem="gAO-dC-b6g" firstAttribute="top" secondItem="Lck-sm-RJl" secondAttribute="bottom" constant="8" id="MoK-Od-dNg"/>
+                                                <constraint firstItem="gAO-dC-b6g" firstAttribute="centerX" secondItem="cqd-UI-VED" secondAttribute="centerX" id="pX6-Px-ZfP"/>
+                                                <constraint firstItem="Lck-sm-RJl" firstAttribute="centerX" secondItem="cqd-UI-VED" secondAttribute="centerX" id="vtp-gS-Hax"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="loginButton" destination="Lck-sm-RJl" id="dwq-KB-hOB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6uf-DC-xeK" id="BOU-EN-zkC"/>
+                                    <outlet property="delegate" destination="6uf-DC-xeK" id="Sds-kp-LH1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ljV-Uq-D78" firstAttribute="leading" secondItem="c14-Zq-NPd" secondAttribute="leading" id="929-qk-AHx"/>
+                            <constraint firstItem="ljV-Uq-D78" firstAttribute="top" secondItem="sla-Up-kNn" secondAttribute="top" id="Chp-y3-mtH"/>
+                            <constraint firstItem="ljV-Uq-D78" firstAttribute="bottom" secondItem="c14-Zq-NPd" secondAttribute="bottom" id="JEA-cl-ycE"/>
+                            <constraint firstItem="ljV-Uq-D78" firstAttribute="trailing" secondItem="c14-Zq-NPd" secondAttribute="trailing" id="S8D-zW-CTn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c14-Zq-NPd"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ljV-Uq-D78" id="cO8-MG-171"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qi0-oU-6Zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="-106.59670164917542"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon" width="48" height="48"/>
+        <image name="icon_disable" width="150" height="120"/>
+        <image name="icon_enable" width="136" height="120"/>
+        <image name="icon_mail" width="50" height="50"/>
+    </resources>
+</document>
