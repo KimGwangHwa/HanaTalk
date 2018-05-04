@@ -78,16 +78,16 @@ class EnterVerificationCodeViewController: UIViewController {
         let  char = sender.text?.cString(using: .utf8)
         let isBackSpace = strcmp(char, "\\b")
         if (sender.text == emptyString || isBackSpace == -92) {
-            debugPrint("Backspace was pressed")
             // previous
             if let index = textFields.index(of: sender) {
                 let beforeIndex = textFields.index(before: index)
                 if !(beforeIndex < 0) {
-                    textFields[beforeIndex].becomeFirstResponder()
-                    textFields[beforeIndex].text = emptyString
-                } else {
-                    sender.text = emptyString
+                    if (sender.text?.isEmpty)! {
+                        textFields[beforeIndex].becomeFirstResponder()
+                        textFields[beforeIndex].text = emptyString
+                    }
                 }
+                sender.text = emptyString
             }
             
         } else {
