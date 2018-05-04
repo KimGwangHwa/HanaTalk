@@ -51,7 +51,21 @@ class EnterVerificationCodeViewController: UIViewController {
     func loginProcessing(with password: String) {
         PFUser.logInWithUsername(inBackground: senderName, password: password) { (user, error) in
             if error == nil {
-                
+                self.moveToSideMenu()
+            }
+        }
+    }
+    
+    func moveToSideMenu() {
+        UserInfoDao.findCurrentFromRemote { (userInfo, isSuccess) in
+            if let userInfo = userInfo {
+                DataManager.shared.currentuserInfo = userInfo
+                userInfo.pinInBackground()
+                if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+                    let sidMenuViewController = SideMenuViewController.shared
+                    appdelegate.window?.rootViewController = sidMenuViewController
+                    appdelegate.window?.makeKeyAndVisible()
+                }
             }
         }
     }

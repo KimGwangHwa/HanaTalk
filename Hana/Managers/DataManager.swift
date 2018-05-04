@@ -18,14 +18,6 @@ class DataManager: NSObject {
         
     }
     
-    var currentuserInfo: UserInfo? {
-        return UserInfo.getCurrentUserInfo()
-    }
-    
-    
-    var currentUser: PFUser? {
-        return PFUser.current()
-    }
-
+    var currentuserInfo: UserInfo?
     
 }

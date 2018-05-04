@@ -51,13 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //        return true
 //
-        if DataManager.shared.currentUser != nil {
-            
-            
-            let sidMenuViewController = SideMenuViewController.shared
-            self.window?.rootViewController = sidMenuViewController
-            self.window?.makeKeyAndVisible()
-        }
         
         return true
     }
