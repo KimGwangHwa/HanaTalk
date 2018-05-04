@@ -39,7 +39,15 @@ class MailLoginViewController: UIViewController {
         loginButton.isEnabled = !(sender.text?.isEmpty)!
     }
     
-
+    @objc func tappedLogin(_ sender: UIButton) {
+        
+        ParseHelper.loginFromEmail(with: mailTextField.text!)
+        
+        if let viewController = R.storyboard.enterVerificationCode.enterVerificationCodeViewController() {
+            viewController.senderName = mailTextField.text
+            present(viewController, animated: true, completion: nil)
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -66,6 +74,7 @@ extension MailLoginViewController: UITableViewDelegate, UITableViewDataSource {
         if identifier == actionCellId {
             if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? LoginActionCell {
                 loginButton = actionCell.loginButton
+                loginButton.addTarget(self, action: #selector(tappedLogin(_:)), for: .touchUpInside)
                 return actionCell
             }
         }

@@ -130,5 +130,18 @@ extension ParseHelper {
             }
         }
     }
+    
+    class func loginFromEmail(with mail: String) {
+        PFCloud.callFunction(inBackground: "sendEmail", withParameters: [
+            // These fields have to be defined earlier
+            "toEmail": mail
+        ]) { (reponse, error) in
+            if error == nil {
+                // The function executed, but still has to check the response
+            } else {
+                // The function returned an error
+            }
+        }
+    }
 }
 

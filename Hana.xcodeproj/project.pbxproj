@@ -13,9 +13,7 @@
 		34109DE32076656200EC9CE0 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D612076656200EC9CE0 /* Chatting.storyboard */; };
 		34109DE52076656200EC9CE0 /* ChatHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D632076656200EC9CE0 /* ChatHistory.storyboard */; };
 		34109DE62076656200EC9CE0 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D642076656200EC9CE0 /* UserInfo.storyboard */; };
-		34109DE72076656200EC9CE0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D652076656200EC9CE0 /* Login.storyboard */; };
 		34109DE82076656200EC9CE0 /* Album.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D662076656200EC9CE0 /* Album.storyboard */; };
-		34109DE92076656200EC9CE0 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D672076656200EC9CE0 /* SignUp.storyboard */; };
 		34109DEA2076656200EC9CE0 /* EditUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D682076656200EC9CE0 /* EditUserInfo.storyboard */; };
 		34109DEB2076656200EC9CE0 /* Matching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D692076656200EC9CE0 /* Matching.storyboard */; };
 		34109DED2076656200EC9CE0 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D6B2076656200EC9CE0 /* SideMenu.storyboard */; };
@@ -47,7 +45,6 @@
 		34109E0F2076656300EC9CE0 /* ReceiveTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DA02076656200EC9CE0 /* ReceiveTextCell.swift */; };
 		34109E102076656300EC9CE0 /* SendTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DA12076656200EC9CE0 /* SendTextCell.swift */; };
 		34109E112076656300EC9CE0 /* SendTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34109DA22076656200EC9CE0 /* SendTextCell.xib */; };
-		34109E122076656300EC9CE0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DA42076656200EC9CE0 /* SignUpViewController.swift */; };
 		34109E132076656300EC9CE0 /* ChatHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DA62076656200EC9CE0 /* ChatHistoryViewController.swift */; };
 		34109E142076656300EC9CE0 /* TalkHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34109DA82076656200EC9CE0 /* TalkHistoryCell.xib */; };
 		34109E152076656300EC9CE0 /* MatchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DA92076656200EC9CE0 /* MatchingCell.swift */; };
@@ -81,7 +78,6 @@
 		34109E312076656300EC9CE0 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DD12076656200EC9CE0 /* AlbumCell.swift */; };
 		34109E322076656300EC9CE0 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34109DD22076656200EC9CE0 /* AlbumCell.xib */; };
 		34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DD42076656200EC9CE0 /* PeekViewController.swift */; };
-		34109E342076656300EC9CE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DD62076656200EC9CE0 /* LoginViewController.swift */; };
 		34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DDD2076656200EC9CE0 /* CoreDataHelper.swift */; };
 		34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DDE2076656200EC9CE0 /* ParseHelper.swift */; };
 		3419C7462081C695005FFC8A /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419C7452081C695005FFC8A /* MessageDao.swift */; };
@@ -125,9 +121,7 @@
 		34109D612076656200EC9CE0 /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		34109D632076656200EC9CE0 /* ChatHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatHistory.storyboard; sourceTree = "<group>"; };
 		34109D642076656200EC9CE0 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
-		34109D652076656200EC9CE0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		34109D662076656200EC9CE0 /* Album.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Album.storyboard; sourceTree = "<group>"; };
-		34109D672076656200EC9CE0 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		34109D682076656200EC9CE0 /* EditUserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditUserInfo.storyboard; sourceTree = "<group>"; };
 		34109D692076656200EC9CE0 /* Matching.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Matching.storyboard; sourceTree = "<group>"; };
 		34109D6B2076656200EC9CE0 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
@@ -159,7 +153,6 @@
 		34109DA02076656200EC9CE0 /* ReceiveTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveTextCell.swift; sourceTree = "<group>"; };
 		34109DA12076656200EC9CE0 /* SendTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextCell.swift; sourceTree = "<group>"; };
 		34109DA22076656200EC9CE0 /* SendTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendTextCell.xib; sourceTree = "<group>"; };
-		34109DA42076656200EC9CE0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		34109DA62076656200EC9CE0 /* ChatHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryViewController.swift; sourceTree = "<group>"; };
 		34109DA82076656200EC9CE0 /* TalkHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkHistoryCell.xib; sourceTree = "<group>"; };
 		34109DA92076656200EC9CE0 /* MatchingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCell.swift; sourceTree = "<group>"; };
@@ -193,7 +186,6 @@
 		34109DD12076656200EC9CE0 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		34109DD22076656200EC9CE0 /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		34109DD42076656200EC9CE0 /* PeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekViewController.swift; sourceTree = "<group>"; };
-		34109DD62076656200EC9CE0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		34109DDD2076656200EC9CE0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		34109DDE2076656200EC9CE0 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		34109DDF2076656200EC9CE0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -284,9 +276,7 @@
 				34109D612076656200EC9CE0 /* Chatting.storyboard */,
 				34109D632076656200EC9CE0 /* ChatHistory.storyboard */,
 				34109D642076656200EC9CE0 /* UserInfo.storyboard */,
-				34109D652076656200EC9CE0 /* Login.storyboard */,
 				34109D662076656200EC9CE0 /* Album.storyboard */,
-				34109D672076656200EC9CE0 /* SignUp.storyboard */,
 				34109D682076656200EC9CE0 /* EditUserInfo.storyboard */,
 				34109D692076656200EC9CE0 /* Matching.storyboard */,
 				34109D6B2076656200EC9CE0 /* SideMenu.storyboard */,
@@ -364,7 +354,6 @@
 				34109D902076656200EC9CE0 /* UploadStory */,
 				34109D972076656200EC9CE0 /* Contact */,
 				34109D9C2076656200EC9CE0 /* Chatting */,
-				34109DA32076656200EC9CE0 /* SignUp */,
 				34109DA52076656200EC9CE0 /* ChatHistory */,
 				34109DAE2076656200EC9CE0 /* EditUserInfo */,
 				34109DB42076656200EC9CE0 /* SideMenu */,
@@ -439,14 +428,6 @@
 				34109DA22076656200EC9CE0 /* SendTextCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		34109DA32076656200EC9CE0 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				34109DA42076656200EC9CE0 /* SignUpViewController.swift */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		34109DA52076656200EC9CE0 /* ChatHistory */ = {
@@ -602,7 +583,6 @@
 				343CCED9209B0E02002936FC /* Selelction */,
 				34A71227209A45510050788C /* Mail */,
 				34A71226209A45480050788C /* Tel */,
-				34109DD62076656200EC9CE0 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -779,7 +759,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				343CCEF3209B11D9002936FC /* LoginSelectionCell.xib in Resources */,
-				34109DE72076656200EC9CE0 /* Login.storyboard in Resources */,
 				34109E142076656300EC9CE0 /* TalkHistoryCell.xib in Resources */,
 				34109DEB2076656200EC9CE0 /* Matching.storyboard in Resources */,
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
@@ -801,7 +780,6 @@
 				34109DEF2076656200EC9CE0 /* Find.storyboard in Resources */,
 				34109DED2076656200EC9CE0 /* SideMenu.storyboard in Resources */,
 				3443098820959F5900246418 /* Localizable.strings in Resources */,
-				34109DE92076656200EC9CE0 /* SignUp.storyboard in Resources */,
 				34109DE62076656200EC9CE0 /* UserInfo.storyboard in Resources */,
 				34109E022076656300EC9CE0 /* Default-568h@2x.png in Resources */,
 				34109DE22076656200EC9CE0 /* Setting.storyboard in Resources */,
@@ -915,7 +893,6 @@
 				34109E282076656300EC9CE0 /* HanaAlertView.swift in Sources */,
 				34109E302076656300EC9CE0 /* AlbumViewController.swift in Sources */,
 				34109E042076656300EC9CE0 /* MatchingViewController.swift in Sources */,
-				34109E122076656300EC9CE0 /* SignUpViewController.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,
 				34109E1C2076656300EC9CE0 /* EditContactInfoCell.swift in Sources */,
 				34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */,
@@ -934,7 +911,6 @@
 				34109DFE2076656300EC9CE0 /* Common.swift in Sources */,
 				34109E2C2076656300EC9CE0 /* FindCell.swift in Sources */,
 				34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */,
-				34109E342076656300EC9CE0 /* LoginViewController.swift in Sources */,
 				34BE7ED220862882000D8571 /* LikeDao.swift in Sources */,
 				34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */,
 				34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */,

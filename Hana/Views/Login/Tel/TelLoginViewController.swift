@@ -41,7 +41,7 @@ class TelLoginViewController: UIViewController {
         loginButton.isEnabled = !(sender.text?.isEmpty)!
     }
 
-    @IBAction func tappedLogin(_ sender: UIButton) {
+    @objc func tappedLogin(_ sender: UIButton) {
         
         ParseHelper.loginFromSMS(with: telTextField.text!)
         
@@ -76,6 +76,7 @@ extension TelLoginViewController: UITableViewDelegate, UITableViewDataSource {
         if identifier == actionCellId {
             if let actionCell = tableView.dequeueReusableCell(withIdentifier: actionCellId, for: indexPath) as? LoginActionCell {
                 loginButton = actionCell.loginButton
+                loginButton.addTarget(self, action: #selector(tappedLogin(_:)), for: .touchUpInside)
                 return actionCell
             }
         }
