@@ -36,7 +36,7 @@ class BrowseViewController: UIViewController {
     }
 
     func loadRemoteData() {
-        UserInfo.findAll  { (objects, isSuccess) in
+        UserInfoDao.findAll  { (objects, isSuccess) in
             self.dataSource = objects
             self.collectionView.reloadData()
         }

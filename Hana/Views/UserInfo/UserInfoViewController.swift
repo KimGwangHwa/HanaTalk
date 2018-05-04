@@ -13,7 +13,7 @@ fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.id
 
 class UserInfoViewController: UIViewController {
 
-    var userInfo: UserInfo?
+    var userInfo: UserInfo!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -33,14 +33,11 @@ class UserInfoViewController: UIViewController {
     
     
     func loadRomoteData() {
-        if userInfo == nil {
-            UserInfo.findUserInfo(byObjectId: DataManager.shared.currentuserInfo?.objectId) { (userInfo, isSuccess) in
+        if let objectId = userInfo.objectId {
+            UserInfoDao.findUserInfo(by: objectId) { (userInfo, isSuccess) in
                 self.userInfo = userInfo
                 self.tableView.reloadData()
             }
-        } else {
-            self.navigationItem.leftBarButtonItem = nil
-            self.tableView.reloadData()
         }
     }
     

@@ -32,4 +32,17 @@ class UserInfoDao: DAO {
         }
     }
     
+    class func findAll(closure: @escaping ([UserInfo]?, Bool) -> Void) {
+        
+        remoteFind(with: UserInfoClassName, parameters: nil, closure: closure)
+    }
+    
+    class func findUserInfo(by objectId: String, closure: @escaping (UserInfo?, Bool) -> Void) {
+        remoteFind(with: UserInfoClassName, parameters: [ObjectIdColumnName: objectId]) { (object, isSuccess) in
+            closure(object?.first as? UserInfo, isSuccess)
+        }
+
+    }
+    
+    
 }

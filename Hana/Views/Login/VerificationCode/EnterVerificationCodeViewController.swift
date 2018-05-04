@@ -61,6 +61,7 @@ class EnterVerificationCodeViewController: UIViewController {
             if let userInfo = userInfo {
                 DataManager.shared.currentuserInfo = userInfo
                 userInfo.pinInBackground()
+                self.view.endEditing(true)
                 if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
                     let sidMenuViewController = SideMenuViewController.shared
                     appdelegate.window?.rootViewController = sidMenuViewController
