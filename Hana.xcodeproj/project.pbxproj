@@ -267,7 +267,6 @@
 			children = (
 				34C5E160207668A6003A41F5 /* Hana.entitlements */,
 				34109DDF2076656200EC9CE0 /* Info.plist */,
-				34109D5D2076656200EC9CE0 /* StoryBoards */,
 				34109D6E2076656200EC9CE0 /* LaunchScreen.storyboard */,
 				34109D6F2076656200EC9CE0 /* Managers */,
 				34109D722076656200EC9CE0 /* Models */,
@@ -279,25 +278,6 @@
 				34109DDC2076656200EC9CE0 /* Helpers */,
 			);
 			path = Hana;
-			sourceTree = "<group>";
-		};
-		34109D5D2076656200EC9CE0 /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-				34109D5E2076656200EC9CE0 /* Contact.storyboard */,
-				34109D5F2076656200EC9CE0 /* Peek.storyboard */,
-				34109D602076656200EC9CE0 /* Setting.storyboard */,
-				34109D612076656200EC9CE0 /* Chatting.storyboard */,
-				34109D632076656200EC9CE0 /* ChatHistory.storyboard */,
-				34109D642076656200EC9CE0 /* UserInfo.storyboard */,
-				34109D662076656200EC9CE0 /* Album.storyboard */,
-				34109D682076656200EC9CE0 /* EditUserInfo.storyboard */,
-				34109D692076656200EC9CE0 /* Matching.storyboard */,
-				34109D6B2076656200EC9CE0 /* SideMenu.storyboard */,
-				34109D6C2076656200EC9CE0 /* Browse.storyboard */,
-				34109D6D2076656200EC9CE0 /* Find.storyboard */,
-			);
-			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		34109D6F2076656200EC9CE0 /* Managers */ = {
@@ -372,7 +352,6 @@
 				34109D972076656200EC9CE0 /* Contact */,
 				34109D9C2076656200EC9CE0 /* Chatting */,
 				34109DA52076656200EC9CE0 /* ChatHistory */,
-				34109DAE2076656200EC9CE0 /* EditUserInfo */,
 				34109DB42076656200EC9CE0 /* SideMenu */,
 				34109DBA2076656200EC9CE0 /* UserInfo */,
 				34109DC02076656200EC9CE0 /* CustomView */,
@@ -389,17 +368,10 @@
 		34109D8D2076656200EC9CE0 /* Matching */ = {
 			isa = PBXGroup;
 			children = (
+				34109D692076656200EC9CE0 /* Matching.storyboard */,
 				34109D8E2076656200EC9CE0 /* MatchingViewController.swift */,
-				34109D8F2076656200EC9CE0 /* Cell */,
 			);
 			path = Matching;
-			sourceTree = "<group>";
-		};
-		34109D8F2076656200EC9CE0 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		34109D902076656200EC9CE0 /* UploadStory */ = {
@@ -412,6 +384,7 @@
 		34109D972076656200EC9CE0 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				34109D5E2076656200EC9CE0 /* Contact.storyboard */,
 				34109D982076656200EC9CE0 /* Cell */,
 				34109D9B2076656200EC9CE0 /* ContactViewController.swift */,
 			);
@@ -430,6 +403,7 @@
 		34109D9C2076656200EC9CE0 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				34109D612076656200EC9CE0 /* Chatting.storyboard */,
 				34109D9D2076656200EC9CE0 /* ChattingViewController.swift */,
 				34109D9E2076656200EC9CE0 /* Cell */,
 			);
@@ -450,6 +424,7 @@
 		34109DA52076656200EC9CE0 /* ChatHistory */ = {
 			isa = PBXGroup;
 			children = (
+				34109D632076656200EC9CE0 /* ChatHistory.storyboard */,
 				34109DA62076656200EC9CE0 /* ChatHistoryViewController.swift */,
 				34109DA72076656200EC9CE0 /* Cell */,
 			);
@@ -469,28 +444,10 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		34109DAE2076656200EC9CE0 /* EditUserInfo */ = {
-			isa = PBXGroup;
-			children = (
-				34109DAF2076656200EC9CE0 /* EditUserInfoViewController.swift */,
-				34109DB02076656200EC9CE0 /* Cell */,
-			);
-			path = EditUserInfo;
-			sourceTree = "<group>";
-		};
-		34109DB02076656200EC9CE0 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				34109DB12076656200EC9CE0 /* EditProfileCell.swift */,
-				34109DB22076656200EC9CE0 /* EditContactInfoCell.swift */,
-				34109DB32076656200EC9CE0 /* EditBioCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		34109DB42076656200EC9CE0 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				34109D6B2076656200EC9CE0 /* SideMenu.storyboard */,
 				34109DB52076656200EC9CE0 /* SideNormalCell.xib */,
 				34109DB62076656200EC9CE0 /* SideMenuViewController.swift */,
 				34109DB72076656200EC9CE0 /* SideNormalCell.swift */,
@@ -503,6 +460,8 @@
 		34109DBA2076656200EC9CE0 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				342CF36420A6BD900044FF50 /* Edit */,
+				34109D642076656200EC9CE0 /* UserInfo.storyboard */,
 				34109DBB2076656200EC9CE0 /* UserInfoViewController.swift */,
 				34109DBC2076656200EC9CE0 /* Cell */,
 			);
@@ -512,6 +471,9 @@
 		34109DBC2076656200EC9CE0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				34109DB12076656200EC9CE0 /* EditProfileCell.swift */,
+				34109DB22076656200EC9CE0 /* EditContactInfoCell.swift */,
+				34109DB32076656200EC9CE0 /* EditBioCell.swift */,
 				34109DBD2076656200EC9CE0 /* ProfileCell.swift */,
 				34109DBE2076656200EC9CE0 /* ContactInfoCell.swift */,
 				34109DBF2076656200EC9CE0 /* BioCell.swift */,
@@ -533,6 +495,7 @@
 		34109DC32076656200EC9CE0 /* Browse */ = {
 			isa = PBXGroup;
 			children = (
+				34109D6C2076656200EC9CE0 /* Browse.storyboard */,
 				34109DC42076656200EC9CE0 /* BrowseCell.swift */,
 				34109DC52076656200EC9CE0 /* BrowseViewController.swift */,
 				34109DC62076656200EC9CE0 /* BrowseCell.xib */,
@@ -543,6 +506,7 @@
 		34109DC72076656200EC9CE0 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				34109D6D2076656200EC9CE0 /* Find.storyboard */,
 				34109DC82076656200EC9CE0 /* Cell */,
 				34109DCB2076656200EC9CE0 /* FindViewController.swift */,
 			);
@@ -561,6 +525,7 @@
 		34109DCC2076656200EC9CE0 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				34109D602076656200EC9CE0 /* Setting.storyboard */,
 				34109DCD2076656200EC9CE0 /* SettingViewController.swift */,
 			);
 			path = Setting;
@@ -569,6 +534,7 @@
 		34109DCE2076656200EC9CE0 /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				34109D662076656200EC9CE0 /* Album.storyboard */,
 				34109DCF2076656200EC9CE0 /* AlbumViewController.swift */,
 				34109DD02076656200EC9CE0 /* Cell */,
 			);
@@ -587,6 +553,7 @@
 		34109DD32076656200EC9CE0 /* Peek */ = {
 			isa = PBXGroup;
 			children = (
+				34109D5F2076656200EC9CE0 /* Peek.storyboard */,
 				34109DD42076656200EC9CE0 /* PeekViewController.swift */,
 			);
 			path = Peek;
@@ -632,6 +599,15 @@
 				342CDB70209C0A9F0043756F /* Splash.storyboard */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		342CF36420A6BD900044FF50 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				34109D682076656200EC9CE0 /* EditUserInfo.storyboard */,
+				34109DAF2076656200EC9CE0 /* EditUserInfoViewController.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		34362D8F209D5E7300E6EF77 /* Hobby */ = {

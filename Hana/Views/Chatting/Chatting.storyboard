@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zIV-Uo-APX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chatting View Controller-->
+        <scene sceneID="0le-rU-48t">
+            <objects>
+                <viewController storyboardIdentifier="ChattingViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zIV-Uo-APX" customClass="ChattingViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kEr-1R-cTP"/>
+                        <viewControllerLayoutGuide type="bottom" id="mf8-bd-SpN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fte-dQ-rxJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6us-Wx-A88">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.54117647059999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zIV-Uo-APX" id="b8z-Iq-x5K"/>
+                                    <outlet property="delegate" destination="zIV-Uo-APX" id="jtd-en-3L1"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-We-Yt4">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T86-Kq-LqU">
+                                        <rect key="frame" x="307" y="10" width="60" height="30"/>
+                                        <color key="backgroundColor" red="0.015686274510000001" green="0.54117647059999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Q78-8H-pdu"/>
+                                            <constraint firstAttribute="width" constant="60" id="r7C-mX-qLC"/>
+                                        </constraints>
+                                        <state key="normal" title="send">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendEvent:" destination="zIV-Uo-APX" eventType="touchUpInside" id="Oua-Ia-z0O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-ir-hvt">
+                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="CVT-ni-VXa"/>
+                                        </constraints>
+                                        <state key="normal" title="＋">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-nK-GMH" customClass="HanaTextView" customModule="Hana" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="5" width="249" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zHV-iB-QT0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="zIV-Uo-APX" id="rYN-o2-dYk"/>
+                                        </connections>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="centerY" secondItem="2Vi-We-Yt4" secondAttribute="centerY" id="5b4-sw-6h3"/>
+                                    <constraint firstAttribute="bottom" secondItem="EJQ-ir-hvt" secondAttribute="bottom" constant="5" id="Bph-8y-SM9"/>
+                                    <constraint firstItem="EJQ-ir-hvt" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="U6J-WO-gFw"/>
+                                    <constraint firstAttribute="trailing" secondItem="T86-Kq-LqU" secondAttribute="trailing" constant="8" id="Wfi-bK-Q5h"/>
+                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="leading" secondItem="EJQ-ir-hvt" secondAttribute="trailing" constant="2" id="Whu-E7-5Lx"/>
+                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="XL3-44-Dlt"/>
+                                    <constraint firstItem="T86-Kq-LqU" firstAttribute="leading" secondItem="kqY-nK-GMH" secondAttribute="trailing" constant="8" id="ae6-c8-HFd"/>
+                                    <constraint firstAttribute="bottom" secondItem="kqY-nK-GMH" secondAttribute="bottom" constant="5" id="iem-QA-V4I"/>
+                                    <constraint firstItem="EJQ-ir-hvt" firstAttribute="leading" secondItem="2Vi-We-Yt4" secondAttribute="leading" constant="8" id="uxg-bj-ejd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6us-Wx-A88" firstAttribute="leading" secondItem="Fte-dQ-rxJ" secondAttribute="leading" id="KjQ-Af-VLb"/>
+                            <constraint firstAttribute="trailing" secondItem="2Vi-We-Yt4" secondAttribute="trailing" id="cQ4-q3-mPW"/>
+                            <constraint firstAttribute="trailing" secondItem="6us-Wx-A88" secondAttribute="trailing" id="cnk-7E-WWA"/>
+                            <constraint firstItem="6us-Wx-A88" firstAttribute="top" secondItem="Fte-dQ-rxJ" secondAttribute="top" id="dzw-ma-cCB"/>
+                            <constraint firstItem="2Vi-We-Yt4" firstAttribute="top" secondItem="6us-Wx-A88" secondAttribute="bottom" id="imp-WA-UYa"/>
+                            <constraint firstItem="2Vi-We-Yt4" firstAttribute="leading" secondItem="Fte-dQ-rxJ" secondAttribute="leading" id="pAR-QU-q2I"/>
+                            <constraint firstItem="mf8-bd-SpN" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="bottom" id="zGQ-at-eR4"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zUP-ma-CAg" appends="YES" id="l6m-oE-jb5"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="zGQ-at-eR4" id="BID-xG-KTS"/>
+                        <outlet property="inputTextView" destination="kqY-nK-GMH" id="eoV-QV-y0I"/>
+                        <outlet property="tableView" destination="6us-Wx-A88" id="p7C-T0-889"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zvq-dF-mbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zUP-ma-CAg">
+                    <connections>
+                        <action selector="tapTableViewEvent:" destination="zIV-Uo-APX" id="MHW-St-gEb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-231.19999999999999" y="81.409295352323838"/>
+        </scene>
+    </scenes>
+</document>
