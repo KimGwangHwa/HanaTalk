@@ -31,8 +31,12 @@ class SideMenuViewController: UIViewController {
 
     func setUpView() {
         normalDataSource[0] = (image: UIImage(), text: "Profile")
-        let userInfoViewController = R.storyboard.userInfo().instantiateInitialViewController()
-        self.addChildViewController(userInfoViewController!)
+        if let navViewController = R.storyboard.userInfo().instantiateInitialViewController() as? UINavigationController,
+            let userInfoViewController = navViewController.viewControllers.first as? UserInfoViewController {
+            userInfoViewController.userInfo = DataManager.shared.currentuserInfo
+            self.addChildViewController(navViewController)
+        }
+        
 
         let browseViewController = R.storyboard.browse().instantiateInitialViewController()
         normalDataSource[1] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
@@ -53,7 +57,6 @@ class SideMenuViewController: UIViewController {
             firstViewController.didMove(toParentViewController: self)
             view.addSubview(firstViewController.view)
         }
-        
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.estimatedRowHeight = 60.0
@@ -139,9 +142,9 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
-            return
-        }
+//        if indexPath.row == 0 {
+//            return
+//        }
         dismiss {
             for subView in self.view.subviews.filter({$0 != self.sideView}) {
                 subView.removeFromSuperview()

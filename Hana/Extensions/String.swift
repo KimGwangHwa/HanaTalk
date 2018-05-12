@@ -16,4 +16,13 @@ extension String {
         
         return CGSize(width: textWidth < minHeight ? minHeight : textWidth , height: minHeight)
     }
+    
+    var isBlank: Bool {
+        return self.isEmpty
+    }
+}
+extension Optional where Wrapped == String {
+    var isBlank: Bool {
+        return self?.isBlank ?? true
+    }
 }

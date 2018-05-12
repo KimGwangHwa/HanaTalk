@@ -46,6 +46,13 @@ class UserInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func tappedMenu(_ sender: UIButton) {
+        SideMenuViewController.show()
+    }
+    
+    @IBAction func tappedAlbum(_ sender: UIButton) {
+    }
+    
     @IBAction func closeButtonEvent(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -60,7 +67,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
-                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
+                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
                 cell.nickNameLabel.text = userInfo?.nickname
                 cell.delegate = self
                 return cell
