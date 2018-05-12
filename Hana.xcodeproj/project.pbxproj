@@ -86,6 +86,8 @@
 		342CDB6F209C08D20043756F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CDB6E209C08D20043756F /* SplashViewController.swift */; };
 		342CDB71209C0A9F0043756F /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342CDB70209C0A9F0043756F /* Splash.storyboard */; };
 		342CF363209D73600044FF50 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CF362209D73600044FF50 /* String.swift */; };
+		342CF36620A6CE360044FF50 /* UserInfoHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */; };
+		342CF36820A6D00F0044FF50 /* UserInfoHobbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */; };
 		34362D91209D5E9900E6EF77 /* HobbySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34362D90209D5E9900E6EF77 /* HobbySelectionViewController.swift */; };
 		34362D93209D5EA700E6EF77 /* HobbySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34362D92209D5EA700E6EF77 /* HobbySelection.storyboard */; };
 		34362D97209D5FA400E6EF77 /* HobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34362D95209D5FA400E6EF77 /* HobbyCell.swift */; };
@@ -202,6 +204,8 @@
 		342CDB6E209C08D20043756F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		342CDB70209C0A9F0043756F /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		342CF362209D73600044FF50 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHobbyCell.swift; sourceTree = "<group>"; };
+		342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoHobbyCell.xib; sourceTree = "<group>"; };
 		34362D90209D5E9900E6EF77 /* HobbySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySelectionViewController.swift; sourceTree = "<group>"; };
 		34362D92209D5EA700E6EF77 /* HobbySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HobbySelection.storyboard; sourceTree = "<group>"; };
 		34362D95209D5FA400E6EF77 /* HobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCell.swift; sourceTree = "<group>"; };
@@ -477,6 +481,8 @@
 				34109DBD2076656200EC9CE0 /* ProfileCell.swift */,
 				34109DBE2076656200EC9CE0 /* ContactInfoCell.swift */,
 				34109DBF2076656200EC9CE0 /* BioCell.swift */,
+				342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */,
+				342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -786,6 +792,7 @@
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
 				343CCEEF209B110E002936FC /* MailLoginInputCell.xib in Resources */,
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
+				342CF36820A6D00F0044FF50 /* UserInfoHobbyCell.xib in Resources */,
 				34109DE52076656200EC9CE0 /* ChatHistory.storyboard in Resources */,
 				34109DE12076656200EC9CE0 /* Peek.storyboard in Resources */,
 				342CDB71209C0A9F0043756F /* Splash.storyboard in Resources */,
@@ -926,6 +933,7 @@
 				34109E262076656300EC9CE0 /* BioCell.swift in Sources */,
 				3419C7462081C695005FFC8A /* MessageDao.swift in Sources */,
 				34109E0A2076656300EC9CE0 /* ContactCell.swift in Sources */,
+				342CF36620A6CE360044FF50 /* UserInfoHobbyCell.swift in Sources */,
 				342CF363209D73600044FF50 /* String.swift in Sources */,
 				34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */,
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,

@@ -123,7 +123,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: sideHeaderIdentifier, for: indexPath) as? SideHeaderCell {
                 cell.userInfo = DataManager.shared.currentuserInfo
-                cell.delegate = self
                 return cell
             }
 
@@ -152,19 +151,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.childViewControllers[indexPath.row].didMove(toParentViewController: self)
             self.view.addSubview(self.childViewControllers[indexPath.row].view)
-        }
-    }
-}
-
-
-// MARK: - SideHeaderCellDelegate
-extension SideMenuViewController: SideHeaderCellDelegate {
-    
-    func didTouchEditProfileButton(with Object: UserInfo?) {
-        dismiss {
-            if let editUserInfo = R.storyboard.userInfo().instantiateInitialViewController() {
-                self.present(editUserInfo, animated: true, completion: nil)
-            }
         }
     }
 }

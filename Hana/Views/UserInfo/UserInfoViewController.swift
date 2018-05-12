@@ -10,6 +10,7 @@ import UIKit
 fileprivate let profileCellIdentifier = R.reuseIdentifier.profileCell.identifier
 fileprivate let bioCellIdentifier = R.reuseIdentifier.bioCell.identifier
 fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.identifier
+fileprivate let userInfoHobbyCellIdentifier = R.reuseIdentifier.userInfoHobbyCell.identifier
 
 class UserInfoViewController: UIViewController {
 
@@ -26,7 +27,7 @@ class UserInfoViewController: UIViewController {
 //        profileImageView.layer.borderWidth = 1
 //        profileImageView.layer.borderColor = UIColor.gray.cgColor
         tableView.tableFooterView = UIView(frame: .zero)
-
+        tableView.register(R.nib.userInfoHobbyCell(), forCellReuseIdentifier: userInfoHobbyCellIdentifier)
         //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationController?.navigationBar.shadowImage = UIImage()
     }
@@ -88,6 +89,10 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 return cell
             }
+        case 3:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: userInfoHobbyCellIdentifier, for: indexPath) as? UserInfoHobbyCell {
+                return cell
+            }
         default:
             break
         }
@@ -95,7 +100,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

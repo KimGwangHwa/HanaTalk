@@ -22,7 +22,6 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4u-uW-0MO">
                         <rect key="frame" x="0.0" y="0.0" width="69" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <state key="normal" title="Shopping"/>
                     </button>
                 </subviews>
             </view>
