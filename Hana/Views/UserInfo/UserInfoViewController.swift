@@ -69,6 +69,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
                 cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
+                if userInfo != DataManager.shared.currentuserInfo {
+                    cell.editProfileButton.isHidden = true
+                } else {
+                    cell.heartButton.isHidden = true
+                    cell.deleteButton.isHidden = true
+                }
+
                 cell.nickNameLabel.text = userInfo?.nickname
                 cell.delegate = self
                 return cell
@@ -100,7 +107,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

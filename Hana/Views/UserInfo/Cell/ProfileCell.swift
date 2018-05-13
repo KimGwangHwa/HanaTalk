@@ -17,6 +17,21 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    
+    var isCurrent: Bool? {
+        didSet{
+            if isCurrent! == false {
+               editProfileButton.isHidden = true
+            } else {
+                heartButton.isHidden = true
+                deleteButton.isHidden = true
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,6 +11,7 @@ class UserInfoHobbyCell: UITableViewCell {
     let hobbyCellId = R.reuseIdentifier.hobbyCell.identifier
     var hobbyDataSource: [String]! = NSArray(contentsOf: R.file.hobbyDataSourcePlist()!) as! [String]
 
+    @IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,9 @@ class UserInfoHobbyCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(R.nib.hobbyCell(), forCellWithReuseIdentifier: hobbyCellId)
+        collectionView.reloadData()
+        layoutIfNeeded()
+        collectionHeightConstraint.constant = collectionView.contentSize.height
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +32,6 @@ class UserInfoHobbyCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
