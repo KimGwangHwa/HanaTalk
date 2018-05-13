@@ -9,6 +9,8 @@ import UIKit
 
 protocol ProfileCellDelegate: class {
     func didTouchEditProfile()
+    func didTouchLike()
+    func didTouchDelte()
 }
 
 class ProfileCell: UITableViewCell {
@@ -20,18 +22,6 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
-    
-    var isCurrent: Bool? {
-        didSet{
-            if isCurrent! == false {
-               editProfileButton.isHidden = true
-            } else {
-                heartButton.isHidden = true
-                deleteButton.isHidden = true
-            }
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,6 +31,12 @@ class ProfileCell: UITableViewCell {
         if let guardDelegate = delegate {
             guardDelegate.didTouchEditProfile()
         }
+    }
+    
+    @IBAction func tappedHeart(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedDelete(_ sender: UIButton) {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -113,15 +113,31 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 3 {
+            if let viewController = R.storyboard.hobbySelection.hobbySelectionViewController() {
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
 }
 
 // MARK: - ProfileCellDelegate
 extension UserInfoViewController: ProfileCellDelegate {
+    func didTouchLike() {
+        
+    }
+    
+    func didTouchDelte() {
+        
+    }
+    
     func didTouchEditProfile() {
         if let editUserInfo = R.storyboard.editUserInfo.editUserInfoViewController() {
             present(editUserInfo, animated: true, completion: nil)
         }
     }
+    
 }
 

@@ -20,7 +20,7 @@ class HobbySelectionViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setImage(R.image.icon_add(), for: .normal)
         button.addTarget(self, action: #selector(tappedAdd(_:)), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         collectionView.register(R.nib.hobbyCell(), forCellWithReuseIdentifier: hobbyCellId)
     }
     

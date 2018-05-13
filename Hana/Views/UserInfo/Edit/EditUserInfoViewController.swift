@@ -10,6 +10,7 @@ import UIKit
 fileprivate let bioCellIdentifier = R.reuseIdentifier.editBioCell.identifier
 fileprivate let profileCellIdentifier = R.reuseIdentifier.editProfileCell.identifier
 fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.editContactInfoCell.identifier
+fileprivate let hobbyCellIdentifier = R.reuseIdentifier.editContactInfoCell.identifier
 
 class EditUserInfoViewController: UIViewController {
 
@@ -27,7 +28,7 @@ class EditUserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.register(R.nib.userInfoHobbyCell(), forCellReuseIdentifier: hobbyCellIdentifier)
     }
     
     @IBAction func backButtonEvent(_ sender: UIButton) {
@@ -64,7 +65,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? EditProfileCell {
-                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
+                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
                 cell.delegate = self
                 return cell
             }

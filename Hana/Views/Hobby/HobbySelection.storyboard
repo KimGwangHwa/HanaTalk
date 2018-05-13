@@ -13,7 +13,7 @@
         <!--Hobby Selection View Controller-->
         <scene sceneID="F0b-ZU-2rI">
             <objects>
-                <viewController id="edD-ql-Ynx" customClass="HobbySelectionViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HobbySelectionViewController" id="edD-ql-Ynx" customClass="HobbySelectionViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dKM-Wn-yqc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

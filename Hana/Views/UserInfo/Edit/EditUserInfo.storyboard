@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YV4-oo-XyS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YV4-oo-XyS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +13,7 @@
         <!--Edit User Info View Controller-->
         <scene sceneID="lKy-rY-KPU">
             <objects>
-                <viewController storyboardIdentifier="EditUserInfoViewController" id="YV4-oo-XyS" customClass="EditUserInfoViewController" customModule="talk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditUserInfoViewController" id="YV4-oo-XyS" customClass="EditUserInfoViewController" customModule="Hana" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KoA-dA-4DI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditProfileCell" rowHeight="160" id="8GA-RE-XTh" customClass="EditProfileCell" customModule="talk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditProfileCell" rowHeight="160" id="8GA-RE-XTh" customClass="EditProfileCell" customModule="Hana" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8GA-RE-XTh" id="NwP-fa-2yE">
@@ -42,7 +41,7 @@
                                                         <action selector="changeProfileButtonEvent:" destination="8GA-RE-XTh" eventType="touchUpInside" id="wae-Tb-2S3"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JWg-n2-zam">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="JWg-n2-zam">
                                                     <rect key="frame" x="137" y="11" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Y9T-nb-ynH"/>
@@ -67,7 +66,7 @@
                                             <outlet property="profileImageView" destination="JWg-n2-zam" id="ESm-yg-4Zt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditBioCell" rowHeight="100" id="5gU-qT-JZV" customClass="EditBioCell" customModule="talk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditBioCell" rowHeight="100" id="5gU-qT-JZV" customClass="EditBioCell" customModule="Hana" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5gU-qT-JZV" id="he3-Ex-XXq">
@@ -96,7 +95,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="rRq-PS-mA5"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -118,7 +116,7 @@
                                             <outlet property="textView" destination="Pys-ae-rL4" id="CKE-ol-wMa"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditContactInfoCell" rowHeight="270" id="i1h-Zf-0nS" customClass="EditContactInfoCell" customModule="talk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditContactInfoCell" rowHeight="270" id="i1h-Zf-0nS" customClass="EditContactInfoCell" customModule="Hana" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="288" width="375" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i1h-Zf-0nS" id="Tgf-BS-YPW">
@@ -220,40 +218,6 @@
                                             <outlet property="sexTextField" destination="aGr-uX-ILR" id="Vtd-9K-h3F"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditTagCell" rowHeight="100" id="jfO-ur-veV">
-                                        <rect key="frame" x="0.0" y="558" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jfO-ur-veV" id="aRs-vt-2bN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-bC-tG0">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="0.5"/>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="VzL-WZ-yVJ"/>
-                                                    </constraints>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhD-UF-QTJ">
-                                                    <rect key="frame" x="15" y="10" width="345" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Eoo-N9-n6F"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="NhD-UF-QTJ" firstAttribute="top" secondItem="eoL-bC-tG0" secondAttribute="bottom" constant="9.5" id="IJC-Te-0bR"/>
-                                                <constraint firstItem="eoL-bC-tG0" firstAttribute="top" secondItem="aRs-vt-2bN" secondAttribute="top" id="Pog-A6-pj5"/>
-                                                <constraint firstAttribute="trailing" secondItem="NhD-UF-QTJ" secondAttribute="trailing" constant="15" id="Rdy-Gb-GBd"/>
-                                                <constraint firstItem="NhD-UF-QTJ" firstAttribute="leading" secondItem="aRs-vt-2bN" secondAttribute="leading" constant="15" id="SMT-eA-smT"/>
-                                                <constraint firstAttribute="trailing" secondItem="eoL-bC-tG0" secondAttribute="trailing" constant="15" id="fD6-IJ-zKE"/>
-                                                <constraint firstItem="eoL-bC-tG0" firstAttribute="leading" secondItem="aRs-vt-2bN" secondAttribute="leading" constant="15" id="fdU-6t-fcg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="YV4-oo-XyS" id="sMf-C4-LaH"/>
@@ -307,6 +271,7 @@
     </scenes>
     <resources>
         <image name="close" width="24" height="24"/>
+        <image name="icon_profile" width="120" height="120"/>
         <image name="save" width="32" height="32"/>
     </resources>
 </document>
