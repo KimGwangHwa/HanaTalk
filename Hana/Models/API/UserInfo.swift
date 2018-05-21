@@ -23,6 +23,6 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var bio: String?
     @NSManaged var keyword: String?
     @NSManaged var profileUrl: String?
-    @NSManaged var album: [String]?
+    @NSManaged var albums: [String]?
 
 }

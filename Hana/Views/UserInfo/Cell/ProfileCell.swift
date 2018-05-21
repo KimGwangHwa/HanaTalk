@@ -14,17 +14,17 @@ protocol ProfileCellDelegate: class {
 }
 
 class ProfileCell: UITableViewCell {
-
+    
     weak var delegate: ProfileCellDelegate?
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var nickNameLabel: UILabel!
-    @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     @IBAction func editButtonEvent(_ sender: UIButton) {
@@ -33,11 +33,15 @@ class ProfileCell: UITableViewCell {
         }
     }
     
-    @IBAction func tappedHeart(_ sender: UIButton) {
+    @IBAction func tappedHorizontal(_ sender: UIButton) {
     }
     
-    @IBAction func tappedDelete(_ sender: UIButton) {
+    @IBAction func tappedVertica(_ sender: UIButton) {
     }
+    
+    @IBAction func tappedAddAlbum(_ sender: UIButton) {
+    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

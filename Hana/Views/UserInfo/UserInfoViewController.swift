@@ -8,9 +8,7 @@
 import UIKit
 
 fileprivate let profileCellIdentifier = R.reuseIdentifier.profileCell.identifier
-fileprivate let bioCellIdentifier = R.reuseIdentifier.bioCell.identifier
-fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.contactInfoCell.identifier
-fileprivate let userInfoHobbyCellIdentifier = R.reuseIdentifier.userInfoHobbyCell.identifier
+fileprivate let albumCellIdentifier = R.reuseIdentifier.userInfoAlbumCell.identifier
 
 class UserInfoViewController: UIViewController {
 
@@ -24,12 +22,31 @@ class UserInfoViewController: UIViewController {
     }
     
     func setUpView() {
-//        profileImageView.layer.borderWidth = 1
-//        profileImageView.layer.borderColor = UIColor.gray.cgColor
         tableView.tableFooterView = UIView(frame: .zero)
-        tableView.register(R.nib.userInfoHobbyCell(), forCellReuseIdentifier: userInfoHobbyCellIdentifier)
-        //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
+        tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
+        tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
+        
+        let rightButton = UIButton(type: .custom)
+        rightButton.setImage(R.image.more(), for: .normal)
+        rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    @objc func tappedMore() {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Edit Profile", style: .default, handler: { (action) in
+
+        }))
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { (action) in
+
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -51,13 +68,6 @@ class UserInfoViewController: UIViewController {
         SideMenuViewController.show()
     }
     
-    @IBAction func tappedAlbum(_ sender: UIButton) {
-    }
-    
-    @IBAction func closeButtonEvent(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -68,36 +78,11 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
-                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
-                if userInfo != DataManager.shared.currentuserInfo {
-                    cell.editProfileButton.isHidden = true
-                } else {
-                    cell.heartButton.isHidden = true
-                    cell.deleteButton.isHidden = true
-                }
-
-                cell.nickNameLabel.text = userInfo?.nickname
-                cell.delegate = self
                 return cell
             }
         case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: bioCellIdentifier, for: indexPath) as? BioCell {
-                cell.bioLabel.text = userInfo?.bio
-                return cell
-            }
-        case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: contactInfoCellIdentifier, for: indexPath) as? ContactInfoCell {
-                cell.nicknameLabel.text = userInfo?.nickname
-                cell.emailLabel.text = userInfo?.email
-                cell.phoneNumberLabel.text = userInfo?.phoneNumber
-                cell.birthdayLabel.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
-                if let sex = userInfo?.sex {
-                    cell.sexLabel.text = sex ? "man":"women"
-                }
-                return cell
-            }
-        case 3:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: userInfoHobbyCellIdentifier, for: indexPath) as? UserInfoHobbyCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: albumCellIdentifier, for: indexPath) as? UserInfoAlbumCell {
+                cell.reload(with: .horizontal, dataSource: userInfo)
                 return cell
             }
         default:
@@ -107,10 +92,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return UserInfoAlbumCell.height(with: .horizontal, dataSource: userInfo)
+        }
         return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
