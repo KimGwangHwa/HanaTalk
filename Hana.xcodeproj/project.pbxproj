@@ -52,9 +52,6 @@
 		34109E182076656300EC9CE0 /* TalkHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DAC2076656200EC9CE0 /* TalkHistoryCell.swift */; };
 		34109E192076656300EC9CE0 /* MatchingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34109DAD2076656200EC9CE0 /* MatchingStatusCell.xib */; };
 		34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DAF2076656200EC9CE0 /* EditUserInfoViewController.swift */; };
-		34109E1B2076656300EC9CE0 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB12076656200EC9CE0 /* EditProfileCell.swift */; };
-		34109E1C2076656300EC9CE0 /* EditContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB22076656200EC9CE0 /* EditContactInfoCell.swift */; };
-		34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB32076656200EC9CE0 /* EditBioCell.swift */; };
 		34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34109DB52076656200EC9CE0 /* SideNormalCell.xib */; };
 		34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB62076656200EC9CE0 /* SideMenuViewController.swift */; };
 		34109E202076656300EC9CE0 /* SideNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB72076656200EC9CE0 /* SideNormalCell.swift */; };
@@ -62,8 +59,6 @@
 		34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DB92076656200EC9CE0 /* SideHeaderCell.swift */; };
 		34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DBB2076656200EC9CE0 /* UserInfoViewController.swift */; };
 		34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DBD2076656200EC9CE0 /* ProfileCell.swift */; };
-		34109E252076656300EC9CE0 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DBE2076656200EC9CE0 /* ContactInfoCell.swift */; };
-		34109E262076656300EC9CE0 /* BioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DBF2076656200EC9CE0 /* BioCell.swift */; };
 		34109E272076656300EC9CE0 /* CustomBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DC12076656200EC9CE0 /* CustomBadgeView.swift */; };
 		34109E282076656300EC9CE0 /* HanaAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DC22076656200EC9CE0 /* HanaAlertView.swift */; };
 		34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109DC42076656200EC9CE0 /* BrowseCell.swift */; };
@@ -88,11 +83,11 @@
 		342706C620B2F381007ED6EE /* UserInfoAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342706C520B2F381007ED6EE /* UserInfoAlbumCell.xib */; };
 		342706C920B2F3EA007ED6EE /* UserInfoAlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342706C720B2F3EA007ED6EE /* UserInfoAlbumItemCell.swift */; };
 		342706CA20B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342706C820B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib */; };
+		342706CF20B44CDF007ED6EE /* EditUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342706CE20B44CDF007ED6EE /* EditUserInfoCell.xib */; };
+		342706D120B44CFE007ED6EE /* EditUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342706D020B44CFE007ED6EE /* EditUserInfoCell.swift */; };
 		342CDB6F209C08D20043756F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CDB6E209C08D20043756F /* SplashViewController.swift */; };
 		342CDB71209C0A9F0043756F /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342CDB70209C0A9F0043756F /* Splash.storyboard */; };
 		342CF363209D73600044FF50 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CF362209D73600044FF50 /* String.swift */; };
-		342CF36620A6CE360044FF50 /* UserInfoHobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */; };
-		342CF36820A6D00F0044FF50 /* UserInfoHobbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */; };
 		34362D91209D5E9900E6EF77 /* HobbySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34362D90209D5E9900E6EF77 /* HobbySelectionViewController.swift */; };
 		34362D93209D5EA700E6EF77 /* HobbySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34362D92209D5EA700E6EF77 /* HobbySelection.storyboard */; };
 		34362D97209D5FA400E6EF77 /* HobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34362D95209D5FA400E6EF77 /* HobbyCell.swift */; };
@@ -174,9 +169,6 @@
 		34109DAC2076656200EC9CE0 /* TalkHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkHistoryCell.swift; sourceTree = "<group>"; };
 		34109DAD2076656200EC9CE0 /* MatchingStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchingStatusCell.xib; sourceTree = "<group>"; };
 		34109DAF2076656200EC9CE0 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
-		34109DB12076656200EC9CE0 /* EditProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
-		34109DB22076656200EC9CE0 /* EditContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoCell.swift; sourceTree = "<group>"; };
-		34109DB32076656200EC9CE0 /* EditBioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBioCell.swift; sourceTree = "<group>"; };
 		34109DB52076656200EC9CE0 /* SideNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideNormalCell.xib; sourceTree = "<group>"; };
 		34109DB62076656200EC9CE0 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		34109DB72076656200EC9CE0 /* SideNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideNormalCell.swift; sourceTree = "<group>"; };
@@ -184,8 +176,6 @@
 		34109DB92076656200EC9CE0 /* SideHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideHeaderCell.swift; sourceTree = "<group>"; };
 		34109DBB2076656200EC9CE0 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		34109DBD2076656200EC9CE0 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		34109DBE2076656200EC9CE0 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
-		34109DBF2076656200EC9CE0 /* BioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioCell.swift; sourceTree = "<group>"; };
 		34109DC12076656200EC9CE0 /* CustomBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBadgeView.swift; sourceTree = "<group>"; };
 		34109DC22076656200EC9CE0 /* HanaAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanaAlertView.swift; sourceTree = "<group>"; };
 		34109DC42076656200EC9CE0 /* BrowseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseCell.swift; sourceTree = "<group>"; };
@@ -211,11 +201,11 @@
 		342706C520B2F381007ED6EE /* UserInfoAlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoAlbumCell.xib; sourceTree = "<group>"; };
 		342706C720B2F3EA007ED6EE /* UserInfoAlbumItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoAlbumItemCell.swift; sourceTree = "<group>"; };
 		342706C820B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoAlbumItemCell.xib; sourceTree = "<group>"; };
+		342706CE20B44CDF007ED6EE /* EditUserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserInfoCell.xib; sourceTree = "<group>"; };
+		342706D020B44CFE007ED6EE /* EditUserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoCell.swift; sourceTree = "<group>"; };
 		342CDB6E209C08D20043756F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		342CDB70209C0A9F0043756F /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		342CF362209D73600044FF50 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHobbyCell.swift; sourceTree = "<group>"; };
-		342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoHobbyCell.xib; sourceTree = "<group>"; };
 		34362D90209D5E9900E6EF77 /* HobbySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbySelectionViewController.swift; sourceTree = "<group>"; };
 		34362D92209D5EA700E6EF77 /* HobbySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HobbySelection.storyboard; sourceTree = "<group>"; };
 		34362D95209D5FA400E6EF77 /* HobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCell.swift; sourceTree = "<group>"; };
@@ -474,7 +464,6 @@
 		34109DBA2076656200EC9CE0 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
-				342706CB20B3056F007ED6EE /* Remove */,
 				342CF36420A6BD900044FF50 /* Edit */,
 				34109D642076656200EC9CE0 /* UserInfo.storyboard */,
 				34109DBB2076656200EC9CE0 /* UserInfoViewController.swift */,
@@ -486,15 +475,14 @@
 		34109DBC2076656200EC9CE0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				34109DB12076656200EC9CE0 /* EditProfileCell.swift */,
-				34109DB22076656200EC9CE0 /* EditContactInfoCell.swift */,
-				34109DB32076656200EC9CE0 /* EditBioCell.swift */,
 				34109DBD2076656200EC9CE0 /* ProfileCell.swift */,
 				342706BD20B2EC89007ED6EE /* ProfileCell.xib */,
 				342706C320B2F375007ED6EE /* UserInfoAlbumCell.swift */,
 				342706C520B2F381007ED6EE /* UserInfoAlbumCell.xib */,
 				342706C720B2F3EA007ED6EE /* UserInfoAlbumItemCell.swift */,
 				342706C820B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib */,
+				342706D020B44CFE007ED6EE /* EditUserInfoCell.swift */,
+				342706CE20B44CDF007ED6EE /* EditUserInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -608,17 +596,6 @@
 				34BE7ED120862882000D8571 /* LikeDao.swift */,
 			);
 			path = DAO;
-			sourceTree = "<group>";
-		};
-		342706CB20B3056F007ED6EE /* Remove */ = {
-			isa = PBXGroup;
-			children = (
-				34109DBE2076656200EC9CE0 /* ContactInfoCell.swift */,
-				34109DBF2076656200EC9CE0 /* BioCell.swift */,
-				342CF36520A6CE360044FF50 /* UserInfoHobbyCell.swift */,
-				342CF36720A6D00F0044FF50 /* UserInfoHobbyCell.xib */,
-			);
-			path = Remove;
 			sourceTree = "<group>";
 		};
 		342CDB6D209C08AD0043756F /* Splash */ = {
@@ -816,7 +793,6 @@
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
 				343CCEEF209B110E002936FC /* MailLoginInputCell.xib in Resources */,
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
-				342CF36820A6D00F0044FF50 /* UserInfoHobbyCell.xib in Resources */,
 				34109DE52076656200EC9CE0 /* ChatHistory.storyboard in Resources */,
 				34109DE12076656200EC9CE0 /* Peek.storyboard in Resources */,
 				342CDB71209C0A9F0043756F /* Splash.storyboard in Resources */,
@@ -826,6 +802,7 @@
 				34109DEE2076656200EC9CE0 /* Browse.storyboard in Resources */,
 				343CCEE5209B1009002936FC /* LoginActionCell.xib in Resources */,
 				343CCEE2209B0F75002936FC /* TelLoginInputCell.xib in Resources */,
+				342706CF20B44CDF007ED6EE /* EditUserInfoCell.xib in Resources */,
 				344309722095955900246418 /* EnterVerificationCode.storyboard in Resources */,
 				343CCEE0209B0F23002936FC /* LoginIconCell.xib in Resources */,
 				34109E212076656300EC9CE0 /* SideHeaderCell.xib in Resources */,
@@ -953,13 +930,10 @@
 				34109E302076656300EC9CE0 /* AlbumViewController.swift in Sources */,
 				34109E042076656300EC9CE0 /* MatchingViewController.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,
-				34109E1C2076656300EC9CE0 /* EditContactInfoCell.swift in Sources */,
 				34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */,
 				34109E152076656300EC9CE0 /* MatchingCell.swift in Sources */,
-				34109E262076656300EC9CE0 /* BioCell.swift in Sources */,
 				3419C7462081C695005FFC8A /* MessageDao.swift in Sources */,
 				34109E0A2076656300EC9CE0 /* ContactCell.swift in Sources */,
-				342CF36620A6CE360044FF50 /* UserInfoHobbyCell.swift in Sources */,
 				342CF363209D73600044FF50 /* String.swift in Sources */,
 				34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */,
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,
@@ -972,9 +946,9 @@
 				34109DFE2076656300EC9CE0 /* Common.swift in Sources */,
 				34109E2C2076656300EC9CE0 /* FindCell.swift in Sources */,
 				34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */,
+				342706D120B44CFE007ED6EE /* EditUserInfoCell.swift in Sources */,
 				34BE7ED220862882000D8571 /* LikeDao.swift in Sources */,
 				34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */,
-				34109E1D2076656300EC9CE0 /* EditBioCell.swift in Sources */,
 				34362D91209D5E9900E6EF77 /* HobbySelectionViewController.swift in Sources */,
 				34109DF32076656200EC9CE0 /* UserInfo.swift in Sources */,
 				344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */,
@@ -983,10 +957,8 @@
 				3419C7482081C87D005FFC8A /* DAO.swift in Sources */,
 				34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */,
 				34109E172076656300EC9CE0 /* MatchingStatusCell.swift in Sources */,
-				34109E252076656300EC9CE0 /* ContactInfoCell.swift in Sources */,
 				34109DF62076656200EC9CE0 /* Message.swift in Sources */,
 				34109E0C2076656300EC9CE0 /* ContactViewController.swift in Sources */,
-				34109E1B2076656300EC9CE0 /* EditProfileCell.swift in Sources */,
 				34109E202076656300EC9CE0 /* SideNormalCell.swift in Sources */,
 				343CCEEC209B10B1002936FC /* MailLoginInputCell.swift in Sources */,
 				34109E0D2076656300EC9CE0 /* ChattingViewController.swift in Sources */,

@@ -1,15 +1,14 @@
 //
-//  BioCell.swift
-//  talk
+//  EditUserInfoCell.swift
+//  Hana
 //
-//  Created by ひかりちゃん on 2018/03/08.
+//  Created by ひかりちゃん on 2018/05/22.
 //
 
 import UIKit
 
-class BioCell: UITableViewCell {
+class EditUserInfoCell: UITableViewCell {
 
-    @IBOutlet weak var bioLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

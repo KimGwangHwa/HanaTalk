@@ -7,10 +7,7 @@
 
 import UIKit
 
-fileprivate let bioCellIdentifier = R.reuseIdentifier.editBioCell.identifier
-fileprivate let profileCellIdentifier = R.reuseIdentifier.editProfileCell.identifier
-fileprivate let contactInfoCellIdentifier = R.reuseIdentifier.editContactInfoCell.identifier
-fileprivate let hobbyCellIdentifier = R.reuseIdentifier.editContactInfoCell.identifier
+fileprivate let editCellIdentifier = R.reuseIdentifier.editUserInfoCell.identifier
 
 class EditUserInfoViewController: UIViewController {
 
@@ -28,7 +25,7 @@ class EditUserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(R.nib.userInfoHobbyCell(), forCellReuseIdentifier: hobbyCellIdentifier)
+        tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
     }
     
     @IBAction func backButtonEvent(_ sender: UIButton) {
@@ -62,33 +59,13 @@ class EditUserInfoViewController: UIViewController {
 extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? EditProfileCell {
-                cell.profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
-                cell.delegate = self
-                return cell
-            }
-        case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: bioCellIdentifier, for: indexPath) as? EditBioCell {
-                cell.textView.text = userInfo?.bio
-                cell.textView.delegate = self
-                return cell
-            }
-        case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: contactInfoCellIdentifier, for: indexPath) as? EditContactInfoCell {
-                cell.nicknameTextField.text = userInfo?.nickname
-                cell.mailAddressTextField.text  = userInfo?.email
-                cell.phoneNumberTextField.text = userInfo?.phoneNumber
-                cell.birthDayTextField.text = Common.dateToString(date: userInfo?.birthday, format: DATE_FORMAT_2)
-                if let sex = userInfo?.sex {
-                    cell.sexTextField.text = sex ? "man" : "women"
-                }
-                return cell
-            }
-        default:
-            break
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: editCellIdentifier, for: indexPath) as? EditUserInfoCell {
+            cell.textLabel?.text = "12345678o"
+            cell.detailTextLabel?.text = "123123123"
+            return cell
         }
+
         return UITableViewCell()
     }
     
@@ -137,27 +114,27 @@ extension EditUserInfoViewController: AlbumViewControllerDelegate {
 }
 
 // MARK: EditProfileCellDelegate
-extension EditUserInfoViewController: EditProfileCellDelegate {
-    func didTouchChangeProfile() {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            let imageViewController = UIImagePickerController()
-            imageViewController.delegate = self
-            imageViewController.sourceType = .camera
-            self.present(imageViewController, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
-            if let albumViewController = R.storyboard.album.albumViewController() {
-                albumViewController.delegate = self
-                self.present(albumViewController, animated: true, completion: nil)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-}
+//extension EditUserInfoViewController: EditProfileCellDelegate {
+//    func didTouchChangeProfile() {
+//        let alert = UIAlertController()
+//        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+//            let imageViewController = UIImagePickerController()
+//            imageViewController.delegate = self
+//            imageViewController.sourceType = .camera
+//            self.present(imageViewController, animated: true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
+//            if let albumViewController = R.storyboard.album.albumViewController() {
+//                albumViewController.delegate = self
+//                self.present(albumViewController, animated: true, completion: nil)
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+//            
+//        }))
+//        present(alert, animated: true, completion: nil)
+//    }
+//}
 
 
 
