@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 fileprivate let editCellIdentifier = R.reuseIdentifier.editUserInfoCell.identifier
 
 class EditUserInfoViewController: UIViewController {
@@ -61,8 +63,8 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: editCellIdentifier, for: indexPath) as? EditUserInfoCell {
-            cell.textLabel?.text = "12345678o"
-            cell.detailTextLabel?.text = "123123123"
+            cell.nameLabel?.text = "12345678o"
+            cell.descriptionLabel?.text = "34567890567890p;['"
             return cell
         }
 
@@ -130,7 +132,7 @@ extension EditUserInfoViewController: AlbumViewControllerDelegate {
 //            }
 //        }))
 //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-//            
+//
 //        }))
 //        present(alert, animated: true, completion: nil)
 //    }

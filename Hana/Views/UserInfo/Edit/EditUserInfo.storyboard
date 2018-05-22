@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YV4-oo-XyS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pgi-vm-9sv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Jgo-cq-QmI">
+            <objects>
+                <navigationController id="pgi-vm-9sv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jOU-t6-dQM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YV4-oo-XyS" kind="relationship" relationship="rootViewController" id="jGH-Am-MVF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PtW-RP-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1076" y="730"/>
+        </scene>
         <!--Edit User Info View Controller-->
         <scene sceneID="lKy-rY-KPU">
             <objects>
@@ -59,29 +75,17 @@
                                     <outlet property="delegate" destination="YV4-oo-XyS" id="4KC-14-6cd"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrc-BW-TQ0">
-                                <rect key="frame" x="15" y="20" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="B4P-HI-mHi"/>
-                                    <constraint firstAttribute="height" constant="44" id="CQN-H1-aDA"/>
-                                </constraints>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <action selector="backButtonEvent:" destination="YV4-oo-XyS" eventType="touchUpInside" id="rVm-gq-cbR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2Rm-gQ-piX" firstAttribute="top" secondItem="KoA-dA-4DI" secondAttribute="top" id="0wO-bh-09a"/>
-                            <constraint firstItem="Nrc-BW-TQ0" firstAttribute="top" secondItem="QCQ-Q7-ZxC" secondAttribute="top" id="Gfx-MQ-ii9"/>
                             <constraint firstItem="2Rm-gQ-piX" firstAttribute="trailing" secondItem="QCQ-Q7-ZxC" secondAttribute="trailing" id="RNq-aF-UKb"/>
-                            <constraint firstItem="Nrc-BW-TQ0" firstAttribute="leading" secondItem="QCQ-Q7-ZxC" secondAttribute="leading" constant="15" id="Xiq-sn-7ys"/>
                             <constraint firstItem="2Rm-gQ-piX" firstAttribute="bottom" secondItem="QCQ-Q7-ZxC" secondAttribute="bottom" id="YDZ-Ez-fH1"/>
                             <constraint firstItem="2Rm-gQ-piX" firstAttribute="leading" secondItem="QCQ-Q7-ZxC" secondAttribute="leading" id="sax-RF-41N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QCQ-Q7-ZxC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aPo-xG-mBK"/>
                     <connections>
                         <outlet property="tableView" destination="2Rm-gQ-piX" id="aMJ-Zk-3Bw"/>
                     </connections>
@@ -92,7 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close" width="24" height="24"/>
         <image name="icon_profile" width="120" height="120"/>
     </resources>
 </document>
