@@ -44,6 +44,7 @@ fileprivate let editCellIdentifier = R.reuseIdentifier.editUserInfoCell.identifi
 class EditUserInfoViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var nicknameTextField: UITextField!
     var mailAddressTextField: UITextField!
@@ -52,7 +53,6 @@ class EditUserInfoViewController: UIViewController {
     var sexTextField: UITextField!
     var bioTextView: UITextView!
     
-    var profileImage: UIImage?
     let userInfo = DataManager.shared.currentuserInfo
     
     override func viewDidLoad() {
@@ -65,6 +65,7 @@ class EditUserInfoViewController: UIViewController {
     }
 
     @IBAction func tappedDone(_ sender: UIBarButtonItem) {
+        let profileImage = profileImageView.image
         UploadDao.upload(image: profileImage) { (stringUrl) in
             self.userInfo?.profileUrl = stringUrl
             self.userInfo?.nickname = self.nicknameTextField.text
@@ -178,7 +179,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
 extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImage = image;
+            profileImageView.image = image;
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -196,13 +197,5 @@ extension EditUserInfoViewController: UITextViewDelegate {
     }
     
 }
-
-// MARK: AlbumViewControllerDelegate
-extension EditUserInfoViewController: AlbumViewControllerDelegate {
-    func albumViewController(_ viewController: AlbumViewController, didSelect atImage: UIImage?) {
-        profileImage = atImage;
-    }
-}
-
 
 

@@ -103,6 +103,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileImageView" destination="JWg-n2-zam" id="ria-0v-XPv"/>
                         <outlet property="tableView" destination="2Rm-gQ-piX" id="aMJ-Zk-3Bw"/>
                     </connections>
                 </viewController>
