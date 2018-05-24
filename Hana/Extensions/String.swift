@@ -20,7 +20,17 @@ extension String {
     var isBlank: Bool {
         return self.isEmpty
     }
+    
+    
+    func date(format: DateTemplate) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format.rawValue
+        return formatter.date(from: self)
+    }
+    
+    
 }
+
 extension Optional where Wrapped == String {
     var isBlank: Bool {
         return self?.isBlank ?? true

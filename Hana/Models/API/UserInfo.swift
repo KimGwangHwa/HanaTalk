@@ -17,12 +17,22 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var email: String?
     @NSManaged var nickname: String?
     @NSManaged var phoneNumber: String?
-    @NSManaged var sex: Bool
     @NSManaged var user: PFUser?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var bio: String?
     @NSManaged var keyword: String?
     @NSManaged var profileUrl: String?
     @NSManaged var albums: [String]?
+    public var sex: Sex {
+        get{
+            if let s = self["sex"] as? Int {
+                return Sex(rawValue: s) ?? .unknown
+            }
+            return .unknown
+        }
+        set{
+            self["sex"] = newValue
+        }
+    }
 
 }

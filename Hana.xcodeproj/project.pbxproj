@@ -30,7 +30,6 @@
 		34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D7E2076656200EC9CE0 /* UIViewController+VisibleViewController.swift */; };
 		34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D7F2076656200EC9CE0 /* UIImage+Color.swift */; };
 		34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D802076656200EC9CE0 /* Notification+Name.swift */; };
-		34109DFE2076656300EC9CE0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D822076656200EC9CE0 /* Common.swift */; };
 		34109DFF2076656300EC9CE0 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D832076656200EC9CE0 /* Const.swift */; };
 		34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D852076656200EC9CE0 /* AppDelegate.swift */; };
 		34109E012076656300EC9CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34109D872076656200EC9CE0 /* Assets.xcassets */; };
@@ -93,6 +92,15 @@
 		34362D97209D5FA400E6EF77 /* HobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34362D95209D5FA400E6EF77 /* HobbyCell.swift */; };
 		34362D98209D5FA400E6EF77 /* HobbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34362D96209D5FA400E6EF77 /* HobbyCell.xib */; };
 		34362D9A209D637E00E6EF77 /* HobbyDataSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34362D99209D637E00E6EF77 /* HobbyDataSource.plist */; };
+		343CB05420B6E60B00C1A759 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB05320B6E60B00C1A759 /* Enum.swift */; };
+		343CB05620B6E6A800C1A759 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB05520B6E6A800C1A759 /* Date.swift */; };
+		343CB05820B6E8C800C1A759 /* UploadDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB05720B6E8C800C1A759 /* UploadDao.swift */; };
+		343CB05E20B6EFA300C1A759 /* InputMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB05D20B6EFA300C1A759 /* InputMessageViewController.swift */; };
+		343CB06020B6EFAF00C1A759 /* InputMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343CB05F20B6EFAF00C1A759 /* InputMessage.storyboard */; };
+		343CB06520B6F69900C1A759 /* InputTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB06320B6F69900C1A759 /* InputTextFieldCell.swift */; };
+		343CB06620B6F69900C1A759 /* InputTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343CB06420B6F69900C1A759 /* InputTextFieldCell.xib */; };
+		343CB06920B6F6AE00C1A759 /* InputTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CB06720B6F6AE00C1A759 /* InputTextViewCell.swift */; };
+		343CB06A20B6F6AE00C1A759 /* InputTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343CB06820B6F6AE00C1A759 /* InputTextViewCell.xib */; };
 		343CCEDB209B0E1B002936FC /* LoginSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CCEDA209B0E1B002936FC /* LoginSelectionViewController.swift */; };
 		343CCEDD209B0E36002936FC /* LoginSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343CCEDC209B0E36002936FC /* LoginSelection.storyboard */; };
 		343CCEE0209B0F23002936FC /* LoginIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343CCEDF209B0F23002936FC /* LoginIconCell.xib */; };
@@ -147,7 +155,6 @@
 		34109D7E2076656200EC9CE0 /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
 		34109D7F2076656200EC9CE0 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		34109D802076656200EC9CE0 /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
-		34109D822076656200EC9CE0 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		34109D832076656200EC9CE0 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		34109D852076656200EC9CE0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34109D872076656200EC9CE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +218,15 @@
 		34362D95209D5FA400E6EF77 /* HobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCell.swift; sourceTree = "<group>"; };
 		34362D96209D5FA400E6EF77 /* HobbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HobbyCell.xib; sourceTree = "<group>"; };
 		34362D99209D637E00E6EF77 /* HobbyDataSource.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HobbyDataSource.plist; sourceTree = "<group>"; };
+		343CB05320B6E60B00C1A759 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		343CB05520B6E6A800C1A759 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		343CB05720B6E8C800C1A759 /* UploadDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDao.swift; sourceTree = "<group>"; };
+		343CB05D20B6EFA300C1A759 /* InputMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMessageViewController.swift; sourceTree = "<group>"; };
+		343CB05F20B6EFAF00C1A759 /* InputMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputMessage.storyboard; sourceTree = "<group>"; };
+		343CB06320B6F69900C1A759 /* InputTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldCell.swift; sourceTree = "<group>"; };
+		343CB06420B6F69900C1A759 /* InputTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputTextFieldCell.xib; sourceTree = "<group>"; };
+		343CB06720B6F6AE00C1A759 /* InputTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextViewCell.swift; sourceTree = "<group>"; };
+		343CB06820B6F6AE00C1A759 /* InputTextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputTextViewCell.xib; sourceTree = "<group>"; };
 		343CCEDA209B0E1B002936FC /* LoginSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSelectionViewController.swift; sourceTree = "<group>"; };
 		343CCEDC209B0E36002936FC /* LoginSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSelection.storyboard; sourceTree = "<group>"; };
 		343CCEDF209B0F23002936FC /* LoginIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginIconCell.xib; sourceTree = "<group>"; };
@@ -275,7 +291,7 @@
 				34109D6F2076656200EC9CE0 /* Managers */,
 				34109D722076656200EC9CE0 /* Models */,
 				34109D7B2076656200EC9CE0 /* Extensions */,
-				34109D812076656200EC9CE0 /* Common */,
+				34109D812076656200EC9CE0 /* Const */,
 				34109D852076656200EC9CE0 /* AppDelegate.swift */,
 				34109D862076656200EC9CE0 /* Resource */,
 				34109D8C2076656200EC9CE0 /* Views */,
@@ -321,17 +337,18 @@
 				34109D7F2076656200EC9CE0 /* UIImage+Color.swift */,
 				34109D802076656200EC9CE0 /* Notification+Name.swift */,
 				342CF362209D73600044FF50 /* String.swift */,
+				343CB05320B6E60B00C1A759 /* Enum.swift */,
+				343CB05520B6E6A800C1A759 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		34109D812076656200EC9CE0 /* Common */ = {
+		34109D812076656200EC9CE0 /* Const */ = {
 			isa = PBXGroup;
 			children = (
-				34109D822076656200EC9CE0 /* Common.swift */,
 				34109D832076656200EC9CE0 /* Const.swift */,
 			);
-			path = Common;
+			path = Const;
 			sourceTree = "<group>";
 		};
 		34109D862076656200EC9CE0 /* Resource */ = {
@@ -464,6 +481,7 @@
 		34109DBA2076656200EC9CE0 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				343CB06120B6F56800C1A759 /* Input */,
 				342CF36420A6BD900044FF50 /* Edit */,
 				34109D642076656200EC9CE0 /* UserInfo.storyboard */,
 				34109DBB2076656200EC9CE0 /* UserInfoViewController.swift */,
@@ -481,8 +499,6 @@
 				342706C520B2F381007ED6EE /* UserInfoAlbumCell.xib */,
 				342706C720B2F3EA007ED6EE /* UserInfoAlbumItemCell.swift */,
 				342706C820B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib */,
-				342706D020B44CFE007ED6EE /* EditUserInfoCell.swift */,
-				342706CE20B44CDF007ED6EE /* EditUserInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -594,6 +610,7 @@
 				3419C7492081D21F005FFC8A /* UserInfoDao.swift */,
 				3419C74B208314E8005FFC8A /* TalkRoomDao.swift */,
 				34BE7ED120862882000D8571 /* LikeDao.swift */,
+				343CB05720B6E8C800C1A759 /* UploadDao.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -610,6 +627,7 @@
 		342CF36420A6BD900044FF50 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				343CB06B20B6F6C900C1A759 /* Cell */,
 				34109D682076656200EC9CE0 /* EditUserInfo.storyboard */,
 				34109DAF2076656200EC9CE0 /* EditUserInfoViewController.swift */,
 			);
@@ -631,6 +649,36 @@
 			children = (
 				34362D95209D5FA400E6EF77 /* HobbyCell.swift */,
 				34362D96209D5FA400E6EF77 /* HobbyCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		343CB06120B6F56800C1A759 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				343CB06220B6F66600C1A759 /* Cell */,
+				343CB05D20B6EFA300C1A759 /* InputMessageViewController.swift */,
+				343CB05F20B6EFAF00C1A759 /* InputMessage.storyboard */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		343CB06220B6F66600C1A759 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				343CB06320B6F69900C1A759 /* InputTextFieldCell.swift */,
+				343CB06420B6F69900C1A759 /* InputTextFieldCell.xib */,
+				343CB06720B6F6AE00C1A759 /* InputTextViewCell.swift */,
+				343CB06820B6F6AE00C1A759 /* InputTextViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		343CB06B20B6F6C900C1A759 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				342706D020B44CFE007ED6EE /* EditUserInfoCell.swift */,
+				342706CE20B44CDF007ED6EE /* EditUserInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -803,12 +851,14 @@
 				343CCEE5209B1009002936FC /* LoginActionCell.xib in Resources */,
 				343CCEE2209B0F75002936FC /* TelLoginInputCell.xib in Resources */,
 				342706CF20B44CDF007ED6EE /* EditUserInfoCell.xib in Resources */,
+				343CB06A20B6F6AE00C1A759 /* InputTextViewCell.xib in Resources */,
 				344309722095955900246418 /* EnterVerificationCode.storyboard in Resources */,
 				343CCEE0209B0F23002936FC /* LoginIconCell.xib in Resources */,
 				34109E212076656300EC9CE0 /* SideHeaderCell.xib in Resources */,
 				34109DF02076656200EC9CE0 /* LaunchScreen.storyboard in Resources */,
 				34109E322076656300EC9CE0 /* AlbumCell.xib in Resources */,
 				34109DEF2076656200EC9CE0 /* Find.storyboard in Resources */,
+				343CB06620B6F69900C1A759 /* InputTextFieldCell.xib in Resources */,
 				34109DED2076656200EC9CE0 /* SideMenu.storyboard in Resources */,
 				342706CA20B2F3EA007ED6EE /* UserInfoAlbumItemCell.xib in Resources */,
 				3443098820959F5900246418 /* Localizable.strings in Resources */,
@@ -820,6 +870,7 @@
 				3443096220949F9C00246418 /* TelLogin.storyboard in Resources */,
 				34109E192076656300EC9CE0 /* MatchingStatusCell.xib in Resources */,
 				34109E2B2076656300EC9CE0 /* BrowseCell.xib in Resources */,
+				343CB06020B6EFAF00C1A759 /* InputMessage.storyboard in Resources */,
 				342706C620B2F381007ED6EE /* UserInfoAlbumCell.xib in Resources */,
 				34109E162076656300EC9CE0 /* MatchingCell.xib in Resources */,
 				34109E2D2076656300EC9CE0 /* FindCell.xib in Resources */,
@@ -925,7 +976,9 @@
 				34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
 				34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */,
+				343CB05E20B6EFA300C1A759 /* InputMessageViewController.swift in Sources */,
 				3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */,
+				343CB05620B6E6A800C1A759 /* Date.swift in Sources */,
 				34109E282076656300EC9CE0 /* HanaAlertView.swift in Sources */,
 				34109E302076656300EC9CE0 /* AlbumViewController.swift in Sources */,
 				34109E042076656300EC9CE0 /* MatchingViewController.swift in Sources */,
@@ -933,6 +986,7 @@
 				34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */,
 				34109E152076656300EC9CE0 /* MatchingCell.swift in Sources */,
 				3419C7462081C695005FFC8A /* MessageDao.swift in Sources */,
+				343CB06520B6F69900C1A759 /* InputTextFieldCell.swift in Sources */,
 				34109E0A2076656300EC9CE0 /* ContactCell.swift in Sources */,
 				342CF363209D73600044FF50 /* String.swift in Sources */,
 				34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */,
@@ -943,16 +997,18 @@
 				34109E0F2076656300EC9CE0 /* ReceiveTextCell.swift in Sources */,
 				34109E272076656300EC9CE0 /* CustomBadgeView.swift in Sources */,
 				342706C420B2F375007ED6EE /* UserInfoAlbumCell.swift in Sources */,
-				34109DFE2076656300EC9CE0 /* Common.swift in Sources */,
 				34109E2C2076656300EC9CE0 /* FindCell.swift in Sources */,
+				343CB05420B6E60B00C1A759 /* Enum.swift in Sources */,
 				34109E1F2076656300EC9CE0 /* SideMenuViewController.swift in Sources */,
 				342706D120B44CFE007ED6EE /* EditUserInfoCell.swift in Sources */,
 				34BE7ED220862882000D8571 /* LikeDao.swift in Sources */,
+				343CB05820B6E8C800C1A759 /* UploadDao.swift in Sources */,
 				34499D17208C391D00860BD9 /* HanaTextView.swift in Sources */,
 				34362D91209D5E9900E6EF77 /* HobbySelectionViewController.swift in Sources */,
 				34109DF32076656200EC9CE0 /* UserInfo.swift in Sources */,
 				344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */,
 				342CDB6F209C08D20043756F /* SplashViewController.swift in Sources */,
+				343CB06920B6F6AE00C1A759 /* InputTextViewCell.swift in Sources */,
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,
 				3419C7482081C87D005FFC8A /* DAO.swift in Sources */,
 				34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */,

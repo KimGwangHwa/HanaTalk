@@ -8,12 +8,6 @@
 
 import UIKit
 
-
-// DateFormat
-let DATE_FORMAT_1 = "yyyyMMddHHmmss"
-let DATE_FORMAT_2 = "yyyy/MM/dd"
-
-let UploadImageMaxCount = 6
 let PinkColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(192) / 255.0, blue: CGFloat(203) / 255.0, alpha: 1)
 
 // MARK: - ClassName

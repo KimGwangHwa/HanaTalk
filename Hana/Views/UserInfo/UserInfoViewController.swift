@@ -38,7 +38,7 @@ class UserInfoViewController: UIViewController {
     @objc func tappedMore() {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Edit Profile", style: .default, handler: { (action) in
-            if let viewController = R.storyboard.editUserInfo.editUserInfoViewController() {
+            if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
                 self.present(viewController, animated: true, completion: nil)
             }
         }))

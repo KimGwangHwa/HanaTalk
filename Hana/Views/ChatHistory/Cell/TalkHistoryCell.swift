@@ -22,7 +22,7 @@ class TalkHistoryCell: UITableViewCell {
                 talkNameLabel.text = receiver.nickname
             }
             talkDescriptionLabel.text = talkRoom?.lastMessage?.text
-            talkDateLabel.text = Common.dateToString(date: talkRoom?.lastMessage?.createdAt, format: DATE_FORMAT_1)
+            talkDateLabel.text = talkRoom?.lastMessage?.createdAt?.string(format: .date)
         }
     }
     

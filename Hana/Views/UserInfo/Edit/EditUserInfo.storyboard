@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2Rm-gQ-piX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2Rm-gQ-piX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="IVi-BH-raK">
@@ -60,6 +60,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Change Profile"/>
+                                            <connections>
+                                                <action selector="tappedChangeProfile:" destination="YV4-oo-XyS" eventType="touchUpInside" id="Z5v-5d-hY7"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -85,7 +88,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QCQ-Q7-ZxC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aPo-xG-mBK"/>
+                    <navigationItem key="navigationItem" id="aPo-xG-mBK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="TFK-oP-CnJ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="tappedCancel:" destination="YV4-oo-XyS" id="G0B-OF-md3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="VEv-K7-KR8">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="tappedDone:" destination="YV4-oo-XyS" id="Qyg-cx-4gh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2Rm-gQ-piX" id="aMJ-Zk-3Bw"/>
                     </connections>
