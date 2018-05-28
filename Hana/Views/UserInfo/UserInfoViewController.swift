@@ -80,6 +80,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
+                cell.model = userInfo
                 return cell
             }
         case 1:

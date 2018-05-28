@@ -31,7 +31,7 @@ class UserInfo: PFObject, PFSubclassing {
             return .unknown
         }
         set{
-            self["sex"] = newValue
+            self["sex"] = newValue.rawValue
         }
     }
 

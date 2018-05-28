@@ -9,6 +9,7 @@ import UIKit
 
 class InputTextFieldCell: UITableViewCell {
 
+    @IBOutlet weak var textField: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

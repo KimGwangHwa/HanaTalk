@@ -48,6 +48,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lengthLabel" destination="PNN-Yn-Qbo" id="MLv-eZ-Os2"/>
+                <outlet property="textView" destination="K2e-7l-Uvs" id="WCf-gm-tN6"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

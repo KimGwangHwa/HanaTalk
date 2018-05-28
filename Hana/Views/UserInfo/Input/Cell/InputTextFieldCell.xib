@@ -36,6 +36,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="textField" destination="J7R-rT-x4u" id="JvV-4y-5SF"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

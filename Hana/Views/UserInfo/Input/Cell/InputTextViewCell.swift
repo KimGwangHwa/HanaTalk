@@ -9,6 +9,8 @@ import UIKit
 
 class InputTextViewCell: UITableViewCell {
 
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var lengthLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
