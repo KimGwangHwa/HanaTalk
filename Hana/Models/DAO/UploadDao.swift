@@ -11,10 +11,11 @@ import Parse
 class UploadDao: NSObject {
     static func upload(image: UIImage?, closure: @escaping (String?) -> ()) {
         if let guardImage = image,
-            let imageData = UIImagePNGRepresentation(guardImage), let pfile = PFFile(data: imageData) {
+            let imageData = UIImageJPEGRepresentation(guardImage, 1), let pfile = PFFile(data: imageData) {
             pfile.saveInBackground(block: { (isSuccess, error) in
                 closure(pfile.url)
             })
         }
     }
 }
+

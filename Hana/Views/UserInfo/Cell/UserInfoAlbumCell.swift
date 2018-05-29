@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum AlbumShowMode: Int {
+enum AlbumDisplayMode: Int {
     case horizontal
     case vertical
 }
@@ -18,20 +18,20 @@ class UserInfoAlbumCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var albums: [String]!
     
-    static func height(with mode: AlbumShowMode, dataSource: UserInfo) -> CGFloat {
+    static func height(with mode: AlbumDisplayMode, dataSource: UserInfo) -> CGFloat {
         let itemSize = UserInfoAlbumItemCell.size(with: mode)
         if let albums = dataSource.albums {
             switch mode {
             case .horizontal:
                 return (itemSize.height + UserInfoAlbumItemCell.spacing) * CGFloat(albums.count)
             case .vertical:
-                return (itemSize.height + UserInfoAlbumItemCell.spacing) * CGFloat(albums.count)/2
+                return (itemSize.height + UserInfoAlbumItemCell.spacing) * ceil(CGFloat(albums.count)/2)
             }
         }
         return 0.0
     }
     
-    func reload(with mode: AlbumShowMode, dataSource: UserInfo) {
+    func reload(with mode: AlbumDisplayMode, dataSource: UserInfo) {
         albums = dataSource.albums ?? []
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = UserInfoAlbumItemCell.spacing

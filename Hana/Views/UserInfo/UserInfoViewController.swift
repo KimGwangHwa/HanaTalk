@@ -13,6 +13,8 @@ fileprivate let albumCellIdentifier = R.reuseIdentifier.userInfoAlbumCell.identi
 class UserInfoViewController: UIViewController {
 
     var userInfo: UserInfo!
+    var displayMode: AlbumDisplayMode = .vertical
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -81,11 +83,12 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
                 cell.model = userInfo
+                cell.delegate = self
                 return cell
             }
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: albumCellIdentifier, for: indexPath) as? UserInfoAlbumCell {
-                cell.reload(with: .horizontal, dataSource: userInfo)
+                cell.reload(with: displayMode, dataSource: userInfo)
                 return cell
             }
         default:
@@ -100,7 +103,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
-            return UserInfoAlbumCell.height(with: .horizontal, dataSource: userInfo)
+            return UserInfoAlbumCell.height(with: displayMode, dataSource: userInfo)
         }
         return UITableViewAutomaticDimension
     }
@@ -116,19 +119,54 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - ProfileCellDelegate
 extension UserInfoViewController: ProfileCellDelegate {
-    func didTouchLike() {
-        
+    
+    func didChangedDisplay(to mode: AlbumDisplayMode) {
+        displayMode = mode
+        tableView.reloadData()
     }
     
-    func didTouchDelte() {
-        
+    func didTouchAddAlbum() {
+        let alert = UIAlertController()
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            let imageViewController = UIImagePickerController()
+            imageViewController.delegate = self
+            imageViewController.sourceType = .camera
+            self.present(imageViewController, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
+            let imageViewController = UIImagePickerController()
+            imageViewController.delegate = self
+            imageViewController.sourceType = .photoLibrary
+            self.present(imageViewController, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            
+        }))
+        present(alert, animated: true, completion: nil)
     }
-    
-    func didTouchEditProfile() {
-        if let editUserInfo = R.storyboard.editUserInfo.editUserInfoViewController() {
-            present(editUserInfo, animated: true, completion: nil)
+}
+
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            UploadDao.upload(image: image) { (urlString) in
+                if let urlString = urlString {
+                    var albums = self.userInfo.albums ?? []
+                    albums.append(urlString)
+                    self.userInfo.albums = albums
+                    self.userInfo.saveInBackground(block: { (isSuccess, error) in
+                        self.userInfo?.pinInBackground()
+                        self.tableView.reloadData()
+                    })
+                }
+            }
         }
+        picker.dismiss(animated: true, completion: nil)
     }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
 

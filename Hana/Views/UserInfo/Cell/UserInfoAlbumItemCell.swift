@@ -16,16 +16,20 @@ class UserInfoAlbumItemCell: UICollectionViewCell {
     }
 
     static var spacing: CGFloat {
-        return 30.0
+        return 20.0
     }
     
-    static func size(with mode: AlbumShowMode) -> CGSize {
+    static var edgeInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+    }
+    
+    static func size(with mode: AlbumDisplayMode) -> CGSize {
         switch mode {
         case .horizontal:
             let width: CGFloat = UIScreen.main.bounds.width - (spacing*2)
             return CGSize(width: width, height: width)
         case .vertical:
-            let width: CGFloat = (UIScreen.main.bounds.width - (spacing*2))/2
+            let width: CGFloat = (UIScreen.main.bounds.width - (spacing*3))/2
             return CGSize(width: width, height: width)
         }
     }

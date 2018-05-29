@@ -29,7 +29,14 @@ class EditUserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
+    
+    }
+    
+    func setup() {
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
+        profileImageView.sd_setImage(with: URL(string: userInfo!.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
     }
     
     override func viewWillAppear(_ animated: Bool) {

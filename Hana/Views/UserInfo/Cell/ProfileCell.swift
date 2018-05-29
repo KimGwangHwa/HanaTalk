@@ -8,9 +8,8 @@
 import UIKit
 
 protocol ProfileCellDelegate: class {
-    func didTouchEditProfile()
-    func didTouchLike()
-    func didTouchDelte()
+    func didChangedDisplay(to mode: AlbumDisplayMode)
+    func didTouchAddAlbum()
 }
 
 class ProfileCell: UITableViewCell {
@@ -26,7 +25,7 @@ class ProfileCell: UITableViewCell {
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
             nickNameLabel.text = model.nickname
             bioLabel.text = model.bio
-            infoLabel.text = "\(model.birthday?.string(format: .date) ?? "" ) ¥ \(model.sex.name)"
+            infoLabel.text = "\(model.birthday?.string(format: .date) ?? "" ) | \(model.sex.name)"
         }
     }
     
@@ -36,22 +35,24 @@ class ProfileCell: UITableViewCell {
         // Initialization code
         
     }
-
-    @IBAction func editButtonEvent(_ sender: UIButton) {
-        if let guardDelegate = delegate {
-            guardDelegate.didTouchEditProfile()
+    
+    @IBAction func tappedHorizontal(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.didChangedDisplay(to: .horizontal)
         }
     }
     
-    @IBAction func tappedHorizontal(_ sender: UIButton) {
-    }
-    
     @IBAction func tappedVertica(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.didChangedDisplay(to: .vertical)
+        }
     }
     
     @IBAction func tappedAddAlbum(_ sender: UIButton) {
+        if delegate != nil {
+            delegate?.didTouchAddAlbum()
+        }
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
