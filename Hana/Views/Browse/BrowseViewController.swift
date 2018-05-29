@@ -33,6 +33,9 @@ class BrowseViewController: UIViewController {
 
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = BrowseCell.itemSize
+        layout.minimumLineSpacing = BrowseCell.spacing
+        layout.sectionInset = BrowseCell.edgeInsets
+
     }
 
     func loadRemoteData() {
@@ -70,30 +73,24 @@ extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrowseCell {
-            cell.userInfo = dataSource?[indexPath.row]
+            cell.model = dataSource?[indexPath.row]
             cell.delegate = self
             return cell
         }
         
         return UICollectionViewCell()
-
     }
+    
+    
 }
 
 // MARK: - BrowseCellDelegate
 extension BrowseViewController: BrowseCellDelegate {
     
-    func didTouchProfileImage(with Object: UserInfo?) {
-        if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-            userInfoViewController.userInfo = Object
-            navigationController?.pushViewController(userInfoViewController, animated: true)
-        }
-    }
-    
-    func didTouchLiked(with Object: UserInfo?) {
-        LikeDao.findLiked(by: Object!) { (like, isSuccess) in
+    func didTouchHeart(_ model: UserInfo!) {
+        LikeDao.findLiked(by: model) { (like, isSuccess) in
             if like == nil {
-                let like = Like(with: Object!)
+                let like = Like(with: model)
                 like.saveInBackground { (isSuccess, error) in
                     ParseHelper.sendPush(with: like, completion: nil)
                 }
@@ -104,6 +101,11 @@ extension BrowseViewController: BrowseCellDelegate {
             })
         }
     }
+    
+    func browseCell(_ cell: BrowseCell, didTouchCloseAt model: UserInfo!) {
+        
+    }
+    
 }
 
 

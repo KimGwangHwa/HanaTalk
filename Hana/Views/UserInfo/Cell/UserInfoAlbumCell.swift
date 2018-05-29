@@ -36,6 +36,7 @@ class UserInfoAlbumCell: UITableViewCell {
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = UserInfoAlbumItemCell.spacing
         layout.minimumInteritemSpacing = UserInfoAlbumItemCell.spacing
+        layout.sectionInset = UserInfoAlbumItemCell.edgeInsets
         layout.itemSize = UserInfoAlbumItemCell.size(with: mode)
         collectionView.reloadData()
     }

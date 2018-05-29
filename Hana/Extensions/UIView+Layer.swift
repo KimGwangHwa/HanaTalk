@@ -38,4 +38,22 @@ extension UIView {
             self.layer.borderColor = newValue?.cgColor
         }
     }
+    
+    @IBInspectable var shadow: Bool {
+        get {
+            return false
+        }
+        set {
+            if newValue {
+//                layer.masksToBounds = false
+                layer.shadowOffset = CGSize(width: 100, height: 100)
+                layer.shadowOpacity = 0.5
+                layer.shadowColor = UIColor.yellow.cgColor;
+                layer.shadowRadius = 10
+            } else {
+                layer.shadowColor = UIColor.clear.cgColor;
+            }
+        }
+    }
+    
 }

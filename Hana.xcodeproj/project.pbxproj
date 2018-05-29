@@ -125,7 +125,6 @@
 		34A71223209A45350050788C /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71222209A45350050788C /* MailLoginViewController.swift */; };
 		34A71225209A45410050788C /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A71224209A45410050788C /* MailLogin.storyboard */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
-		34DB245020BC339900723C76 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB244F20BC339900723C76 /* CustomPickerView.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 /* End PBXBuildFile section */
 
@@ -254,7 +253,6 @@
 		34A71224209A45410050788C /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
 		34BE7ED120862882000D8571 /* LikeDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDao.swift; sourceTree = "<group>"; };
 		34C5E160207668A6003A41F5 /* Hana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hana.entitlements; sourceTree = "<group>"; };
-		34DB244F20BC339900723C76 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -512,7 +510,6 @@
 				34109DC22076656200EC9CE0 /* HanaAlertView.swift */,
 				34499D16208C391D00860BD9 /* HanaTextView.swift */,
 				34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */,
-				34DB244F20BC339900723C76 /* CustomPickerView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -520,10 +517,9 @@
 		34109DC32076656200EC9CE0 /* Browse */ = {
 			isa = PBXGroup;
 			children = (
+				34DB245320BDF39900723C76 /* Cell */,
 				34109D6C2076656200EC9CE0 /* Browse.storyboard */,
-				34109DC42076656200EC9CE0 /* BrowseCell.swift */,
 				34109DC52076656200EC9CE0 /* BrowseViewController.swift */,
-				34109DC62076656200EC9CE0 /* BrowseCell.xib */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -755,6 +751,15 @@
 				34A71224209A45410050788C /* MailLogin.storyboard */,
 			);
 			path = Mail;
+			sourceTree = "<group>";
+		};
+		34DB245320BDF39900723C76 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34109DC42076656200EC9CE0 /* BrowseCell.swift */,
+				34109DC62076656200EC9CE0 /* BrowseCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -1035,7 +1040,6 @@
 				34109DF42076656200EC9CE0 /* Like.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
 				3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */,
-				34DB245020BC339900723C76 /* CustomPickerView.swift in Sources */,
 				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
 				34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */,
 				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,
