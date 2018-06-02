@@ -785,7 +785,6 @@
 				349EAD431F2F55CE005833ED /* Frameworks */,
 				349EAD441F2F55CE005833ED /* Resources */,
 				553EE7F80FD0D0735136E45C /* [CP] Embed Pods Frameworks */,
-				A1D884EF91D9F38B44E7C237 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -936,21 +935,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hana/Pods-Hana-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1D884EF91D9F38B44E7C237 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hana/Pods-Hana-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CBFA38D5ECA35E05AC293680 /* [CP] Check Pods Manifest.lock */ = {
@@ -1171,7 +1155,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hana/Hana.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4CT46N9425;
 				INFOPLIST_FILE = "$(SRCROOT)/Hana/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1192,7 +1176,7 @@
 				CODE_SIGN_ENTITLEMENTS = Hana/Hana.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4CT46N9425;
 				INFOPLIST_FILE = "$(SRCROOT)/Hana/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
