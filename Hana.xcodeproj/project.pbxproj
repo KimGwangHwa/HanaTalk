@@ -126,6 +126,7 @@
 		34A71225209A45410050788C /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A71224209A45410050788C /* MailLogin.storyboard */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
+		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +257,7 @@
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
+		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 		34109D7B2076656200EC9CE0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF80175C20C38A8D00112223 /* CollectionView */,
 				34109D7C2076656200EC9CE0 /* UIView+Layer.swift */,
 				34109D7D2076656200EC9CE0 /* UIView+Frame.swift */,
 				34109D7E2076656200EC9CE0 /* UIViewController+VisibleViewController.swift */,
@@ -762,6 +765,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		EF80175C20C38A8D00112223 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +997,7 @@
 				34109E2A2076656300EC9CE0 /* BrowseViewController.swift in Sources */,
 				34109E132076656300EC9CE0 /* ChatHistoryViewController.swift in Sources */,
 				344309642094AC1D00246418 /* TelLoginViewController.swift in Sources */,
+				EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */,
 				34109E0F2076656300EC9CE0 /* ReceiveTextCell.swift in Sources */,
 				34109E272076656300EC9CE0 /* CustomBadgeView.swift in Sources */,
 				342706C420B2F375007ED6EE /* UserInfoAlbumCell.swift in Sources */,
