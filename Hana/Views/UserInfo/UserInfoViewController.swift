@@ -23,18 +23,35 @@ class UserInfoViewController: UIViewController {
         loadRomoteData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationBarBackgroundImageIsHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationBarBackgroundImageIsHidden = true
+    }
+    
     func setUpView() {
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
-        tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
+        
+        // if is self
+        if userInfo == DataManager.shared.currentuserInfo {
+            let leftButton = UIButton(type: .custom)
+            leftButton.setImage(R.image.menu(), for: .normal)
+            leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        }
         
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
+        tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
+
     }
     
     @objc func tappedMore() {
@@ -68,7 +85,7 @@ class UserInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func tappedMenu(_ sender: UIButton) {
+    @objc func tappedMenu(_ sender: UIButton) {
         SideMenuViewController.show()
     }
     

@@ -126,6 +126,7 @@
 		34A71225209A45410050788C /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A71224209A45410050788C /* MailLogin.storyboard */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
+		EF352B9720C3B3A100AE4D66 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF352B9620C3B3A100AE4D66 /* NavigationBar.swift */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -257,6 +258,7 @@
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
+		EF352B9620C3B3A100AE4D66 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 				342CF362209D73600044FF50 /* String.swift */,
 				343CB05320B6E60B00C1A759 /* Enum.swift */,
 				343CB05520B6E6A800C1A759 /* Date.swift */,
+				EF352B9620C3B3A100AE4D66 /* NavigationBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				3443096A2094B07200246418 /* LoginIconCell.swift in Sources */,
 				343CCEDB209B0E1B002936FC /* LoginSelectionViewController.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
+				EF352B9720C3B3A100AE4D66 /* NavigationBar.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
 				34109DF42076656200EC9CE0 /* Like.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,

@@ -59,6 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="vnY-o6-LVs"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ef1-0N-FKE">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9pa-tc-Y3k"/>
                         <barButtonItem key="leftBarButtonItem" style="done" id="wPp-zB-aJD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47V-K0-kDY">
                                 <rect key="frame" x="16" y="6" width="32" height="32"/>

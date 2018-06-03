@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sOZ-gh-ICe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sOZ-gh-ICe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,20 +61,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pO-Ud-1kM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UD8-AL-twy">
-                        <barButtonItem key="leftBarButtonItem" style="done" id="xwo-EQ-PWm">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8PG-To-UcV">
-                                <rect key="frame" x="16" y="6" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_menu">
-                                    <color key="titleColor" name="red"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedMenu:" destination="xAV-Yz-xRN" eventType="touchUpInside" id="ZiS-8d-fwb"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="UD8-AL-twy"/>
                     <connections>
                         <outlet property="tableView" destination="Eam-YL-XHr" id="dcz-Ib-c7D"/>
                     </connections>
@@ -87,9 +73,5 @@
     </scenes>
     <resources>
         <image name="icon_heart" width="32" height="32"/>
-        <image name="icon_menu" width="32" height="32"/>
-        <namedColor name="red">
-            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

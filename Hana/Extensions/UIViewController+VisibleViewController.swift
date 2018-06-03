@@ -47,4 +47,28 @@ extension UIViewController {
         return nil
     }
     
+    func setNavigationBarBackIndicatorImage(_ image: UIImage) {
+        
+        navigationController?.navigationBar.backIndicatorImage = image
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
+    }
+    
+    var navigationBarBackgroundImageIsHidden: Bool {
+        set{
+            if newValue {
+                navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+                navigationController?.navigationBar.shadowImage = UIImage()
+            } else {
+                navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+                navigationController?.navigationBar.shadowImage = nil
+            }
+        }
+        get{
+            if let _ = navigationController?.navigationBar.backIndicatorTransitionMaskImage {
+                return false
+            }
+            return true
+        }
+    }
+
 }
