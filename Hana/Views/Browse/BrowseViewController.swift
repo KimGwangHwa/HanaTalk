@@ -31,10 +31,11 @@ class BrowseViewController: UIViewController {
         // Register cell classes
         self.collectionView?.register(R.nib.browseCell(), forCellWithReuseIdentifier: reuseIdentifier)
 
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = BrowseCell.itemSize
-        layout.minimumLineSpacing = BrowseCell.spacing
-        layout.sectionInset = BrowseCell.edgeInsets
+        let layout = self.collectionView.collectionViewLayout as! WaterFallViewLayout
+        layout.delegate = self
+        //        layout.itemSize = BrowseCell.itemSize
+//        layout.minimumLineSpacing = BrowseCell.spacing
+//        layout.sectionInset = BrowseCell.edgeInsets
 
     }
 
@@ -56,9 +57,14 @@ class BrowseViewController: UIViewController {
 
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, WaterFallViewLayoutDelegate
+extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSource, WaterFallViewLayoutDelegate {
+    func waterFallViewLayout(layout: WaterFallViewLayout, heightForItemAt item: Int) -> CGFloat {
+        if (item + 1) % 2 == 0 {
+            return BrowseCell.itemSmallHeight
+        }
+        return BrowseCell.itemLargeHeight
+    }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

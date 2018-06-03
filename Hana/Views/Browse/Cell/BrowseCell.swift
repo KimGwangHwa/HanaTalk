@@ -32,9 +32,13 @@ class BrowseCell: UICollectionViewCell {
         return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
 
-    static var itemSize: CGSize {
+    static var itemSmallHeight: CGFloat {
         let width = (UIScreen.main.bounds.width - spacing*3)/2
-        return CGSize(width: width, height: width + 44)
+        return width + 44
+    }
+    
+    static var itemLargeHeight: CGFloat {
+        return itemSmallHeight + 100
     }
     
     var model: UserInfo! {

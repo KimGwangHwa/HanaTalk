@@ -11,13 +11,13 @@ protocol WaterFallViewLayoutDelegate: class {
     
     func waterFallViewLayout(layout: WaterFallViewLayout, heightForItemAt item: Int) -> CGFloat
     
-    func columnCountInWaterFallViewLayout(layout: WaterFallViewLayout) -> Int
+    //func columnCountInWaterFallViewLayout(layout: WaterFallViewLayout) -> Int
     
-    func columMarginInWaterFallViewLayout(layout: WaterFallViewLayout) -> CGFloat
+    //func columMarginInWaterFallViewLayout(layout: WaterFallViewLayout) -> CGFloat
     
-    func rowMarginInWaterFallLayout(layout: WaterFallViewLayout) -> CGFloat
+    //func rowMarginInWaterFallLayout(layout: WaterFallViewLayout) -> CGFloat
 
-    func edgeInsetdInWaterFallLayout(layout: WaterFallViewLayout) -> UIEdgeInsets
+    //func edgeInsetdInWaterFallLayout(layout: WaterFallViewLayout) -> UIEdgeInsets
 
 }
 
@@ -25,33 +25,13 @@ class WaterFallViewLayout: UICollectionViewLayout {
 
     weak var delegate: WaterFallViewLayoutDelegate?
     
-    var colunmCount: Int {
-        if delegate != nil {
-            return delegate!.columnCountInWaterFallViewLayout(layout: self)
-        }
-        return 3
-    }
+    var colunmCount: Int = 2
     
-    var colunmMargin: CGFloat {
-        if delegate != nil {
-            return delegate!.columMarginInWaterFallViewLayout(layout: self)
-        }
-        return 10
-    }
+    var colunmMargin: CGFloat = 10
     
-    var rowMargin: CGFloat {
-        if delegate != nil {
-            return delegate!.rowMarginInWaterFallLayout(layout: self)
-        }
-        return 10
-    }
+    var rowMargin: CGFloat = 10
 
-    var edgeInsets: UIEdgeInsets {
-        if delegate != nil {
-            return delegate!.edgeInsetdInWaterFallLayout(layout: self)
-        }
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
+    var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     //attribute
     var attributes = [UICollectionViewLayoutAttributes]()
@@ -89,11 +69,10 @@ class WaterFallViewLayout: UICollectionViewLayout {
         
         let cellWidth = (collectionWidth - edgeInsets.left - edgeInsets.right - CGFloat(colunmCount - 1) * colunmMargin) / CGFloat(colunmCount)
         let cellHeight = delegate!.waterFallViewLayout(layout: self, heightForItemAt: indexPath.row)
-
-        
-        
-        let x = attributes.frame.maxX
+        //CGFloat cellX = self.edgeInsets.left + destColumn * (cellW + self.columnMargin);
         let currentcolumn = indexPath.row % colunmCount
+
+        let x = edgeInsets.left + CGFloat(currentcolumn) * (cellWidth + colunmMargin)
         let y = columnHeights[currentcolumn]
         columnHeights[currentcolumn] += cellHeight + rowMargin + edgeInsets.top
         
@@ -104,7 +83,8 @@ class WaterFallViewLayout: UICollectionViewLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: 0, height: contentHeight)
+        
+        return CGSize(width: 0, height: columnHeights.max()!)
     }
     
     

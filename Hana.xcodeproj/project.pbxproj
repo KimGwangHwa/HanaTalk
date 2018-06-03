@@ -372,7 +372,6 @@
 				34362D8F209D5E7300E6EF77 /* Hobby */,
 				342CDB6D209C08AD0043756F /* Splash */,
 				34109D8D2076656200EC9CE0 /* Matching */,
-				34109D902076656200EC9CE0 /* UploadStory */,
 				34109D972076656200EC9CE0 /* Contact */,
 				34109D9C2076656200EC9CE0 /* Chatting */,
 				34109DA52076656200EC9CE0 /* ChatHistory */,
@@ -396,13 +395,6 @@
 				34109D8E2076656200EC9CE0 /* MatchingViewController.swift */,
 			);
 			path = Matching;
-			sourceTree = "<group>";
-		};
-		34109D902076656200EC9CE0 /* UploadStory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UploadStory;
 			sourceTree = "<group>";
 		};
 		34109D972076656200EC9CE0 /* Contact */ = {
