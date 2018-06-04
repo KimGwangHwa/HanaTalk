@@ -98,7 +98,8 @@ extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSo
 // MARK: - BrowseCellDelegate
 extension BrowseViewController: BrowseCellDelegate {
     
-    func didTouchHeart(_ model: UserInfo!) {
+    func browseCell(_ cell: BrowseCell, didTouchHeart model: UserInfo!) {
+        
         LikeDao.findLiked(by: model) { (like, isSuccess) in
             if like == nil {
                 let like = Like(with: model)
@@ -111,10 +112,19 @@ extension BrowseViewController: BrowseCellDelegate {
                 ParseHelper.sendPush(with: like!, completion: nil)
             })
         }
+        
+        if let indexPath = collectionView.indexPath(for: cell) {
+            dataSource?.remove(at: indexPath.row)
+            collectionView.deleteItems(at: [indexPath])
+        }
+        
     }
     
     func browseCell(_ cell: BrowseCell, didTouchCloseAt model: UserInfo!) {
-        
+        if let indexPath = collectionView.indexPath(for: cell) {
+            dataSource?.remove(at: indexPath.row)
+            collectionView.deleteItems(at: [indexPath])
+        }
     }
     
 }

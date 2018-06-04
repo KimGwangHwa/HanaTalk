@@ -14,8 +14,13 @@ class UserInfoViewController: UIViewController {
 
     var userInfo: UserInfo!
     var displayMode: AlbumDisplayMode = .vertical
+    var isSelf: Bool {
+        return userInfo == DataManager.shared.currentuserInfo
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var actionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,22 +30,24 @@ class UserInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationBarBackgroundImageIsHidden = false
+        //navigationBarBackgroundImageIsHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationBarBackgroundImageIsHidden = true
+        //navigationBarBackgroundImageIsHidden = true
     }
     
     func setUpView() {
         
         // if is self
-        if userInfo == DataManager.shared.currentuserInfo {
+        if isSelf {
             let leftButton = UIButton(type: .custom)
             leftButton.setImage(R.image.menu(), for: .normal)
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+            
+            actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
         
         let rightButton = UIButton(type: .custom)
@@ -49,27 +56,23 @@ class UserInfoViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         
         tableView.tableFooterView = UIView(frame: .zero)
+
         tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
         tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
 
     }
     
     @objc func tappedMore() {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Edit Profile", style: .default, handler: { (action) in
+        
+    }
+    
+    @IBAction func tappedAction(_ sender: UIButton) {
+        if isSelf {
             if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
                 self.present(viewController, animated: true, completion: nil)
             }
-        }))
-        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { (action) in
-
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
+        }
     }
-    
     
     func loadRomoteData() {
         if let objectId = userInfo.objectId {

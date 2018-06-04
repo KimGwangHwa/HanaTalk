@@ -10,7 +10,7 @@ import UIKit
 let cellIdentifiler = "BrowseCell"
 
 protocol BrowseCellDelegate: class {
-    func didTouchHeart(_ model: UserInfo!)
+    func browseCell(_ cell: BrowseCell, didTouchHeart model: UserInfo!)
     func browseCell(_ cell: BrowseCell, didTouchCloseAt model: UserInfo!)
 }
 
@@ -45,22 +45,12 @@ class BrowseCell: UICollectionViewCell {
         didSet {
             infoLabel.text = model.nickname
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: nil)
-//            nickNameLabel.text = userInfo?.nickname
-//            descriptionLabel.text = userInfo?.email
-//            profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: nil)
-//            let layout = UICollectionViewFlowLayout()
-//            layout.itemSize = CGSize(width: collectionView.width, height: collectionView.height)
-//            layout.scrollDirection = .horizontal
-//            collectionView.collectionViewLayout = layout
-//            collectionView.delegate = self
-//            collectionView.dataSource = self
-//            collectionView.reloadData()
         }
     }
     
     @IBAction func tappedHeart(_ sender: UIButton) {
         if delegate != nil {
-            delegate?.didTouchHeart(model)
+            delegate?.browseCell(self, didTouchHeart: model)
         }
     }
     
