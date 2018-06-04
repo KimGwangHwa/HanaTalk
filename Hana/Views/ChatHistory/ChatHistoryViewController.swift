@@ -9,6 +9,8 @@ import UIKit
 
 class ChatHistoryViewController: UIViewController {
 
+    var searchController = UISearchController(searchResultsController: nil)
+    
     fileprivate enum Section: Int {
         case matching = 0
         case history = 1
@@ -44,6 +46,11 @@ class ChatHistoryViewController: UIViewController {
     }
     
     func setUpView() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "placeholder"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.talkHistoryCell(), forCellReuseIdentifier: historyCellIdentifier)
@@ -127,7 +134,6 @@ extension ChatHistoryViewController {
 }
 
 // MARK: - MatchingCellDelegate
-
 extension ChatHistoryViewController: MatchingCellDelegate {
     
     func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like) {
@@ -139,5 +145,14 @@ extension ChatHistoryViewController: MatchingCellDelegate {
         }
     }
 }
+
+// MARK: - UISearchResultsUpdating
+extension ChatHistoryViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        print("############\(searchController.searchBar.text)")
+    }
+}
+
 
 

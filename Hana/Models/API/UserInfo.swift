@@ -34,5 +34,7 @@ class UserInfo: PFObject, PFSubclassing {
             self["sex"] = newValue.rawValue
         }
     }
+    @NSManaged var configured: Bool
+
 
 }
