@@ -24,6 +24,9 @@ class ChatHistoryViewController: UIViewController {
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
     var historys: [TalkRoom]?
     var mathings: [Like]?
+    
+    var filterHistorys: [TalkRoom]?
+    var filterMathings: [Like]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +49,11 @@ class ChatHistoryViewController: UIViewController {
     }
     
     func setUpView() {
+        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"
+        //searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         
@@ -86,6 +92,9 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 return 1
             }
         } else if (section == Section.history.rawValue) {
+            if searchController.isActive {
+                return filterHistorys?.count ?? 0
+            }
             return historys?.count ?? 0
         }
         return 0
@@ -94,14 +103,22 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == Section.matching.rawValue {
             if let cell = tableView.dequeueReusableCell(withIdentifier: matchingCellIdentifier, for: indexPath) as? MatchingCell {
-                cell.dataSource = mathings
+                if searchController.isActive {
+                    cell.dataSource = filterMathings
+                } else {
+                    cell.dataSource = mathings
+                }
                 cell.delegate = self
                 return cell
             }
         }
         if indexPath.section == Section.history.rawValue {
             if let cell = tableView.dequeueReusableCell(withIdentifier: historyCellIdentifier, for: indexPath) as? TalkHistoryCell {
-                cell.talkRoom = historys?[indexPath.row]
+                if searchController.isActive {
+                    cell.talkRoom = filterHistorys?[indexPath.row]
+                } else {
+                    cell.talkRoom = historys?[indexPath.row]
+                }
                 return cell
             }
         }
@@ -112,7 +129,11 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let viewController = R.storyboard.chatting.chattingViewController() {
-            viewController.talkRoom = historys?[indexPath.row]
+            if searchController.isActive {
+                viewController.talkRoom = filterHistorys?[indexPath.row]
+            } else {
+                viewController.talkRoom = historys?[indexPath.row]
+            }
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -139,19 +160,37 @@ extension ChatHistoryViewController: MatchingCellDelegate {
     func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like) {
         if object.matched {
             if let viewController = R.storyboard.chatting.chattingViewController() {
-                viewController.receiver = object.liked
+                viewController.receiver = object.receiver
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        } else {
+            if let viewController = R.storyboard.userInfo.userInfoViewController() {
+                viewController.userInfo = object.receiver
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension ChatHistoryViewController: UISearchResultsUpdating {
+// MARK: - UISearchResultsUpdating, UISearchControllerDelegate
+extension ChatHistoryViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
-        print("############\(searchController.searchBar.text)")
+        if let searchString = searchController.searchBar.text, searchString.isEmpty == false {
+            let predicate = NSPredicate(format: "receiver.nickname LIKE %@", argumentArray: [searchString])
+            if let mathingArray = mathings as NSArray? {
+                filterMathings = mathingArray.filtered(using: predicate) as? [Like]
+                
+            }
+            if let historyArray = historys as NSArray?  {
+                filterHistorys = historyArray.filtered(using: predicate) as? [TalkRoom]
+            }
+            tableView.reloadData()
+        }
     }
+    func willDismissSearchController(_ searchController: UISearchController) {
+        tableView.reloadData()
+    }
+    
 }
 
 

@@ -12,7 +12,7 @@ class UserInfo: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return UserInfoClassName
     }
-    
+
     @NSManaged var birthday: Date?
     @NSManaged var email: String?
     @NSManaged var nickname: String?

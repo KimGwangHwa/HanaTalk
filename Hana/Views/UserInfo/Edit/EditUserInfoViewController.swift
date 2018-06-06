@@ -81,7 +81,6 @@ class EditUserInfoViewController: UIViewController {
         userInfo?.birthday = sender.date
         tableView.reloadData()
     }
-
     
     @IBAction func tappedCancel(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
@@ -91,6 +90,7 @@ class EditUserInfoViewController: UIViewController {
         let profileImage = profileImageView.image
         UploadDao.upload(image: profileImage) { (stringUrl) in
             self.userInfo?.profileUrl = stringUrl
+            self.userInfo?.configured = true
             self.userInfo?.saveInBackground(block: { (isSuccess, error) in
                 self.userInfo?.pinInBackground()
                 self.dismiss(animated: true, completion: nil)

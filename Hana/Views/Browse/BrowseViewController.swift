@@ -23,9 +23,7 @@ class BrowseViewController: UIViewController {
     }
 
     fileprivate func setupLayout() {
-
-        navigationController?.navigationBar.backIndicatorImage(R.image.icon_back()!)
-        
+        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
         // Register cell classes
         self.collectionView?.register(R.nib.browseCell(), forCellWithReuseIdentifier: reuseIdentifier)
 

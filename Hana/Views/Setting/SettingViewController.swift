@@ -12,7 +12,8 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        
     }
 
     override func didReceiveMemoryWarning() {

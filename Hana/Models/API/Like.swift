@@ -27,4 +27,13 @@ class Like: PFObject, PFSubclassing {
         super.init()
     }
     
+    var receiver: UserInfo! {
+        if DataManager.shared.currentuserInfo == liked {
+            return likedBy
+        } else {
+            return liked
+        }
+    }
+    
+    
 }

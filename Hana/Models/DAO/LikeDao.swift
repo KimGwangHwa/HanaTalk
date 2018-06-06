@@ -16,10 +16,10 @@ class LikeDao: DAO {
             closure(nil, false)
             return
         }
-        let predicate = NSPredicate(format: "(liked = %@ || likedBy = %@) && matched = %d", argumentArray: [currentUserInfo,currentUserInfo,true])
-        
+        let predicate = NSPredicate(format: "(liked = %@ || likedBy = %@) && likedBy != %@ ", argumentArray: [currentUserInfo, currentUserInfo, currentUserInfo])
         let query = PFQuery(className: LikeClassName, predicate: predicate)
-        
+        query.order(byAscending: "matched")
+        query.order(byAscending: "createdAt")
         query.findObjectsInBackground { (objects, error) in
             closure(objects as? [Like], error == nil ? true: false)
         }

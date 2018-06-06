@@ -9,13 +9,15 @@ import UIKit
 
 class MatchingStatusCell: UICollectionViewCell {
 
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    var model: Like? {
+    var model: Like! {
         didSet {
-            profileImageView.sd_setImage(with: URL(string: model?.likedBy?.profileUrl ?? ""), placeholderImage: nil)
-            nicknameLabel.text = model?.likedBy?.nickname
+            bgImageView.isHidden = model.matched
+            profileImageView.sd_setImage(with: URL(string: model.receiver.profileUrl ?? ""), placeholderImage: nil)
+            nicknameLabel.text = model.likedBy?.nickname
         }
     }
     
@@ -23,6 +25,7 @@ class MatchingStatusCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        nicknameLabel.adjustsFontSizeToFitWidth = true
     }
 
 }
