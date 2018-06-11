@@ -15,11 +15,12 @@ class SplashViewController: UIViewController {
 
         // getLocalUserInfo
         UserInfoDao.findCurrentFromLocal { (userInfo) in
+            DataManager.shared.currentuserInfo = userInfo
+
             if let userInfo = userInfo {
                 if !userInfo.configured {
                     self.moveToEditUserInfo()
                 } else {
-                    DataManager.shared.currentuserInfo = userInfo
                     self.moveToSideMenu()
                 }
             } else {
