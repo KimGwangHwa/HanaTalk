@@ -10,8 +10,8 @@ import UIKit
 let cellIdentifiler = "BrowseCell"
 
 protocol BrowseCellDelegate: class {
-    func browseCell(_ cell: BrowseCell, didTouchHeart model: UserInfo!)
-    func browseCell(_ cell: BrowseCell, didTouchCloseAt model: UserInfo!)
+    func browseCell(_ cell: BrowseCell, didTouchLikeAt model: UserInfo!)
+    func browseCell(_ cell: BrowseCell, didTouchDislikeAt model: UserInfo!)
 }
 
 class BrowseCell: UICollectionViewCell {
@@ -50,13 +50,13 @@ class BrowseCell: UICollectionViewCell {
     
     @IBAction func tappedHeart(_ sender: UIButton) {
         if delegate != nil {
-            delegate?.browseCell(self, didTouchHeart: model)
+            delegate?.browseCell(self, didTouchLikeAt: model)
         }
     }
     
     @IBAction func tappedClose(_ sender: UIButton) {
         if delegate != nil {
-            delegate?.browseCell(self, didTouchCloseAt: model)
+            delegate?.browseCell(self, didTouchDislikeAt: model)
         }
     }
     

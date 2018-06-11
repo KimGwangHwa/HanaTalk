@@ -46,9 +46,14 @@ class SideMenuViewController: UIViewController {
         normalDataSource[2] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
         self.addChildViewController(talkHistoryViewController!)
 
+        let evnetViewController = R.storyboard.event().instantiateInitialViewController()
+        normalDataSource[3] = (image: #imageLiteral(resourceName: "icon_event"), text: "Event")
+        self.addChildViewController(evnetViewController!)
+        
         let settingViewController = R.storyboard.setting().instantiateInitialViewController()
-        normalDataSource[3] = (image: #imageLiteral(resourceName: "setting"), text: "Setting")
+        normalDataSource[4] = (image: #imageLiteral(resourceName: "setting"), text: "Setting")
         self.addChildViewController(settingViewController!)
+        
 
         self.sideConstraint.constant = sideMenuOffsetX
         

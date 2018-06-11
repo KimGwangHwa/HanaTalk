@@ -16,14 +16,24 @@ class SplashViewController: UIViewController {
         // getLocalUserInfo
         UserInfoDao.findCurrentFromLocal { (userInfo) in
             if let userInfo = userInfo {
-                DataManager.shared.currentuserInfo = userInfo
-                self.moveToSideMenu()
+                if !userInfo.configured {
+                    self.moveToEditUserInfo()
+                } else {
+                    DataManager.shared.currentuserInfo = userInfo
+                    self.moveToSideMenu()
+                }
             } else {
                 self.moveToLogin()
             }
         }
 
         debugPrint("SplashViewController")
+    }
+    
+    func moveToEditUserInfo() {
+        if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
+            self.present(viewController, animated: true, completion: nil)
+        }
     }
     
     func moveToSideMenu() {

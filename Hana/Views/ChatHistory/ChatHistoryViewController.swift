@@ -54,6 +54,9 @@ class ChatHistoryViewController: UIViewController {
         searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"
         //searchController.hidesNavigationBarDuringPresentation = false
+        //searchController.dimsBackgroundDuringPresentation = true
+        //.obscuresBackgroundDuringPresentation
+        //searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         

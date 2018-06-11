@@ -25,7 +25,7 @@ class EditUserInfoViewController: UIViewController {
     fileprivate var datePickerView: UIDatePicker!
     fileprivate let pickerHeight: CGFloat = 162
 
-    let userInfo = DataManager.shared.currentuserInfo
+    let userInfo = DataManager.shared.currentuserInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +36,24 @@ class EditUserInfoViewController: UIViewController {
     
     func setup() {
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
-        profileImageView.sd_setImage(with: URL(string: userInfo!.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
+        profileImageView.sd_setImage(with: URL(string: userInfo.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
+        
+        if !userInfo.configured {
+            navigationItem.leftBarButtonItem = nil;
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    func moveToSideMenu() {
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            let sidMenuViewController = SideMenuViewController.shared
+            appdelegate.window?.rootViewController = sidMenuViewController
+            appdelegate.window?.makeKeyAndVisible()
+        }
     }
     
     func showDatePicker() {
@@ -78,7 +90,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     @objc func datePickerDidChanged(_ sender: UIDatePicker) {
-        userInfo?.birthday = sender.date
+        userInfo.birthday = sender.date
         tableView.reloadData()
     }
     
@@ -89,14 +101,19 @@ class EditUserInfoViewController: UIViewController {
     @IBAction func tappedDone(_ sender: UIBarButtonItem) {
         let profileImage = profileImageView.image
         UploadDao.upload(image: profileImage) { (stringUrl) in
-            self.userInfo?.profileUrl = stringUrl
-            self.userInfo?.configured = true
-            self.userInfo?.saveInBackground(block: { (isSuccess, error) in
-                self.userInfo?.pinInBackground()
-                self.dismiss(animated: true, completion: nil)
+            self.userInfo.profileUrl = stringUrl
+            self.userInfo.configured = true
+            self.userInfo.saveInBackground(block: { (isSuccess, error) in
+                self.userInfo.pinInBackground()
+                if !self.userInfo.configured {
+                    self.moveToSideMenu()
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
         }
     }
+    
     @IBAction func tappedChangeProfile(_ sender: UIButton) {
         let alert = UIAlertController()
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
@@ -137,17 +154,17 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
             cell.nameLabel?.text = infoRow.name
             switch infoRow {
             case .nickname:
-                cell.descriptionLabel?.text = userInfo?.nickname; break
+                cell.descriptionLabel?.text = userInfo.nickname; break
             case .birthDay:
-                cell.descriptionLabel?.text = userInfo?.birthday?.string(format: .date); break
+                cell.descriptionLabel?.text = userInfo.birthday?.string(format: .date); break
             case .sex:
-                cell.descriptionLabel?.text = userInfo?.sex.name; break
+                cell.descriptionLabel?.text = userInfo.sex.name; break
             case .bio:
-                cell.descriptionLabel?.text = userInfo?.bio; break
+                cell.descriptionLabel?.text = userInfo.bio; break
             case .email:
-                cell.descriptionLabel?.text = userInfo?.email; break
+                cell.descriptionLabel?.text = userInfo.email; break
             case .phoneNumber:
-                cell.descriptionLabel?.text = userInfo?.phoneNumber; break
+                cell.descriptionLabel?.text = userInfo.phoneNumber; break
             }
             return cell
         }
@@ -226,7 +243,7 @@ extension EditUserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userInfo?.sex = Sex(name: Sex.names[row])
+        userInfo.sex = Sex(name: Sex.names[row])
         tableView.reloadData()
     }
 }

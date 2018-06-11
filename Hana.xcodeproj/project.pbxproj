@@ -127,6 +127,8 @@
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
+		EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642120CE99FD00A2AF2D /* EventViewController.swift */; };
+		EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF9642320CE9A0800A2AF2D /* Event.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -258,6 +260,8 @@
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
+		EFF9642120CE99FD00A2AF2D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		EFF9642320CE9A0800A2AF2D /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +373,7 @@
 		34109D8C2076656200EC9CE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9642020CE993600A2AF2D /* Event */,
 				34362D8F209D5E7300E6EF77 /* Hobby */,
 				342CDB6D209C08AD0043756F /* Splash */,
 				34109D8D2076656200EC9CE0 /* Matching */,
@@ -463,12 +468,9 @@
 		34109DB42076656200EC9CE0 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9641F20CE990100A2AF2D /* Cell */,
 				34109D6B2076656200EC9CE0 /* SideMenu.storyboard */,
-				34109DB52076656200EC9CE0 /* SideNormalCell.xib */,
 				34109DB62076656200EC9CE0 /* SideMenuViewController.swift */,
-				34109DB72076656200EC9CE0 /* SideNormalCell.swift */,
-				34109DB82076656200EC9CE0 /* SideHeaderCell.xib */,
-				34109DB92076656200EC9CE0 /* SideHeaderCell.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -765,6 +767,26 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		EFF9641F20CE990100A2AF2D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34109DB52076656200EC9CE0 /* SideNormalCell.xib */,
+				34109DB82076656200EC9CE0 /* SideHeaderCell.xib */,
+				34109DB92076656200EC9CE0 /* SideHeaderCell.swift */,
+				34109DB72076656200EC9CE0 /* SideNormalCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EFF9642020CE993600A2AF2D /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9642120CE99FD00A2AF2D /* EventViewController.swift */,
+				EFF9642320CE9A0800A2AF2D /* Event.storyboard */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +906,7 @@
 				342706C620B2F381007ED6EE /* UserInfoAlbumCell.xib in Resources */,
 				34109E162076656300EC9CE0 /* MatchingCell.xib in Resources */,
 				34109E2D2076656300EC9CE0 /* FindCell.xib in Resources */,
+				EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */,
 				34109E0E2076656300EC9CE0 /* ReceiveTextCell.xib in Resources */,
 				34109DE82076656200EC9CE0 /* Album.storyboard in Resources */,
 				34109E012076656300EC9CE0 /* Assets.xcassets in Resources */,
@@ -970,6 +993,7 @@
 				34109DF52076656200EC9CE0 /* TalkRoom.swift in Sources */,
 				34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
+				EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */,
 				34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */,
 				343CB05E20B6EFA300C1A759 /* InputMessageViewController.swift in Sources */,
 				3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */,
