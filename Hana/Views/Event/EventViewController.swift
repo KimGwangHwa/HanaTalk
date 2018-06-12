@@ -24,6 +24,11 @@ class EventViewController: UIViewController {
         SideMenuViewController.show()
     }
     
+    @IBAction func tappedCreat(_ sender: UIButton) {
+        if let viewController = R.storyboard.createEvent.instantiateInitialViewController() {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 

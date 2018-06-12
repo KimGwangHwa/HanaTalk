@@ -32,7 +32,19 @@
                     <view key="view" contentMode="scaleToFill" id="GBt-db-Kum">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZwD-xe-yG6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZwD-xe-yG6" firstAttribute="leading" secondItem="Abd-2O-ESJ" secondAttribute="leading" id="DFg-Nz-skg"/>
+                            <constraint firstItem="ZwD-xe-yG6" firstAttribute="bottom" secondItem="Abd-2O-ESJ" secondAttribute="bottom" id="Jfu-bD-ae7"/>
+                            <constraint firstItem="ZwD-xe-yG6" firstAttribute="trailing" secondItem="Abd-2O-ESJ" secondAttribute="trailing" id="nYf-PW-Ajh"/>
+                            <constraint firstItem="ZwD-xe-yG6" firstAttribute="top" secondItem="Abd-2O-ESJ" secondAttribute="top" id="rZD-MI-USC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Abd-2O-ESJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="FBb-70-GPN">
@@ -46,14 +58,25 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="d8v-Jn-xJU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mBq-5v-F9a">
+                                <rect key="frame" x="309" y="0.0" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_add"/>
+                                <connections>
+                                    <action selector="tappedCreat:" destination="EaW-lc-lNi" eventType="touchUpInside" id="7Ot-YL-0CQ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etu-Ye-1Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-188"/>
+            <point key="canvasLocation" x="309.60000000000002" y="-188.45577211394306"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icon_add" width="50" height="50"/>
         <image name="menu" width="32" height="32"/>
     </resources>
 </document>

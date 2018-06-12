@@ -56,10 +56,11 @@ class BrowseViewController: UIViewController {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, WaterFallViewLayoutDelegate
 extension BrowseViewController: UICollectionViewDelegate, UICollectionViewDataSource, WaterFallViewLayoutDelegate {
     func waterFallViewLayout(layout: WaterFallViewLayout, heightForItemAt item: Int) -> CGFloat {
-        if (item + 1) % 2 == 0 {
-            return BrowseCell.itemSmallHeight
-        }
-        return BrowseCell.itemLargeHeight
+        return BrowseCell.itemSmallHeight
+        //        if (item + 1) % 2 == 0 {
+//            return BrowseCell.itemSmallHeight
+//        }
+//        return BrowseCell.itemLargeHeight
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

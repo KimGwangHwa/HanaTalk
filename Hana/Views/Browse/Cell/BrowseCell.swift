@@ -17,8 +17,9 @@ protocol BrowseCellDelegate: class {
 class BrowseCell: UICollectionViewCell {
 
     weak var delegate: BrowseCellDelegate?
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var infoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,7 @@ class BrowseCell: UICollectionViewCell {
 
     static var itemSmallHeight: CGFloat {
         let width = (UIScreen.main.bounds.width - spacing*3)/2
-        return width + 44
+        return width
     }
     
     static var itemLargeHeight: CGFloat {
@@ -43,7 +44,8 @@ class BrowseCell: UICollectionViewCell {
     
     var model: UserInfo! {
         didSet {
-            infoLabel.text = model.nickname
+            nameLabel.text = model.nickname
+            infoLabel.text = model.birthday?.string(format: .date)
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: nil)
         }
     }

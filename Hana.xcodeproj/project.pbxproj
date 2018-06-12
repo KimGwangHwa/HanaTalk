@@ -129,6 +129,16 @@
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
 		EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642120CE99FD00A2AF2D /* EventViewController.swift */; };
 		EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF9642320CE9A0800A2AF2D /* Event.storyboard */; };
+		EFF9642820CFE24000A2AF2D /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642620CFE24000A2AF2D /* EventCell.swift */; };
+		EFF9642920CFE24000A2AF2D /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF9642720CFE24000A2AF2D /* EventCell.xib */; };
+		EFF9642C20CFE33500A2AF2D /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642B20CFE33500A2AF2D /* CreateEventViewController.swift */; };
+		EFF9642E20CFE34200A2AF2D /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF9642D20CFE34200A2AF2D /* CreateEvent.storyboard */; };
+		EFF9643120CFE7DE00A2AF2D /* CreateEventNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642F20CFE7DE00A2AF2D /* CreateEventNameCell.swift */; };
+		EFF9643220CFE7DE00A2AF2D /* CreateEventNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF9643020CFE7DE00A2AF2D /* CreateEventNameCell.xib */; };
+		EFF9643520CFE8A100A2AF2D /* CreateEventNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9643320CFE8A100A2AF2D /* CreateEventNormalCell.swift */; };
+		EFF9643620CFE8A100A2AF2D /* CreateEventNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF9643420CFE8A100A2AF2D /* CreateEventNormalCell.xib */; };
+		EFF9643920CFE8BB00A2AF2D /* CreateEventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9643720CFE8BB00A2AF2D /* CreateEventDetailCell.swift */; };
+		EFF9643A20CFE8BB00A2AF2D /* CreateEventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF9643820CFE8BB00A2AF2D /* CreateEventDetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +272,16 @@
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
 		EFF9642120CE99FD00A2AF2D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		EFF9642320CE9A0800A2AF2D /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		EFF9642620CFE24000A2AF2D /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		EFF9642720CFE24000A2AF2D /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		EFF9642B20CFE33500A2AF2D /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		EFF9642D20CFE34200A2AF2D /* CreateEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateEvent.storyboard; sourceTree = "<group>"; };
+		EFF9642F20CFE7DE00A2AF2D /* CreateEventNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNameCell.swift; sourceTree = "<group>"; };
+		EFF9643020CFE7DE00A2AF2D /* CreateEventNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventNameCell.xib; sourceTree = "<group>"; };
+		EFF9643320CFE8A100A2AF2D /* CreateEventNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventNormalCell.swift; sourceTree = "<group>"; };
+		EFF9643420CFE8A100A2AF2D /* CreateEventNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventNormalCell.xib; sourceTree = "<group>"; };
+		EFF9643720CFE8BB00A2AF2D /* CreateEventDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventDetailCell.swift; sourceTree = "<group>"; };
+		EFF9643820CFE8BB00A2AF2D /* CreateEventDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventDetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -781,10 +801,36 @@
 		EFF9642020CE993600A2AF2D /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				EFF9642A20CFE31100A2AF2D /* Create */,
+				EFF9642520CFE22300A2AF2D /* Cell */,
 				EFF9642120CE99FD00A2AF2D /* EventViewController.swift */,
 				EFF9642320CE9A0800A2AF2D /* Event.storyboard */,
 			);
 			path = Event;
+			sourceTree = "<group>";
+		};
+		EFF9642520CFE22300A2AF2D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9642620CFE24000A2AF2D /* EventCell.swift */,
+				EFF9642720CFE24000A2AF2D /* EventCell.xib */,
+				EFF9642F20CFE7DE00A2AF2D /* CreateEventNameCell.swift */,
+				EFF9643020CFE7DE00A2AF2D /* CreateEventNameCell.xib */,
+				EFF9643320CFE8A100A2AF2D /* CreateEventNormalCell.swift */,
+				EFF9643420CFE8A100A2AF2D /* CreateEventNormalCell.xib */,
+				EFF9643720CFE8BB00A2AF2D /* CreateEventDetailCell.swift */,
+				EFF9643820CFE8BB00A2AF2D /* CreateEventDetailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EFF9642A20CFE31100A2AF2D /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9642B20CFE33500A2AF2D /* CreateEventViewController.swift */,
+				EFF9642D20CFE34200A2AF2D /* CreateEvent.storyboard */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -869,11 +915,13 @@
 				34109E142076656300EC9CE0 /* TalkHistoryCell.xib in Resources */,
 				34362D93209D5EA700E6EF77 /* HobbySelection.storyboard in Resources */,
 				342706BE20B2EC89007ED6EE /* ProfileCell.xib in Resources */,
+				EFF9643A20CFE8BB00A2AF2D /* CreateEventDetailCell.xib in Resources */,
 				34109DEB2076656200EC9CE0 /* Matching.storyboard in Resources */,
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
 				343CCEEF209B110E002936FC /* MailLoginInputCell.xib in Resources */,
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
 				34109DE52076656200EC9CE0 /* ChatHistory.storyboard in Resources */,
+				EFF9643620CFE8A100A2AF2D /* CreateEventNormalCell.xib in Resources */,
 				34109DE12076656200EC9CE0 /* Peek.storyboard in Resources */,
 				342CDB71209C0A9F0043756F /* Splash.storyboard in Resources */,
 				34A71225209A45410050788C /* MailLogin.storyboard in Resources */,
@@ -906,9 +954,12 @@
 				342706C620B2F381007ED6EE /* UserInfoAlbumCell.xib in Resources */,
 				34109E162076656300EC9CE0 /* MatchingCell.xib in Resources */,
 				34109E2D2076656300EC9CE0 /* FindCell.xib in Resources */,
+				EFF9643220CFE7DE00A2AF2D /* CreateEventNameCell.xib in Resources */,
+				EFF9642920CFE24000A2AF2D /* EventCell.xib in Resources */,
 				EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */,
 				34109E0E2076656300EC9CE0 /* ReceiveTextCell.xib in Resources */,
 				34109DE82076656200EC9CE0 /* Album.storyboard in Resources */,
+				EFF9642E20CFE34200A2AF2D /* CreateEvent.storyboard in Resources */,
 				34109E012076656300EC9CE0 /* Assets.xcassets in Resources */,
 				34109DEA2076656200EC9CE0 /* EditUserInfo.storyboard in Resources */,
 				34362D9A209D637E00E6EF77 /* HobbyDataSource.plist in Resources */,
@@ -1000,6 +1051,8 @@
 				343CB05620B6E6A800C1A759 /* Date.swift in Sources */,
 				34109E282076656300EC9CE0 /* HanaAlertView.swift in Sources */,
 				34109E302076656300EC9CE0 /* AlbumViewController.swift in Sources */,
+				EFF9643120CFE7DE00A2AF2D /* CreateEventNameCell.swift in Sources */,
+				EFF9643520CFE8A100A2AF2D /* CreateEventNormalCell.swift in Sources */,
 				34109E042076656300EC9CE0 /* MatchingViewController.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,
 				34109E332076656300EC9CE0 /* PeekViewController.swift in Sources */,
@@ -1009,6 +1062,7 @@
 				34109E0A2076656300EC9CE0 /* ContactCell.swift in Sources */,
 				342CF363209D73600044FF50 /* String.swift in Sources */,
 				34109E292076656300EC9CE0 /* BrowseCell.swift in Sources */,
+				EFF9643920CFE8BB00A2AF2D /* CreateEventDetailCell.swift in Sources */,
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,
 				34109E2A2076656300EC9CE0 /* BrowseViewController.swift in Sources */,
 				34109E132076656300EC9CE0 /* ChatHistoryViewController.swift in Sources */,
@@ -1029,6 +1083,7 @@
 				344309702095954900246418 /* EnterVerificationCodeViewController.swift in Sources */,
 				342CDB6F209C08D20043756F /* SplashViewController.swift in Sources */,
 				343CB06920B6F6AE00C1A759 /* InputTextViewCell.swift in Sources */,
+				EFF9642C20CFE33500A2AF2D /* CreateEventViewController.swift in Sources */,
 				34109E232076656300EC9CE0 /* UserInfoViewController.swift in Sources */,
 				3419C7482081C87D005FFC8A /* DAO.swift in Sources */,
 				34109E002076656300EC9CE0 /* AppDelegate.swift in Sources */,
@@ -1049,6 +1104,7 @@
 				343CCEDB209B0E1B002936FC /* LoginSelectionViewController.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
+				EFF9642820CFE24000A2AF2D /* EventCell.swift in Sources */,
 				34109DF42076656200EC9CE0 /* Like.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
 				3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */,
