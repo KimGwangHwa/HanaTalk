@@ -8,16 +8,25 @@
 import UIKit
 
 class CreateEventViewController: UITableViewController {
-
+   
+    enum EventRow {
+        case name
+        case detail
+        case time
+        case place
+        case member
+    }
     
     let nameCellIdentifier = R.reuseIdentifier.createEventNameCell.identifier
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
     let detaillCellIdentifier = R.reuseIdentifier.createEventDetailCell.identifier
     
+    var dataSource = [[EventRow.name, EventRow.detail],[EventRow.time, EventRow.place, EventRow.member]];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setup()
     }
     
     func setup() {
@@ -33,22 +42,40 @@ class CreateEventViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return dataSource.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dataSource[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
-            return cell
+        let row = dataSource[indexPath.section][indexPath.row]
+        switch row {
+        case .name:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
+                return cell
+            }
+            break
+        case .detail:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: detaillCellIdentifier, for: indexPath) as? CreateEventNameCell {
+                return cell
+            }
+            break
+        case .time, .place, .member:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: normalCellIdentifier, for: indexPath) as? CreateEventNameCell {
+                return cell
+            }
+            break
         }
+
         return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     

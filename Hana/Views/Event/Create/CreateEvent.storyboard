@@ -23,7 +23,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Create Event" id="nFt-Ib-myM">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="6EE-qo-O5g">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="6EE-qo-O5g">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="292-4O-Ok6">
                                 <rect key="frame" x="16" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,7 +31,7 @@
                                 <state key="normal" title="Cancel"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Mh-au-9Ba">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="6Mh-au-9Ba">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rWu-JA-YKZ">
                                 <rect key="frame" x="299" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkm-IL-fwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135.2" y="-156.07196401799101"/>
+            <point key="canvasLocation" x="698" y="-157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ruu-tb-6BH">

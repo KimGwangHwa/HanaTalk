@@ -48,7 +48,7 @@
                         <viewLayoutGuide key="safeArea" id="Abd-2O-ESJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="FBb-70-GPN">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="FI7-dL-Bw5">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="FI7-dL-Bw5">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QLM-iT-Juf">
                                 <rect key="frame" x="16" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="d8v-Jn-xJU">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="d8v-Jn-xJU">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mBq-5v-F9a">
                                 <rect key="frame" x="309" y="0.0" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
