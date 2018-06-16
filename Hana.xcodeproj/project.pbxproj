@@ -127,6 +127,11 @@
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
+		EF9DC45620D491580074B9AE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45520D491580074B9AE /* Event.swift */; };
+		EF9DC45920D4BF5B0074B9AE /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45820D4BF5B0074B9AE /* FindLocationViewController.swift */; };
+		EF9DC45B20D4BF670074B9AE /* FindLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */; };
+		EF9DC46020D4C05D0074B9AE /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45E20D4C05D0074B9AE /* LocationCell.swift */; };
+		EF9DC46120D4C05D0074B9AE /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9DC45F20D4C05D0074B9AE /* LocationCell.xib */; };
 		EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642120CE99FD00A2AF2D /* EventViewController.swift */; };
 		EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF9642320CE9A0800A2AF2D /* Event.storyboard */; };
 		EFF9642820CFE24000A2AF2D /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642620CFE24000A2AF2D /* EventCell.swift */; };
@@ -270,6 +275,11 @@
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
+		EF9DC45520D491580074B9AE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		EF9DC45820D4BF5B0074B9AE /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
+		EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindLocation.storyboard; sourceTree = "<group>"; };
+		EF9DC45E20D4C05D0074B9AE /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		EF9DC45F20D4C05D0074B9AE /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		EFF9642120CE99FD00A2AF2D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		EFF9642320CE9A0800A2AF2D /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		EFF9642620CFE24000A2AF2D /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -350,6 +360,7 @@
 				34109D762076656200EC9CE0 /* Like.swift */,
 				34109D772076656200EC9CE0 /* TalkRoom.swift */,
 				34109D782076656200EC9CE0 /* Message.swift */,
+				EF9DC45520D491580074B9AE /* Event.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -787,6 +798,38 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		EF9DC45720D4BF090074B9AE /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EF9DC45C20D4C02E0074B9AE /* Cell */,
+				EF9DC45820D4BF5B0074B9AE /* FindLocationViewController.swift */,
+				EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		EF9DC45C20D4C02E0074B9AE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EF9DC45E20D4C05D0074B9AE /* LocationCell.swift */,
+				EF9DC45F20D4C05D0074B9AE /* LocationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EF9DC45D20D4C0340074B9AE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9642F20CFE7DE00A2AF2D /* CreateEventNameCell.swift */,
+				EFF9643020CFE7DE00A2AF2D /* CreateEventNameCell.xib */,
+				EFF9643320CFE8A100A2AF2D /* CreateEventNormalCell.swift */,
+				EFF9643420CFE8A100A2AF2D /* CreateEventNormalCell.xib */,
+				EFF9643720CFE8BB00A2AF2D /* CreateEventDetailCell.swift */,
+				EFF9643820CFE8BB00A2AF2D /* CreateEventDetailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		EFF9641F20CE990100A2AF2D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +844,7 @@
 		EFF9642020CE993600A2AF2D /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				EF9DC45720D4BF090074B9AE /* Location */,
 				EFF9642A20CFE31100A2AF2D /* Create */,
 				EFF9642520CFE22300A2AF2D /* Cell */,
 				EFF9642120CE99FD00A2AF2D /* EventViewController.swift */,
@@ -814,12 +858,6 @@
 			children = (
 				EFF9642620CFE24000A2AF2D /* EventCell.swift */,
 				EFF9642720CFE24000A2AF2D /* EventCell.xib */,
-				EFF9642F20CFE7DE00A2AF2D /* CreateEventNameCell.swift */,
-				EFF9643020CFE7DE00A2AF2D /* CreateEventNameCell.xib */,
-				EFF9643320CFE8A100A2AF2D /* CreateEventNormalCell.swift */,
-				EFF9643420CFE8A100A2AF2D /* CreateEventNormalCell.xib */,
-				EFF9643720CFE8BB00A2AF2D /* CreateEventDetailCell.swift */,
-				EFF9643820CFE8BB00A2AF2D /* CreateEventDetailCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -827,6 +865,7 @@
 		EFF9642A20CFE31100A2AF2D /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				EF9DC45D20D4C0340074B9AE /* Cell */,
 				EFF9642B20CFE33500A2AF2D /* CreateEventViewController.swift */,
 				EFF9642D20CFE34200A2AF2D /* CreateEvent.storyboard */,
 			);
@@ -956,7 +995,9 @@
 				34109E2D2076656300EC9CE0 /* FindCell.xib in Resources */,
 				EFF9643220CFE7DE00A2AF2D /* CreateEventNameCell.xib in Resources */,
 				EFF9642920CFE24000A2AF2D /* EventCell.xib in Resources */,
+				EF9DC46120D4C05D0074B9AE /* LocationCell.xib in Resources */,
 				EFF9642420CE9A0800A2AF2D /* Event.storyboard in Resources */,
+				EF9DC45B20D4BF670074B9AE /* FindLocation.storyboard in Resources */,
 				34109E0E2076656300EC9CE0 /* ReceiveTextCell.xib in Resources */,
 				34109DE82076656200EC9CE0 /* Album.storyboard in Resources */,
 				EFF9642E20CFE34200A2AF2D /* CreateEvent.storyboard in Resources */,
@@ -1045,6 +1086,7 @@
 				34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
 				EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */,
+				EF9DC46020D4C05D0074B9AE /* LocationCell.swift in Sources */,
 				34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */,
 				343CB05E20B6EFA300C1A759 /* InputMessageViewController.swift in Sources */,
 				3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */,
@@ -1093,6 +1135,7 @@
 				34109E202076656300EC9CE0 /* SideNormalCell.swift in Sources */,
 				343CCEEC209B10B1002936FC /* MailLoginInputCell.swift in Sources */,
 				34109E0D2076656300EC9CE0 /* ChattingViewController.swift in Sources */,
+				EF9DC45920D4BF5B0074B9AE /* FindLocationViewController.swift in Sources */,
 				34109E2E2076656300EC9CE0 /* FindViewController.swift in Sources */,
 				34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */,
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
@@ -1103,6 +1146,7 @@
 				3443096A2094B07200246418 /* LoginIconCell.swift in Sources */,
 				343CCEDB209B0E1B002936FC /* LoginSelectionViewController.swift in Sources */,
 				34109E242076656300EC9CE0 /* ProfileCell.swift in Sources */,
+				EF9DC45620D491580074B9AE /* Event.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
 				EFF9642820CFE24000A2AF2D /* EventCell.swift in Sources */,
 				34109DF42076656200EC9CE0 /* Like.swift in Sources */,

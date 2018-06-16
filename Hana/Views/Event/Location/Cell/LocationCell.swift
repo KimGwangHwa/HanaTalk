@@ -1,17 +1,18 @@
 //
-//  CreateEventNameCell.swift
+//  LocationCell.swift
 //  Hana
 //
-//  Created by kimgwanghwa on 2018/06/12.
+//  Created by kimgwanghwa on 2018/06/16.
 //
 
 import UIKit
 
-class CreateEventNameCell: UITableViewCell {
+class LocationCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
