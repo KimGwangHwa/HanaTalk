@@ -12,8 +12,11 @@ class CreateEventDetailCell: UITableViewCell {
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
-    var placeholder: String?
-    
+    var placeholder: String? {
+        didSet {
+            textViewDidChange(textView)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

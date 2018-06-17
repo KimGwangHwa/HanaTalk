@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CreateEventViewController: UITableViewController {
    
@@ -18,8 +20,10 @@ class CreateEventViewController: UITableViewController {
     }
     
     @IBOutlet weak var rightBarButton: UIButton!
-    var eventNameTextField: UITextField! = nil
-    var eventDetailTextView: UITextView! = nil
+    var eventName = Variable<String>("")
+    var eventDetail = Variable<String>("")
+
+    let disposeBag = DisposeBag()
     
     let nameCellIdentifier = R.reuseIdentifier.createEventNameCell.identifier
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
@@ -41,12 +45,21 @@ class CreateEventViewController: UITableViewController {
         tableView.register(R.nib.createEventNameCell(), forCellReuseIdentifier: nameCellIdentifier)
         tableView.register(R.nib.createEventNormalCell(), forCellReuseIdentifier: normalCellIdentifier)
         tableView.register(R.nib.createEventDetailCell(), forCellReuseIdentifier: detaillCellIdentifier)
+
+        eventName.asObservable().subscribe { (string) in
+            self.didInputChanged()
+        }.disposed(by: disposeBag)
+        
+        eventDetail.asObservable().subscribe { (string) in
+            self.didInputChanged()
+        }.disposed(by: disposeBag)
+        
     }
     
     @IBAction func tappedCreat(_ sender: UIButton) {
 
-        event.name = eventNameTextField.text ?? ""
-        event.detail = eventDetailTextView.text
+//        event.name = eventNameTextField.text ?? ""
+//        event.detail = eventDetailTextView.text
         event.saveInBackground { (isSuccess, error) in
             
         }
@@ -54,6 +67,15 @@ class CreateEventViewController: UITableViewController {
     
     @IBAction func tappedCancel(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func didInputChanged() {
+        if !eventDetail.value.isBlank && !eventName.value.isBlank {
+            rightBarButton.isEnabled = true
+        } else {
+            rightBarButton.isEnabled = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,14 +98,15 @@ class CreateEventViewController: UITableViewController {
         case .name:
             if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
                 cell.textField.placeholder = row.rawValue
-                eventNameTextField = cell.textField
+                //bind(to: eventName)
+                _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: eventName)
                 return cell
             }
             break
         case .detail:
             if let cell = tableView.dequeueReusableCell(withIdentifier: detaillCellIdentifier, for: indexPath) as? CreateEventDetailCell {
                 cell.placeholder = row.rawValue
-                eventDetailTextView = cell.textView
+                _ = cell.textView.rx.text.map { $0 ?? "" }.bind(to: eventDetail)
                 return cell
             }
             break

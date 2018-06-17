@@ -6,10 +6,12 @@ target 'Hana' do
   use_frameworks!
   inhibit_all_warnings!
   # Pods for talk
-  pod 'SendBirdSDK'
+  #pod 'SendBirdSDK'
   pod 'R.swift'
   pod ‘Parse’
-  pod ‘GzipSwift’
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  #pod ‘GzipSwift’
   #pod 'Realm'
   pod 'SDWebImage'
 end
