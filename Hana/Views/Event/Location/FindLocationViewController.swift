@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class FindLocationViewController: UIViewController {
 
@@ -15,6 +16,9 @@ class FindLocationViewController: UIViewController {
     var locationManager = CLLocationManager()
     
     var searchDataSource = [CLPlacemark]()
+    
+    var event: Event!
+    
     
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -25,17 +29,21 @@ class FindLocationViewController: UIViewController {
     
     func setup() {
         locationManager.delegate = self
-        locationManager.requestLocation()
+        //locationManager.requestLocation()
+
         tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 100
         tableview.register(R.nib.locationCell(), forCellReuseIdentifier: locationCellIdentifier)
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"
-        searchController.hidesNavigationBarDuringPresentation = false
         tableview.tableFooterView = UIView()
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+//        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        placeName(location: locationManager.location) { (mark) in
+            self.addPlacemark(mark: mark)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +51,19 @@ class FindLocationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func placeName(location: CLLocation?, closure: @escaping (CLPlacemark?) -> Void) {
+    func placeLocation(name: String, closure: @escaping ([CLPlacemark]?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(name) { (placemarks, error) in
+            if error == nil {
+                closure(placemarks)
+            }
+            else {
+                closure(nil)
+            }
+        }
+    }
+    
+    func placeName(location: CLLocation?, closure: @escaping ([CLPlacemark]?) -> Void) {
         // Use the last reported location.
         if let lastLocation = location {
             let geocoder = CLGeocoder()
@@ -52,8 +72,7 @@ class FindLocationViewController: UIViewController {
             geocoder.reverseGeocodeLocation(lastLocation,
                                             completionHandler: { (placemarks, error) in
                                                 if error == nil {
-                                                    let firstLocation = placemarks?[0]
-                                                    closure(firstLocation)
+                                                    closure(placemarks)
                                                 }
                                                 else {
                                                     // An error occurred during geocoding.
@@ -62,6 +81,18 @@ class FindLocationViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func tappedCancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addPlacemark(mark: [CLPlacemark]?) {
+        if let mark = mark {
+            self.searchDataSource.append(contentsOf: mark)
+            self.tableview.reloadData()
+        }
+    }
+    
 }
 
 // MARK: - Navigation
@@ -85,12 +116,22 @@ extension FindLocationViewController: UITableViewDelegate, UITableViewDataSource
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableview.deselectRow(at: indexPath, animated: true)
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - UISearchResultsUpdating, UISearchControllerDelegate
 extension FindLocationViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if let searchString = searchController.searchBar.text, !searchString.isBlank {
+            placeLocation(name: searchString) { (placemarks) in
+                self.addPlacemark(mark: placemarks)
+            }
+        }
     }
     func willDismissSearchController(_ searchController: UISearchController) {
     }
@@ -111,7 +152,7 @@ extension FindLocationViewController: CLLocationManagerDelegate {
         case .authorizedAlways:
             break
         case .authorizedWhenInUse:
-            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingLocation()
             break
         }
     }
@@ -120,10 +161,8 @@ extension FindLocationViewController: CLLocationManagerDelegate {
         
         for location in locations {
             placeName(location: location) { (mark) in
-                self.searchDataSource.append(mark!)
-                self.tableview.reloadData()
+                self.addPlacemark(mark: mark)
             }
-            print("緯度:\(location.coordinate.latitude) 経度:\(location.coordinate.longitude) 取得時刻:\(location.timestamp.description)")
         }
     }
     

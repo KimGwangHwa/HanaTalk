@@ -58,6 +58,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="tappedCancel:" destination="Mwl-Rp-uk1" eventType="touchUpInside" id="HlA-WE-VlZ"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

@@ -39,12 +39,16 @@
                                 <rect key="frame" x="299" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Creat">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <state key="normal" title="Creat"/>
+                                <connections>
+                                    <action selector="tappedCreat:" destination="aIo-zJ-X1T" eventType="touchUpInside" id="lhb-cb-Adj"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="rightBarButton" destination="rWu-JA-YKZ" id="gxg-Bs-xml"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkm-IL-fwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

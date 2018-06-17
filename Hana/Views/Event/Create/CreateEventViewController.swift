@@ -17,11 +17,17 @@ class CreateEventViewController: UITableViewController {
         case member = "Member"
     }
     
+    @IBOutlet weak var rightBarButton: UIButton!
+    var eventNameTextField: UITextField! = nil
+    var eventDetailTextView: UITextView! = nil
+    
     let nameCellIdentifier = R.reuseIdentifier.createEventNameCell.identifier
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
     let detaillCellIdentifier = R.reuseIdentifier.createEventDetailCell.identifier
     
     var dataSource = [[EventRow.name],[EventRow.date, EventRow.place, EventRow.member], [EventRow.detail]];
+    
+    var event = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,15 @@ class CreateEventViewController: UITableViewController {
         tableView.register(R.nib.createEventNameCell(), forCellReuseIdentifier: nameCellIdentifier)
         tableView.register(R.nib.createEventNormalCell(), forCellReuseIdentifier: normalCellIdentifier)
         tableView.register(R.nib.createEventDetailCell(), forCellReuseIdentifier: detaillCellIdentifier)
+    }
+    
+    @IBAction func tappedCreat(_ sender: UIButton) {
+
+        event.name = eventNameTextField.text ?? ""
+        event.detail = eventDetailTextView.text
+        event.saveInBackground { (isSuccess, error) in
+            
+        }
     }
     
     @IBAction func tappedCancel(_ sender: UIButton) {
@@ -61,11 +76,14 @@ class CreateEventViewController: UITableViewController {
         case .name:
             if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
                 cell.textField.placeholder = row.rawValue
+                eventNameTextField = cell.textField
                 return cell
             }
             break
         case .detail:
             if let cell = tableView.dequeueReusableCell(withIdentifier: detaillCellIdentifier, for: indexPath) as? CreateEventDetailCell {
+                cell.placeholder = row.rawValue
+                eventDetailTextView = cell.textView
                 return cell
             }
             break
@@ -87,6 +105,9 @@ class CreateEventViewController: UITableViewController {
         switch row {
         case .place:
             if let viewController = R.storyboard.findLocation.instantiateInitialViewController() {
+                if let rootViewController = viewController.viewControllers.first as? FindLocationViewController {
+                    rootViewController.event = event
+                }
                 present(viewController, animated: true, completion: nil)
             }
             break
@@ -94,6 +115,4 @@ class CreateEventViewController: UITableViewController {
             break
         }
     }
-    
-    
 }
