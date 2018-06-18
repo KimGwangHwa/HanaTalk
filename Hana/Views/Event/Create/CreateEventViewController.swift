@@ -134,6 +134,11 @@ class CreateEventViewController: UITableViewController {
                 present(viewController, animated: true, completion: nil)
             }
             break
+        case .date:
+            DatePickerDialog.show("", okButtonTitle: "OK", cancelButtonTitle: "Cancel", defaultDate: Date(), datePickerMode: .date) { (date) in
+                
+            }
+            break
         default:
             break
         }
