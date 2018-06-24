@@ -132,6 +132,9 @@
 		EF9DC45B20D4BF670074B9AE /* FindLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */; };
 		EF9DC46020D4C05D0074B9AE /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45E20D4C05D0074B9AE /* LocationCell.swift */; };
 		EF9DC46120D4C05D0074B9AE /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9DC45F20D4C05D0074B9AE /* LocationCell.xib */; };
+		EFB04DC520DF4CC200F540BB /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB04DC420DF4CC200F540BB /* SwipeableView.swift */; };
+		EFB04DC720DFCF7300F540BB /* BrowseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB04DC620DFCF7300F540BB /* BrowseCardView.swift */; };
+		EFB04DC920DFCF8000F540BB /* BrowseCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB04DC820DFCF8000F540BB /* BrowseCardView.xib */; };
 		EFF74BDF20D7CEAC004F310C /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF74BDE20D7CEAC004F310C /* DatePickerDialog.swift */; };
 		EFF74BE120D7CEB8004F310C /* DatePickerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF74BE020D7CEB8004F310C /* DatePickerDialog.xib */; };
 		EFF9642220CE99FD00A2AF2D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF9642120CE99FD00A2AF2D /* EventViewController.swift */; };
@@ -282,6 +285,9 @@
 		EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindLocation.storyboard; sourceTree = "<group>"; };
 		EF9DC45E20D4C05D0074B9AE /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		EF9DC45F20D4C05D0074B9AE /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		EFB04DC420DF4CC200F540BB /* SwipeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
+		EFB04DC620DFCF7300F540BB /* BrowseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCardView.swift; sourceTree = "<group>"; };
+		EFB04DC820DFCF8000F540BB /* BrowseCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowseCardView.xib; sourceTree = "<group>"; };
 		EFF74BDE20D7CEAC004F310C /* DatePickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		EFF74BE020D7CEB8004F310C /* DatePickerDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerDialog.xib; sourceTree = "<group>"; };
 		EFF9642120CE99FD00A2AF2D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -538,6 +544,7 @@
 		34109DC02076656200EC9CE0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				EFB04DC420DF4CC200F540BB /* SwipeableView.swift */,
 				EFF74BDD20D7CE83004F310C /* DatePicker */,
 				34109DC12076656200EC9CE0 /* CustomBadgeView.swift */,
 				34109DC22076656200EC9CE0 /* HanaAlertView.swift */,
@@ -550,6 +557,7 @@
 		34109DC32076656200EC9CE0 /* Browse */ = {
 			isa = PBXGroup;
 			children = (
+				EFB04DCA20DFD54900F540BB /* Card */,
 				34DB245320BDF39900723C76 /* Cell */,
 				34109D6C2076656200EC9CE0 /* Browse.storyboard */,
 				34109DC52076656200EC9CE0 /* BrowseViewController.swift */,
@@ -835,6 +843,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		EFB04DCA20DFD54900F540BB /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				EFB04DC620DFCF7300F540BB /* BrowseCardView.swift */,
+				EFB04DC820DFCF8000F540BB /* BrowseCardView.xib */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
 		EFF74BDD20D7CE83004F310C /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,6 +987,7 @@
 				342706BE20B2EC89007ED6EE /* ProfileCell.xib in Resources */,
 				EFF9643A20CFE8BB00A2AF2D /* CreateEventDetailCell.xib in Resources */,
 				34109DEB2076656200EC9CE0 /* Matching.storyboard in Resources */,
+				EFB04DC920DFCF8000F540BB /* BrowseCardView.xib in Resources */,
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
 				343CCEEF209B110E002936FC /* MailLoginInputCell.xib in Resources */,
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
@@ -1103,6 +1121,7 @@
 				34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */,
 				343CB05E20B6EFA300C1A759 /* InputMessageViewController.swift in Sources */,
 				3419C74C208314E8005FFC8A /* TalkRoomDao.swift in Sources */,
+				EFB04DC720DFCF7300F540BB /* BrowseCardView.swift in Sources */,
 				343CB05620B6E6A800C1A759 /* Date.swift in Sources */,
 				34109E282076656300EC9CE0 /* HanaAlertView.swift in Sources */,
 				34109E302076656300EC9CE0 /* AlbumViewController.swift in Sources */,
@@ -1166,6 +1185,7 @@
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
 				3443096C2094B09900246418 /* TelLoginInputCell.swift in Sources */,
 				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
+				EFB04DC520DF4CC200F540BB /* SwipeableView.swift in Sources */,
 				34109E222076656300EC9CE0 /* SideHeaderCell.swift in Sources */,
 				EFF74BDF20D7CEAC004F310C /* DatePickerDialog.swift in Sources */,
 				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,

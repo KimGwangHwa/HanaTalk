@@ -17,9 +17,7 @@ protocol BrowseCellDelegate: class {
 class BrowseCell: UICollectionViewCell {
 
     weak var delegate: BrowseCellDelegate?
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var infoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,24 +39,23 @@ class BrowseCell: UICollectionViewCell {
     static var itemLargeHeight: CGFloat {
         return itemSmallHeight + 100
     }
+        
     
-    var model: UserInfo! {
+    var imageUrl: String? {
         didSet {
-            nameLabel.text = model.nickname
-            infoLabel.text = model.birthday?.string(format: .date)
-            profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: nil)
+            profileImageView.sd_setImage(with: URL(string: imageUrl ?? ""), placeholderImage: R.image.placeholderImage())
         }
     }
     
     @IBAction func tappedHeart(_ sender: UIButton) {
         if delegate != nil {
-            delegate?.browseCell(self, didTouchLikeAt: model)
+            //delegate?.browseCell(self, didTouchLikeAt: model)
         }
     }
     
     @IBAction func tappedClose(_ sender: UIButton) {
         if delegate != nil {
-            delegate?.browseCell(self, didTouchDislikeAt: model)
+            //delegate?.browseCell(self, didTouchDislikeAt: model)
         }
     }
     

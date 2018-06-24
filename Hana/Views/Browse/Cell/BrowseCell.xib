@@ -23,75 +23,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="0.0"/>
+                                <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucz-7d-6r4">
-                        <rect key="frame" x="15" y="271.5" width="270" height="20.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20.5" id="bHG-JU-Un0"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp0-tB-Qqq">
-                        <rect key="frame" x="248" y="10" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="Gof-JD-Ct3"/>
-                            <constraint firstAttribute="height" constant="32" id="Sfr-Xj-f0a"/>
-                        </constraints>
-                        <state key="normal" image="icon_heart"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Y-yW-Eq1">
-                        <rect key="frame" x="20" y="10" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="32" id="gak-Pb-v4S"/>
-                            <constraint firstAttribute="width" constant="32" id="o5Z-yd-X7s"/>
-                        </constraints>
-                        <state key="normal" image="icon_close"/>
-                    </button>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckt-Ej-luS">
-                        <rect key="frame" x="15" y="244" width="270" height="20.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="Z9q-yJ-rIV"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
-            <constraints>
-                <constraint firstItem="ucz-7d-6r4" firstAttribute="top" secondItem="Ckt-Ej-luS" secondAttribute="bottom" constant="7" id="4kX-ci-Cft"/>
-                <constraint firstItem="Jp0-tB-Qqq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="6r3-PU-i1N"/>
-                <constraint firstAttribute="trailing" secondItem="ucz-7d-6r4" secondAttribute="trailing" constant="15" id="HNe-bI-0P9"/>
-                <constraint firstItem="Ckt-Ej-luS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="I09-1j-gJO"/>
-                <constraint firstAttribute="trailing" secondItem="Jp0-tB-Qqq" secondAttribute="trailing" constant="20" id="M92-uK-uIg"/>
-                <constraint firstItem="ucz-7d-6r4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="VRW-cq-c3b"/>
-                <constraint firstItem="M2Y-yW-Eq1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="YBC-5c-FW0"/>
-                <constraint firstItem="M2Y-yW-Eq1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="fn0-dT-TNn"/>
-                <constraint firstAttribute="bottom" secondItem="ucz-7d-6r4" secondAttribute="bottom" constant="8" id="qip-5a-QYO"/>
-                <constraint firstAttribute="trailing" secondItem="Ckt-Ej-luS" secondAttribute="trailing" constant="15" id="x4V-0k-UvL"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="373" height="468"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="5"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="infoLabel" destination="Ckt-Ej-luS" id="3Eb-VS-UFb"/>
-                <outlet property="nameLabel" destination="ucz-7d-6r4" id="Rg1-ZJ-BPZ"/>
                 <outlet property="profileImageView" destination="jDj-j8-AzP" id="VoT-na-fju"/>
             </connections>
             <point key="canvasLocation" x="-189" y="30"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="icon_close" width="32" height="32"/>
-        <image name="icon_heart" width="32" height="32"/>
-    </resources>
 </document>

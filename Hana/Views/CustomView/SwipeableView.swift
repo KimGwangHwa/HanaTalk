@@ -97,9 +97,16 @@ class SwipeableView: UIView {
         return nil
     }
     
+    func reloadData() {
+        setup()
+    }
     
     func setup() {
 
+        if rowCount == 0 {
+            return
+        }
+        
         if let delegate = delegate {
             if rowCount >= ReuseCount {
                 for index in 0..<ReuseCount {
@@ -228,7 +235,11 @@ class SwipeableView: UIView {
         
         if let delegate = delegate {
             _ = delegate.swipeableView(self, displayViewForRowAt: rowIndex)
-            let nextView = delegate.swipeableView(self, displayViewForRowAt: rowIndex + 1)
+            
+            var nextView: UIView? = nil
+            if rowIndex + 1 < rowCount {
+                nextView = delegate.swipeableView(self, displayViewForRowAt: rowIndex + 1)
+            }
             if rowIndex == rowCount - 1 {
                 let blankView = UIView(frame: nextView!.bounds)
                 blankView.backgroundColor = self.backgroundColor
