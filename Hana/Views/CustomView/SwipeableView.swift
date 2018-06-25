@@ -8,7 +8,7 @@
 
 import UIKit
 
-let DragCompleteRatio: CGFloat = 0.6
+let DragCompleteRatio: CGFloat = 0.7
 let SecondCardScale: CGFloat = 0.98
 let ReuseCount: Int = 2
 
@@ -23,7 +23,7 @@ protocol SwipeableViewDataSource: class {
 }
 
 protocol SwipeableViewDelegate: class {
-    func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView?
+    func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int)
 }
 
@@ -69,6 +69,8 @@ class SwipeableView: UIView {
     
     private var isConfigured: Bool = false
     
+    private var registerNib: UINib!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -78,6 +80,11 @@ class SwipeableView: UIView {
         //setup()
     }
     
+    func register(_ nib: UINib) {
+        registerNib = nib
+    }
+    
+    
     override func layoutSubviews() {
         if isConfigured == false {
             updateSubviewFrame()
@@ -86,6 +93,22 @@ class SwipeableView: UIView {
     }
     
     func reuseView(of index: Int) -> UIView? {
+        
+        if reuseViews.count != ReuseCount {
+            if let view = registerNib.instantiate(withOwner: self, options: nil).first as? UIView {
+                reuseViews.append(view)
+                if index == 0 {
+                    view.addGestureRecognizer(panGesture)
+                    view.addGestureRecognizer(tapGesture)
+                }
+                updateSubviewFrame()
+                addSubview(view)
+                sendSubview(toBack: view)
+
+                return view
+            }
+        }
+        
         if index % ReuseCount == 0 {
             return reuseViews.first
         }
@@ -93,7 +116,7 @@ class SwipeableView: UIView {
         if reuseViews.count >= ReuseCount {
             return reuseViews.last
         }
-        
+
         return nil
     }
     
@@ -106,24 +129,15 @@ class SwipeableView: UIView {
         if rowCount == 0 {
             return
         }
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
         
         if let delegate = delegate {
             if rowCount >= ReuseCount {
                 for index in 0..<ReuseCount {
-                    if let subView = delegate.swipeableView(self, displayViewForRowAt: index) {
-                        reuseViews.append(subView)
-                    }
+                    _ = delegate.swipeableView(self, displayViewForRowAt: index)
                 }
             }
-        }
-        panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
-        for view in reuseViews.reversed() {
-            if let index = reuseViews.index(of: view), index == 0 {
-                view.addGestureRecognizer(panGesture)
-                view.addGestureRecognizer(tapGesture)
-            }
-            addSubview(view)
         }
         
         updateSubviewFrame()
@@ -138,6 +152,9 @@ class SwipeableView: UIView {
         for view in reuseViews {
             view.transform = CGAffineTransform.identity
             view.frame = CGRect(x: edgeInsets.left, y: edgeInsets.top, width: width, height: height)
+            view.setNeedsLayout()
+            view.setNeedsUpdateConstraints()
+            view.updateConstraintsIfNeeded()
         }
         
         if let firstView = reuseViews.first {
@@ -239,6 +256,8 @@ class SwipeableView: UIView {
             var nextView: UIView? = nil
             if rowIndex + 1 < rowCount {
                 nextView = delegate.swipeableView(self, displayViewForRowAt: rowIndex + 1)
+            } else {
+                nextView = reuseView(of: rowIndex + 1)
             }
             if rowIndex == rowCount - 1 {
                 let blankView = UIView(frame: nextView!.bounds)

@@ -15,19 +15,30 @@ class BrowseCardView: UIView {
     
     var model: UserInfo! {
         didSet {
-            
+
             collectionView.reloadData()
         }
     }
     
+    var isConfiged: Bool = false
+    
+    
     override func layoutSubviews() {
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = frame.size
+        if isConfiged == false {
+            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                layout.itemSize = frame.size
+                layout.sectionInset = UIEdgeInsets.zero
+                layout.minimumLineSpacing = 0
+                layout.minimumInteritemSpacing = 0
+            }
+            isConfiged = true
         }
+        
     }
     
     override func awakeFromNib() {
-        
+        layer.shouldRasterize = true;
+        layer.rasterizationScale = UIScreen.main.scale;
         collectionView.register(R.nib.browseCell(), forCellWithReuseIdentifier: cellIdentifierr)
         collectionView.delegate = self
         collectionView.dataSource = self

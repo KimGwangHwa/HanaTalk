@@ -27,6 +27,7 @@ class BrowseViewController: UIViewController {
         
         swipeableView.delegate = self
         swipeableView.dataSource = self
+        swipeableView.register(R.nib.browseCardView())
 
     }
 
@@ -55,13 +56,13 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
         return dataSource?.count ?? 0
     }
     
-    func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView? {
-        var cardView = swipeableView.reuseView(of: index) as? BrowseCardView
-        if cardView == nil {
-            cardView = R.nib.browseCardView.firstView(owner: nil)
+    func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView {
+        
+        if let cardView = swipeableView.reuseView(of: index) as? BrowseCardView {
+            cardView.model = dataSource?[index]
+            return cardView
         }
-        cardView?.model = dataSource?[index]
-        return cardView
+        return UIView()
     }
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
