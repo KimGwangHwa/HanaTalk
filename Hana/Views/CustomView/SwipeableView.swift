@@ -9,8 +9,8 @@
 import UIKit
 
 let DragCompleteRatio: CGFloat = 0.7
-let SecondCardScale: CGFloat = 0.98
-let ReuseCount: Int = 2
+let SecondCardScale: CGFloat = 0.95
+let MaxCardCount = 50
 
 enum DraggableDirection {
     case none
@@ -39,11 +39,11 @@ class SwipeableView: UIView {
     
     private var direction: DraggableDirection = .none
     
-    private var reuseViews = [UIView]()
-    
-    private var currentView: UIView! {
+    private var topView: UIView! {
         return subviews.last!
     }
+    
+    private var topCenter: CGPoint!
     
     private var edgeInsets: UIEdgeInsets! = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15) {
         didSet {
@@ -59,17 +59,9 @@ class SwipeableView: UIView {
     }
     
     private var rowIndex: Int = 0
-    
     private var panGesture: UIPanGestureRecognizer!
     private var tapGesture: UITapGestureRecognizer!
-
-    
-    private var currentViewCenter: CGPoint!
-    private var currentViewFrame: CGRect!
-    
     private var isConfigured: Bool = false
-    
-    private var registerNib: UINib!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -77,47 +69,14 @@ class SwipeableView: UIView {
     }
     
     override func awakeFromNib() {
-        //setup()
+        setup()
     }
-    
-    func register(_ nib: UINib) {
-        registerNib = nib
-    }
-    
     
     override func layoutSubviews() {
         if isConfigured == false {
             updateSubviewFrame()
             isConfigured = true
         }
-    }
-    
-    func reuseView(of index: Int) -> UIView? {
-        
-        if reuseViews.count != ReuseCount {
-            if let view = registerNib.instantiate(withOwner: self, options: nil).first as? UIView {
-                reuseViews.append(view)
-                if index == 0 {
-                    view.addGestureRecognizer(panGesture)
-                    view.addGestureRecognizer(tapGesture)
-                }
-                updateSubviewFrame()
-                addSubview(view)
-                sendSubview(toBack: view)
-
-                return view
-            }
-        }
-        
-        if index % ReuseCount == 0 {
-            return reuseViews.first
-        }
-        
-        if reuseViews.count >= ReuseCount {
-            return reuseViews.last
-        }
-
-        return nil
     }
     
     func reloadData() {
@@ -133,34 +92,33 @@ class SwipeableView: UIView {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
         
         if let delegate = delegate {
-            if rowCount >= ReuseCount {
-                for index in 0..<ReuseCount {
-                    _ = delegate.swipeableView(self, displayViewForRowAt: index)
-                }
+            for index in 1...rowCount {
+                let cardView = delegate.swipeableView(self, displayViewForRowAt: rowCount - index)
+                cardView.addGestureRecognizer(panGesture)
+                cardView.addGestureRecognizer(tapGesture)
+                addSubview(cardView)
+                cardView.setNeedsLayout()
+                cardView.setNeedsUpdateConstraints()
+                cardView.updateConstraintsIfNeeded()
             }
         }
         
         updateSubviewFrame()
-        setSecondScale()
-
     }
     
     func updateSubviewFrame() {
         
         let width = self.frame.size.width - edgeInsets.left - edgeInsets.right
         let height = self.frame.size.height - edgeInsets.top - edgeInsets.bottom
-        for view in reuseViews {
+        for view in subviews {
             view.transform = CGAffineTransform.identity
             view.frame = CGRect(x: edgeInsets.left, y: edgeInsets.top, width: width, height: height)
             view.setNeedsLayout()
             view.setNeedsUpdateConstraints()
             view.updateConstraintsIfNeeded()
+            topCenter = view.center
         }
         
-        if let firstView = reuseViews.first {
-            currentViewCenter = firstView.center
-            currentViewFrame = firstView.frame
-        }
     }
     
     @objc func tap(_ tap: UITapGestureRecognizer) {
@@ -174,21 +132,26 @@ class SwipeableView: UIView {
             return
         }
         
+        guard let gestureView = pan.view else {
+            return
+        }
+        
         if (pan.state == .changed) {
             let point = pan.translation(in: self)
-            let movedPoint = CGPoint(x: pan.view!.center.x + point.x, y: pan.view!.center.y)
+            let movedPoint = CGPoint(x: gestureView.center.x + point.x, y: gestureView.center.y)
             pan.view?.center = movedPoint;
             
-            let rotationAngel = (pan.view!.center.x - currentViewCenter.x) / currentViewCenter.x * (CGFloat.pi/20)
-            pan.view?.transform = CGAffineTransform.init(rotationAngle: rotationAngel)
-            updateSecondScale()
+            let rotationAngel = (gestureView.center.x - topCenter.x) / topCenter.x * (CGFloat.pi/20)
+            gestureView.transform = CGAffineTransform.init(rotationAngle: rotationAngel)
             
+            updateNextScale()
+
             pan.setTranslation(CGPoint.zero, in: self)
         }
         
         if (pan.state == .ended || pan.state == .cancelled) {
             
-            let excessRatio = (pan.view!.center.x - currentViewCenter.x) / currentViewCenter.x;
+            let excessRatio = (gestureView.center.x - topCenter.x) / topCenter.x;
             if fabs(excessRatio) > DragCompleteRatio {
                 direction = excessRatio > 0 ? .right : .left
 
@@ -209,8 +172,8 @@ class SwipeableView: UIView {
                            initialSpringVelocity: 0,
                            options: [.curveEaseOut , .allowUserInteraction],
                            animations: {
-                            self.currentView.center = self.currentViewCenter
-                            self.currentView.transform = CGAffineTransform.init(rotationAngle: 0)
+                            self.topView.center = self.topCenter
+                            self.topView.transform = CGAffineTransform.init(rotationAngle: 0)
             })
             return
             
@@ -219,13 +182,13 @@ class SwipeableView: UIView {
         if direction == .left || direction == .right {
             UIView.animate(withDuration: 0.35, delay: 0, options: [.curveEaseOut , .allowUserInteraction], animations: {
                 if direction == .left {
-                    self.currentView.center = CGPoint(x: -1 * self.frame.size.width, y: self.currentView.center.y)
+                    self.topView.center = CGPoint(x: -1 * self.frame.size.width, y: self.topView.center.y)
                 }
                 if direction == .right {
-                    self.currentView.center = CGPoint(x: self.frame.size.width * 2, y: self.currentView.center.y)
+                    self.topView.center = CGPoint(x: self.frame.size.width * 2, y: self.topView.center.y)
                 }
                 let rotationDirection: CGFloat = direction == .left ? -1 : 1;
-                self.currentView.transform = CGAffineTransform.init(rotationAngle: rotationDirection * CGFloat.pi/4)
+                self.topView.transform = CGAffineTransform.init(rotationAngle: rotationDirection * CGFloat.pi/4)
                 
             }) { (finished) in
                 if finished {
@@ -237,47 +200,46 @@ class SwipeableView: UIView {
     
     func moveToNext() {
         
+        let topView = subviews.last!;
+        topView.removeGestureRecognizer(panGesture)
+        topView.removeGestureRecognizer(tapGesture)
+        topView.removeFromSuperview()
+        
         rowIndex += 1
         
-        currentView.removeGestureRecognizer(panGesture)
-        currentView.removeGestureRecognizer(tapGesture)
-
-        if let nextView = reuseView(of: rowIndex) {
+        if let nextView = subviews.last {
             nextView.addGestureRecognizer(panGesture)
             nextView.addGestureRecognizer(tapGesture)
-
-            self.bringSubview(toFront: nextView)
-            nextView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        }
-        
-        if let delegate = delegate {
-            _ = delegate.swipeableView(self, displayViewForRowAt: rowIndex)
-            
-            var nextView: UIView? = nil
-            if rowIndex + 1 < rowCount {
-                nextView = delegate.swipeableView(self, displayViewForRowAt: rowIndex + 1)
-            } else {
-                nextView = reuseView(of: rowIndex + 1)
-            }
-            if rowIndex == rowCount - 1 {
-                let blankView = UIView(frame: nextView!.bounds)
-                blankView.backgroundColor = self.backgroundColor
-                nextView!.addSubview(blankView)
+            nextView.transform = CGAffineTransform.identity
+            for view in subviews {
+                view.isHidden = false
             }
         }
         
-        updateSubviewFrame()
-        setSecondScale()
     }
     
-    func updateSecondScale() {
-        if let lastView = self.subviews.first {
-            let ratio = fabs((currentView.center.x - currentViewCenter.x) / currentViewCenter.x)
-            lastView.transform = CGAffineTransform.init(scaleX: SecondCardScale + (ratio * (1 - SecondCardScale)), y: SecondCardScale + (ratio * (1 - SecondCardScale)))
+    func updateNextScale() {
+        for view in subviews {
+            view.isHidden = true
         }
+        topView.isHidden = false
+        
+        if let lastIndex = subviews.index(of: topView) {
+            let index = lastIndex - 1
+            if subviews.indices.contains(index) {
+                let nextView = subviews[index]
+                nextView.isHidden = false
+                let ratio = fabs((topView.center.x - topCenter.x) / topCenter.x)
+                let scale = SecondCardScale + (ratio * (1 - SecondCardScale))
+                if scale <= 1 {
+                    nextView.transform = CGAffineTransform.init(scaleX: scale, y: scale)
+                }
+            }
+        }
+        
     }
     
-    func setSecondScale() {
+    func defaultScale(_ view: UIView) {
         if let lastView = self.subviews.first {
             lastView.transform = CGAffineTransform.init(scaleX: SecondCardScale, y: SecondCardScale)
         }
