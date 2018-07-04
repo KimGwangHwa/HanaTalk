@@ -37,8 +37,6 @@ class BrowseCardView: UIView {
     }
     
     override func awakeFromNib() {
-        layer.shouldRasterize = true;
-        layer.rasterizationScale = UIScreen.main.scale;
         collectionView.register(R.nib.browseCell(), forCellWithReuseIdentifier: cellIdentifierr)
         collectionView.delegate = self
         collectionView.dataSource = self

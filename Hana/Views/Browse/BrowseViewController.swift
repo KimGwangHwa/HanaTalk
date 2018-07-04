@@ -24,7 +24,9 @@ class BrowseViewController: UIViewController {
 
     fileprivate func setupLayout() {
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
-        
+        swipeableView.leftSwipingImage = R.image.icon_large_dislike()
+        swipeableView.rightSwipingImage = R.image.icon_large_like()
+
         swipeableView.delegate = self
         swipeableView.dataSource = self
 
@@ -67,6 +69,7 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
         
     }
+
 }
 
 

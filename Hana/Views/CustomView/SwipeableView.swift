@@ -8,7 +8,7 @@
 
 import UIKit
 
-let DragCompleteRatio: CGFloat = 0.7
+let DragCompleteRatio: CGFloat = 0.8
 let SecondCardScale: CGFloat = 0.95
 let MaxCardCount = 50
 
@@ -37,8 +37,11 @@ class SwipeableView: UIView {
     }
     weak var delegate: SwipeableViewDelegate?
     
-    private var direction: DraggableDirection = .none
+    var direction: DraggableDirection = .none
     
+    var leftSwipingImage: UIImage?
+    var rightSwipingImage: UIImage?
+
     private var topView: UIView! {
         return subviews.last!
     }
@@ -62,6 +65,8 @@ class SwipeableView: UIView {
     private var panGesture: UIPanGestureRecognizer!
     private var tapGesture: UITapGestureRecognizer!
     private var isConfigured: Bool = false
+    
+    private var swipingImageView: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -96,6 +101,8 @@ class SwipeableView: UIView {
                 let cardView = delegate.swipeableView(self, displayViewForRowAt: rowCount - index)
                 cardView.addGestureRecognizer(panGesture)
                 cardView.addGestureRecognizer(tapGesture)
+                cardView.layer.shouldRasterize = true;
+                cardView.layer.rasterizationScale = UIScreen.main.scale;
                 addSubview(cardView)
                 cardView.setNeedsLayout()
                 cardView.setNeedsUpdateConstraints()
@@ -104,12 +111,15 @@ class SwipeableView: UIView {
         }
         
         updateSubviewFrame()
+        
+        initialAnimation()
     }
     
     func updateSubviewFrame() {
         
         let width = self.frame.size.width - edgeInsets.left - edgeInsets.right
         let height = self.frame.size.height - edgeInsets.top - edgeInsets.bottom
+
         for view in subviews {
             view.transform = CGAffineTransform.identity
             view.frame = CGRect(x: edgeInsets.left, y: edgeInsets.top, width: width, height: height)
@@ -136,29 +146,44 @@ class SwipeableView: UIView {
             return
         }
         
+        let excessRatio = (gestureView.center.x - topCenter.x) / topCenter.x;
+        if excessRatio == 0 {
+            direction = .none
+        } else {
+            direction = excessRatio > 0 ? .right : .left
+        }
+        
         if (pan.state == .changed) {
+            
             let point = pan.translation(in: self)
             let movedPoint = CGPoint(x: gestureView.center.x + point.x, y: gestureView.center.y)
-            pan.view?.center = movedPoint;
+            gestureView.center = movedPoint;
+            
             
             let rotationAngel = (gestureView.center.x - topCenter.x) / topCenter.x * (CGFloat.pi/20)
             gestureView.transform = CGAffineTransform.init(rotationAngle: rotationAngel)
-            
+            if swipingImageView == nil {
+                swipingImageView = UIImageView(frame: gestureView.bounds)
+                swipingImageView.contentMode = .scaleAspectFit
+                gestureView.addSubview(swipingImageView)
+            }
+            if direction == .left {
+                swipingImageView.image = leftSwipingImage
+            }
+            if direction == .right {
+                swipingImageView.image = rightSwipingImage
+            }
+            swipingImageView.alpha = fabs((gestureView.center.x - topCenter.x) / topCenter.x)
+
             updateNextScale()
 
             pan.setTranslation(CGPoint.zero, in: self)
         }
         
         if (pan.state == .ended || pan.state == .cancelled) {
-            
-            let excessRatio = (gestureView.center.x - topCenter.x) / topCenter.x;
-            if fabs(excessRatio) > DragCompleteRatio {
-                direction = excessRatio > 0 ? .right : .left
-
-            } else {
+            if fabs(excessRatio) < DragCompleteRatio {
                 direction = .none
             }
-            
             movePositionWithDirection(direction)
 
         }
@@ -172,6 +197,7 @@ class SwipeableView: UIView {
                            initialSpringVelocity: 0,
                            options: [.curveEaseOut , .allowUserInteraction],
                            animations: {
+                            self.swipingImageView.alpha = 0
                             self.topView.center = self.topCenter
                             self.topView.transform = CGAffineTransform.init(rotationAngle: 0)
             })
@@ -216,6 +242,8 @@ class SwipeableView: UIView {
             }
         }
         
+        swipingImageView.removeFromSuperview()
+        swipingImageView = nil
     }
     
     func updateNextScale() {
@@ -243,5 +271,36 @@ class SwipeableView: UIView {
         if let lastView = self.subviews.first {
             lastView.transform = CGAffineTransform.init(scaleX: SecondCardScale, y: SecondCardScale)
         }
+    }
+    
+    func initialAnimation() {
+        
+        for view in subviews {
+            view.alpha = 0
+        }
+        
+        let currentView = topView!
+        currentView.alpha = 1
+        currentView.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
+        
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: {
+            currentView.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
+        }) { (isFinish) in
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                currentView.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+            }) { (isFinish) in
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                    currentView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                }) { (isFinish) in
+                    for view in self.subviews {
+                        view.alpha = 1
+                    }
+                    UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveLinear, .allowUserInteraction], animations: {
+                        
+                    }, completion: nil)
+                }
+            }
+        }
+
     }
 }
