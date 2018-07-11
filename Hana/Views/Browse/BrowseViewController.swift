@@ -67,7 +67,10 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     }
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
-        
+        if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
+            userInfoViewController.userInfo = dataSource?[index]
+            navigationController?.pushViewController(userInfoViewController, animated: true)
+        }
     }
 
 }

@@ -34,7 +34,12 @@ class UserInfoDao: DAO {
     
     class func findAll(closure: @escaping ([UserInfo]?, Bool) -> Void) {
         
-        remoteFind(with: UserInfoClassName, parameters: nil, closure: closure)
+        let query = PFQuery(className: UserInfoClassName)
+        query.whereKey(UserColumnName, notEqualTo: PFUser.current()!)
+        query.findObjectsInBackground { (objects, error) in
+            closure(objects as? [UserInfo], error == nil ? true: false)
+        }
+
     }
     
     class func findUserInfo(by objectId: String, closure: @escaping (UserInfo?, Bool) -> Void) {
