@@ -12,28 +12,12 @@ class BrowseCardView: UIView {
     let cellIdentifierr = R.reuseIdentifier.browseCell.identifier
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var infoLabel: UILabel!
     
     var model: UserInfo! {
         didSet {
-
-            collectionView.reloadData()
+            infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age() ?? 0))"
         }
-    }
-    
-    var isConfiged: Bool = false
-    
-    
-    override func layoutSubviews() {
-        if isConfiged == false {
-            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                layout.itemSize = frame.size
-                layout.sectionInset = UIEdgeInsets.zero
-                layout.minimumLineSpacing = 0
-                layout.minimumInteritemSpacing = 0
-            }
-            isConfiged = true
-        }
-        
     }
     
     override func awakeFromNib() {
@@ -41,7 +25,16 @@ class BrowseCardView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
+    override func draw(_ rect: CGRect) {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = collectionView.size
+            layout.sectionInset = UIEdgeInsets.zero
+            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+        }
+        collectionView.reloadData()
+    }
 }
 
 extension BrowseCardView: UICollectionViewDataSource, UICollectionViewDelegate {

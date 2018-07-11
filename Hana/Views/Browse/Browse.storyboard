@@ -34,16 +34,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMi-C3-Aqx" customClass="SwipeableView" customModule="Hana" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="503"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="trailing" secondItem="vnY-o6-LVs" secondAttribute="trailing" id="4ba-QL-ogR"/>
-                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="leading" secondItem="vnY-o6-LVs" secondAttribute="leading" id="Dal-bg-5fm"/>
-                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="bottom" secondItem="vnY-o6-LVs" secondAttribute="bottom" constant="-100" id="cHY-GZ-hEc"/>
-                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="top" secondItem="vnY-o6-LVs" secondAttribute="top" id="k5I-76-duu"/>
+                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="trailing" secondItem="vnY-o6-LVs" secondAttribute="trailing" id="0RA-kS-6yx"/>
+                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="leading" secondItem="vnY-o6-LVs" secondAttribute="leading" id="4a3-lY-Z62"/>
+                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="bottom" secondItem="vnY-o6-LVs" secondAttribute="bottom" id="eXb-lr-FrG"/>
+                            <constraint firstItem="jMi-C3-Aqx" firstAttribute="top" secondItem="vnY-o6-LVs" secondAttribute="top" id="kta-f4-GWT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vnY-o6-LVs"/>
                     </view>

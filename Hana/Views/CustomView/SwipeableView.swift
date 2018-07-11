@@ -104,9 +104,6 @@ class SwipeableView: UIView {
                 cardView.layer.shouldRasterize = true;
                 cardView.layer.rasterizationScale = UIScreen.main.scale;
                 addSubview(cardView)
-                cardView.setNeedsLayout()
-                cardView.setNeedsUpdateConstraints()
-                cardView.updateConstraintsIfNeeded()
             }
         }
         
@@ -126,6 +123,7 @@ class SwipeableView: UIView {
             view.setNeedsLayout()
             view.setNeedsUpdateConstraints()
             view.updateConstraintsIfNeeded()
+            view.layoutIfNeeded()
             topCenter = view.center
         }
         
