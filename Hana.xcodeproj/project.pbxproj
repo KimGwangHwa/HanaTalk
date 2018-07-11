@@ -127,6 +127,7 @@
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
+		EF85E92920F5DB8000E2B839 /* HNPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF85E92820F5DB8000E2B839 /* HNPageControl.swift */; };
 		EF9DC45620D491580074B9AE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45520D491580074B9AE /* Event.swift */; };
 		EF9DC45920D4BF5B0074B9AE /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9DC45820D4BF5B0074B9AE /* FindLocationViewController.swift */; };
 		EF9DC45B20D4BF670074B9AE /* FindLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */; };
@@ -280,6 +281,7 @@
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
+		EF85E92820F5DB8000E2B839 /* HNPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNPageControl.swift; sourceTree = "<group>"; };
 		EF9DC45520D491580074B9AE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EF9DC45820D4BF5B0074B9AE /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		EF9DC45A20D4BF670074B9AE /* FindLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindLocation.storyboard; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				34109DC22076656200EC9CE0 /* HanaAlertView.swift */,
 				34499D16208C391D00860BD9 /* HanaTextView.swift */,
 				34499D18208C3A3000860BD9 /* HanaInternalTextView.swift */,
+				EF85E92820F5DB8000E2B839 /* HNPageControl.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				34109E0D2076656300EC9CE0 /* ChattingViewController.swift in Sources */,
 				EF9DC45920D4BF5B0074B9AE /* FindLocationViewController.swift in Sources */,
 				34109E2E2076656300EC9CE0 /* FindViewController.swift in Sources */,
+				EF85E92920F5DB8000E2B839 /* HNPageControl.swift in Sources */,
 				34109E1A2076656300EC9CE0 /* EditUserInfoViewController.swift in Sources */,
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				343CCEF1209B11D1002936FC /* LoginSelectionCell.swift in Sources */,

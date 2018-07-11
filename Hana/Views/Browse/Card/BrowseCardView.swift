@@ -13,10 +13,12 @@ class BrowseCardView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var pageControl: HNPageControl!
     
     var model: UserInfo! {
         didSet {
             infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age() ?? 0))"
+            pageControl.numberOfPages = model.albums?.count ?? 1
         }
     }
     
