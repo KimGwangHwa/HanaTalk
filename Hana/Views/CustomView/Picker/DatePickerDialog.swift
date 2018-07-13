@@ -17,7 +17,7 @@ class DatePickerDialog: UIView {
     var closure: ((Date?) -> Void)!
     
     
-    class func show(_ title: String,
+    class func show(_ title: String = "",
               okButtonTitle: String = "Done",
               cancelButtonTitle: String = "Cancel",
               defaultDate: Date = Date(),

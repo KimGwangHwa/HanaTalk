@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PickerDialog" customModule="Hana" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXW-Q1-xDB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MX1-cb-mOE">
+                    <rect key="frame" x="27" y="203" width="320" height="260"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vY0-yg-E78">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                            <subviews>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syU-v0-8Le">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                </pickerView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="clE-tW-mcm">
+                                    <rect key="frame" x="0.0" y="216" width="320" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU5-Ow-3rj">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                            <state key="normal" title="Cancel"/>
+                                            <connections>
+                                                <action selector="tappedCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Nq-vc-Ew2"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJu-N5-BIK">
+                                            <rect key="frame" x="160" y="0.0" width="160" height="30"/>
+                                            <state key="normal" title="OK"/>
+                                            <connections>
+                                                <action selector="tappedOk:" destination="iN0-l3-epB" eventType="touchUpInside" id="nwG-M5-EqP"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="vY0-yg-E78" firstAttribute="trailing" secondItem="faO-7L-MsM" secondAttribute="trailing" id="B3m-HN-Mgu"/>
+                        <constraint firstAttribute="width" constant="320" id="IkN-cn-knv"/>
+                        <constraint firstItem="vY0-yg-E78" firstAttribute="top" secondItem="faO-7L-MsM" secondAttribute="top" id="LdZ-ml-VqJ"/>
+                        <constraint firstAttribute="height" constant="260" id="TxJ-ck-TDC"/>
+                        <constraint firstItem="vY0-yg-E78" firstAttribute="leading" secondItem="faO-7L-MsM" secondAttribute="leading" id="ZcJ-f3-OnI"/>
+                        <constraint firstItem="faO-7L-MsM" firstAttribute="bottom" secondItem="vY0-yg-E78" secondAttribute="bottom" id="iIv-ms-33C"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="faO-7L-MsM"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="bXW-Q1-xDB" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KqD-Rp-q6X"/>
+                <constraint firstItem="bXW-Q1-xDB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="VUL-Pt-A7F"/>
+                <constraint firstItem="bXW-Q1-xDB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hFj-6s-fYd"/>
+                <constraint firstItem="bXW-Q1-xDB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iOs-SL-xUM"/>
+                <constraint firstItem="MX1-cb-mOE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mmX-XE-STr"/>
+                <constraint firstItem="MX1-cb-mOE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rhn-6f-aAK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cancelButton" destination="sU5-Ow-3rj" id="goc-fm-cCk"/>
+                <outlet property="dialogView" destination="MX1-cb-mOE" id="dGH-9m-DYE"/>
+                <outlet property="okButton" destination="gJu-N5-BIK" id="IOw-j1-uE6"/>
+                <outlet property="picker" destination="syU-v0-8Le" id="Ng8-AM-wp1"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

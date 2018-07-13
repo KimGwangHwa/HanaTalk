@@ -125,6 +125,8 @@
 		34A71223209A45350050788C /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71222209A45350050788C /* MailLoginViewController.swift */; };
 		34A71225209A45410050788C /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A71224209A45410050788C /* MailLogin.storyboard */; };
 		34BE7ED220862882000D8571 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE7ED120862882000D8571 /* LikeDao.swift */; };
+		A11AA97720F85F1200084367 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA97620F85F1200084367 /* PickerDialog.swift */; };
+		A11AA97920F85F2900084367 /* PickerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11AA97820F85F2900084367 /* PickerDialog.xib */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
 		EF85E92920F5DB8000E2B839 /* HNPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF85E92820F5DB8000E2B839 /* HNPageControl.swift */; };
@@ -279,6 +281,8 @@
 		34C5E160207668A6003A41F5 /* Hana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hana.entitlements; sourceTree = "<group>"; };
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
+		A11AA97620F85F1200084367 /* PickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		A11AA97820F85F2900084367 /* PickerDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerDialog.xib; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
 		EF85E92820F5DB8000E2B839 /* HNPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNPageControl.swift; sourceTree = "<group>"; };
@@ -547,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				EFB04DC420DF4CC200F540BB /* SwipeableView.swift */,
-				EFF74BDD20D7CE83004F310C /* DatePicker */,
+				EFF74BDD20D7CE83004F310C /* Picker */,
 				34109DC12076656200EC9CE0 /* CustomBadgeView.swift */,
 				34109DC22076656200EC9CE0 /* HanaAlertView.swift */,
 				34499D16208C391D00860BD9 /* HanaTextView.swift */,
@@ -855,13 +859,15 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
-		EFF74BDD20D7CE83004F310C /* DatePicker */ = {
+		EFF74BDD20D7CE83004F310C /* Picker */ = {
 			isa = PBXGroup;
 			children = (
 				EFF74BDE20D7CEAC004F310C /* DatePickerDialog.swift */,
 				EFF74BE020D7CEB8004F310C /* DatePickerDialog.xib */,
+				A11AA97620F85F1200084367 /* PickerDialog.swift */,
+				A11AA97820F85F2900084367 /* PickerDialog.xib */,
 			);
-			path = DatePicker;
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		EFF9641F20CE990100A2AF2D /* Cell */ = {
@@ -991,6 +997,7 @@
 				EFF9643A20CFE8BB00A2AF2D /* CreateEventDetailCell.xib in Resources */,
 				34109DEB2076656200EC9CE0 /* Matching.storyboard in Resources */,
 				EFB04DC920DFCF8000F540BB /* BrowseCardView.xib in Resources */,
+				A11AA97920F85F2900084367 /* PickerDialog.xib in Resources */,
 				34109DE02076656200EC9CE0 /* Contact.storyboard in Resources */,
 				343CCEEF209B110E002936FC /* MailLoginInputCell.xib in Resources */,
 				34109E1E2076656300EC9CE0 /* SideNormalCell.xib in Resources */,
@@ -1195,6 +1202,7 @@
 				34499D19208C3A3000860BD9 /* HanaInternalTextView.swift in Sources */,
 				34109E182076656300EC9CE0 /* TalkHistoryCell.swift in Sources */,
 				34109E2F2076656300EC9CE0 /* SettingViewController.swift in Sources */,
+				A11AA97720F85F1200084367 /* PickerDialog.swift in Sources */,
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,
 				3419C74A2081D21F005FFC8A /* UserInfoDao.swift in Sources */,
 				3443096E2094B0AC00246418 /* LoginActionCell.swift in Sources */,

@@ -21,6 +21,9 @@ class CreateEventViewController: UITableViewController {
     
     @IBOutlet weak var rightBarButton: UIButton!
     var eventName = Variable<String>("")
+    var eventDate = Variable<Date>(Date())
+    //var eventDate = Variable<Date>(Date())
+    var eventMember = Variable<Int>(0)
     var eventDetail = Variable<String>("")
 
     let disposeBag = DisposeBag()
@@ -29,9 +32,9 @@ class CreateEventViewController: UITableViewController {
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
     let detaillCellIdentifier = R.reuseIdentifier.createEventDetailCell.identifier
     
-    var dataSource = [[EventRow.name],[EventRow.date, EventRow.place, EventRow.member], [EventRow.detail]];
+    var dataSource = [[EventRow.name, EventRow.detail],[EventRow.date, EventRow.place, EventRow.member]];
     
-    var event = Event()
+    let event = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +57,24 @@ class CreateEventViewController: UITableViewController {
             self.didInputChanged()
         }.disposed(by: disposeBag)
         
+//        eventDate.asObservable().subscribe { (date) in
+//            self.didInputChanged()
+//        }.disposed(by: disposeBag)
+        
+        eventMember.asObservable().subscribe { (count) in
+            self.didInputChanged()
+            }.disposed(by: disposeBag)
     }
     
     @IBAction func tappedCreat(_ sender: UIButton) {
-
-//        event.name = eventNameTextField.text ?? ""
-//        event.detail = eventDetailTextView.text
+        
+        event.date = eventDate.value
+        event.name = eventName.value
+        event.membersCount = eventMember.value
+        event.detail = eventDetail.value
+        event.organizer = DataManager.shared.currentuserInfo
         event.saveInBackground { (isSuccess, error) in
-            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -71,7 +84,9 @@ class CreateEventViewController: UITableViewController {
     
     
     func didInputChanged() {
-        if !eventDetail.value.isBlank && !eventName.value.isBlank {
+        tableView.reloadData()
+        if !eventDetail.value.isBlank && !eventName.value.isBlank &&
+        eventMember.value != 0 {
             rightBarButton.isEnabled = true
         } else {
             rightBarButton.isEnabled = false
@@ -98,7 +113,6 @@ class CreateEventViewController: UITableViewController {
         case .name:
             if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
                 cell.textField.placeholder = row.rawValue
-                //bind(to: eventName)
                 _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: eventName)
                 return cell
             }
@@ -113,7 +127,13 @@ class CreateEventViewController: UITableViewController {
         case .date, .place, .member:
             if let cell = tableView.dequeueReusableCell(withIdentifier: normalCellIdentifier, for: indexPath) as? CreateEventNormalCell {
                 cell.textLabel?.text = row.rawValue
-                cell.detailTextLabel?.text = row.rawValue
+                if row == .date {
+                    cell.detailTextLabel?.text = eventDate.value.string(format: .date)
+                } else if (row == .place) {
+                    cell.detailTextLabel?.text = row.rawValue
+                } else if (row == .member) {
+                    cell.detailTextLabel?.text = String(eventMember.value)
+                }
                 return cell
             }
             break
@@ -129,14 +149,20 @@ class CreateEventViewController: UITableViewController {
         case .place:
             if let viewController = R.storyboard.findLocation.instantiateInitialViewController() {
                 if let rootViewController = viewController.viewControllers.first as? FindLocationViewController {
-                    rootViewController.event = event
+                    //rootViewController.event = event.value
                 }
                 present(viewController, animated: true, completion: nil)
             }
             break
         case .date:
-            DatePickerDialog.show("", okButtonTitle: "OK", cancelButtonTitle: "Cancel", defaultDate: Date(), datePickerMode: .date) { (date) in
-                
+            DatePickerDialog.show(defaultDate: Date(), datePickerMode: .dateAndTime) { (date) in
+                self.eventDate.value = date!
+            }
+            break
+        case .member:
+            let memberCount = ["2", "4", "6", "8", "10"];
+            PickerDialog.show(dataSource: memberCount) { (member) in
+                self.eventMember.value = Int(member) ?? 0
             }
             break
         default:

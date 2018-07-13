@@ -14,11 +14,13 @@ class Event: PFObject, PFSubclassing {
         return EventClassName
     }
     
-    @NSManaged var name: String
-    @NSManaged var date: Date
+    @NSManaged var name: String?
+    @NSManaged var date: Date?
     @NSManaged var place: PFGeoPoint
     @NSManaged var members: [UserInfo]
+    @NSManaged var membersCount : Int
     @NSManaged var detail: String?
+    @NSManaged var organizer: UserInfo?
 
 
 }
