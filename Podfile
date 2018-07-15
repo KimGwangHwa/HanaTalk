@@ -8,7 +8,7 @@ target 'Hana' do
   # Pods for talk
   #pod 'SendBirdSDK'
   pod 'R.swift'
-  pod ‘Parse’
+  pod 'Parse'
   pod 'RxSwift'
   pod 'RxCocoa'
   #pod ‘GzipSwift’

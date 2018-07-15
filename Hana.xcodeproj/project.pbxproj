@@ -28,6 +28,8 @@
 		3443098820959F5900246418 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3443098720959F5900246418 /* Localizable.strings */; };
 		3451464E2081A92800605651 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451464D2081A92800605651 /* R.generated.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
+		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
+		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
 		EFE81F2620FAF3A100C7BF09 /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E7C20FAF3A100C7BF09 /* MatchingViewController.swift */; };
 		EFE81F2720FAF3A100C7BF09 /* Matching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E7D20FAF3A100C7BF09 /* Matching.storyboard */; };
@@ -152,6 +154,7 @@
 		EFE81F9E20FAF3A200C7BF09 /* UploadDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1F20FAF3A100C7BF09 /* UploadDao.swift */; };
 		EFE81F9F20FAF3A200C7BF09 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2020FAF3A100C7BF09 /* DAO.swift */; };
 		EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */; };
+		EFE81FA220FAF9D100C7BF09 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81FA120FAF9D100C7BF09 /* EventModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +187,8 @@
 		632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79500BB0DDA0CC25677EE69D /* Pods-Hana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hana.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hana/Pods-Hana.release.xcconfig"; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
+		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
 		EFE81E7C20FAF3A100C7BF09 /* MatchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
 		EFE81E7D20FAF3A100C7BF09 /* Matching.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Matching.storyboard; sourceTree = "<group>"; };
@@ -308,6 +313,7 @@
 		EFE81F1F20FAF3A100C7BF09 /* UploadDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDao.swift; sourceTree = "<group>"; };
 		EFE81F2020FAF3A100C7BF09 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
+		EFE81FA120FAF9D100C7BF09 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +428,15 @@
 				349EAD461F2F55CE005833ED /* Hana.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EF2BE5B120FB0F56003E64EC /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */,
+				EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		EF80175C20C38A8D00112223 /* CollectionView */ = {
@@ -659,6 +674,7 @@
 				EFE81EC820FAF3A100C7BF09 /* SwipeableView.swift */,
 				EFE81EC920FAF3A100C7BF09 /* HanaTextView.swift */,
 				EFE81ECA20FAF3A100C7BF09 /* HNPageControl.swift */,
+				EF2BE5B120FB0F56003E64EC /* Alert */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -667,9 +683,9 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EC320FAF3A100C7BF09 /* PickerDialog.swift */,
-				EFE81EC420FAF3A100C7BF09 /* DatePickerDialog.xib */,
 				EFE81EC520FAF3A100C7BF09 /* PickerDialog.xib */,
 				EFE81EC620FAF3A100C7BF09 /* DatePickerDialog.swift */,
+				EFE81EC420FAF3A100C7BF09 /* DatePickerDialog.xib */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -934,6 +950,7 @@
 		EFE81F2320FAF3A100C7BF09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EFE81FA120FAF9D100C7BF09 /* EventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1077,6 +1094,7 @@
 				EFE81F2A20FAF3A100C7BF09 /* Contact.storyboard in Resources */,
 				EFE81F7720FAF3A200C7BF09 /* Event.storyboard in Resources */,
 				EFE81F7320FAF3A200C7BF09 /* FindLocation.storyboard in Resources */,
+				EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */,
 				34362D9A209D637E00E6EF77 /* HobbyDataSource.plist in Resources */,
 				EFE81F7C20FAF3A200C7BF09 /* CreateEventNormalCell.xib in Resources */,
 				EFE81F8220FAF3A200C7BF09 /* Peek.storyboard in Resources */,
@@ -1189,6 +1207,7 @@
 				EFE81F9520FAF3A200C7BF09 /* LoginSelectionCell.swift in Sources */,
 				EFE81F2820FAF3A100C7BF09 /* SplashViewController.swift in Sources */,
 				EFE81F4120FAF3A200C7BF09 /* ChattingViewController.swift in Sources */,
+				EFE81FA220FAF9D100C7BF09 /* EventModel.swift in Sources */,
 				34109E392076656300EC9CE0 /* ParseHelper.swift in Sources */,
 				343CB05620B6E6A800C1A759 /* Date.swift in Sources */,
 				EFE81F6420FAF3A200C7BF09 /* BrowseViewController.swift in Sources */,
@@ -1205,6 +1224,7 @@
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,
 				EFE81F6C20FAF3A200C7BF09 /* SettingViewController.swift in Sources */,
 				EFE81F8C20FAF3A200C7BF09 /* LoginIconCell.swift in Sources */,
+				EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */,
 				EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */,
 				EFE81F3E20FAF3A200C7BF09 /* SideHeaderCell.swift in Sources */,
 				EFE81F6A20FAF3A200C7BF09 /* FindViewController.swift in Sources */,

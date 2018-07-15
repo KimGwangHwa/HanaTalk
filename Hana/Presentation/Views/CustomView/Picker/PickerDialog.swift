@@ -26,6 +26,8 @@ class PickerDialog: UIView {
         
         if let dialogView = Bundle.main.loadNibNamed("PickerDialog", owner: nil, options: nil)?.first as? PickerDialog {
             dialogView.frame = UIScreen.main.bounds
+            dialogView.picker.delegate = dialogView
+            dialogView.picker.dataSource = dialogView
             dialogView.closure = closure
             dialogView.dataSource = dataSource
             UIApplication.shared.keyWindow?.addSubview(dialogView)
@@ -34,8 +36,7 @@ class PickerDialog: UIView {
     }
     
     override func awakeFromNib() {
-        picker.delegate = self
-        picker.dataSource = self
+        
     }
     
     func showAnimation() {
@@ -61,7 +62,7 @@ class PickerDialog: UIView {
             delay: 0,
             options: .curveEaseInOut,
             animations: {
-                self.dialogView.layer.opacity = 0.5
+                self.dialogView.layer.opacity = 0.0
                 self.dialogView.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
         }) { (isFinish) in
             if isFinish {

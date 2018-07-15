@@ -9,14 +9,15 @@ import Foundation
 
 
 enum DateTemplate: String {
+    case full = "y/M/d/ k:H:m:s"
     case date = "y/M/d"
-    case time = "H:m:s"     // 12:39:22
-    case full = "y/M/d/ k:H:m:s" // 2017/1/1 12:39:22
-    case weekDay = "EEEE"
-    case year = "yyyy"   // 17
-    case month = "M"   // 17
-    case day = "d"   // 17
-    case hour = "H"   // 17
+    case time = "H:m"
+    case dateAndTime = "y/M/d H:m"
+    case year = "yyyy"
+    case month = "M"
+    case week = "EEEE"
+    case day = "d"  
+    case hour = "H"
 }
 
 
