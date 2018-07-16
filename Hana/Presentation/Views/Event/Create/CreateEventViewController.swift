@@ -154,28 +154,18 @@ class CreateEventViewController: UITableViewController {
             }
             break
         case .date:
-            DatePickerDialog.show(defaultDate: Date(), datePickerMode: .dateAndTime) { (date) in
-                self.eventModel.date.value = date!.string(format: .dateAndTime)
+            DatePickerDialog.show(defaultDate: eventModel.date.value.date(format: .dateAndTime) ?? Date()) { (date) in
+                self.eventModel.date.value = date.string(format: .dateAndTime)
             }
+
             break
         case .member:
-            let membersView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-            membersView.backgroundColor = UIColor.white
-            membersView.delegate = self
-            membersView.dataSource = self
-//            self.view.addSubview(membersView)
+            let memberCount = ["2", "4", "6", "8", "10"];
 
-//
-            HNAlertView.show(with: membersView, okComplection: {
-
-            }) {
-
+            PickerDialog.show(defaultText: eventModel.member.value, dataSource: memberCount) { (stringCount) in
+                self.eventModel.member.value = stringCount
             }
 
-//            let memberCount = ["2", "4", "6", "8", "10"];
-//            PickerDialog.show(dataSource: memberCount) { (member) in
-//                self.eventModel.member.value = member
-//            }
             break
         default:
             break

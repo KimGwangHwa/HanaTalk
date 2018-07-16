@@ -48,28 +48,40 @@ class HNAlertView: UIView {
     private func setUp() {
         let effect = UIBlurEffect(style: .extraLight)
         effectView = UIVisualEffectView(effect: effect)
+        effectView.contentView.backgroundColor = UIColor.white
         effectView.frame = CGRect(origin: CGPoint.zero, size: CustomSize)
         effectView.cornerRadius = 10
         
         okButton = UIButton(type: .system)
-        okButton.backgroundColor = UIColor.white
         okButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         okButton.setTitle(okTitle, for: .normal)
         okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
         cancelButton = UIButton(type: .system)
         cancelButton.setTitle(cancelTitle, for: .normal)
-        cancelButton.backgroundColor = UIColor.white
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
 
+        
+        
+        
+        
+        
         overlayView.backgroundColor = UIColor.black
         overlayView.layer.opacity = 0.5
 
-        
         self.addSubview(overlayView)
         self.addSubview(effectView)
         effectView.contentView .addSubview(okButton)
         effectView.contentView.addSubview(cancelButton)
+        
+        // Line
+        let topLine = UIView(frame: CGRect(x: 0, y: CustomSize.height - CompletionHeight, width: CustomSize.width, height: 0.5))
+        topLine.backgroundColor = UIColor.gray
+        effectView.contentView.addSubview(topLine)
+
+        let centerLine = UIView(frame: CGRect(x: CustomSize.width/2, y: CustomSize.height - CompletionHeight, width: 0.5, height: CompletionHeight))
+        centerLine.backgroundColor = UIColor.gray
+        effectView.contentView.addSubview(centerLine)
 
         // resize
         self.frame = UIScreen.main.bounds

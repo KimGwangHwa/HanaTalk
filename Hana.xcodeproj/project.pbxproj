@@ -84,8 +84,6 @@
 		EFE81F5820FAF3A200C7BF09 /* CustomBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC020FAF3A100C7BF09 /* CustomBadgeView.swift */; };
 		EFE81F5920FAF3A200C7BF09 /* HanaInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC120FAF3A100C7BF09 /* HanaInternalTextView.swift */; };
 		EFE81F5A20FAF3A200C7BF09 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC320FAF3A100C7BF09 /* PickerDialog.swift */; };
-		EFE81F5B20FAF3A200C7BF09 /* DatePickerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE81EC420FAF3A100C7BF09 /* DatePickerDialog.xib */; };
-		EFE81F5C20FAF3A200C7BF09 /* PickerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE81EC520FAF3A100C7BF09 /* PickerDialog.xib */; };
 		EFE81F5D20FAF3A200C7BF09 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC620FAF3A100C7BF09 /* DatePickerDialog.swift */; };
 		EFE81F5E20FAF3A200C7BF09 /* HanaAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC720FAF3A100C7BF09 /* HanaAlertView.swift */; };
 		EFE81F5F20FAF3A200C7BF09 /* SwipeableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81EC820FAF3A100C7BF09 /* SwipeableView.swift */; };
@@ -243,8 +241,6 @@
 		EFE81EC020FAF3A100C7BF09 /* CustomBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBadgeView.swift; sourceTree = "<group>"; };
 		EFE81EC120FAF3A100C7BF09 /* HanaInternalTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanaInternalTextView.swift; sourceTree = "<group>"; };
 		EFE81EC320FAF3A100C7BF09 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
-		EFE81EC420FAF3A100C7BF09 /* DatePickerDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerDialog.xib; sourceTree = "<group>"; };
-		EFE81EC520FAF3A100C7BF09 /* PickerDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerDialog.xib; sourceTree = "<group>"; };
 		EFE81EC620FAF3A100C7BF09 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		EFE81EC720FAF3A100C7BF09 /* HanaAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanaAlertView.swift; sourceTree = "<group>"; };
 		EFE81EC820FAF3A100C7BF09 /* SwipeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableView.swift; sourceTree = "<group>"; };
@@ -433,6 +429,8 @@
 		EF2BE5B120FB0F56003E64EC /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				EFE81EC320FAF3A100C7BF09 /* PickerDialog.swift */,
+				EFE81EC620FAF3A100C7BF09 /* DatePickerDialog.swift */,
 				EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */,
 				EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */,
 			);
@@ -669,7 +667,6 @@
 			children = (
 				EFE81EC020FAF3A100C7BF09 /* CustomBadgeView.swift */,
 				EFE81EC120FAF3A100C7BF09 /* HanaInternalTextView.swift */,
-				EFE81EC220FAF3A100C7BF09 /* Picker */,
 				EFE81EC720FAF3A100C7BF09 /* HanaAlertView.swift */,
 				EFE81EC820FAF3A100C7BF09 /* SwipeableView.swift */,
 				EFE81EC920FAF3A100C7BF09 /* HanaTextView.swift */,
@@ -677,17 +674,6 @@
 				EF2BE5B120FB0F56003E64EC /* Alert */,
 			);
 			path = CustomView;
-			sourceTree = "<group>";
-		};
-		EFE81EC220FAF3A100C7BF09 /* Picker */ = {
-			isa = PBXGroup;
-			children = (
-				EFE81EC320FAF3A100C7BF09 /* PickerDialog.swift */,
-				EFE81EC520FAF3A100C7BF09 /* PickerDialog.xib */,
-				EFE81EC620FAF3A100C7BF09 /* DatePickerDialog.swift */,
-				EFE81EC420FAF3A100C7BF09 /* DatePickerDialog.xib */,
-			);
-			path = Picker;
 			sourceTree = "<group>";
 		};
 		EFE81ECB20FAF3A100C7BF09 /* Browse */ = {
@@ -1048,7 +1034,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE81F4720FAF3A200C7BF09 /* InputTextViewCell.xib in Resources */,
-				EFE81F5B20FAF3A200C7BF09 /* DatePickerDialog.xib in Resources */,
 				EFE81F4D20FAF3A200C7BF09 /* UserInfo.storyboard in Resources */,
 				EFE81F4820FAF3A200C7BF09 /* InputTextFieldCell.xib in Resources */,
 				EFE81F8420FAF3A200C7BF09 /* TelLogin.storyboard in Resources */,
@@ -1074,7 +1059,6 @@
 				EFE81F8820FAF3A200C7BF09 /* MailLogin.storyboard in Resources */,
 				EFE81F6720FAF3A200C7BF09 /* Browse.storyboard in Resources */,
 				EFE81F6B20FAF3A200C7BF09 /* Find.storyboard in Resources */,
-				EFE81F5C20FAF3A200C7BF09 /* PickerDialog.xib in Resources */,
 				EFE81F9020FAF3A200C7BF09 /* LoginIconCell.xib in Resources */,
 				EFE81F9220FAF3A200C7BF09 /* MailLoginInputCell.xib in Resources */,
 				3443098820959F5900246418 /* Localizable.strings in Resources */,
