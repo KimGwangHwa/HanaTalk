@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class Event: PFObject, PFSubclassing {
+class EventEntity: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
         return EventClassName

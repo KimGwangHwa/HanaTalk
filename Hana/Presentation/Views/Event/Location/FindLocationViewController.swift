@@ -29,7 +29,7 @@ class FindLocationViewController: UIViewController {
     var locationManager = CLLocationManager()
     var localSearchs = Variable<[LocationModel]>([LocationModel]())
     var searchLocations = Variable<[LocationModel]>([LocationModel]())
-    var event: Event!
+    var event: EventEntity!
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableview: UITableView!

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import CoreLocation
 
-class EventModel: NSObject {
+class EventModel: BaseModel {
     var name = Variable<String>("")
     var date = Variable<String>(Date().string(format: .date))
     var member = Variable<String>("0")
