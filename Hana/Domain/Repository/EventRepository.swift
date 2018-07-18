@@ -20,7 +20,7 @@ protocol EventRepository: Repository {
 
 struct EventRepositoryImpl: EventRepository {
     
-    let dao = EventDao()
+    private let dao = EventDao()
     
     func find(by objectId: String, closure: EventRepository.CompletionClosure) {
         dao.find(by: objectId, closure: closure)

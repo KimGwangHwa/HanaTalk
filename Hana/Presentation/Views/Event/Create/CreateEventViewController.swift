@@ -10,19 +10,8 @@ import RxSwift
 import RxCocoa
 
 class CreateEventViewController: UITableViewController {
-   
-    enum EventRow: String {
-        case name = "Event Name"
-        case detail = "Detail"
-        case date = "Date"
-        case place = "Place"
-        case member = "Member"
-    }
-    
+       
     @IBOutlet weak var rightBarButton: UIButton!
-    
-
-    let disposeBag = DisposeBag()
     
     let nameCellIdentifier = R.reuseIdentifier.createEventNameCell.identifier
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
@@ -30,7 +19,7 @@ class CreateEventViewController: UITableViewController {
     
     var dataSource = [[EventRow.name, EventRow.detail],[EventRow.date, EventRow.place, EventRow.member]];
     
-    let eventModel = EventModel()
+    let usecase = EventUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,47 +34,29 @@ class CreateEventViewController: UITableViewController {
         tableView.register(R.nib.createEventNormalCell(), forCellReuseIdentifier: normalCellIdentifier)
         tableView.register(R.nib.createEventDetailCell(), forCellReuseIdentifier: detaillCellIdentifier)
 
-        eventModel.name.asObservable().subscribe { (string) in
+        usecase.addModelObserver {
             self.didInputChanged()
-        }.disposed(by: disposeBag)
-        
-        eventModel.detail.asObservable().subscribe { (string) in
-            self.didInputChanged()
-        }.disposed(by: disposeBag)
-        
-        eventModel.date.asObservable().subscribe { (string) in
-            self.didInputChanged()
-            }.disposed(by: disposeBag)
-
-        eventModel.placeText.asObservable().subscribe { (count) in
-            self.didInputChanged()
-            }.disposed(by: disposeBag)
-        
-        eventModel.member.asObservable().subscribe { (count) in
-            self.didInputChanged()
-            }.disposed(by: disposeBag)
+        }
         
     }
     
     @IBAction func tappedCreat(_ sender: UIButton) {
         
-//        event.date = eventDate.value
-//        event.name = eventName.value
-//        event.membersCount = eventMember.value
-//        event.detail = eventDetail.value
-//        event.organizer = DataManager.shared.currentuserInfo
-//        event.saveInBackground { (isSuccess, error) in
-//            self.dismiss(animated: true, completion: nil)
-//        }
+        usecase.create { (isSuccess) in
+            if isSuccess {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func tappedCancel(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK - DidInputChanged
     
     func didInputChanged() {
-        if !eventModel.isEmpty {
+        if !usecase.model.isEmpty {
             rightBarButton.isEnabled = true
         } else {
             rightBarButton.isEnabled = false
@@ -112,14 +83,14 @@ class CreateEventViewController: UITableViewController {
         case .name:
             if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
                 cell.textField.placeholder = row.rawValue
-                _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: eventModel.name)
+                _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.name)
                 return cell
             }
             break
         case .detail:
             if let cell = tableView.dequeueReusableCell(withIdentifier: detaillCellIdentifier, for: indexPath) as? CreateEventDetailCell {
                 cell.placeholder = row.rawValue
-                _ = cell.textView.rx.text.map { $0 ?? "" }.bind(to: eventModel.detail)
+                _ = cell.textView.rx.text.map { $0 ?? "" }.bind(to: usecase.model.detail)
                 return cell
             }
             break
@@ -127,11 +98,11 @@ class CreateEventViewController: UITableViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: normalCellIdentifier, for: indexPath) as? CreateEventNormalCell {
                 cell.textLabel?.text = row.rawValue
                 if row == .date {
-                    _ = eventModel.date.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.date.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 } else if (row == .place) {
-                    _ = eventModel.placeText.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.placeText.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 } else if (row == .member) {
-                    _ = eventModel.member.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.member.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 }
                 return cell
             }
@@ -154,16 +125,14 @@ class CreateEventViewController: UITableViewController {
             }
             break
         case .date:
-            DatePickerDialog.show(defaultDate: eventModel.date.value.date(format: .dateAndTime) ?? Date()) { (date) in
-                self.eventModel.date.value = date.string(format: .dateAndTime)
+            DatePickerDialog.show(defaultDate: usecase.model.date.value.date(format: .dateAndTime) ?? Date()) { (date) in
+                self.usecase.model.date.value = date.string(format: .dateAndTime)
             }
 
             break
         case .member:
-            let memberCount = ["2", "4", "6", "8", "10"];
-
-            PickerDialog.show(defaultText: eventModel.member.value, dataSource: memberCount) { (stringCount) in
-                self.eventModel.member.value = stringCount
+            PickerDialog.show(defaultText: usecase.model.member.value, dataSource: usecase.memberCount) { (stringCount) in
+                self.usecase.model.member.value = stringCount
             }
 
             break
@@ -179,9 +148,9 @@ extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 20
+        return usecase.memberCount.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "dataSource[\(component)]"
+        return usecase.memberCount[row]
     }
 }
