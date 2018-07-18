@@ -19,7 +19,7 @@ class CreateEventViewController: UITableViewController {
     
     var dataSource = [[EventRow.name, EventRow.detail],[EventRow.date, EventRow.place, EventRow.member]];
     
-    let usecase = EventUseCase()
+    var usecase: EventUseCase! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

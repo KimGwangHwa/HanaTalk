@@ -19,12 +19,12 @@ enum EventRow: String {
 class EventUseCase: NSObject {
     
     let model = EventModel()
-    let translator = EventTranslator()
-    let repository = EventRepositoryImpl()
-    let disposeBag = DisposeBag()
+    private let translator = EventTranslator()
+    private let repository = EventRepositoryImpl()
+    private let disposeBag = DisposeBag()
     let memberCount = ["2", "4", "6", "8", "10"];
+    private var eventList: [EventModel]?
 
-    
     func addModelObserver(closure: @escaping ()->Void) {
         model.name.asObservable().subscribe { (string) in
             closure()
@@ -51,6 +51,16 @@ class EventUseCase: NSObject {
         repository.save(by: model, closure: closure)
     }
     
+    func read(closure: @escaping ([EventModel]?, Bool)-> Void) {
+        repository.findAll { (entitys, isSuccess) in
+            if isSuccess {
+                self.eventList = self.translator.translate(entitys)
+                closure(self.eventList, isSuccess)
+            } else {
+                closure(nil, isSuccess)
+            }
+        }
+    }
     
     
     

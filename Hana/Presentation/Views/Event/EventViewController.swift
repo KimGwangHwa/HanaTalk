@@ -10,10 +10,28 @@ import RxSwift
 
 class EventViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    let usecase = EventUseCase()
+    var data: [EventModel]!
+    let cellReuseIdentifier = R.reuseIdentifier.eventCell.identifier
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setup()
+    }
+    
+    func setup() {
+        tableView.tableFooterView = UIView()
+        tableView.register(R.nib.eventCell(), forCellReuseIdentifier: cellReuseIdentifier)
+        
+        usecase.read { (list, isSuccess) in
+            if let list = list {
+                self.data = list
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,18 +44,25 @@ class EventViewController: UIViewController {
     }
     
     @IBAction func tappedCreat(_ sender: UIButton) {
-        if let viewController = R.storyboard.createEvent.instantiateInitialViewController() {
+        if let viewController = R.storyboard.createEvent.instantiateInitialViewController(),
+            let rootViewController = viewController.viewControllers.first as? CreateEventViewController {
+            rootViewController.usecase = usecase
             present(viewController, animated: true, completion: nil)
         }
     }
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension EventViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? EventCell {
+            return cell
+        }
+        return UITableViewCell()
+    }
 }

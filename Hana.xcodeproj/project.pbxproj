@@ -811,8 +811,8 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EE420FAF3A100C7BF09 /* EventViewController.swift */,
-				EFE81EE520FAF3A100C7BF09 /* Location */,
 				EFE81EEB20FAF3A100C7BF09 /* Event.storyboard */,
+				EFE81EE520FAF3A100C7BF09 /* Location */,
 				EFE81EEC20FAF3A100C7BF09 /* Cell */,
 				EFE81EEF20FAF3A100C7BF09 /* Create */,
 			);

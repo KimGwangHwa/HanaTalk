@@ -9,14 +9,17 @@ import UIKit
 
 struct EventTranslator: Translator {
     
-    func translate(_: EventEntity) -> EventModel {
-        return Output()
+    typealias Input = EventEntity
+    typealias Output = EventModel
+
+    func translate(_: Input?) -> Output? {
+        return EventModel()
     }
     
-    func translate(_: [EventEntity]) -> [EventModel] {
+    func translate(_: [Input]?) -> [Output]? {
         return [EventModel]()
     }
-    
+
     func reverseTranslate(_: EventModel) -> EventEntity {
         return EventEntity()
     }
