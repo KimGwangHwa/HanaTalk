@@ -8,13 +8,6 @@
 import UIKit
 import CoreLocation
 import MapKit
-import RxSwift
-
-class LocationModel {
-    var name: String?
-    var address: String?
-    var location: CLLocationCoordinate2D?
-}
 
 fileprivate enum Section: Int {
     case current = 0
@@ -24,14 +17,16 @@ fileprivate enum Section: Int {
 
 class FindLocationViewController: UIViewController {
 
+    typealias Place = EventModel.Place
+    
     let locationCellIdentifier = R.reuseIdentifier.locationCell.identifier
     var searchController = UISearchController(searchResultsController: nil)
     var locationManager = CLLocationManager()
-    var localSearchs = Variable<[LocationModel]>([LocationModel]())
-    var searchLocations = Variable<[LocationModel]>([LocationModel]())
-    var event: EventEntity!
-    let disposeBag = DisposeBag()
+    var localSearchs = [Place]()
+    var searchLocations = [Place]()
 
+    var usecase: EventUseCase!
+    
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +50,6 @@ class FindLocationViewController: UIViewController {
         
         reverseGeocode(location: locationManager.location)
 
-        searchLocations.asObservable().subscribe { (model) in
-            self.tableview.reloadData()
-        }.disposed(by: disposeBag)
-        
-        localSearchs.asObservable().subscribe { (model) in
-            self.tableview.reloadData()
-            }.disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,15 +73,15 @@ extension FindLocationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == Section.current.rawValue {
-            return localSearchs.value.count
+            return localSearchs.count
         }
-        return searchLocations.value.count
+        return searchLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableview.dequeueReusableCell(withIdentifier: locationCellIdentifier, for: indexPath) as? LocationCell {
-            let mark = searchLocations.value[indexPath.row]
+            let mark = searchLocations[indexPath.row]
             if indexPath.section == Section.current.rawValue && indexPath.row == 0 {
                 cell.imageView?.image = #imageLiteral(resourceName: "icon_location_ current")
             } else {
@@ -111,7 +99,11 @@ extension FindLocationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableview.deselectRow(at: indexPath, animated: true)
-        
+        if indexPath.section == Section.current.rawValue {
+            usecase.accpet(place: localSearchs[indexPath.row])
+        } else {
+            usecase.accpet(place: searchLocations[indexPath.row])
+        }
         dismiss(animated: true, completion: nil)
     }
 }
@@ -183,13 +175,14 @@ extension FindLocationViewController {
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if let mapItems = response?.mapItems {
-                self.searchLocations.value.removeAll()
+                self.searchLocations.removeAll()
                 for item in mapItems {
-                    let model = LocationModel()
+                    let model = Place()
                     model.name = item.placemark.name ?? ""
                     model.address = item.placemark.address
                     model.location = item.placemark.coordinate
-                    self.searchLocations.value.append(model)
+                    self.searchLocations.append(model)
+                    self.tableview.reloadData()
                 }
             }
         }
@@ -210,11 +203,12 @@ extension FindLocationViewController {
                                                     
                                                     if let placemarks = placemarks {
                                                         for placemark in placemarks {
-                                                            let model = LocationModel()
+                                                            let model = Place()
                                                             model.name = placemark.name ?? ""
                                                             model.address = placemark.address
                                                             model.location = placemark.location?.coordinate
-                                                            self.localSearchs.value.append(model)
+                                                            self.localSearchs.append(model)
+                                                            self.tableview.reloadData()
                                                             return
                                                         }
                                                     }

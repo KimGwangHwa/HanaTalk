@@ -6,18 +6,39 @@
 //
 
 import UIKit
+import Parse
 
 class EventDao: EventRepository {
+    
+    typealias Model = EventModel
+    
+    private let translator = EventTranslator()
+    
     func find(by objectId: String, closure: EventRepository.CompletionClosure) {
-        
+        let query = PFQuery(className: EventClassName)
+        query.includeKey("members")
+        query.includeKey("organizer")
+        query.whereKey(ObjectIdColumnName, equalTo: objectId)
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects?.first as? EventEntity, error == nil ? true:false)
+        }
     }
     
     func findAll(closure: EventRepository.MultipleCompletionClosure) {
-        
+        let query = PFQuery(className: EventClassName)
+        query.includeKey("members")
+        query.includeKey("organizer")
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects as? [EventEntity], error == nil ? true:false)
+        }
     }
     
-    func save(by object: BaseModel, closure: Repository.BoolClosure) {
-        
+    func save(by object: Model, closure: Repository.BoolClosure) {
+        let entity = translator.reverseTranslate(object)
+        entity.organizer = DataManager.shared.currentuserInfo!
+        entity.saveInBackground { (isSuccess, error) in
+            closure!(isSuccess)
+        }
     }
     
 

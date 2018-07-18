@@ -851,8 +851,8 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EF020FAF3A100C7BF09 /* CreateEventViewController.swift */,
-				EFE81EF120FAF3A100C7BF09 /* Cell */,
 				EFE81EF820FAF3A100C7BF09 /* CreateEvent.storyboard */,
+				EFE81EF120FAF3A100C7BF09 /* Cell */,
 			);
 			path = Create;
 			sourceTree = "<group>";

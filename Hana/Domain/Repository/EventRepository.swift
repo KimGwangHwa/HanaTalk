@@ -30,7 +30,7 @@ struct EventRepositoryImpl: EventRepository {
        dao.findAll(closure: closure)
     }
     
-    func save(by object: BaseModel, closure: Repository.BoolClosure) {
+    func save(by object: EventModel, closure: Repository.BoolClosure) {
         dao.save(by: object, closure: closure)
     }
 }

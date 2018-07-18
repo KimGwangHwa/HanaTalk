@@ -34,7 +34,7 @@ class CreateEventViewController: UITableViewController {
         tableView.register(R.nib.createEventNormalCell(), forCellReuseIdentifier: normalCellIdentifier)
         tableView.register(R.nib.createEventDetailCell(), forCellReuseIdentifier: detaillCellIdentifier)
 
-        usecase.addModelObserver {
+        usecase.bind {
             self.didInputChanged()
         }
         
@@ -119,20 +119,20 @@ class CreateEventViewController: UITableViewController {
         case .place:
             if let viewController = R.storyboard.findLocation.instantiateInitialViewController() {
                 if let rootViewController = viewController.viewControllers.first as? FindLocationViewController {
-                    //rootViewController.event = event.value
+                    rootViewController.usecase = usecase
                 }
                 present(viewController, animated: true, completion: nil)
             }
             break
         case .date:
             DatePickerDialog.show(defaultDate: usecase.model.date.value.date(format: .dateAndTime) ?? Date()) { (date) in
-                self.usecase.model.date.value = date.string(format: .dateAndTime)
+                self.usecase.model.date.accept(date.string(format: .dateAndTime))
             }
 
             break
         case .member:
             PickerDialog.show(defaultText: usecase.model.member.value, dataSource: usecase.memberCount) { (stringCount) in
-                self.usecase.model.member.value = stringCount
+                self.usecase.model.member.accept(stringCount)
             }
 
             break

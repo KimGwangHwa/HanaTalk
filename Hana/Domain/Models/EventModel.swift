@@ -7,15 +7,16 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import CoreLocation
 
 class EventModel: BaseModel {
-    var name = Variable<String>("")
-    var date = Variable<String>(Date().string(format: .date))
-    var member = Variable<String>("0")
-    var placeText = Variable<String>("")
-    var detail = Variable<String>("")
-    var place : Place?
+    var name = BehaviorRelay<String>(value: "")
+    var date = BehaviorRelay<String>(value: Date().string(format: .date))
+    var member = BehaviorRelay<String>(value: "0")
+    var placeText = BehaviorRelay<String>(value: "")
+    var detail = BehaviorRelay<String>(value: "")
+    var place = BehaviorRelay<Place>(value: Place())
     
     class Place: NSObject {
         var name: String?

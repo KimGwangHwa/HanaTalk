@@ -13,7 +13,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let usecase = EventUseCase()
-    var data: [EventModel]!
+    var data: [EventModel]?
     let cellReuseIdentifier = R.reuseIdentifier.eventCell.identifier
     
     override func viewDidLoad() {
@@ -25,12 +25,12 @@ class EventViewController: UIViewController {
     func setup() {
         tableView.tableFooterView = UIView()
         tableView.register(R.nib.eventCell(), forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
         
         usecase.read { (list, isSuccess) in
-            if let list = list {
-                self.data = list
-                self.tableView.reloadData()
-            }
+            self.data = list
+            self.tableView.reloadData()
         }
     }
 
@@ -56,7 +56,7 @@ class EventViewController: UIViewController {
 extension EventViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

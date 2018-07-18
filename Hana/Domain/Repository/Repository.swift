@@ -10,6 +10,7 @@ import UIKit
 
 protocol Repository {
     typealias BoolClosure = ((Bool)-> Void)?
+    associatedtype Model
 
-    func save(by object: BaseModel, closure: BoolClosure)
+    func save(by object: Model, closure: BoolClosure)
 }

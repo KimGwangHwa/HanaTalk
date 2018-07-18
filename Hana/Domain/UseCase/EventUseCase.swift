@@ -25,7 +25,7 @@ class EventUseCase: NSObject {
     let memberCount = ["2", "4", "6", "8", "10"];
     private var eventList: [EventModel]?
 
-    func addModelObserver(closure: @escaping ()->Void) {
+    func bind(closure: @escaping ()->Void) {
         model.name.asObservable().subscribe { (string) in
             closure()
             }.disposed(by: disposeBag)
@@ -38,13 +38,14 @@ class EventUseCase: NSObject {
             closure()
             }.disposed(by: disposeBag)
         
-        model.placeText.asObservable().subscribe { (count) in
-            closure()
-            }.disposed(by: disposeBag)
-        
         model.member.asObservable().subscribe { (count) in
             closure()
             }.disposed(by: disposeBag)
+
+        model.place.asDriver().drive(onNext: { (place) in
+            self.model.placeText.accept(place.name ?? "")
+        }).disposed(by: disposeBag)
+        
     }
     
     func create(closure: Repository.BoolClosure) {
@@ -60,6 +61,10 @@ class EventUseCase: NSObject {
                 closure(nil, isSuccess)
             }
         }
+    }
+    
+    func accpet(place: EventModel.Place) {
+        model.place.accept(place)
     }
     
     
