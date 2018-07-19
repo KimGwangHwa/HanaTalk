@@ -17,7 +17,7 @@ class BrowseCardView: UIView {
     
     var model: UserInfo! {
         didSet {
-            infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age() ?? 0))"
+            infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age ?? 0))"
             pageControl.numberOfPages = model.albums?.count ?? 1
         }
     }

@@ -15,7 +15,12 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    func age() -> Int {
+    var week: Int {
+        let weekString = string(format: .week)
+        return Int(weekString) ?? 0
+    }
+    
+    var age: Int {
         let timezone = TimeZone.current
         let localDate = Date(timeIntervalSinceNow: Double(timezone.secondsFromGMT()))
         

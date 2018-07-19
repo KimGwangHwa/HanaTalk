@@ -39,6 +39,7 @@
 		A11AA99A20FDA4EC00084367 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99920FDA4EC00084367 /* MessageRepository.swift */; };
 		A11AA99C20FDA50400084367 /* ImageUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */; };
 		A11AA99E20FDA51500084367 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99D20FDA51500084367 /* LikeRepository.swift */; };
+		A18DACB521004BFB00C7ECE8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DACB421004BFB00C7ECE8 /* UIColor.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
@@ -208,6 +209,7 @@
 		A11AA99920FDA4EC00084367 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
 		A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadRepository.swift; sourceTree = "<group>"; };
 		A11AA99D20FDA51500084367 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
+		A18DACB421004BFB00C7ECE8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				342CF362209D73600044FF50 /* String.swift */,
 				343CB05320B6E60B00C1A759 /* Enum.swift */,
 				343CB05520B6E6A800C1A759 /* Date.swift */,
+				A18DACB421004BFB00C7ECE8 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1276,6 +1279,7 @@
 				EFE81F3C20FAF3A200C7BF09 /* SideNormalCell.swift in Sources */,
 				343CB05420B6E60B00C1A759 /* Enum.swift in Sources */,
 				EFE81F8720FAF3A200C7BF09 /* EnterVerificationCodeViewController.swift in Sources */,
+				A18DACB521004BFB00C7ECE8 /* UIColor.swift in Sources */,
 				EFE81F6520FAF3A200C7BF09 /* BrowseCell.swift in Sources */,
 				EFE81F4C20FAF3A200C7BF09 /* UserInfoViewController.swift in Sources */,
 				EFE81F6020FAF3A200C7BF09 /* HanaTextView.swift in Sources */,
