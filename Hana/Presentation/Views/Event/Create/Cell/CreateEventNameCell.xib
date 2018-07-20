@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,27 +18,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9lk-HW-7jd">
-                        <rect key="frame" x="16" y="0.0" width="288" height="59.5"/>
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9lk-HW-7jd">
+                        <rect key="frame" x="16" y="0.0" width="262" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="59.5" id="SsZ-cG-pPc"/>
+                            <constraint firstAttribute="height" constant="60" id="cbU-Vg-twr"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoN-Ss-hy2">
+                        <rect key="frame" x="283" y="11" width="32" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="1gz-jS-5oZ"/>
+                        </constraints>
+                        <state key="normal" image="icon_album"/>
+                        <connections>
+                            <action selector="tappedUploadButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="53M-1A-mYV"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9lk-HW-7jd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="H8O-su-taV"/>
-                    <constraint firstAttribute="trailing" secondItem="9lk-HW-7jd" secondAttribute="trailing" constant="16" id="ZKT-Dq-bn8"/>
-                    <constraint firstAttribute="bottom" secondItem="9lk-HW-7jd" secondAttribute="bottom" id="jf5-Uj-FeK"/>
-                    <constraint firstItem="9lk-HW-7jd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vGv-ej-MnX"/>
+                    <constraint firstItem="IoN-Ss-hy2" firstAttribute="leading" secondItem="9lk-HW-7jd" secondAttribute="trailing" constant="5" id="8hv-uq-zHt"/>
+                    <constraint firstAttribute="trailing" secondItem="IoN-Ss-hy2" secondAttribute="trailing" constant="5" id="Gf4-Au-G3h"/>
+                    <constraint firstAttribute="bottom" secondItem="IoN-Ss-hy2" secondAttribute="bottom" constant="10.5" id="Miz-tT-FoW"/>
+                    <constraint firstItem="9lk-HW-7jd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hMb-Ig-EQG"/>
+                    <constraint firstItem="IoN-Ss-hy2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="iOV-AE-fZT"/>
+                    <constraint firstItem="9lk-HW-7jd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="s6t-T9-wql"/>
+                    <constraint firstAttribute="bottom" secondItem="9lk-HW-7jd" secondAttribute="bottom" constant="-0.5" id="ux3-tm-1uy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="textField" destination="9lk-HW-7jd" id="jYw-Fk-vcX"/>
+                <outlet property="uploadImageButton" destination="IoN-Ss-hy2" id="Lqm-wu-cVh"/>
             </connections>
+            <point key="canvasLocation" x="22" y="-44"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_album" width="32" height="32"/>
+    </resources>
 </document>

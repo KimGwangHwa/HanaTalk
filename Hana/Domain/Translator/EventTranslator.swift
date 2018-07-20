@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 struct EventTranslator: Translator {
     
@@ -15,10 +16,18 @@ struct EventTranslator: Translator {
     func translate(_ input: Input?) -> Output? {
         if let input = input {
             let output = Output()
-            output.date.accept(input.date.string(format: .dateAndTime))
-            output.detail.accept(input.detail ?? "")
-            output.member.accept(String(input.membersCount))
-            output.name.accept(input.name)
+            output.rxDate.accept(input.date.string(format: .dateAndTime))
+            output.rxDetail.accept(input.detail ?? "")
+            output.rxMember.accept(String(input.membersCount))
+            output.rxName.accept(input.name)
+            output.organizer = input.organizer
+            output.members = input.members
+            output.imageUrl = input.imageUrl
+            output.date = input.date
+            let place = EventModel.Place()
+            place.name = input.placeName
+            place.address = input.placeAddress
+            output.rxPlace.accept(place)
             return output
         }
         return nil
@@ -39,12 +48,12 @@ struct EventTranslator: Translator {
 
     func reverseTranslate(_ input: EventModel) -> EventEntity {
         let entity = EventEntity()
-        entity.date = input.date.value.date(format: .dateAndTime)!
-        entity.detail = input.detail.value
-        entity.membersCount = Int(input.member.value) ?? 0
-        //entity.place
-        entity.name = input.name.value
-        
+        entity.date = input.rxDate.value.date(format: .dateAndTime)!
+        entity.detail = input.rxDetail.value
+        entity.membersCount = Int(input.rxMember.value) ?? 0
+        entity.place = PFGeoPoint(location: input.rxPlace.value.location)
+        entity.name = input.rxName.value
+        entity.organizer = DataManager.shared.currentuserInfo!
         return entity
     }
 }

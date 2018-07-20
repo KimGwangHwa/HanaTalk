@@ -17,9 +17,9 @@ class CreateEventViewController: UITableViewController {
     let normalCellIdentifier = R.reuseIdentifier.createEventNormalCell.identifier
     let detaillCellIdentifier = R.reuseIdentifier.createEventDetailCell.identifier
     
-    var dataSource = [[EventRow.name, EventRow.detail],[EventRow.date, EventRow.place, EventRow.member]];
+    var dataSource = [[EventRow.name],[EventRow.date, EventRow.place, EventRow.member], [EventRow.detail]];
     
-    var usecase: EventUseCase! = nil
+        var usecase: EventUseCase! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,14 +83,24 @@ class CreateEventViewController: UITableViewController {
         case .name:
             if let cell = tableView.dequeueReusableCell(withIdentifier: nameCellIdentifier, for: indexPath) as? CreateEventNameCell {
                 cell.textField.placeholder = row.rawValue
-                _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.name)
+                _ = cell.textField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.rxName)
+                cell.uploadImageButton.rx.controlEvent(UIControlEvents.touchUpInside).subscribe { (e) in
+                    UIAlertController.show(in: self, {
+                        
+                    }, albumHandler: {
+                        let imageViewController = UIImagePickerController()
+                        imageViewController.delegate = self
+                        imageViewController.sourceType = .photoLibrary
+                        self.present(imageViewController, animated: true, completion: nil)
+                    })
+                }.disposed(by: usecase.disposeBag)
                 return cell
             }
             break
         case .detail:
             if let cell = tableView.dequeueReusableCell(withIdentifier: detaillCellIdentifier, for: indexPath) as? CreateEventDetailCell {
                 cell.placeholder = row.rawValue
-                _ = cell.textView.rx.text.map { $0 ?? "" }.bind(to: usecase.model.detail)
+                _ = cell.textView.rx.text.map { $0 ?? "" }.bind(to: usecase.model.rxDetail)
                 return cell
             }
             break
@@ -98,11 +108,11 @@ class CreateEventViewController: UITableViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: normalCellIdentifier, for: indexPath) as? CreateEventNormalCell {
                 cell.textLabel?.text = row.rawValue
                 if row == .date {
-                    _ = usecase.model.date.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.rxDate.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 } else if (row == .place) {
-                    _ = usecase.model.placeText.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.rxPlaceText.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 } else if (row == .member) {
-                    _ = usecase.model.member.asObservable().bind(to: cell.detailTextLabel!.rx.text)
+                    _ = usecase.model.rxMember.asObservable().bind(to: cell.detailTextLabel!.rx.text)
                 }
                 return cell
             }
@@ -125,14 +135,14 @@ class CreateEventViewController: UITableViewController {
             }
             break
         case .date:
-            DatePickerDialog.show(defaultDate: usecase.model.date.value.date(format: .dateAndTime) ?? Date()) { (date) in
-                self.usecase.model.date.accept(date.string(format: .dateAndTime))
+            DatePickerDialog.show(defaultDate: usecase.model.rxDate.value.date(format: .dateAndTime) ?? Date()) { (date) in
+                self.usecase.model.rxDate.accept(date.string(format: .dateAndTime))
             }
 
             break
         case .member:
-            PickerDialog.show(defaultText: usecase.model.member.value, dataSource: usecase.memberCount) { (stringCount) in
-                self.usecase.model.member.accept(stringCount)
+            PickerDialog.show(defaultText: usecase.model.rxMember.value, dataSource: usecase.memberCount) { (stringCount) in
+                self.usecase.model.rxMember.accept(stringCount)
             }
 
             break
@@ -152,5 +162,21 @@ extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return usecase.memberCount[row]
+    }
+}
+
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension CreateEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            tableView.tableHeaderView = UIImageView(image: image)
+            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

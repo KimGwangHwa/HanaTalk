@@ -15,9 +15,9 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    var week: Int {
-        let weekString = string(format: .week)
-        return Int(weekString) ?? 0
+    var weekDay: Int {
+        let cal = NSCalendar.current
+        return cal.component(.weekday, from: self)
     }
     
     var age: Int {

@@ -21,35 +21,38 @@ class EventUseCase: NSObject {
     let model = EventModel()
     private let translator = EventTranslator()
     private let repository = EventRepositoryImpl()
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     let memberCount = ["2", "4", "6", "8", "10"];
     private var eventList: [EventModel]?
+    
+    let tapEvent = PublishSubject<Void>()
 
     func bind(closure: @escaping ()->Void) {
-        model.name.asObservable().subscribe { (string) in
+        model.rxName.asObservable().subscribe { (string) in
             closure()
             }.disposed(by: disposeBag)
         
-        model.detail.asObservable().subscribe { (string) in
+        model.rxDetail.asObservable().subscribe { (string) in
             closure()
             }.disposed(by: disposeBag)
         
-        model.date.asObservable().subscribe { (string) in
+        model.rxDate.asObservable().subscribe { (string) in
             closure()
             }.disposed(by: disposeBag)
         
-        model.member.asObservable().subscribe { (count) in
+        model.rxMember.asObservable().subscribe { (count) in
             closure()
             }.disposed(by: disposeBag)
 
-        model.place.asDriver().drive(onNext: { (place) in
-            self.model.placeText.accept(place.name ?? "")
+        model.rxPlace.asDriver().drive(onNext: { (place) in
+            self.model.rxPlaceText.accept(place.name ?? "")
+            closure()
         }).disposed(by: disposeBag)
         
     }
     
     func create(closure: Repository.BoolClosure) {
-        repository.save(by: model, closure: closure)
+        repository.save(by: translator.reverseTranslate(model), closure: closure)
     }
     
     func read(closure: @escaping ([EventModel]?, Bool)-> Void) {
@@ -64,7 +67,7 @@ class EventUseCase: NSObject {
     }
     
     func accpet(place: EventModel.Place) {
-        model.place.accept(place)
+        model.rxPlace.accept(place)
     }
     
     

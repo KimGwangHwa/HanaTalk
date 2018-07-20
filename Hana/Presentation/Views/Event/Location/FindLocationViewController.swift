@@ -180,7 +180,7 @@ extension FindLocationViewController {
                     let model = Place()
                     model.name = item.placemark.name ?? ""
                     model.address = item.placemark.address
-                    model.location = item.placemark.coordinate
+                    model.location = item.placemark.location
                     self.searchLocations.append(model)
                     self.tableview.reloadData()
                 }
@@ -206,7 +206,7 @@ extension FindLocationViewController {
                                                             let model = Place()
                                                             model.name = placemark.name ?? ""
                                                             model.address = placemark.address
-                                                            model.location = placemark.location?.coordinate
+                                                            model.location = placemark.location
                                                             self.localSearchs.append(model)
                                                             self.tableview.reloadData()
                                                             return

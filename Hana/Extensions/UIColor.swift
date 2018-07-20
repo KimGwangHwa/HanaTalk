@@ -20,40 +20,5 @@ extension UIColor {
     
     class func rgb(_ r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
-    }
-    
-    // MONDAY
-    class var monday: UIColor {
-        return hex("f7f9ff")
-    }
-    
-    // TUESDAY
-    class var tuesday: UIColor {
-        return hex("ff6767")
-    }
-    
-    // WEDNESDAY
-    class var wednesday: UIColor {
-        return hex("4bbb8b") //4e9525 //  7da87b
-    }
-    
-    // THURSDAY
-    class var thursday: UIColor {
-        return hex("fff9af")
-    }
-    
-    // FRIDAY
-    class var friday: UIColor {
-        return hex("f73859")
-    }
-    
-    // SATURDAY
-    class var saturday: UIColor {
-        return hex("283149")
-    }
-    
-    // SUNDAY
-    class var sunday: UIColor {
-        return hex("ff6600")
-    }
+    }   
 }

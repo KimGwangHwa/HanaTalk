@@ -61,6 +61,7 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? EventCell {
+            cell.model = data![indexPath.row]
             return cell
         }
         return UITableViewCell()

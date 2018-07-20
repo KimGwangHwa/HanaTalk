@@ -6,18 +6,48 @@
 //
 
 import Foundation
-
+import UIKit
 
 enum DateTemplate: String {
-    case full = "y/M/d/ k:H:m:s"
+    case full = "y/M/d/ EEEE k:H:m:s"
     case date = "y/M/d"
-    case time = "H:m"
-    case dateAndTime = "y/M/d H:m"
+    case time = "H:mm"
+    case dateAndTime = "y/M/d H:mm"
     case year = "yyyy"
     case month = "M"
     case week = "EEEE"
     case day = "d"  
     case hour = "H"
+}
+
+enum Week: Int {
+    case sunDay = 0
+    case monDay
+    case tuesDay
+    case wednesDay
+    case thursDay
+    case friDay
+    case saturDay
+    
+    var color: UIColor {
+        switch self {
+        case .monDay:
+            return UIColor.hex("f7f9ff")
+        case .tuesDay:
+            return UIColor.hex("ff6767")
+        case .wednesDay:
+            return UIColor.hex("4bbb8b")
+        case .thursDay:
+            return UIColor.hex("fff9af")
+        case .friDay:
+            return UIColor.hex("f73859")
+        case .saturDay:
+            return UIColor.hex("283149")
+        case .sunDay:
+            return UIColor.hex("ff6600")
+        }
+    }
+    
 }
 
 

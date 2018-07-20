@@ -11,23 +11,28 @@ import RxCocoa
 import CoreLocation
 
 class EventModel: BaseModel {
-    var name = BehaviorRelay<String>(value: "")
-    var date = BehaviorRelay<String>(value: Date().string(format: .date))
-    var member = BehaviorRelay<String>(value: "0")
-    var placeText = BehaviorRelay<String>(value: "")
-    var detail = BehaviorRelay<String>(value: "")
-    var place = BehaviorRelay<Place>(value: Place())
+    var rxName = BehaviorRelay<String>(value: "")
+    var rxDate = BehaviorRelay<String>(value: Date().string(format: .dateAndTime))
+    var rxMember = BehaviorRelay<String>(value: "0")
+    var rxPlaceText = BehaviorRelay<String>(value: "")
+    var rxDetail = BehaviorRelay<String>(value: "")
+    var rxPlace = BehaviorRelay<Place>(value: Place())
+    
+    var organizer: UserInfo!
+    var members: [UserInfo]?
+    var imageUrl: String?
+    var date: Date!
     
     class Place: NSObject {
         var name: String?
         var address: String?
-        var location: CLLocationCoordinate2D?
+        var location: CLLocation?
     }
     
     var isEmpty: Bool {
-        if name.value.isEmpty || date.value.isEmpty ||
-            member.value.isEmpty || placeText.value.isEmpty ||
-            detail.value.isEmpty {
+        if rxName.value.isEmpty || rxDate.value.isEmpty ||
+            rxMember.value.isEmpty || rxPlaceText.value.isEmpty ||
+            rxDetail.value.isEmpty {
             return true
         }
         return false

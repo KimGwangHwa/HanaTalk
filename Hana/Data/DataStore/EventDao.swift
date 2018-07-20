@@ -10,7 +10,7 @@ import Parse
 
 class EventDao: EventRepository {
     
-    typealias Model = EventModel
+    typealias Model = EventEntity
     
     private let translator = EventTranslator()
     
@@ -34,9 +34,7 @@ class EventDao: EventRepository {
     }
     
     func save(by object: Model, closure: Repository.BoolClosure) {
-        let entity = translator.reverseTranslate(object)
-        entity.organizer = DataManager.shared.currentuserInfo!
-        entity.saveInBackground { (isSuccess, error) in
+        object.saveInBackground { (isSuccess, error) in
             closure!(isSuccess)
         }
     }

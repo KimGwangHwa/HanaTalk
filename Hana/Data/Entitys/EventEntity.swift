@@ -21,6 +21,9 @@ class EventEntity: PFObject, PFSubclassing {
     @NSManaged var membersCount : Int
     @NSManaged var detail: String?
     @NSManaged var organizer: UserInfo
+    @NSManaged var imageUrl: String?
+    @NSManaged var placeName: String?
+    @NSManaged var placeAddress: String?
 
 
 }
