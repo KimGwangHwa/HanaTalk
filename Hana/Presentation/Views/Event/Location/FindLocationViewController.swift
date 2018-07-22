@@ -36,7 +36,7 @@ class FindLocationViewController: UIViewController {
     
     func setup() {
         locationManager.delegate = self
-        //locationManager.requestLocation()
+        locationManager.requestLocation()
 
         tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 100
@@ -48,7 +48,7 @@ class FindLocationViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        reverseGeocode(location: locationManager.location)
+        //reverseGeocode(location: locationManager.location)
 
     }
 
@@ -67,6 +67,17 @@ class FindLocationViewController: UIViewController {
 
 extension FindLocationViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if Section.current.rawValue != section {
+            if searchLocations.count == 0 {
+                return nil
+            }
+            return "History"
+        }
+        return nil
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.count
     }
@@ -81,16 +92,18 @@ extension FindLocationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableview.dequeueReusableCell(withIdentifier: locationCellIdentifier, for: indexPath) as? LocationCell {
-            let mark = searchLocations[indexPath.row]
-            if indexPath.section == Section.current.rawValue && indexPath.row == 0 {
+            if indexPath.section == Section.current.rawValue {
                 cell.imageView?.image = #imageLiteral(resourceName: "icon_location_ current")
+                let mark = localSearchs[indexPath.row]
+                cell.textLabel?.text = mark.name
+                cell.detailTextLabel?.text = mark.address
             } else {
                 cell.imageView?.image = #imageLiteral(resourceName: "icon_location_pointer")
-            }
-            cell.textLabel?.text = mark.name
-            if indexPath.section != Section.current.rawValue {
+                let mark = searchLocations[indexPath.row]
+                cell.textLabel?.text = mark.name
                 cell.detailTextLabel?.text = mark.address
             }
+     
             return cell
         }
         
@@ -142,9 +155,7 @@ extension FindLocationViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        for location in locations {
-            reverseGeocode(location: location)
-        }
+        reverseGeocode(location: locations.last)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

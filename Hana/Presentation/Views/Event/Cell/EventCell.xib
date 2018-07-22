@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,13 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQW-IJ-ckp">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NQW-IJ-ckp">
                         <rect key="frame" x="0.0" y="0.0" width="389" height="136"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mb-Ep-iMB">
                         <rect key="frame" x="0.0" y="0.0" width="389" height="136"/>
@@ -34,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Yv2-cM-78F"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -87,8 +82,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9ow-lS-0qR" firstAttribute="top" secondItem="K6q-Nb-yKc" secondAttribute="bottom" constant="8" id="3aS-fM-DMr"/>
-                            <constraint firstItem="M1c-j4-iFq" firstAttribute="top" secondItem="K6q-Nb-yKc" secondAttribute="bottom" constant="8" id="IE0-ve-ZY7"/>
                             <constraint firstAttribute="bottom" secondItem="M1c-j4-iFq" secondAttribute="bottom" constant="10" id="JQX-wJ-DdX"/>
                             <constraint firstAttribute="trailing" secondItem="W5j-Jr-kZ4" secondAttribute="trailing" constant="8" id="RDt-vw-qT3"/>
                             <constraint firstAttribute="trailing" secondItem="yGa-oO-64B" secondAttribute="trailing" constant="8" id="VQY-m7-ic4"/>
@@ -96,7 +89,6 @@
                             <constraint firstItem="W5j-Jr-kZ4" firstAttribute="leading" secondItem="2mb-Ep-iMB" secondAttribute="leading" constant="8" id="eMS-w5-ffY"/>
                             <constraint firstItem="9ow-lS-0qR" firstAttribute="leading" secondItem="2mb-Ep-iMB" secondAttribute="leading" constant="8" id="gBk-l8-cdT"/>
                             <constraint firstItem="K6q-Nb-yKc" firstAttribute="top" secondItem="W5j-Jr-kZ4" secondAttribute="bottom" constant="4" id="gCy-Z7-LlL"/>
-                            <constraint firstAttribute="height" constant="136" id="gXd-y5-a5K"/>
                             <constraint firstAttribute="trailing" secondItem="K6q-Nb-yKc" secondAttribute="trailing" constant="8" id="gdi-by-29T"/>
                             <constraint firstItem="K6q-Nb-yKc" firstAttribute="leading" secondItem="2mb-Ep-iMB" secondAttribute="leading" constant="8" id="i2e-k6-Lsi"/>
                             <constraint firstAttribute="bottom" secondItem="9ow-lS-0qR" secondAttribute="bottom" constant="10" id="ptJ-xr-P1G"/>

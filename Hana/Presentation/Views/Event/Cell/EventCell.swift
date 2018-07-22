@@ -19,7 +19,7 @@ class EventCell: UITableViewCell {
     var model: EventModel! {
         didSet {
             eventImageView.sd_setImage(with: URL(string: model.organizer.profileUrl ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholderImage"))
-            eventMemberCountLabel.text = String(model.members?.count ?? 0)
+            eventMemberCountLabel.text = " + \(String(model.members?.count ?? 0))"
             bgImageView.sd_setImage(with: URL(string: model.imageUrl ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholderImage"))
             eventNameLabel.text = model.rxName.value
             eventDateLabel.text = model.date.string(format: .full)

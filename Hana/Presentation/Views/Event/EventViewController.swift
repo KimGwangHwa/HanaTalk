@@ -25,15 +25,21 @@ class EventViewController: UIViewController {
     func setup() {
         tableView.tableFooterView = UIView()
         tableView.register(R.nib.eventCell(), forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(tableviewRefresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        tableviewRefresh(refreshControl)
+    }
+
+    @objc func tableviewRefresh(_ sender: UIRefreshControl) {
+        sender.beginRefreshing()
         usecase.read { (list, isSuccess) in
             self.data = list
             self.tableView.reloadData()
+            sender.endRefreshing()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,6 +60,10 @@ class EventViewController: UIViewController {
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension EventViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.size.width / 2
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data?.count ?? 0

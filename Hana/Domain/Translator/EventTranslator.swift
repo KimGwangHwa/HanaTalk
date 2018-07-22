@@ -54,6 +54,7 @@ struct EventTranslator: Translator {
         entity.place = PFGeoPoint(location: input.rxPlace.value.location)
         entity.name = input.rxName.value
         entity.organizer = DataManager.shared.currentuserInfo!
+        entity.imageUrl = input.imageUrl
         return entity
     }
 }
