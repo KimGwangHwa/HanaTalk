@@ -100,7 +100,7 @@ class EditUserInfoViewController: UIViewController {
 
     @IBAction func tappedDone(_ sender: UIBarButtonItem) {
         let profileImage = profileImageView.image
-        UploadDao.upload(image: profileImage) { (stringUrl) in
+        UploadDao().upload(image: profileImage) { (stringUrl, isSuccess) in
             self.userInfo.profileUrl = stringUrl
             self.userInfo.configured = true
             self.userInfo.saveInBackground(block: { (isSuccess, error) in

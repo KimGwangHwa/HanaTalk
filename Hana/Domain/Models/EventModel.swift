@@ -21,6 +21,7 @@ class EventModel: BaseModel {
     var organizer: UserInfo!
     var members: [UserInfo]?
     var imageUrl: String?
+    var image: UIImage?
     var date: Date!
     
     class Place: NSObject {

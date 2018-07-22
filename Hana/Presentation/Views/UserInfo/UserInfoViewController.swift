@@ -170,7 +170,8 @@ extension UserInfoViewController: ProfileCellDelegate {
 extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            UploadDao.upload(image: image) { (urlString) in
+            
+            UploadDao().upload(image: image) { (urlString, isSuccess) in
                 if let urlString = urlString {
                     var albums = self.userInfo.albums ?? []
                     albums.append(urlString)

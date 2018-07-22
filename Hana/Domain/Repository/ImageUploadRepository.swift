@@ -14,3 +14,17 @@ protocol ImageUploadRepository: Repository {
     
     func upload(image: UIImage?, closure: CompletionClosure)
 }
+
+
+struct ImageUploadRepositoryImpl: ImageUploadRepository {
+    
+    private let dao = UploadDao()
+    
+    func save(by object: Any, closure: Repository.BoolClosure) {
+        
+    }
+    
+    func upload(image: UIImage?, closure: ImageUploadRepository.CompletionClosure) {
+        dao.upload(image: image, closure: closure)
+    }
+}

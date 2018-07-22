@@ -33,7 +33,7 @@ class CreateEventViewController: UITableViewController {
         tableView.register(R.nib.createEventNameCell(), forCellReuseIdentifier: nameCellIdentifier)
         tableView.register(R.nib.createEventNormalCell(), forCellReuseIdentifier: normalCellIdentifier)
         tableView.register(R.nib.createEventDetailCell(), forCellReuseIdentifier: detaillCellIdentifier)
-
+        //tableView.tableHeaderView = UIView()
         usecase.bind {
             self.didInputChanged()
         }
@@ -56,7 +56,7 @@ class CreateEventViewController: UITableViewController {
     // MARK - DidInputChanged
     
     func didInputChanged() {
-        if !usecase.model.isEmpty {
+        if !usecase.isEmpty {
             rightBarButton.isEnabled = true
         } else {
             rightBarButton.isEnabled = false
@@ -68,6 +68,17 @@ class CreateEventViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0.1
+        }
+        return 5.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.count
     }
@@ -136,13 +147,13 @@ class CreateEventViewController: UITableViewController {
             break
         case .date:
             DatePickerDialog.show(defaultDate: usecase.model.rxDate.value.date(format: .dateAndTime) ?? Date()) { (date) in
-                self.usecase.model.rxDate.accept(date.string(format: .dateAndTime))
+                self.usecase.accpet(date: date)
             }
 
             break
         case .member:
             PickerDialog.show(defaultText: usecase.model.rxMember.value, dataSource: usecase.memberCount) { (stringCount) in
-                self.usecase.model.rxMember.accept(stringCount)
+                self.usecase.accpet(member: stringCount)
             }
 
             break
@@ -169,11 +180,17 @@ extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 extension CreateEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            tableView.tableHeaderView = UIImageView(image: image)
-            
-        }
         picker.dismiss(animated: true, completion: nil)
+
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            usecase.accpet(image: image)
+            let imageFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width/2)
+            let imageView = UIImageView(frame: imageFrame)
+            imageView.image = image
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            tableView.tableHeaderView = imageView
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
