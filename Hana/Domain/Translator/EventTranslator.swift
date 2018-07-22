@@ -55,6 +55,8 @@ struct EventTranslator: Translator {
         entity.name = input.rxName.value
         entity.organizer = DataManager.shared.currentuserInfo!
         entity.imageUrl = input.imageUrl
+        entity.placeName = input.rxPlace.value.name
+        entity.placeAddress = input.rxPlace.value.address
         return entity
     }
 }

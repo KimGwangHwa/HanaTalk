@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum DateTemplate: String {
-    case full = "y/M/d/ EEEE k:H:m:s"
+    case full = "y/M/d/ EEEE k:H:m"
     case date = "y/M/d"
     case time = "H:mm"
     case dateAndTime = "y/M/d H:mm"
