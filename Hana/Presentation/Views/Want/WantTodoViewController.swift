@@ -8,11 +8,25 @@
 import UIKit
 
 class WantTodoViewController: UIViewController {
-
+    fileprivate let cellIdentifier = R.reuseIdentifier.wantTodoCategoryCell.identifier
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setup()
+    }
+    
+    fileprivate func loadData() {
+    
+    }
+    
+    fileprivate func setup() {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let widht = view.width / 2 - 2
+            layout.itemSize = CGSize(width: widht, height: widht)
+        }
+        //collectionView.register(R.nib.wa, forCellWithReuseIdentifier: <#T##String#>)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,4 +45,20 @@ class WantTodoViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension WantTodoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? WantTodoCategoryCell {
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    
 }

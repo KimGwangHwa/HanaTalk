@@ -10,7 +10,7 @@ import Parse
 
 class UploadDao: ImageUploadRepository {
     
-    func upload(image: UIImage?, closure: ImageUploadRepository.CompletionClosure) {
+    func upload(image: UIImage?, closure: ((String?, Bool) -> Void)?) {
         if let guardImage = image,
             let imageData = UIImageJPEGRepresentation(guardImage, 1), let pfile = PFFile(data: imageData) {
             pfile.saveInBackground(block: { (isSuccess, error) in
@@ -19,10 +19,6 @@ class UploadDao: ImageUploadRepository {
                 }
             })
         }
-    }
-    
-    func save(by object: PFObject, closure: Repository.BoolClosure) {
-        
     }
 }
 

@@ -9,22 +9,16 @@ import Foundation
 import UIKit
 
 // MARK: - ImageUploadRepository
-protocol ImageUploadRepository: Repository {
-    typealias CompletionClosure = ((String?, Bool)-> Void)?
-    
-    func upload(image: UIImage?, closure: CompletionClosure)
+protocol ImageUploadRepository {
+
+    func upload(image: UIImage?, closure: ((String?, Bool) -> Void)?)
 }
 
 
 struct ImageUploadRepositoryImpl: ImageUploadRepository {
-    
     private let dao = UploadDao()
-    
-    func save(by object: Any, closure: Repository.BoolClosure) {
-        
-    }
-    
-    func upload(image: UIImage?, closure: ImageUploadRepository.CompletionClosure) {
+
+    func upload(image: UIImage?, closure: ((String?, Bool) -> Void)?) {
         dao.upload(image: image, closure: closure)
     }
 }

@@ -8,29 +8,21 @@
 import Foundation
 
 // MARK: - Event
-protocol EventRepository: Repository {
-    typealias CompletionClosure = ((EventEntity?, Bool)-> Void)?
-    typealias MultipleCompletionClosure = (([EventEntity]?, Bool)-> Void)?
-    
-    func find(by objectId: String, closure: CompletionClosure)
-    
-    func findAll(closure: MultipleCompletionClosure)
-    
-}
-
-struct EventRepositoryImpl: EventRepository {
+struct EventRepositoryImpl: Repository {
+    typealias Entity = EventEntity
     
     private let dao = EventDao()
     
-    func find(by objectId: String, closure: EventRepository.CompletionClosure) {
+    func find(by objectId: String, closure: CompletionClosure) {
         dao.find(by: objectId, closure: closure)
     }
     
-    func findAll(closure: EventRepository.MultipleCompletionClosure) {
+    func findAll(closure: MultipleCompletionClosure) {
        dao.findAll(closure: closure)
     }
-    
-    func save(by object: EventEntity, closure: Repository.BoolClosure) {
+
+    func save(by object: Entity, closure: Repository.BoolClosure) {
         dao.save(by: object, closure: closure)
     }
+
 }

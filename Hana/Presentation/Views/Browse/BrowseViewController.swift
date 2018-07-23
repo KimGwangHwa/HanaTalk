@@ -21,6 +21,29 @@ class BrowseViewController: UIViewController {
         setupLayout()
         loadRemoteData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // That you want to of today
+        if isShowTodayWantTodo() {
+            if let viewController = R.storyboard.wantTodo.instantiateInitialViewController() {
+                present(viewController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    fileprivate func isShowTodayWantTodo() -> Bool {
+        if let endDate = DataManager.shared.currentuserInfo!.todayWantEnd {
+            if Date() > endDate {
+                return true
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+    
 
     fileprivate func setupLayout() {
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)

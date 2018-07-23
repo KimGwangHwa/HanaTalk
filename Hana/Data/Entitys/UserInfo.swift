@@ -23,6 +23,9 @@ class UserInfo: PFObject, PFSubclassing {
     @NSManaged var keyword: String?
     @NSManaged var profileUrl: String?
     @NSManaged var albums: [String]?
+    @NSManaged var todayWantCategory: CategoryEntity?
+    @NSManaged var todayWantEnd: Date?
+
     public var sex: Sex {
         get{
             if let s = self["sex"] as? Int {

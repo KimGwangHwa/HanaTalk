@@ -8,13 +8,10 @@
 import UIKit
 import Parse
 
-class EventDao: EventRepository {
+class EventDao: Repository {
+    typealias Entity = EventEntity
     
-    typealias Model = EventEntity
-    
-    private let translator = EventTranslator()
-    
-    func find(by objectId: String, closure: EventRepository.CompletionClosure) {
+    func find(by objectId: String, closure: CompletionClosure) {
         let query = PFQuery(className: EventClassName)
         query.includeKey("members")
         query.includeKey("organizer")
@@ -24,7 +21,7 @@ class EventDao: EventRepository {
         }
     }
     
-    func findAll(closure: EventRepository.MultipleCompletionClosure) {
+    func findAll(closure: MultipleCompletionClosure) {
         let query = PFQuery(className: EventClassName)
         query.includeKey("members")
         query.includeKey("organizer")
@@ -33,7 +30,7 @@ class EventDao: EventRepository {
         }
     }
     
-    func save(by object: Model, closure: Repository.BoolClosure) {
+    func save(by object: Entity, closure: Repository.BoolClosure) {
         object.saveInBackground { (isSuccess, error) in
             closure!(isSuccess)
         }

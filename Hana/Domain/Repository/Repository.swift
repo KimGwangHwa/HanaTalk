@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 protocol Repository {
-    typealias BoolClosure = ((Bool)-> Void)?
-    associatedtype Model
+    associatedtype Entity
 
-    func save(by object: Model, closure: BoolClosure)
+    typealias BoolClosure = ((Bool)-> Void)?
+    typealias CompletionClosure = ((Entity?, Bool)-> Void)?
+    typealias MultipleCompletionClosure = (([Entity]?, Bool)-> Void)?
+
+    func find(by objectId: String, closure: CompletionClosure)
+    func findAll(closure: MultipleCompletionClosure)
+    func save(by object: Entity, closure: BoolClosure)
+
 }

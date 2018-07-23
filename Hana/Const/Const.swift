@@ -17,6 +17,7 @@ let UserClassName = "_User"
 let MessageClassName = "Message"
 let TalkRoomClassName = "TalkRoom"
 let EventClassName = "Event"
+let CategoryClassName = "Category"
 
 // MARK: - ColumnName
 let UserColumnName = "user"
