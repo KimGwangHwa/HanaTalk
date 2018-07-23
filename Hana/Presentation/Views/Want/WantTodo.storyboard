@@ -17,28 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jaf-t1-RZJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jaf-t1-RZJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="snb-pH-bun">
                                     <size key="itemSize" width="100" height="100"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="100"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WantTodoCategoryCell" id="AnX-Yk-cFM" customClass="WantTodoCategoryCell" customModule="Hana" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="100" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-Ug-7Cy">
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-Ug-7Cy">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                    <state key="normal">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    </state>
+                                                    <state key="normal" backgroundImage="icon_circle_normal"/>
+                                                    <state key="selected" backgroundImage="icon_circle_select"/>
+                                                    <state key="highlighted" backgroundImage="icon_circle_select"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="alignVerticalSpacing">
                                                             <real key="value" value="6"/>
@@ -53,10 +53,13 @@
                                             <constraint firstItem="GNv-Ug-7Cy" firstAttribute="top" secondItem="AnX-Yk-cFM" secondAttribute="top" id="wq8-Mo-LdA"/>
                                             <constraint firstAttribute="trailing" secondItem="GNv-Ug-7Cy" secondAttribute="trailing" id="y5N-3t-Vw4"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageButton" destination="GNv-Ug-7Cy" id="ScJ-Dd-s9b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IGe-FG-tez">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WantTodoCategoryHeader" id="IGe-FG-tez" customClass="WantTodoCategoryHeader" customModule="Hana" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybn-ry-WBH">
@@ -72,6 +75,9 @@
                                         <constraint firstItem="Ybn-ry-WBH" firstAttribute="top" secondItem="IGe-FG-tez" secondAttribute="top" id="aYY-Hk-b8K"/>
                                         <constraint firstItem="Ybn-ry-WBH" firstAttribute="leading" secondItem="IGe-FG-tez" secondAttribute="leading" id="t0q-N8-zfE"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="textLabel" destination="Ybn-ry-WBH" id="HQS-c4-rhA"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="4ob-eL-erY" id="bYP-YB-Dfe"/>
@@ -97,4 +103,8 @@
             <point key="canvasLocation" x="192.80000000000001" y="171.36431784107947"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_circle_normal" width="120" height="120"/>
+        <image name="icon_circle_select" width="120" height="120"/>
+    </resources>
 </document>

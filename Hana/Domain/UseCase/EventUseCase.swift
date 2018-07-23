@@ -61,7 +61,9 @@ class EventUseCase: NSObject {
         imageRepository.upload(image: model.image) { (imageUrl, isSuccess) in
             if isSuccess {
                 self.model.imageUrl = imageUrl
-                self.repository.save(by: self.translator.reverseTranslate(self.model), closure: closure)
+                if let entity = self.translator.reverseTranslate(self.model) {
+                    self.repository.save(by: entity, closure: closure)
+                }
             }
         }
         

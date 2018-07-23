@@ -33,6 +33,10 @@
 		A10160992105795C00BE3820 /* WantTodoCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160982105795C00BE3820 /* WantTodoCategoryCell.swift */; };
 		A101609B21057B5200BE3820 /* CategoryDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101609A21057B5200BE3820 /* CategoryDao.swift */; };
 		A101609D21057B8500BE3820 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101609C21057B8500BE3820 /* CategoryRepository.swift */; };
+		A101609F2105998B00BE3820 /* CategoryTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101609E2105998B00BE3820 /* CategoryTranslator.swift */; };
+		A10160A1210599CF00BE3820 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160A0210599CF00BE3820 /* CategoryModel.swift */; };
+		A10160A321059D8400BE3820 /* CategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160A221059D8400BE3820 /* CategoryUseCase.swift */; };
+		A10160A52105B03F00BE3820 /* WantTodoCategoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160A42105B03F00BE3820 /* WantTodoCategoryHeader.swift */; };
 		A11AA98720FD794A00084367 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98620FD794A00084367 /* Repository.swift */; };
 		A11AA98920FD885700084367 /* EventDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98820FD885700084367 /* EventDao.swift */; };
 		A11AA98B20FD8A8800084367 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98A20FD8A8800084367 /* BaseModel.swift */; };
@@ -219,6 +223,10 @@
 		A10160982105795C00BE3820 /* WantTodoCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantTodoCategoryCell.swift; sourceTree = "<group>"; };
 		A101609A21057B5200BE3820 /* CategoryDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDao.swift; sourceTree = "<group>"; };
 		A101609C21057B8500BE3820 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
+		A101609E2105998B00BE3820 /* CategoryTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTranslator.swift; sourceTree = "<group>"; };
+		A10160A0210599CF00BE3820 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		A10160A221059D8400BE3820 /* CategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUseCase.swift; sourceTree = "<group>"; };
+		A10160A42105B03F00BE3820 /* WantTodoCategoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantTodoCategoryHeader.swift; sourceTree = "<group>"; };
 		A11AA98620FD794A00084367 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A11AA98820FD885700084367 /* EventDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDao.swift; sourceTree = "<group>"; };
 		A11AA98A20FD8A8800084367 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -491,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				A10160982105795C00BE3820 /* WantTodoCategoryCell.swift */,
+				A10160A42105B03F00BE3820 /* WantTodoCategoryHeader.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -499,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				A11AA99020FD9E9A00084367 /* EventUseCase.swift */,
+				A10160A221059D8400BE3820 /* CategoryUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -508,6 +518,7 @@
 			children = (
 				A11AA98C20FD914200084367 /* Translator.swift */,
 				A11AA98E20FD9C6C00084367 /* EventTranslator.swift */,
+				A101609E2105998B00BE3820 /* CategoryTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -816,8 +827,8 @@
 			children = (
 				EFE81ECC20FAF3A100C7BF09 /* Card */,
 				EFE81ECF20FAF3A100C7BF09 /* BrowseViewController.swift */,
-				EFE81ED020FAF3A100C7BF09 /* Cell */,
 				EFE81ED320FAF3A100C7BF09 /* Browse.storyboard */,
+				EFE81ED020FAF3A100C7BF09 /* Cell */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -1078,6 +1089,7 @@
 			children = (
 				EFE81FA120FAF9D100C7BF09 /* EventModel.swift */,
 				A11AA98A20FD8A8800084367 /* BaseModel.swift */,
+				A10160A0210599CF00BE3820 /* CategoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1304,6 +1316,7 @@
 				EFE81F5F20FAF3A200C7BF09 /* SwipeableView.swift in Sources */,
 				EFE81F7220FAF3A200C7BF09 /* EventViewController.swift in Sources */,
 				EFE81F3320FAF3A100C7BF09 /* TalkHistoryCell.swift in Sources */,
+				A10160A321059D8400BE3820 /* CategoryUseCase.swift in Sources */,
 				EFE81F9A20FAF3A200C7BF09 /* Message.swift in Sources */,
 				EFE81F9B20FAF3A200C7BF09 /* TalkRoomDao.swift in Sources */,
 				EFE81F9820FAF3A200C7BF09 /* Like.swift in Sources */,
@@ -1323,6 +1336,7 @@
 				EFE81F5A20FAF3A200C7BF09 /* PickerDialog.swift in Sources */,
 				EFE81F7E20FAF3A200C7BF09 /* CreateEventNormalCell.swift in Sources */,
 				EFE81F6320FAF3A200C7BF09 /* BrowseCardView.swift in Sources */,
+				A10160A1210599CF00BE3820 /* CategoryModel.swift in Sources */,
 				EFE81F9520FAF3A200C7BF09 /* LoginSelectionCell.swift in Sources */,
 				EFE81F2820FAF3A100C7BF09 /* SplashViewController.swift in Sources */,
 				EFE81F4120FAF3A200C7BF09 /* ChattingViewController.swift in Sources */,
@@ -1354,6 +1368,7 @@
 				EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */,
 				EF7D2F31210478BC009B75DB /* DetailEventImageCell.swift in Sources */,
 				EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */,
+				A101609F2105998B00BE3820 /* CategoryTranslator.swift in Sources */,
 				EFE81F3E20FAF3A200C7BF09 /* SideHeaderCell.swift in Sources */,
 				EFE81F6A20FAF3A200C7BF09 /* FindViewController.swift in Sources */,
 				EFE81F3220FAF3A100C7BF09 /* MatchingStatusCell.swift in Sources */,
@@ -1406,6 +1421,7 @@
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,
 				EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */,
 				A1016096210574BD00BE3820 /* UIButton.swift in Sources */,
+				A10160A52105B03F00BE3820 /* WantTodoCategoryHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

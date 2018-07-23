@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 // MARK: - ImageUploadRepository
 protocol ImageUploadRepository {

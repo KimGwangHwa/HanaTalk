@@ -32,31 +32,21 @@ struct EventTranslator: Translator {
         }
         return nil
     }
-    
-    func translate(_ input: [Input]?) -> [Output]? {
-        if let input = input, !input.isEmpty {
-            var output = [Output]()
-            for item in input {
-                if let translateItem = translate(item) {
-                    output.append(translateItem)
-                }
-            }
-            return output
+
+    func reverseTranslate(_ input: EventModel?) -> EventEntity? {
+        if let input = input {
+            let entity = EventEntity()
+            entity.date = input.rxDate.value.date(format: .dateAndTime)!
+            entity.detail = input.rxDetail.value
+            entity.membersCount = Int(input.rxMember.value) ?? 0
+            entity.place = PFGeoPoint(location: input.rxPlace.value.location)
+            entity.name = input.rxName.value
+            entity.organizer = DataManager.shared.currentuserInfo!
+            entity.imageUrl = input.imageUrl
+            entity.placeName = input.rxPlace.value.name
+            entity.placeAddress = input.rxPlace.value.address
+            return entity
         }
         return nil
-    }
-
-    func reverseTranslate(_ input: EventModel) -> EventEntity {
-        let entity = EventEntity()
-        entity.date = input.rxDate.value.date(format: .dateAndTime)!
-        entity.detail = input.rxDetail.value
-        entity.membersCount = Int(input.rxMember.value) ?? 0
-        entity.place = PFGeoPoint(location: input.rxPlace.value.location)
-        entity.name = input.rxName.value
-        entity.organizer = DataManager.shared.currentuserInfo!
-        entity.imageUrl = input.imageUrl
-        entity.placeName = input.rxPlace.value.name
-        entity.placeAddress = input.rxPlace.value.address
-        return entity
     }
 }

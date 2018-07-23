@@ -12,7 +12,6 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         // getLocalUserInfo
         UserInfoDao.findCurrentFromLocal { (userInfo) in
             DataManager.shared.currentuserInfo = userInfo

@@ -13,8 +13,28 @@ protocol Translator {
     
     func translate(_: Input?) -> Output?
     
-    func translate(_: [Input]?) -> [Output]?
+    func reverseTranslate(_: Output?) -> Input?
 
-    func reverseTranslate(_: Output) -> Input
+}
+
+extension Translator {
+    func translate(_ input: [Input]?) -> [Output]? {
+        if let input = input, !input.isEmpty {
+            var output = [Output]()
+            for item in input {
+                if let translateItem = translate(item) {
+                    output.append(translateItem)
+                }
+            }
+            return output
+        }
+        return nil
+
+    }
+    
+    func reverseTranslate(_: Output?) -> Input? {
+        return nil
+    }
+
 
 }

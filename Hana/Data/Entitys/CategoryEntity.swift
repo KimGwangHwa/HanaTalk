@@ -16,7 +16,7 @@ enum CategoryType: Int {
 class CategoryEntity: PFObject, PFSubclassing {
 
     static func parseClassName() -> String {
-        return TalkRoomClassName
+        return CategoryClassName
     }
     
     var type: CategoryType {
@@ -30,7 +30,7 @@ class CategoryEntity: PFObject, PFSubclassing {
         }
     }
     
-    @NSManaged var name: String
-    //@NSManaged var type: Int
+    @NSManaged var name: String!
+    @NSManaged var image: PFFile!
     
 }

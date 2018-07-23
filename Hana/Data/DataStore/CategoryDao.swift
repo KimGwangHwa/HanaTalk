@@ -8,6 +8,15 @@
 import UIKit
 import Parse
 
-class CategoryDao: NSObject {
-
+class CategoryDao: CategoryRepository {
+    
+    typealias Entity = CategoryEntity
+    
+    func find(by type: CategoryType, closure: MultipleCompletionClosure) {
+        let query = PFQuery(className: CategoryClassName)
+        query.whereKey("type", equalTo: type.rawValue)
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects as? [CategoryEntity], error == nil ? true:false)
+        }
+    }
 }

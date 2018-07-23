@@ -7,9 +7,22 @@
 
 import UIKit
 
-class CategoryRepository: Repository {
-    typealias Entity = CategoryEntity
+protocol CategoryRepository: Repository {
+    
+    func find(by type: CategoryType, closure: MultipleCompletionClosure)
 
+}
+
+struct CategoryRepositoryImpl: CategoryRepository {
+    
+    typealias Entity = CategoryEntity
+    
+    private let dao = CategoryDao()
+    
+    func find(by type: CategoryType, closure: MultipleCompletionClosure) {
+        dao.find(by: type, closure: closure)
+    }
+    
     func find(by objectId: String, closure: ((CategoryEntity?, Bool) -> Void)?) {
         
     }
@@ -20,5 +33,7 @@ class CategoryRepository: Repository {
     
     func save(by object: CategoryEntity, closure: Repository.BoolClosure) {
         
-    }    
+    }
 }
+
+
