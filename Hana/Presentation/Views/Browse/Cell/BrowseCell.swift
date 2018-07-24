@@ -10,8 +10,8 @@ import UIKit
 let cellIdentifiler = "BrowseCell"
 
 protocol BrowseCellDelegate: class {
-    func browseCell(_ cell: BrowseCell, didTouchLikeAt model: UserInfo!)
-    func browseCell(_ cell: BrowseCell, didTouchDislikeAt model: UserInfo!)
+    func browseCell(_ cell: BrowseCell, didTouchLikeAt model: UserInfoEntity!)
+    func browseCell(_ cell: BrowseCell, didTouchDislikeAt model: UserInfoEntity!)
 }
 
 class BrowseCell: UICollectionViewCell {

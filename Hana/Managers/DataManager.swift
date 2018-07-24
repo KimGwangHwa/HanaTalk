@@ -18,6 +18,6 @@ class DataManager: NSObject {
         
     }
     
-    var currentuserInfo: UserInfo?
+    var currentuserInfo: UserInfoEntity?
     
 }

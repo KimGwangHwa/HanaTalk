@@ -57,8 +57,8 @@ class EnterVerificationCodeViewController: UIViewController {
     }
     
     func moveToNext() {
-        UserInfoDao.findCurrentFromRemote { (userInfo, isSuccess) in
-            if let userInfo = userInfo {
+        UserInfoDao().findCurrent { (entity, isSuccess) in
+            if let userInfo = entity {
                 DataManager.shared.currentuserInfo = userInfo
                 userInfo.pinInBackground()
                 self.view.endEditing(true)

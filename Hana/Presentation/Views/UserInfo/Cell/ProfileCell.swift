@@ -20,7 +20,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     
-    var model: UserInfo! {
+    var model: UserInfoEntity! {
         didSet {
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
             nickNameLabel.text = model.nickname

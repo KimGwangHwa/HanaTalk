@@ -12,7 +12,7 @@ class SideHeaderCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var userInfo: UserInfo? {
+    var userInfo: UserInfoEntity? {
         didSet {
             profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
             descriptionLabel.text = userInfo?.nickname

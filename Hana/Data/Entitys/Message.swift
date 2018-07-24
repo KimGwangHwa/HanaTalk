@@ -24,7 +24,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var read: Bool
     @NSManaged var text: String?
     @NSManaged var imageURL: String?
-    @NSManaged var sender: UserInfo?
+    @NSManaged var sender: UserInfoEntity?
     @NSManaged var alert: String?
     @NSManaged var talkRoom: TalkRoom?
     @NSManaged var sended: Bool

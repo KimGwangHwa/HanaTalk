@@ -33,4 +33,8 @@ extension Date {
         let age = (localDateIntVal! - birthDateIntVal!) / 1000
         return age
     }
+    
+    static var tomorrow: Date {
+        return Date(timeIntervalSinceNow: 60 * 60 * 24)
+    }
 }

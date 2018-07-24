@@ -17,10 +17,10 @@ class EventEntity: PFObject, PFSubclassing {
     @NSManaged var name: String
     @NSManaged var date: Date
     @NSManaged var place: PFGeoPoint
-    @NSManaged var members: [UserInfo]
+    @NSManaged var members: [UserInfoEntity]
     @NSManaged var membersCount : Int
     @NSManaged var detail: String?
-    @NSManaged var organizer: UserInfo
+    @NSManaged var organizer: UserInfoEntity
     @NSManaged var imageUrl: String?
     @NSManaged var placeName: String?
     @NSManaged var placeAddress: String?

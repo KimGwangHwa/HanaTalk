@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class WantTodoViewController: UIViewController {
     
@@ -14,6 +16,7 @@ class WantTodoViewController: UIViewController {
     fileprivate let cellIdentifier = R.reuseIdentifier.wantTodoCategoryCell.identifier
 
     let usecase = CategoryUseCase()
+    let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,11 @@ extension WantTodoViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? WantTodoCategoryCell {
             cell.model = usecase.data![indexPath.row]
+            cell.imageButton.rx.controlEvent(.touchUpInside).subscribe { (event)in
+                self.usecase.update(by: self.usecase.data![indexPath.row]) { (isSuccess) in
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }.disposed(by: bag)
             return cell
         }
         return UICollectionViewCell()
@@ -60,7 +68,7 @@ extension WantTodoViewController: UICollectionViewDataSource, UICollectionViewDe
         }
         
         if kind == UICollectionElementKindSectionHeader {
-            header.textLabel.text = "section \(indexPath.section)"
+            header.textLabel.text = "What you want to do today"
             return header
         }
         

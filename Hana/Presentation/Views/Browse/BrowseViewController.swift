@@ -13,7 +13,7 @@ class BrowseViewController: UIViewController {
 
     @IBOutlet weak var swipeableView: SwipeableView!
     
-    var dataSource: [UserInfo]?
+    var dataSource: [UserInfoEntity]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +56,8 @@ class BrowseViewController: UIViewController {
     }
 
     func loadRemoteData() {
-        UserInfoDao.findAll  { (objects, isSuccess) in
-            self.dataSource = objects
+        UserInfoDao().findAll { (entitys, isSuccess) in
+            self.dataSource = entitys
             self.swipeableView.reloadData()
         }
     }

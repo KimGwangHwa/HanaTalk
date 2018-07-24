@@ -174,7 +174,7 @@
 		EFE81F9320FAF3A200C7BF09 /* TelLoginInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1120FAF3A100C7BF09 /* TelLoginInputCell.swift */; };
 		EFE81F9420FAF3A200C7BF09 /* MailLoginInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1220FAF3A100C7BF09 /* MailLoginInputCell.swift */; };
 		EFE81F9520FAF3A200C7BF09 /* LoginSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1320FAF3A100C7BF09 /* LoginSelectionCell.swift */; };
-		EFE81F9620FAF3A200C7BF09 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1620FAF3A100C7BF09 /* UserInfo.swift */; };
+		EFE81F9620FAF3A200C7BF09 /* UserInfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1620FAF3A100C7BF09 /* UserInfoEntity.swift */; };
 		EFE81F9720FAF3A200C7BF09 /* EventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1720FAF3A100C7BF09 /* EventEntity.swift */; };
 		EFE81F9820FAF3A200C7BF09 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1820FAF3A100C7BF09 /* Like.swift */; };
 		EFE81F9920FAF3A200C7BF09 /* TalkRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1920FAF3A100C7BF09 /* TalkRoom.swift */; };
@@ -364,7 +364,7 @@
 		EFE81F1120FAF3A100C7BF09 /* TelLoginInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelLoginInputCell.swift; sourceTree = "<group>"; };
 		EFE81F1220FAF3A100C7BF09 /* MailLoginInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailLoginInputCell.swift; sourceTree = "<group>"; };
 		EFE81F1320FAF3A100C7BF09 /* LoginSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSelectionCell.swift; sourceTree = "<group>"; };
-		EFE81F1620FAF3A100C7BF09 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EFE81F1620FAF3A100C7BF09 /* UserInfoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoEntity.swift; sourceTree = "<group>"; };
 		EFE81F1720FAF3A100C7BF09 /* EventEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		EFE81F1820FAF3A100C7BF09 /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		EFE81F1920FAF3A100C7BF09 /* TalkRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoom.swift; sourceTree = "<group>"; };
@@ -1048,7 +1048,7 @@
 		EFE81F1520FAF3A100C7BF09 /* Entitys */ = {
 			isa = PBXGroup;
 			children = (
-				EFE81F1620FAF3A100C7BF09 /* UserInfo.swift */,
+				EFE81F1620FAF3A100C7BF09 /* UserInfoEntity.swift */,
 				EFE81F1720FAF3A100C7BF09 /* EventEntity.swift */,
 				EFE81F1820FAF3A100C7BF09 /* Like.swift */,
 				EFE81F1920FAF3A100C7BF09 /* TalkRoom.swift */,
@@ -1346,7 +1346,7 @@
 				EFE81F6420FAF3A200C7BF09 /* BrowseViewController.swift in Sources */,
 				EFE81F5820FAF3A200C7BF09 /* CustomBadgeView.swift in Sources */,
 				EFE81F5320FAF3A200C7BF09 /* UserInfoAlbumCell.swift in Sources */,
-				EFE81F9620FAF3A200C7BF09 /* UserInfo.swift in Sources */,
+				EFE81F9620FAF3A200C7BF09 /* UserInfoEntity.swift in Sources */,
 				EFE81F5420FAF3A200C7BF09 /* EditUserInfoViewController.swift in Sources */,
 				EF7D2F2D21047826009B75DB /* DetailEventListCell.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,

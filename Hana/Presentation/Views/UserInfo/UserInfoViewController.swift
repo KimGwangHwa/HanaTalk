@@ -12,7 +12,7 @@ fileprivate let albumCellIdentifier = R.reuseIdentifier.userInfoAlbumCell.identi
 
 class UserInfoViewController: UIViewController {
 
-    var userInfo: UserInfo!
+    var userInfo: UserInfoEntity!
     var displayMode: AlbumDisplayMode = .vertical
     var isSelf: Bool {
         return userInfo == DataManager.shared.currentuserInfo
@@ -76,8 +76,8 @@ class UserInfoViewController: UIViewController {
     
     func loadRomoteData() {
         if let objectId = userInfo.objectId {
-            UserInfoDao.findUserInfo(by: objectId) { (userInfo, isSuccess) in
-                self.userInfo = userInfo
+            UserInfoDao().find(by: objectId) { (entity, isSuccess) in
+                self.userInfo = entity
                 self.tableView.reloadData()
             }
         }

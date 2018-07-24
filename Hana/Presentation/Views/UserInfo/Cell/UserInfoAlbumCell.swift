@@ -18,7 +18,7 @@ class UserInfoAlbumCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var albums: [String]!
     
-    static func height(with mode: AlbumDisplayMode, dataSource: UserInfo) -> CGFloat {
+    static func height(with mode: AlbumDisplayMode, dataSource: UserInfoEntity) -> CGFloat {
         let itemSize = UserInfoAlbumItemCell.size(with: mode)
         if let albums = dataSource.albums {
             switch mode {
@@ -31,7 +31,7 @@ class UserInfoAlbumCell: UITableViewCell {
         return 0.0
     }
     
-    func reload(with mode: AlbumDisplayMode, dataSource: UserInfo) {
+    func reload(with mode: AlbumDisplayMode, dataSource: UserInfoEntity) {
         albums = dataSource.albums ?? []
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = UserInfoAlbumItemCell.spacing

@@ -8,5 +8,5 @@
 import UIKit
 
 class BaseModel: NSObject {
-
+    var objectId: String!
 }

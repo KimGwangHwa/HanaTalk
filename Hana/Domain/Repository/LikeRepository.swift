@@ -10,6 +10,6 @@ import Foundation
 // MARK: - LikeRepository
 protocol LikeRepository: Repository {
     
-    func find(likedBy userInfo: UserInfo, closure: CompletionClosure)
+    func find(likedBy userInfo: UserInfoEntity, closure: CompletionClosure)
     
 }

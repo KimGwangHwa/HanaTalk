@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class UserInfo: PFObject, PFSubclassing {
+class UserInfoEntity: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return UserInfoClassName
     }

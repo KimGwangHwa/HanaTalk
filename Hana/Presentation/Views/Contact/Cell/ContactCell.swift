@@ -20,7 +20,7 @@ class ContactCell: UITableViewCell {
         // Initialization code
         
     }
-    var user: UserInfo? {
+    var user: UserInfoEntity? {
         didSet {
             nickNameLabel.text = user?.nickname
             customBadgeView.imageView.sd_setImage(with: URL(string: user?.profileUrl ?? ""), placeholderImage: nil)

@@ -13,8 +13,8 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     // SectionTitles
     let sectionTitles = ["friend"]
-    var dataSource = [UserInfo]()
-    var selectedData: UserInfo? = nil
+    var dataSource = [UserInfoEntity]()
+    var selectedData: UserInfoEntity? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

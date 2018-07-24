@@ -15,7 +15,7 @@ class BrowseCardView: UIView {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var pageControl: HNPageControl!
     
-    var model: UserInfo! {
+    var model: UserInfoEntity! {
         didSet {
             infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age ?? 0))"
             pageControl.numberOfPages = model.albums?.count ?? 1

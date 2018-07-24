@@ -13,9 +13,9 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
 
         // getLocalUserInfo
-        UserInfoDao.findCurrentFromLocal { (userInfo) in
+        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
             DataManager.shared.currentuserInfo = userInfo
-
+            
             if let userInfo = userInfo {
                 if !userInfo.configured {
                     self.moveToEditUserInfo()
@@ -26,8 +26,6 @@ class SplashViewController: UIViewController {
                 self.moveToLogin()
             }
         }
-
-        debugPrint("SplashViewController")
     }
     
     func moveToEditUserInfo() {

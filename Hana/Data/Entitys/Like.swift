@@ -13,11 +13,11 @@ class Like: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return LikeClassName
     }
-    @NSManaged var liked: UserInfo?
-    @NSManaged var likedBy: UserInfo?
+    @NSManaged var liked: UserInfoEntity?
+    @NSManaged var likedBy: UserInfoEntity?
     @NSManaged var matched: Bool
 
-    init(with liked: UserInfo) {
+    init(with liked: UserInfoEntity) {
         super.init()
         self.liked = liked
         self.likedBy = DataManager.shared.currentuserInfo
@@ -27,7 +27,7 @@ class Like: PFObject, PFSubclassing {
         super.init()
     }
     
-    var receiver: UserInfo! {
+    var receiver: UserInfoEntity! {
         if DataManager.shared.currentuserInfo == liked {
             return likedBy
         } else {

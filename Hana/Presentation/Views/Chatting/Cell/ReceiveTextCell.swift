@@ -24,7 +24,7 @@ class ReceiveTextCell: UITableViewCell {
         }
     }
     
-    var receiver: UserInfo? {
+    var receiver: UserInfoEntity? {
         didSet {
             headImageView.sd_setImage(with: URL(string: receiver?.profileUrl ?? ""), placeholderImage: nil)
         }

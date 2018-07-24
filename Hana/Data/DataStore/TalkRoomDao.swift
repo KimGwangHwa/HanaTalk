@@ -24,7 +24,7 @@ class TalkRoomDao: DAO {
         }
     }
     
-    class func findTalk(by receiver: UserInfo, closure: @escaping (TalkRoom?, Bool)-> Void) {
+    class func findTalk(by receiver: UserInfoEntity, closure: @escaping (TalkRoom?, Bool)-> Void) {
         if let currentUserInfo = DataManager.shared.currentuserInfo {
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
@@ -40,7 +40,7 @@ class TalkRoomDao: DAO {
     
     // MARK: - Save Update
     
-    class func saveTalkRoom(with reciver: UserInfo?, lastMessage: Message?) {
+    class func saveTalkRoom(with reciver: UserInfoEntity?, lastMessage: Message?) {
         if let talkRoom = lastMessage?.talkRoom {
             talkRoom.lastMessage = lastMessage
             talkRoom.pinInBackground()

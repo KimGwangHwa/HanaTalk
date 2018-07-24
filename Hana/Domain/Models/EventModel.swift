@@ -18,8 +18,8 @@ class EventModel: BaseModel {
     var rxDetail = BehaviorRelay<String>(value: "")
     var rxPlace = BehaviorRelay<Place>(value: Place())
     
-    var organizer: UserInfo!
-    var members: [UserInfo]?
+    var organizer: UserInfoEntity!
+    var members: [UserInfoEntity]?
     var imageUrl: String?
     var image: UIImage?
     var date: Date!

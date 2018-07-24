@@ -18,8 +18,8 @@ class ChattingViewController: UIViewController {
     @IBOutlet weak var inputTextView: HanaTextView!
     
     var talkRoom: TalkRoom?
-    var receiver: UserInfo?
-    private var currentUserInfo: UserInfo! = DataManager.shared.currentuserInfo!
+    var receiver: UserInfoEntity?
+    private var currentUserInfo: UserInfoEntity! = DataManager.shared.currentuserInfo!
     
     private var dataSource = [Message]()
     

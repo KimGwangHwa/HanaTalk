@@ -14,13 +14,13 @@ class TalkRoom: PFObject, PFSubclassing {
     }
 
     @NSManaged var unreadCount: Int
-    @NSManaged var members: [UserInfo]?
+    @NSManaged var members: [UserInfoEntity]?
     @NSManaged var lastMessage: Message?
     @NSManaged var channels: [String]?
     @NSManaged var name: String?
     @NSManaged var type: Int
 
-    init(members: [UserInfo]?) {
+    init(members: [UserInfoEntity]?) {
         super.init()
         self.members = members
         var channels = [String]()

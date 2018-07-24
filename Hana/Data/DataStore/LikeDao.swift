@@ -34,7 +34,7 @@ class LikeDao: DAO {
         }
     }
  
-    class func findLiked(by userInfo: UserInfo, closure: @escaping (Like?, Bool) -> Void) {
+    class func findLiked(by userInfo: UserInfoEntity, closure: @escaping (Like?, Bool) -> Void) {
         
         
         guard let currentUserInfo = DataManager.shared.currentuserInfo else {

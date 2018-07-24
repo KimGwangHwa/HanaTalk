@@ -10,6 +10,6 @@ import Foundation
 // MARK: - TalkRoomRepository
 protocol TalkRoomRepository: Repository {
 
-    func find(by receiver: UserInfo, closure: CompletionClosure)
+    func find(by receiver: UserInfoEntity, closure: CompletionClosure)
     
 }
