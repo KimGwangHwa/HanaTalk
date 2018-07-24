@@ -705,8 +705,8 @@
 			isa = PBXGroup;
 			children = (
 				EFE81E9820FAF3A100C7BF09 /* SideMenuViewController.swift */,
-				EFE81E9920FAF3A100C7BF09 /* Cell */,
 				EFE81E9E20FAF3A100C7BF09 /* SideMenu.storyboard */,
+				EFE81E9920FAF3A100C7BF09 /* Cell */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";

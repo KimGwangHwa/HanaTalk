@@ -8,7 +8,9 @@
 
 import UIKit
 
-let PinkColor = UIColor(red: CGFloat(255) / 255.0, green: CGFloat(192) / 255.0, blue: CGFloat(203) / 255.0, alpha: 1)
+let BackgroundColor = UIColor.hex("f9f7f7")
+let MainColor = UIColor.hex("e84545")
+let SubColor = UIColor.hex("1a2c5b")
 
 // MARK: - ClassName
 let UserInfoClassName = "UserInfo"

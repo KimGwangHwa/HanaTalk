@@ -16,7 +16,6 @@ enum SideNormalCellType {
 
 class SideNormalCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var badgeButton: UIButton!
     var type: SideNormalCellType = .none

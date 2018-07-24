@@ -7,13 +7,13 @@
 
 import UIKit
 
-fileprivate let sideMenuOffsetX: CGFloat = -220.0
+fileprivate let sideMenuOffsetX: CGFloat = -240.0
 
 class SideMenuViewController: UIViewController {
     
     static var shared = R.storyboard.sideMenu.sideMenuViewController()
 
-    var normalDataSource = [Int: (image: UIImage, text: String)]()
+    var normalDataSource = [String]()
     
     let sideHeaderIdentifier = R.reuseIdentifier.sideHeaderCell.identifier
     let normalIdentifier = R.reuseIdentifier.sideNormalCell.identifier
@@ -22,15 +22,24 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var sideView: UIView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var sideConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpView()
+        setup()
         addObserver()
     }
 
-    func setUpView() {
-        normalDataSource[0] = (image: UIImage(), text: "Profile")
+    func setup() {
+        let currentUserInfo = DataManager.shared.currentuserInfo!
+        iconImageView.sd_setImage(with: URL(string: currentUserInfo.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
+        nicknameLabel.text = currentUserInfo.nickname
+        headerView.backgroundColor = SubColor
+        tableView.backgroundColor = BackgroundColor
+        
         if let navViewController = R.storyboard.userInfo().instantiateInitialViewController() as? UINavigationController,
             let userInfoViewController = navViewController.viewControllers.first as? UserInfoViewController {
             userInfoViewController.userInfo = DataManager.shared.currentuserInfo
@@ -39,19 +48,24 @@ class SideMenuViewController: UIViewController {
         
 
         let browseViewController = R.storyboard.browse().instantiateInitialViewController()
-        normalDataSource[1] = (image: #imageLiteral(resourceName: "search"), text: "Browse")
+        normalDataSource.append("Browse")
         self.addChildViewController(browseViewController!)
 
         let talkHistoryViewController = R.storyboard.chatHistory().instantiateInitialViewController()
-        normalDataSource[2] = (image: #imageLiteral(resourceName: "messages"), text: "Messages")
+        normalDataSource.append("Messages")
         self.addChildViewController(talkHistoryViewController!)
-
+        
         let evnetViewController = R.storyboard.event().instantiateInitialViewController()
-        normalDataSource[3] = (image: #imageLiteral(resourceName: "icon_event"), text: "Event")
+        normalDataSource.append("Event")
         self.addChildViewController(evnetViewController!)
         
+        let wantodoViewController = R.storyboard.wantTodo().instantiateInitialViewController()
+        normalDataSource.append("What you want to do")
+        self.addChildViewController(wantodoViewController!)
+        
         let settingViewController = R.storyboard.setting().instantiateInitialViewController()
-        normalDataSource[4] = (image: #imageLiteral(resourceName: "setting"), text: "Setting")
+        normalDataSource.append("Setting")
+
         self.addChildViewController(settingViewController!)
         
 
@@ -75,8 +89,8 @@ class SideMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logoutEvent(_ sender: UIButton) {
-        
+    @IBAction func tappedHeader(_ sender: UITapGestureRecognizer) {
+        showChildViewController(with: 0)
     }
     
     @IBAction func viewTapEvent(_ sender: UITapGestureRecognizer) {
@@ -112,6 +126,17 @@ class SideMenuViewController: UIViewController {
             }
         }
     }
+    
+    func showChildViewController(with index: Int) {
+        dismiss {
+            for subView in self.view.subviews.filter({$0 != self.sideView}) {
+                subView.removeFromSuperview()
+            }
+            
+            self.childViewControllers[index].didMove(toParentViewController: self)
+            self.view.addSubview(self.childViewControllers[index].view)
+        }
+    }
 
 }
 
@@ -125,20 +150,10 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: sideHeaderIdentifier, for: indexPath) as? SideHeaderCell {
-                cell.userInfo = DataManager.shared.currentuserInfo
-                return cell
-            }
-
-        } else {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: normalIdentifier, for: indexPath) as? SideNormalCell {
             
-            if let cell = tableView.dequeueReusableCell(withIdentifier: normalIdentifier, for: indexPath) as? SideNormalCell {
-                
-                cell.iconImageView.image = normalDataSource[indexPath.row]?.image
-                cell.descriptionLabel.text = normalDataSource[indexPath.row]?.text
-                return cell
-            }
+            cell.descriptionLabel.text = normalDataSource[indexPath.row]
+            return cell
         }
         
         return UITableViewCell()
@@ -146,17 +161,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        if indexPath.row == 0 {
-//            return
-//        }
-        dismiss {
-            for subView in self.view.subviews.filter({$0 != self.sideView}) {
-                subView.removeFromSuperview()
-            }
-            
-            self.childViewControllers[indexPath.row].didMove(toParentViewController: self)
-            self.view.addSubview(self.childViewControllers[indexPath.row].view)
-        }
+
+        showChildViewController(with: indexPath.row + 1)
     }
 }
 
