@@ -17,7 +17,7 @@ class BrowseCardView: UIView {
     
     var model: BrowseModel! {
         didSet {
-            infoLabel.text = "\(model.name)" + "，" + "\(String(model.age))"
+            infoLabel.text = "\(model.name ?? "")" + "，" + "\(String(model.age))"
             pageControl.numberOfPages = model.imageUrls.count
         }
     }
@@ -42,12 +42,15 @@ class BrowseCardView: UIView {
 extension BrowseCardView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.imageUrls?.count ?? 1
+        if model.imageUrls.count == 0 {
+            return 1
+        }
+        return model.imageUrls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifierr, for: indexPath) as? BrowseCell {
-            cell.imageUrl = model.imageUrls == nil ? model.profileUrl :  model.imageUrls?[indexPath.row]
+            cell.imageUrl = model.imageUrls.count == 0 ? model.profileUrl :  model.imageUrls?[indexPath.row]
             return cell
         }
         return UICollectionViewCell()
