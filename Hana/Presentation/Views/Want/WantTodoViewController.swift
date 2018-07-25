@@ -40,10 +40,6 @@ class WantTodoViewController: UIViewController {
             layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         }
     }
-    
-    @IBAction func sideMenu(_ sender: UIButton) {
-        SideMenuViewController.show()
-    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate

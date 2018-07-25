@@ -14,15 +14,12 @@ fileprivate let DismissAlpha: CGFloat = 0
 fileprivate let AlertSpacing: CGFloat = 10
 fileprivate let AlertHeight: CGFloat = 300
 
-class HanaAlertView: UIView {
+class MatchingAlertView: UIView {
 
-    var actionCompletion: ((Like) -> Void)?
+    var actionCompletion: (() -> Void)?
 
     private var overlayView = UIView()
     private var alertView = UIView()
-
-    var object: Like!
-    
     
     func setUpView() {
         
@@ -49,11 +46,11 @@ class HanaAlertView: UIView {
         let titleFontSize: CGFloat = 16
 
         let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: titleHeight))
-        if object.matched {
-            titleLabel.text = "MATHCED"
-        } else {
-            titleLabel.text = "LIKED BY"
-        }
+//        if object.matched {
+//            titleLabel.text = "MATHCED"
+//        } else {
+//            titleLabel.text = "LIKED BY"
+//        }
         titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
         titleLabel.textAlignment = .center
         alertView.addSubview(titleLabel)
@@ -66,7 +63,7 @@ class HanaAlertView: UIView {
         let iconImageView = UIImageView(frame: CGRect(x: (alertView.width - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = iconWidth/2
-        iconImageView.sd_setImage(with: URL(string: object.likedBy?.profileUrl ?? ""), placeholderImage: nil)
+        //iconImageView.sd_setImage(with: URL(string: object.likedBy?.profileUrl ?? ""), placeholderImage: nil)
         alertView.addSubview(iconImageView)
        
         offsetY += (spaceHeight + iconHeight)
@@ -76,7 +73,7 @@ class HanaAlertView: UIView {
 
         let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: descriptionHeight))
         descriptionLabel.textAlignment = .center
-        descriptionLabel.text = object.likedBy?.nickname
+        //descriptionLabel.text = object.likedBy?.nickname
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: descriptionFontSize)
         alertView.addSubview(descriptionLabel)
         
@@ -88,11 +85,11 @@ class HanaAlertView: UIView {
         let eventButton = UIButton(type: .custom)
         eventButton.frame = CGRect(x: (alertView.width-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         
-        if object.matched {
-            eventButton.setTitle("Message", for: .normal)
-        } else {
-            eventButton.setTitle("UserInfo", for: .normal)
-        }
+//        if object.matched {
+//            eventButton.setTitle("Message", for: .normal)
+//        } else {
+//            eventButton.setTitle("UserInfo", for: .normal)
+//        }
         
         eventButton.setTitleColor(UIColor.white, for: .normal)
         let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
@@ -138,14 +135,14 @@ class HanaAlertView: UIView {
     }
     
     @objc func tappedEventButton() {
-        actionCompletion!(object)
+        //actionCompletion!(object)
     }
     
-    class func show(in viewController: UIViewController, object: Like, actionCompletion: @escaping (Like?) -> Void) {
+    class func show(in viewController: UIViewController, actionCompletion: @escaping () -> Void) {
         
-        let view = HanaAlertView()
+        let view = MatchingAlertView()
         view.actionCompletion = actionCompletion
-        view.object = object
+        //view.object = object
         view.show(in: viewController)
     }
 

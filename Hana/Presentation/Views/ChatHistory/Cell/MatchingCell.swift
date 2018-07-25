@@ -6,18 +6,19 @@
 //
 
 import UIKit
-
-protocol MatchingCellDelegate: class {
-
-    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like)
-
-}
+import RxCocoa
+import RxSwift
 
 class MatchingCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    weak var delegate: MatchingCellDelegate?
-    var dataSource: [Like]! {
+
+    private var rxTapIndex = BehaviorRelay<Int>(value: 0)
+    var tapEventObservable: Observable<Int> {
+        return rxTapIndex.asObservable()
+    }
+    
+    var model: [ChatModel]! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -43,21 +44,19 @@ class MatchingCell: UITableViewCell {
 
 extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return model.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier, for: indexPath) as? MatchingStatusCell {
-            cell.model  = dataSource[indexPath.row]
+            cell.model  = model[indexPath.row]
             return cell
         }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if delegate != nil {
-            delegate?.matchingCell(self, didSelectItemAt: dataSource[indexPath.row])
-        }
+        rxTapIndex.accept(indexPath.row)
     }
     
 }

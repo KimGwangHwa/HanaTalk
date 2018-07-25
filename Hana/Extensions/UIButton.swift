@@ -27,5 +27,19 @@ extension UIButton {
         get {
             return CGFloat.nan
         }
+        
     }
+    
+    @IBInspectable var imageScaleAspectFit: Bool {
+        set{
+            if newValue {
+                self.imageView?.contentMode = .scaleAspectFit
+            }
+        }
+        get {
+            return false
+        }
+    }
+    
+    
 }

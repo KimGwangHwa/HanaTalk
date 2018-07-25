@@ -13,11 +13,11 @@ class MatchingStatusCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    var model: Like! {
+    var model: ChatModel! {
         didSet {
             bgImageView.isHidden = model.matched
-            profileImageView.sd_setImage(with: URL(string: model.receiver.profileUrl ?? ""), placeholderImage: nil)
-            nicknameLabel.text = model.likedBy?.nickname
+            profileImageView.sd_setImage(with: URL(string: model.profileUrl), placeholderImage: nil)
+            nicknameLabel.text = model.name
         }
     }
     

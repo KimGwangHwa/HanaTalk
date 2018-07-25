@@ -12,18 +12,18 @@ class MessageDao: DAO {
 
     // MARK: - Find
  
-    class func findMessages(with talkRoom: TalkRoom, closure: @escaping ([Message]?)-> Void) {
+    class func findMessages(with talkRoom: TalkRoomEntity, closure: @escaping ([MessageEntity]?)-> Void) {
         localFind(with: MessageClassName, parameters: [TalkRoomColumnName : talkRoom], closure: closure)
     }
     
-    class func find(by talkRoom: TalkRoom, closure: @escaping ([Message]?, Bool)-> Void) {
+    class func find(by talkRoom: TalkRoomEntity, closure: @escaping ([MessageEntity]?, Bool)-> Void) {
         remoteFind(with: MessageClassName, parameters: [TalkRoomColumnName : talkRoom], closure: closure)
     }
     
-    class func find(by objectId: String, completion: @escaping (Message?, Bool) -> Void) {
+    class func find(by objectId: String, completion: @escaping (MessageEntity?, Bool) -> Void) {
         
         remoteFind(with: MessageClassName, parameters: [ObjectIdColumnName : objectId]) { (objects, isSuccess) in
-            completion(objects?.first as? Message, true)
+            completion(objects?.first as? MessageEntity, true)
         }
     }
 

@@ -14,7 +14,7 @@ enum MessageType: Int {
     case image = 1
 }
 
-class Message: PFObject, PFSubclassing {
+class MessageEntity: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
         return MessageClassName
@@ -26,7 +26,7 @@ class Message: PFObject, PFSubclassing {
     @NSManaged var imageURL: String?
     @NSManaged var sender: UserInfoEntity?
     @NSManaged var alert: String?
-    @NSManaged var talkRoom: TalkRoom?
+    @NSManaged var talkRoom: TalkRoomEntity?
     @NSManaged var sended: Bool
     
     init(text: String) {

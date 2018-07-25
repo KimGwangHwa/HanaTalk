@@ -7,26 +7,21 @@
 
 import UIKit
 
-class ChatHistoryViewController: UIViewController {
+fileprivate enum Section: Int {
+    case matching = 0
+    case history = 1
+    
+    static var count: Int = 2
+}
 
-    var searchController = UISearchController(searchResultsController: nil)
-    
-    fileprivate enum Section: Int {
-        case matching = 0
-        case history = 1
-        
-        static var count: Int = 2
-        
-    }
-    
+class ChatHistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var searchController = UISearchController(searchResultsController: nil)
+        
+    let usecase = ChatUseCase()
+
     let historyCellIdentifier = R.reuseIdentifier.talkHistoryCell.identifier
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
-    var historys: [TalkRoom]?
-    var mathings: [Like]?
-    
-    var filterHistorys: [TalkRoom]?
-    var filterMathings: [Like]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +33,7 @@ class ChatHistoryViewController: UIViewController {
     
     func loadData() {
         
-        LikeDao.find { (objects, isSuccess) in
-            self.mathings = objects
-            self.tableView.reloadData()
-        }
-        TalkRoomDao.findTalk { (objects, isSuccess) in
-            self.historys = objects
+        usecase.read { (isSuccess) in
             self.tableView.reloadData()
         }
     }
@@ -82,61 +72,52 @@ class ChatHistoryViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.count
+        return usecase.data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == Section.matching.rawValue {
-            if let matchingCount = mathings?.count,
-                matchingCount > 0 {
-                return 1
-            }
-        } else if (section == Section.history.rawValue) {
-            if searchController.isActive {
-                return filterHistorys?.count ?? 0
-            }
-            return historys?.count ?? 0
+        if section == 0 {
+            return usecase.data[section].count != 0 ? 1:0
         }
-        return 0
+        return usecase.data[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == Section.matching.rawValue {
+        if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: matchingCellIdentifier, for: indexPath) as? MatchingCell {
                 if searchController.isActive {
-                    cell.dataSource = filterMathings
+                    //cell.dataSource = filterMathings
                 } else {
-                    cell.dataSource = mathings
+                    cell.model = usecase.data[indexPath.section]
+                    cell.tapEventObservable.subscribe { (row) in
+                        
+                    }.dispose()
                 }
-                cell.delegate = self
                 return cell
             }
         }
-        if indexPath.section == Section.history.rawValue {
+        if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: historyCellIdentifier, for: indexPath) as? TalkHistoryCell {
                 if searchController.isActive {
-                    cell.talkRoom = filterHistorys?[indexPath.row]
+                    //cell.talkRoom = filterHistorys?[indexPath.row]
                 } else {
-                    cell.talkRoom = historys?[indexPath.row]
+                    cell.model = usecase.data[indexPath.section][indexPath.row]
                 }
                 return cell
             }
         }
-        
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let viewController = R.storyboard.chatting.chattingViewController() {
-            if searchController.isActive {
-                viewController.talkRoom = filterHistorys?[indexPath.row]
-            } else {
-                viewController.talkRoom = historys?[indexPath.row]
-            }
+//            if searchController.isActive {
+//                viewController.talkRoom = filterHistorys?[indexPath.row]
+//            } else {
+//                viewController.talkRoom = historys?[indexPath.row]
+//            }
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -157,38 +138,20 @@ extension ChatHistoryViewController {
     
 }
 
-// MARK: - MatchingCellDelegate
-extension ChatHistoryViewController: MatchingCellDelegate {
-    
-    func matchingCell(_ cell: MatchingCell, didSelectItemAt object: Like) {
-        if object.matched {
-            if let viewController = R.storyboard.chatting.chattingViewController() {
-                viewController.receiver = object.receiver
-                navigationController?.pushViewController(viewController, animated: true)
-            }
-        } else {
-            if let viewController = R.storyboard.userInfo.userInfoViewController() {
-                viewController.userInfo = object.receiver
-                navigationController?.pushViewController(viewController, animated: true)
-            }
-        }
-    }
-}
-
 // MARK: - UISearchResultsUpdating, UISearchControllerDelegate
 extension ChatHistoryViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchString = searchController.searchBar.text, searchString.isEmpty == false {
-            let predicate = NSPredicate(format: "receiver.nickname LIKE %@", argumentArray: [searchString])
-            if let mathingArray = mathings as NSArray? {
-                filterMathings = mathingArray.filtered(using: predicate) as? [Like]
-                
-            }
-            if let historyArray = historys as NSArray?  {
-                filterHistorys = historyArray.filtered(using: predicate) as? [TalkRoom]
-            }
-            tableView.reloadData()
-        }
+//        if let searchString = searchController.searchBar.text, searchString.isEmpty == false {
+//            let predicate = NSPredicate(format: "receiver.nickname LIKE %@", argumentArray: [searchString])
+//            if let mathingArray = mathings as NSArray? {
+//                filterMathings = mathingArray.filtered(using: predicate) as? [Like]
+//
+//            }
+//            if let historyArray = historys as NSArray?  {
+//                filterHistorys = historyArray.filtered(using: predicate) as? [TalkRoomEntity]
+//            }
+//            tableView.reloadData()
+//        }
     }
     func willDismissSearchController(_ searchController: UISearchController) {
         tableView.reloadData()

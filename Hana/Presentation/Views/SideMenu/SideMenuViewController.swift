@@ -55,20 +55,14 @@ class SideMenuViewController: UIViewController {
         normalDataSource.append("Messages")
         self.addChildViewController(talkHistoryViewController!)
         
-        let evnetViewController = R.storyboard.event().instantiateInitialViewController()
-        normalDataSource.append("Event")
-        self.addChildViewController(evnetViewController!)
-        
-        let wantodoViewController = R.storyboard.wantTodo().instantiateInitialViewController()
-        normalDataSource.append("What you want to do")
-        self.addChildViewController(wantodoViewController!)
+//        let evnetViewController = R.storyboard.event().instantiateInitialViewController()
+//        normalDataSource.append("Event")
+//        self.addChildViewController(evnetViewController!)
         
         let settingViewController = R.storyboard.setting().instantiateInitialViewController()
         normalDataSource.append("Setting")
-
         self.addChildViewController(settingViewController!)
         
-
         self.sideConstraint.constant = sideMenuOffsetX
         
         let filterViewControllers = childViewControllers.filter({$0 == browseViewController})
@@ -178,8 +172,8 @@ extension SideMenuViewController {
 //        if let message = notification?.object as? Message {
 //
 //        }
-        if let like = notification?.object as? Like  {
-            HanaAlertView.show(in: self, object: like) { (like) in
+//        if let like = notification?.object as? Like  {
+//            HanaAlertView.show(in: self, object: like) { (like) in
 //                if like?.matched {
 //                    if let talkRoomViewController = R.storyboard.chatting.chattingViewController() {
 //                        self.present(talkRoomViewController, animated: true, completion: nil)
@@ -190,8 +184,8 @@ extension SideMenuViewController {
 //                        self.present(userInfoViewController, animated: true, completion: nil)
 //                    }
 //                }
-            }
-        }
+//            }
+//        }
         
     }
     

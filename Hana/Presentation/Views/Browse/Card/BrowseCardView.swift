@@ -15,10 +15,10 @@ class BrowseCardView: UIView {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var pageControl: HNPageControl!
     
-    var model: UserInfoEntity! {
+    var model: BrowseModel! {
         didSet {
-            infoLabel.text = "\(model.nickname ?? "")" + "，" + "\(String(model.birthday?.age ?? 0))"
-            pageControl.numberOfPages = model.albums?.count ?? 1
+            infoLabel.text = "\(model.name)" + "，" + "\(String(model.age))"
+            pageControl.numberOfPages = model.imageUrls.count
         }
     }
     
@@ -42,12 +42,12 @@ class BrowseCardView: UIView {
 extension BrowseCardView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.albums?.count ?? 1
+        return model.imageUrls?.count ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifierr, for: indexPath) as? BrowseCell {
-            cell.imageUrl = model.albums == nil ? model.profileUrl :  model.albums?[indexPath.row]
+            cell.imageUrl = model.imageUrls == nil ? model.profileUrl :  model.imageUrls?[indexPath.row]
             return cell
         }
         return UICollectionViewCell()

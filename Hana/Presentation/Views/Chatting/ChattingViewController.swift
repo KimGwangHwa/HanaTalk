@@ -17,11 +17,11 @@ class ChattingViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextView: HanaTextView!
     
-    var talkRoom: TalkRoom?
+    var talkRoom: TalkRoomEntity?
     var receiver: UserInfoEntity?
     private var currentUserInfo: UserInfoEntity! = DataManager.shared.currentuserInfo!
     
-    private var dataSource = [Message]()
+    private var dataSource = [MessageEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,15 +73,15 @@ class ChattingViewController: UIViewController {
 
     @IBAction func sendEvent(_ sender: UIButton) {
 
-        let message = Message(text: inputTextView.textView.text!)
+        let message = MessageEntity(text: inputTextView.textView.text!)
         if let guardTalkRoom = talkRoom {
             guardTalkRoom.lastMessage = message
         } else {
-            talkRoom = TalkRoom(members: [receiver!, currentUserInfo])
+            talkRoom = TalkRoomEntity(members: [receiver!, currentUserInfo])
         }
         
         message.talkRoom = talkRoom
-        TalkRoom.saveAll(inBackground: [message,talkRoom!]) { (isSuccess, error) in
+        TalkRoomEntity.saveAll(inBackground: [message,talkRoom!]) { (isSuccess, error) in
             message.pinInBackground()
             self.talkRoom?.pinInBackground()
             ParseHelper.sendPush(with: message) { (isSuccess) in
@@ -152,7 +152,7 @@ extension ChattingViewController {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-        if let guardMessage = notification?.object as? Message {
+        if let guardMessage = notification?.object as? MessageEntity {
             if guardMessage.sender?.objectId == receiver?.objectId {
                 dataSource.append(guardMessage)
                 tableView.reloadData()

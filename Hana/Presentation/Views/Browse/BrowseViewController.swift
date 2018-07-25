@@ -12,8 +12,7 @@ private let reuseIdentifier = R.reuseIdentifier.browseCell.identifier
 class BrowseViewController: UIViewController {
 
     @IBOutlet weak var swipeableView: SwipeableView!
-    
-    var dataSource: [UserInfoEntity]?
+    let usercase = BrowseUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,48 +21,36 @@ class BrowseViewController: UIViewController {
         loadRemoteData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // That you want to of today
-        if isShowTodayWantTodo() {
-            if let viewController = R.storyboard.wantTodo.instantiateInitialViewController() {
-                present(viewController, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    fileprivate func isShowTodayWantTodo() -> Bool {
-        if let endDate = DataManager.shared.currentuserInfo!.todayWantEnd {
-            if Date() > endDate {
-                return true
-            } else {
-                return false
-            }
-        }
-        return true
-    }
-    
-
     fileprivate func setupLayout() {
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        //navigationController?.navigationBar.barTintColor = MainColor
         swipeableView.leftSwipingImage = R.image.icon_large_dislike()
         swipeableView.rightSwipingImage = R.image.icon_large_like()
-
+        swipeableView.backgroundColor = BackgroundColor
+        
         swipeableView.delegate = self
         swipeableView.dataSource = self
 
     }
 
     func loadRemoteData() {
-        UserInfoDao().findAll { (entitys, isSuccess) in
-            self.dataSource = entitys
+        usercase.read { (models, isSuccess) in
             self.swipeableView.reloadData()
         }
     }
     
     @IBAction func sideMenuButtonEvent(_ sender: UIButton) {
         SideMenuViewController.show()
+    }
+    
+    @IBAction func tappedFilter(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func tappedCountDown(_ sender: UIButton) {
+        if let viewController = R.storyboard.wantTodo.instantiateInitialViewController() {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,13 +64,13 @@ class BrowseViewController: UIViewController {
 extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func numberOfRow() -> Int {
-        return dataSource?.count ?? 0
+        return usercase.data?.count ?? 0
     }
     
     func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView {
         
         if let cardView = R.nib.browseCardView.firstView(owner: nil) {
-            cardView.model = dataSource?[index]
+            cardView.model = usercase.data?[index]
             return cardView
         }
         return UIView()
@@ -91,8 +78,16 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
         if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-            userInfoViewController.userInfo = dataSource?[index]
+            //userInfoViewController.userInfo = dataSource?[index]
             navigationController?.pushViewController(userInfoViewController, animated: true)
+        }
+    }
+    
+    func swipeableView(_ swipeableView: SwipeableView, didSwipedAt direction: DraggableDirection) {
+        if direction == .left {
+            
+        } else if direction == .right {
+            
         }
     }
 

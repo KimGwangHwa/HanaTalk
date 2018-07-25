@@ -17,7 +17,7 @@ class SendTextCell: UITableViewCell {
         // Initialization code
     }
     
-    var message: Message? {
+    var message: MessageEntity? {
         didSet {
             messageLabel.text = message?.text
         }

@@ -56,20 +56,14 @@ class ParseHelper: NSObject {
     
     // MARK: - Push Notification
     
-    class func sendPush(with like: Like, completion: ((Bool) -> Void)? = nil) {
-        let channels = [like.liked?.objectId ?? "", like.likedBy?.objectId ?? ""]
-        let objectId = like.objectId!
-        let alert = "liked by  \(like.likedBy?.nickname ?? "" )"
-        sendPush(with: channels, objectId: objectId, alert: alert, type: .like, completion: completion)
-    }
-    class func sendPush(with message: Message, completion: ((Bool) -> Void)? = nil) {
+    class func sendPush(with message: MessageEntity, completion: ((Bool) -> Void)? = nil) {
         let channels = message.talkRoom?.channels
         let objectId = message.objectId!
         let alert = message.alert!
         sendPush(with: channels, objectId: objectId, alert: alert, type: .message, completion: completion)
     }
     
-    class private func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
+    class func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
         
         let push = PFPush()
         if let currentUserInfo = DataManager.shared.currentuserInfo {
@@ -90,29 +84,9 @@ class ParseHelper: NSObject {
     
     class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {
 //        PFPush.handle(userInfo)
-        let objectId = userInfo[kPushNotificationId] as! String
-        if let type = PushNotificationType(rawValue: userInfo[kPushNotificationType] as! Int) {
-            switch type {
-            case .like:
-                LikeDao.find(by: objectId) { (like, isSuccess) in
-                    if isSuccess == true {
-                        like?.pinInBackground()
-                        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: like, userInfo: userInfo)
-                    }
-                }
-                break
-            case .message:
-                MessageDao.find(by: objectId) { (message, isSuccess) in
-                    if isSuccess == true {
-                        message?.pinInBackground()
-                        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: message, userInfo: userInfo)
-                    }
-                }
-                break
-            }
-        }
+        DataManager.shared.pushReceiveData = userInfo
+        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: nil, userInfo: userInfo)
     }
-    
 }
 
 // MARK: - Send Cloud Code

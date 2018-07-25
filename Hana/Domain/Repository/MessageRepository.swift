@@ -10,6 +10,15 @@ import Foundation
 // MARK: - MessageRepository
 protocol MessageRepository: Repository {
     
-    func find(by talkRoom: TalkRoom, closure: MultipleCompletionClosure)
+    func find(by talkRoom: TalkRoomEntity, closure: MultipleCompletionClosure)
     
+}
+
+
+struct MessageRepositoryImpl: MessageRepository {
+    typealias Entity = MessageEntity
+    
+    func find(by talkRoom: TalkRoomEntity, closure: (([MessageRepositoryImpl.Entity]?, Bool) -> Void)?) {
+        
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 let BackgroundColor = UIColor.hex("f9f7f7")
 let MainColor = UIColor.hex("e84545")
-let SubColor = UIColor.hex("1a2c5b")
+let SubColor = UIColor.hex("283149")
 
 // MARK: - ClassName
 let UserInfoClassName = "UserInfo"

@@ -15,14 +15,12 @@ class TalkHistoryCell: UITableViewCell {
     @IBOutlet weak var talkDescriptionLabel: UILabel!
     @IBOutlet weak var talkBageLabel: UILabel!
     
-    var talkRoom: TalkRoom? {
+    var model: ChatModel! {
         didSet {
-            if let receiver = talkRoom?.members?.first {
-                iconImageView.sd_setImage(with: URL(string: receiver.profileUrl ?? ""), placeholderImage: nil)
-                talkNameLabel.text = receiver.nickname
-            }
-            talkDescriptionLabel.text = talkRoom?.lastMessage?.text
-            talkDateLabel.text = talkRoom?.lastMessage?.createdAt?.string(format: .date)
+            iconImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: nil)
+            talkNameLabel.text = model.name
+            talkDescriptionLabel.text = model.lastMessage
+            talkDateLabel.text = model.lastActiveDate
         }
     }
     

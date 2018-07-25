@@ -8,14 +8,14 @@
 import UIKit
 import Parse
 
-class TalkRoom: PFObject, PFSubclassing {
+class TalkRoomEntity: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return TalkRoomClassName
     }
 
     @NSManaged var unreadCount: Int
     @NSManaged var members: [UserInfoEntity]?
-    @NSManaged var lastMessage: Message?
+    @NSManaged var lastMessage: MessageEntity?
     @NSManaged var channels: [String]?
     @NSManaged var name: String?
     @NSManaged var type: Int

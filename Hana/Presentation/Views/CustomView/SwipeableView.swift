@@ -25,6 +25,7 @@ protocol SwipeableViewDataSource: class {
 protocol SwipeableViewDelegate: class {
     func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int)
+    func swipeableView(_ swipeableView: SwipeableView, didSwipedAt direction: DraggableDirection)
 }
 
 
@@ -223,6 +224,10 @@ class SwipeableView: UIView {
     }
     
     func moveToNext() {
+        
+        if delegate != nil {
+            delegate?.swipeableView(self, didSwipedAt: direction)
+        }
         
         let topView = subviews.last!;
         topView.removeGestureRecognizer(panGesture)

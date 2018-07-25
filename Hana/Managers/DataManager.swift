@@ -19,5 +19,16 @@ class DataManager: NSObject {
     }
     
     var currentuserInfo: UserInfoEntity?
+    // push ReceiveData
+    var pushReceiveData: [AnyHashable : Any]!
+    
+    var receiveObjectId : String? {
+        return pushReceiveData[kPushNotificationId] as? String
+    }
+    
+    var receiveType: PushNotificationType? {
+        return PushNotificationType(rawValue: pushReceiveData[kPushNotificationType] as! Int)
+    }
+    
     
 }

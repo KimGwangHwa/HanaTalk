@@ -13,3 +13,24 @@ protocol LikeRepository: Repository {
     func find(likedBy userInfo: UserInfoEntity, closure: CompletionClosure)
     
 }
+
+struct LikeRepositoryImpl: LikeRepository {
+    private let dao = LikeDao()
+    typealias Entity = LikeEntity
+    
+    func findAll(closure: (([Entity]?, Bool) -> Void)?) {
+        dao.findAll(closure: closure)
+    }
+    
+    func find(by objectId: String, closure: ((LikeEntity?, Bool) -> Void)?) {
+        dao.find(by: objectId, closure: closure)
+    }
+    
+    func find(likedBy userInfo: UserInfoEntity, closure: ((LikeEntity?, Bool) -> Void)?) {
+        dao.find(likedBy: userInfo, closure: closure)
+    }
+    
+    func save(by object: LikeEntity, closure: Repository.BoolClosure) {
+        dao.save(by: object, closure: closure)
+    }
+}

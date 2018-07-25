@@ -11,27 +11,27 @@ import Parse
 class TalkRoomDao: DAO {
     // MARK: - Find
     
-    class func findTalk(closure: @escaping ([TalkRoom]?, Bool)-> Void) {
+    class func findTalk(closure: @escaping ([TalkRoomEntity]?, Bool)-> Void) {
         if let currentUserInfo = DataManager.shared.currentuserInfo {
             
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
             query.whereKey("members", equalTo: currentUserInfo)
             query.findObjectsInBackground { (objects, error) in
-                closure(objects as? [TalkRoom], error == nil ? true: false)
+                closure(objects as? [TalkRoomEntity], error == nil ? true: false)
             }
 
         }
     }
     
-    class func findTalk(by receiver: UserInfoEntity, closure: @escaping (TalkRoom?, Bool)-> Void) {
+    class func findTalk(by receiver: UserInfoEntity, closure: @escaping (TalkRoomEntity?, Bool)-> Void) {
         if let currentUserInfo = DataManager.shared.currentuserInfo {
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
             query.whereKey("members", containsAllObjectsIn: [currentUserInfo, receiver])
             
             query.findObjectsInBackground { (objects, error) in
-                closure(objects?.first as? TalkRoom, error == nil ? true: false)
+                closure(objects?.first as? TalkRoomEntity, error == nil ? true: false)
             }
         }
     }
@@ -40,12 +40,12 @@ class TalkRoomDao: DAO {
     
     // MARK: - Save Update
     
-    class func saveTalkRoom(with reciver: UserInfoEntity?, lastMessage: Message?) {
+    class func saveTalkRoom(with reciver: UserInfoEntity?, lastMessage: MessageEntity?) {
         if let talkRoom = lastMessage?.talkRoom {
             talkRoom.lastMessage = lastMessage
             talkRoom.pinInBackground()
         } else {
-            let room = TalkRoom()
+            let room = TalkRoomEntity()
             if let receiverUserInfo = reciver,
                 let currentuserInfo = DataManager.shared.currentuserInfo {
                 room.members = [receiverUserInfo, currentuserInfo]
