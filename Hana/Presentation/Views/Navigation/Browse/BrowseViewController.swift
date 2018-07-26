@@ -23,7 +23,7 @@ class BrowseViewController: UIViewController {
     
     fileprivate func setupLayout() {
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
-        //navigationController?.navigationBar.barTintColor = MainColor
+        navigationBarColor = SubColor
         swipeableView.leftSwipingImage = R.image.icon_large_dislike()
         swipeableView.rightSwipingImage = R.image.icon_large_like()
         swipeableView.backgroundColor = BackgroundColor
@@ -78,7 +78,7 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
         if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-            //userInfoViewController.userInfo = dataSource?[index]
+            userInfoViewController.usercase.model = usercase.data![index]
             navigationController?.pushViewController(userInfoViewController, animated: true)
         }
     }

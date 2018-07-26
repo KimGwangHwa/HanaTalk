@@ -40,6 +40,7 @@ class ChatHistoryViewController: UIViewController {
     
     func setUpView() {
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        navigationBarColor = SubColor
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"

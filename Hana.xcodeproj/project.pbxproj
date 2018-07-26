@@ -557,6 +557,17 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		A1D05D8A21098D2500096EF4 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EFE81EDA20FAF3A100C7BF09 /* Setting */,
+				EFE81E8720FAF3A100C7BF09 /* ChatHistory */,
+				EFE81ECB20FAF3A100C7BF09 /* Browse */,
+				EFE81EA720FAF3A100C7BF09 /* UserInfo */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		EF2BE5B120FB0F56003E64EC /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,19 +631,16 @@
 		EFE81E7A20FAF3A100C7BF09 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFE81E9720FAF3A100C7BF09 /* SideMenu */,
+				A1D05D8A21098D2500096EF4 /* Navigation */,
 				EF7D2F33210487A2009B75DB /* Want */,
 				EFE81E7B20FAF3A100C7BF09 /* Matching */,
 				EFE81E8120FAF3A100C7BF09 /* Contact */,
 				EFE81E7E20FAF3A100C7BF09 /* Splash */,
 				EFE81E9120FAF3A100C7BF09 /* Hobby */,
-				EFE81E8720FAF3A100C7BF09 /* ChatHistory */,
-				EFE81E9720FAF3A100C7BF09 /* SideMenu */,
 				EFE81E9F20FAF3A100C7BF09 /* Chatting */,
-				EFE81EA720FAF3A100C7BF09 /* UserInfo */,
 				EFE81EBF20FAF3A100C7BF09 /* CustomView */,
-				EFE81ECB20FAF3A100C7BF09 /* Browse */,
 				EFE81ED420FAF3A100C7BF09 /* Find */,
-				EFE81EDA20FAF3A100C7BF09 /* Setting */,
 				EFE81EDD20FAF3A100C7BF09 /* Album */,
 				EFE81EE320FAF3A100C7BF09 /* Event */,
 				EFE81EF920FAF3A100C7BF09 /* Peek */,

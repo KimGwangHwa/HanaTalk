@@ -16,14 +16,12 @@ class ProfileCell: UITableViewCell {
     
     weak var delegate: ProfileCellDelegate?
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     
     var model: UserInfoModel! {
         didSet {
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
-            nickNameLabel.text = model.name
             bioLabel.text = model.bio
             infoLabel.text = model.subName
         }

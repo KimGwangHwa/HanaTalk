@@ -45,6 +45,7 @@ class UserInfoViewController: UIViewController {
             
             actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
+        navigationItem.title = usercase.model.name
         
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.more(), for: .normal)

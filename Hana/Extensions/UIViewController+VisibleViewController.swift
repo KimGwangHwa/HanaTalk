@@ -53,6 +53,16 @@ extension UIViewController {
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
     }
     
+    
+    var navigationBarColor: UIColor {
+        set{
+            navigationController?.navigationBar.barTintColor = newValue
+        }
+        get{
+            return navigationController?.navigationBar.barTintColor ?? UIColor.clear
+        }
+    }
+    
     var navigationBarBackgroundImageIsHidden: Bool {
         set{
             if newValue {

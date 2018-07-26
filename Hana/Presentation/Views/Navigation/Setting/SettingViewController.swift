@@ -13,7 +13,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
 
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
-        
+        navigationBarColor = SubColor
     }
 
     override func didReceiveMemoryWarning() {
