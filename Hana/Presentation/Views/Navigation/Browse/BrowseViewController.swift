@@ -12,7 +12,7 @@ private let reuseIdentifier = R.reuseIdentifier.browseCell.identifier
 class BrowseViewController: UIViewController {
 
     @IBOutlet weak var swipeableView: SwipeableView!
-    let usercase = BrowseUseCase()
+    let usecase = BrowseUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class BrowseViewController: UIViewController {
     }
 
     func loadRemoteData() {
-        usercase.read { (models, isSuccess) in
+        usecase.read { (models, isSuccess) in
             self.swipeableView.reloadData()
         }
     }
@@ -64,13 +64,13 @@ class BrowseViewController: UIViewController {
 extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func numberOfRow() -> Int {
-        return usercase.data?.count ?? 0
+        return usecase.data?.count ?? 0
     }
     
     func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView {
         
         if let cardView = R.nib.browseCardView.firstView(owner: nil) {
-            cardView.model = usercase.data?[index]
+            cardView.model = usecase.data?[index]
             return cardView
         }
         return UIView()
@@ -78,19 +78,21 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
         if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-            userInfoViewController.usercase.model = usercase.data![index]
+            userInfoViewController.usercase.model = usecase.data![index]
             navigationController?.pushViewController(userInfoViewController, animated: true)
         }
     }
     
-    func swipeableView(_ swipeableView: SwipeableView, didSwipedAt direction: DraggableDirection) {
-        if direction == .left {
-            
-        } else if direction == .right {
-            
+    func swipeableView(_ swipeableView: SwipeableView, didSwipedAt index: Int, direction: DraggableDirection) {
+        if let model = usecase.data?[index] {
+            if direction == .left {
+                usecase.disliked(model)
+            } else if direction == .right {
+                usecase.liked(model)
+            }
         }
     }
-
+    
 }
 
 

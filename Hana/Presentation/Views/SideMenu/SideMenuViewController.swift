@@ -40,11 +40,8 @@ class SideMenuViewController: UIViewController {
         headerView.backgroundColor = SubColor
         tableView.backgroundColor = BackgroundColor
         
-        if let navViewController = R.storyboard.userInfo().instantiateInitialViewController() as? UINavigationController,
-            let userInfoViewController = navViewController.viewControllers.first as? UserInfoViewController {
-            self.addChildViewController(navViewController)
-        }
-        
+        let navViewController = R.storyboard.userInfo().instantiateInitialViewController()
+        self.addChildViewController(navViewController!)
 
         let browseViewController = R.storyboard.browse().instantiateInitialViewController()
         normalDataSource.append("Browse")

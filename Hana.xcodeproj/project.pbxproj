@@ -72,14 +72,8 @@
 		EF7D2F32210478BC009B75DB /* DetailEventImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF7D2F30210478BC009B75DB /* DetailEventImageCell.xib */; };
 		EF7D2F35210487D3009B75DB /* WantTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F34210487D3009B75DB /* WantTodoViewController.swift */; };
 		EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */; };
-		EFE81F2620FAF3A100C7BF09 /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E7C20FAF3A100C7BF09 /* MatchingViewController.swift */; };
-		EFE81F2720FAF3A100C7BF09 /* Matching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E7D20FAF3A100C7BF09 /* Matching.storyboard */; };
 		EFE81F2820FAF3A100C7BF09 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E7F20FAF3A100C7BF09 /* SplashViewController.swift */; };
 		EFE81F2920FAF3A100C7BF09 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E8020FAF3A100C7BF09 /* Splash.storyboard */; };
-		EFE81F2A20FAF3A100C7BF09 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E8220FAF3A100C7BF09 /* Contact.storyboard */; };
-		EFE81F2B20FAF3A100C7BF09 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E8420FAF3A100C7BF09 /* ContactCell.swift */; };
-		EFE81F2C20FAF3A100C7BF09 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E8520FAF3A100C7BF09 /* ContactCell.xib */; };
-		EFE81F2D20FAF3A100C7BF09 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E8620FAF3A100C7BF09 /* ContactViewController.swift */; };
 		EFE81F2E20FAF3A100C7BF09 /* ChatHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E8820FAF3A100C7BF09 /* ChatHistoryViewController.swift */; };
 		EFE81F2F20FAF3A100C7BF09 /* TalkHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE81E8A20FAF3A100C7BF09 /* TalkHistoryCell.xib */; };
 		EFE81F3020FAF3A100C7BF09 /* MatchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81E8B20FAF3A100C7BF09 /* MatchingCell.swift */; };
@@ -269,14 +263,8 @@
 		EF7D2F30210478BC009B75DB /* DetailEventImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailEventImageCell.xib; sourceTree = "<group>"; };
 		EF7D2F34210487D3009B75DB /* WantTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantTodoViewController.swift; sourceTree = "<group>"; };
 		EF80175D20C38C4500112223 /* WaterFallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallViewLayout.swift; sourceTree = "<group>"; };
-		EFE81E7C20FAF3A100C7BF09 /* MatchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
-		EFE81E7D20FAF3A100C7BF09 /* Matching.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Matching.storyboard; sourceTree = "<group>"; };
 		EFE81E7F20FAF3A100C7BF09 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EFE81E8020FAF3A100C7BF09 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
-		EFE81E8220FAF3A100C7BF09 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
-		EFE81E8420FAF3A100C7BF09 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		EFE81E8520FAF3A100C7BF09 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
-		EFE81E8620FAF3A100C7BF09 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		EFE81E8820FAF3A100C7BF09 /* ChatHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryViewController.swift; sourceTree = "<group>"; };
 		EFE81E8A20FAF3A100C7BF09 /* TalkHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkHistoryCell.xib; sourceTree = "<group>"; };
 		EFE81E8B20FAF3A100C7BF09 /* MatchingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCell.swift; sourceTree = "<group>"; };
@@ -635,7 +623,6 @@
 				A1D05D8A21098D2500096EF4 /* Navigation */,
 				EF7D2F33210487A2009B75DB /* Want */,
 				EFE81E7B20FAF3A100C7BF09 /* Matching */,
-				EFE81E8120FAF3A100C7BF09 /* Contact */,
 				EFE81E7E20FAF3A100C7BF09 /* Splash */,
 				EFE81E9120FAF3A100C7BF09 /* Hobby */,
 				EFE81E9F20FAF3A100C7BF09 /* Chatting */,
@@ -653,8 +640,6 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EC720FAF3A100C7BF09 /* MatchingAlertView.swift */,
-				EFE81E7C20FAF3A100C7BF09 /* MatchingViewController.swift */,
-				EFE81E7D20FAF3A100C7BF09 /* Matching.storyboard */,
 			);
 			path = Matching;
 			sourceTree = "<group>";
@@ -666,25 +651,6 @@
 				EFE81E8020FAF3A100C7BF09 /* Splash.storyboard */,
 			);
 			path = Splash;
-			sourceTree = "<group>";
-		};
-		EFE81E8120FAF3A100C7BF09 /* Contact */ = {
-			isa = PBXGroup;
-			children = (
-				EFE81E8220FAF3A100C7BF09 /* Contact.storyboard */,
-				EFE81E8320FAF3A100C7BF09 /* Cell */,
-				EFE81E8620FAF3A100C7BF09 /* ContactViewController.swift */,
-			);
-			path = Contact;
-			sourceTree = "<group>";
-		};
-		EFE81E8320FAF3A100C7BF09 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				EFE81E8420FAF3A100C7BF09 /* ContactCell.swift */,
-				EFE81E8520FAF3A100C7BF09 /* ContactCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		EFE81E8720FAF3A100C7BF09 /* ChatHistory */ = {
@@ -1213,7 +1179,6 @@
 				EFE81F7D20FAF3A200C7BF09 /* CreateEventNameCell.xib in Resources */,
 				EFE81F3120FAF3A100C7BF09 /* MatchingCell.xib in Resources */,
 				EFE81F3420FAF3A100C7BF09 /* MatchingStatusCell.xib in Resources */,
-				EFE81F2720FAF3A100C7BF09 /* Matching.storyboard in Resources */,
 				EFE81F6620FAF3A200C7BF09 /* BrowseCell.xib in Resources */,
 				EFE81F7920FAF3A200C7BF09 /* EventCell.xib in Resources */,
 				EF7D2F262104778C009B75DB /* DetailEvent.storyboard in Resources */,
@@ -1232,7 +1197,6 @@
 				EFE81F9020FAF3A200C7BF09 /* LoginIconCell.xib in Resources */,
 				EFE81F9220FAF3A200C7BF09 /* MailLoginInputCell.xib in Resources */,
 				A10160A6210804B600BE3820 /* Localizable.strings in Resources */,
-				EFE81F2C20FAF3A100C7BF09 /* ContactCell.xib in Resources */,
 				EFE81F8D20FAF3A200C7BF09 /* LoginActionCell.xib in Resources */,
 				EFE81F5120FAF3A200C7BF09 /* ProfileCell.xib in Resources */,
 				EFE81F9120FAF3A200C7BF09 /* TelLoginInputCell.xib in Resources */,
@@ -1247,7 +1211,6 @@
 				EFE81F5220FAF3A200C7BF09 /* UserInfoAlbumCell.xib in Resources */,
 				34109E012076656300EC9CE0 /* Assets.xcassets in Resources */,
 				EFE81F6220FAF3A200C7BF09 /* BrowseCardView.xib in Resources */,
-				EFE81F2A20FAF3A100C7BF09 /* Contact.storyboard in Resources */,
 				EFE81F7720FAF3A200C7BF09 /* Event.storyboard in Resources */,
 				EFE81F7320FAF3A200C7BF09 /* FindLocation.storyboard in Resources */,
 				EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */,
@@ -1337,10 +1300,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE81F9F20FAF3A200C7BF09 /* DAO.swift in Sources */,
-				EFE81F2B20FAF3A100C7BF09 /* ContactCell.swift in Sources */,
 				34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */,
 				EFE81F7420FAF3A200C7BF09 /* FindLocationViewController.swift in Sources */,
-				EFE81F2D20FAF3A100C7BF09 /* ContactViewController.swift in Sources */,
 				A10160AA2108319800BE3820 /* LikeEntity.swift in Sources */,
 				EFE81F6F20FAF3A200C7BF09 /* AlbumCell.swift in Sources */,
 				EFE81F5F20FAF3A200C7BF09 /* SwipeableView.swift in Sources */,
@@ -1356,7 +1317,6 @@
 				A101609D21057B8500BE3820 /* CategoryRepository.swift in Sources */,
 				EFE81F6820FAF3A200C7BF09 /* FindCell.swift in Sources */,
 				EFE81F8A20FAF3A200C7BF09 /* LoginSelectionViewController.swift in Sources */,
-				EFE81F2620FAF3A100C7BF09 /* MatchingViewController.swift in Sources */,
 				EFE81F8320FAF3A200C7BF09 /* PeekViewController.swift in Sources */,
 				EFE81F8020FAF3A200C7BF09 /* CreateEventNameCell.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,

@@ -16,7 +16,6 @@ class UserInfoViewController: UIViewController {
     var displayMode: AlbumDisplayMode = .vertical
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var actionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +38,11 @@ class UserInfoViewController: UIViewController {
         // if is self
         if usercase.isSelf {
             let leftButton = UIButton(type: .custom)
-            leftButton.setImage(R.image.menu(), for: .normal)
+            leftButton.setImage(R.image.icon_menu(), for: .normal)
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
             
-            actionButton.setImage(R.image.icon_edit(), for: .normal)
+            //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
         navigationItem.title = usercase.model.name
         
@@ -61,13 +60,27 @@ class UserInfoViewController: UIViewController {
     
     @objc func tappedMore() {
         
+        let alert = UIAlertController()
+        
+        if usercase.isSelf {
+            alert.addAction(UIAlertAction(title: "edit profile", style: .default, handler: { (action) in
+                self.moveEdit()
+            }))
+        } else {
+            alert.addAction(UIAlertAction(title: "❤️", style: .default, handler: { (action) in
+                
+            }))
+            alert.addAction(UIAlertAction(title: "✖️", style: .default, handler: { (action) in
+                
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func tappedAction(_ sender: UIButton) {
-        if usercase.isSelf {
-            if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
-                self.present(viewController, animated: true, completion: nil)
-            }
+    func moveEdit() {
+        if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
+            self.present(viewController, animated: true, completion: nil)
         }
     }
     

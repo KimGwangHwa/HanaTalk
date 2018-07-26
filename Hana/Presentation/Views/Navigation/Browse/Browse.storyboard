@@ -54,7 +54,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47V-K0-kDY">
                                 <rect key="frame" x="16" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="menu"/>
+                                <state key="normal" image="icon_menu"/>
                                 <connections>
                                     <action selector="sideMenuButtonEvent:" destination="kfN-XE-DYM" eventType="touchUpInside" id="1sh-40-Jlo"/>
                                 </connections>
@@ -101,6 +101,6 @@
     <resources>
         <image name="icon_countdown" width="60" height="60"/>
         <image name="icon_filter" width="60" height="60"/>
-        <image name="menu" width="32" height="32"/>
+        <image name="icon_menu" width="32" height="32"/>
     </resources>
 </document>

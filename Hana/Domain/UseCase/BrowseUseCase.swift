@@ -24,4 +24,13 @@ class BrowseUseCase: NSObject {
         }
     }
     
+    func liked(_ model: UserInfoModel) {
+        //likeRepository.save
+        likeRepository.save(by: DataManager.shared.currentuserInfo?.objectId ?? "", likedAt: model.objectId, closure: nil)
+    }
+    
+    func disliked(_ model: UserInfoModel) {
+        likeRepository.save(by: DataManager.shared.currentuserInfo?.objectId ?? "", dislikedAt: model.objectId, closure: nil)
+    }
+    
 }
