@@ -45,14 +45,14 @@ class LikeDao: LikeRepository {
         }
     }
     
-    func save(by organizer: String, likedAt objectId: String, closure: BoolClosure) {
+    func save(by organizer: String, likedAt objectId: String, closure: CompletionClosure) {
         
         find(by: organizer) { (entity, isSuccess) in
             if let entity = entity {
                 entity.liked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(isSuccess)
+                        closure!(entity ,isSuccess)
                     }
                 })
             } else {
@@ -61,14 +61,14 @@ class LikeDao: LikeRepository {
                 entity.liked = [UserInfoEntity(withoutDataWithObjectId: objectId)]
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(isSuccess)
+                        closure!(entity ,isSuccess)
                     }
                 })
             }
         }
     }
     
-    func save(by organizer: String, dislikedAt objectId: String, closure: BoolClosure) {
+    func save(by organizer: String, dislikedAt objectId: String, closure: CompletionClosure) {
         
         find(by: organizer) { (entity, isSuccess) in
             
@@ -76,7 +76,7 @@ class LikeDao: LikeRepository {
                 entity.disliked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(isSuccess)
+                        closure!(entity ,isSuccess)
                     }
                 })
             } else {
@@ -85,13 +85,11 @@ class LikeDao: LikeRepository {
                 entity.disliked = [UserInfoEntity(withoutDataWithObjectId: objectId)]
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(isSuccess)
+                        closure!(entity ,isSuccess)
                     }
                 })
             }
-
         }
-
     }
     
     /*

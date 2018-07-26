@@ -10,9 +10,9 @@ import Foundation
 // MARK: - LikeRepository
 protocol LikeRepository: Repository {
 
-    func save(by organizer: String, likedAt objectId: String, closure: BoolClosure)
+    func save(by organizer: String, likedAt objectId: String, closure: CompletionClosure)
 
-    func save(by organizer: String, dislikedAt objectId: String, closure: BoolClosure)
+    func save(by organizer: String, dislikedAt objectId: String, closure: CompletionClosure)
 }
 
 struct LikeRepositoryImpl: LikeRepository {
@@ -27,11 +27,11 @@ struct LikeRepositoryImpl: LikeRepository {
         dao.find(by: objectId, closure: closure)
     }
 
-    func save(by organizer: String, likedAt objectId: String, closure: BoolClosure) {
+    func save(by organizer: String, likedAt objectId: String, closure: CompletionClosure) {
         dao.save(by: organizer, likedAt: objectId, closure: closure)
     }
     
-    func save(by organizer: String, dislikedAt objectId: String, closure: BoolClosure) {
+    func save(by organizer: String, dislikedAt objectId: String, closure: CompletionClosure) {
         dao.save(by: organizer, dislikedAt: objectId, closure: closure)
     }
     
