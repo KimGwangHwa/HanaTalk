@@ -8,13 +8,14 @@
 import UIKit
 
 class BrowseTranslator: Translator {
-    func translate(_ input: UserInfoEntity?) -> BrowseModel? {
+    func translate(_ input: UserInfoEntity?) -> UserInfoModel? {
         if let input = input {
-            let model = BrowseModel()
+            let model = UserInfoModel()
             model.age = input.birthday?.age ?? 0
             model.name = input.nickname
             model.imageUrls = input.albums ?? []
             model.profileUrl = input.profileUrl ?? ""
+            model.objectId = input.objectId
             return model
         }
         return nil

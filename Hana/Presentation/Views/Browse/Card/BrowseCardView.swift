@@ -15,7 +15,7 @@ class BrowseCardView: UIView {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var pageControl: HNPageControl!
     
-    var model: BrowseModel! {
+    var model: UserInfoModel! {
         didSet {
             infoLabel.text = "\(model.name ?? "")" + "，" + "\(String(model.age))"
             pageControl.numberOfPages = model.imageUrls.count

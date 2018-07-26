@@ -12,12 +12,8 @@ fileprivate let albumCellIdentifier = R.reuseIdentifier.userInfoAlbumCell.identi
 
 class UserInfoViewController: UIViewController {
 
-    var userInfo: UserInfoEntity!
+    let usercase = UserInfoUseCase()
     var displayMode: AlbumDisplayMode = .vertical
-    var isSelf: Bool {
-        return userInfo == DataManager.shared.currentuserInfo
-    }
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var actionButton: UIButton!
@@ -41,7 +37,7 @@ class UserInfoViewController: UIViewController {
     func setUpView() {
         
         // if is self
-        if isSelf {
+        if usercase.isSelf {
             let leftButton = UIButton(type: .custom)
             leftButton.setImage(R.image.menu(), for: .normal)
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
@@ -67,7 +63,7 @@ class UserInfoViewController: UIViewController {
     }
     
     @IBAction func tappedAction(_ sender: UIButton) {
-        if isSelf {
+        if usercase.isSelf {
             if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
                 self.present(viewController, animated: true, completion: nil)
             }
@@ -75,11 +71,8 @@ class UserInfoViewController: UIViewController {
     }
     
     func loadRomoteData() {
-        if let objectId = userInfo.objectId {
-            UserInfoDao().find(by: objectId) { (entity, isSuccess) in
-                self.userInfo = entity
-                self.tableView.reloadData()
-            }
+        usercase.read { (isSuccess) in
+            self.tableView.reloadData()
         }
     }
     
@@ -102,13 +95,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
-                cell.model = userInfo
+                cell.model = usercase.model
                 cell.delegate = self
                 return cell
             }
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: albumCellIdentifier, for: indexPath) as? UserInfoAlbumCell {
-                cell.reload(with: displayMode, dataSource: userInfo)
+                cell.reload(with: displayMode, dataSource: usercase.model)
                 return cell
             }
         default:
@@ -123,7 +116,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
-            return UserInfoAlbumCell.height(with: displayMode, dataSource: userInfo)
+            return UserInfoAlbumCell.height(with: displayMode, dataSource: usercase.model)
         }
         return UITableViewAutomaticDimension
     }
@@ -170,17 +163,8 @@ extension UserInfoViewController: ProfileCellDelegate {
 extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            UploadDao().upload(image: image) { (urlString, isSuccess) in
-                if let urlString = urlString {
-                    var albums = self.userInfo.albums ?? []
-                    albums.append(urlString)
-                    self.userInfo.albums = albums
-                    self.userInfo.saveInBackground(block: { (isSuccess, error) in
-                        self.userInfo?.pinInBackground()
-                        self.tableView.reloadData()
-                    })
-                }
+            usercase.upload(album: image) { (isSuccess) in
+                
             }
         }
         picker.dismiss(animated: true, completion: nil)

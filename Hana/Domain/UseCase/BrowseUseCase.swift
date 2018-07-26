@@ -8,12 +8,12 @@
 import UIKit
 
 class BrowseUseCase: NSObject {
-    var data: [BrowseModel]? = nil
+    var data: [UserInfoModel]? = nil
     private let userInfoRepository = UserInfoRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = BrowseTranslator()
     
-    func read(closure: @escaping ([BrowseModel]?, Bool)-> Void) {
+    func read(closure: @escaping ([UserInfoModel]?, Bool)-> Void) {
         userInfoRepository.findAll { (entitys, isSuccess) in
             if isSuccess {
                 self.data = self.translator.translate(entitys)

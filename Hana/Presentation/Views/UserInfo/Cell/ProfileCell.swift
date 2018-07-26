@@ -20,12 +20,12 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     
-    var model: UserInfoEntity! {
+    var model: UserInfoModel! {
         didSet {
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
-            nickNameLabel.text = model.nickname
+            nickNameLabel.text = model.name
             bioLabel.text = model.bio
-            infoLabel.text = "\(model.birthday?.string(format: .date) ?? "" ) | \(model.sex.name)"
+            infoLabel.text = model.subName
         }
     }
     

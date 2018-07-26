@@ -59,7 +59,7 @@ class UserInfoDao: UserInfoRepository {
     
     func find(by objectId: String, closure: CompletionClosure) {
         let query = PFQuery(className: UserInfoClassName)
-        query.whereKey(ObjectIdColumnName, notEqualTo: objectId)
+        query.whereKey(ObjectIdColumnName, equalTo: objectId)
         query.findObjectsInBackground { (objects, error) in
             if closure != nil {
                 closure!(objects?.first as? UserInfoEntity, error == nil ? true: false)

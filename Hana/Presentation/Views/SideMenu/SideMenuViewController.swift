@@ -42,7 +42,6 @@ class SideMenuViewController: UIViewController {
         
         if let navViewController = R.storyboard.userInfo().instantiateInitialViewController() as? UINavigationController,
             let userInfoViewController = navViewController.viewControllers.first as? UserInfoViewController {
-            userInfoViewController.userInfo = DataManager.shared.currentuserInfo
             self.addChildViewController(navViewController)
         }
         

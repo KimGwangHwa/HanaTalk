@@ -18,9 +18,9 @@ class UserInfoAlbumCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var albums: [String]!
     
-    static func height(with mode: AlbumDisplayMode, dataSource: UserInfoEntity) -> CGFloat {
+    static func height(with mode: AlbumDisplayMode, dataSource: UserInfoModel) -> CGFloat {
         let itemSize = UserInfoAlbumItemCell.size(with: mode)
-        if let albums = dataSource.albums {
+        if let albums = dataSource.imageUrls {
             switch mode {
             case .horizontal:
                 return (itemSize.height + UserInfoAlbumItemCell.spacing) * CGFloat(albums.count)
@@ -31,8 +31,8 @@ class UserInfoAlbumCell: UITableViewCell {
         return 0.0
     }
     
-    func reload(with mode: AlbumDisplayMode, dataSource: UserInfoEntity) {
-        albums = dataSource.albums ?? []
+    func reload(with mode: AlbumDisplayMode, dataSource: UserInfoModel) {
+        albums = dataSource.imageUrls ?? []
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = UserInfoAlbumItemCell.spacing
         layout.minimumInteritemSpacing = UserInfoAlbumItemCell.spacing
