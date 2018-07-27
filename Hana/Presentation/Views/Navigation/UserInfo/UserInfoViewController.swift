@@ -45,9 +45,9 @@ class UserInfoViewController: UIViewController {
             //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
         navigationItem.title = usercase.model.name
-        
+        navigationBarColor = SubColor
         let rightButton = UIButton(type: .custom)
-        rightButton.setImage(R.image.more(), for: .normal)
+        rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
         

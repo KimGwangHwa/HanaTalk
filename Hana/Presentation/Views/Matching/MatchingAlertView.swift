@@ -14,7 +14,7 @@ fileprivate let DismissAlpha: CGFloat = 0
 fileprivate let AlertSpacing: CGFloat = 10
 fileprivate let AlertHeight: CGFloat = 280
 
-fileprivate let MatchingTitle = R.string.localizable.mathing_Title()
+fileprivate let MatchingTitle = R.string.localizable.title_Mathing()
 fileprivate let buttonTitle = R.string.localizable.send_Message()
 
 class MatchingAlertView: UIView {

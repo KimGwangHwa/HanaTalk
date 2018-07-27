@@ -14,7 +14,7 @@ class SideHeaderCell: UITableViewCell {
     
     var userInfo: UserInfoEntity? {
         didSet {
-            profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.icon_profile())
+            profileImageView.sd_setImage(with: URL(string: userInfo?.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
             descriptionLabel.text = userInfo?.nickname
         }
     }

@@ -40,7 +40,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="JHe-Wa-sNY">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHe-Wa-sNY">
                                                 <rect key="frame" x="76" y="30" width="88" height="88"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="4dx-Ic-0yK"/>
@@ -140,7 +140,4 @@
             <point key="canvasLocation" x="-146.40000000000001" y="201.94902548725639"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_profile" width="120" height="120"/>
-    </resources>
 </document>

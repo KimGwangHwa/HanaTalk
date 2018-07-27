@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="qff-n2-KUh">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qff-n2-KUh">
                         <rect key="frame" x="116" y="20" width="88" height="88"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="88" id="V5y-cD-Cze"/>
@@ -58,7 +58,4 @@
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="icon_profile" width="120" height="120"/>
-    </resources>
 </document>

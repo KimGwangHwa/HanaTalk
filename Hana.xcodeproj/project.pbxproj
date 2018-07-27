@@ -55,6 +55,10 @@
 		A11AA99C20FDA50400084367 /* ImageUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */; };
 		A11AA99E20FDA51500084367 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99D20FDA51500084367 /* LikeRepository.swift */; };
 		A17B0A91210ABEBB0008D821 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A90210ABEBB0008D821 /* NotificationManager.swift */; };
+		A17B0A95210AF5D50008D821 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A94210AF5D50008D821 /* SignupViewController.swift */; };
+		A17B0A97210AF5E10008D821 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17B0A96210AF5E10008D821 /* Signin.storyboard */; };
+		A17B0A99210AF60D0008D821 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A98210AF60D0008D821 /* SigninViewController.swift */; };
+		A17B0A9B210AF61B0008D821 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17B0A9A210AF61B0008D821 /* Signup.storyboard */; };
 		A18DACB521004BFB00C7ECE8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DACB421004BFB00C7ECE8 /* UIColor.swift */; };
 		A18DACB72101BB2A00C7ECE8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DACB62101BB2A00C7ECE8 /* UIAlertController.swift */; };
 		A1D05D852108484000096EF4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D842108484000096EF4 /* ChatModel.swift */; };
@@ -247,6 +251,10 @@
 		A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadRepository.swift; sourceTree = "<group>"; };
 		A11AA99D20FDA51500084367 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
 		A17B0A90210ABEBB0008D821 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A17B0A94210AF5D50008D821 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A17B0A96210AF5E10008D821 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
+		A17B0A98210AF60D0008D821 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		A17B0A9A210AF61B0008D821 /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		A18DACB421004BFB00C7ECE8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A18DACB62101BB2A00C7ECE8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		A1D05D842108484000096EF4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -548,6 +556,24 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		A17B0A92210AF2930008D821 /* Sign in */ = {
+			isa = PBXGroup;
+			children = (
+				A17B0A96210AF5E10008D821 /* Signin.storyboard */,
+				A17B0A98210AF60D0008D821 /* SigninViewController.swift */,
+			);
+			path = "Sign in";
+			sourceTree = "<group>";
+		};
+		A17B0A93210AF2A70008D821 /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+				A17B0A94210AF5D50008D821 /* SignupViewController.swift */,
+				A17B0A9A210AF61B0008D821 /* Signup.storyboard */,
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
 		A1D05D8A21098D2500096EF4 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,8 +816,8 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EBA20FAF3A100C7BF09 /* EditUserInfoViewController.swift */,
-				EFE81EBB20FAF3A100C7BF09 /* Cell */,
 				EFE81EBE20FAF3A100C7BF09 /* EditUserInfo.storyboard */,
+				EFE81EBB20FAF3A100C7BF09 /* Cell */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -970,6 +996,8 @@
 		EFE81EFC20FAF3A100C7BF09 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A17B0A93210AF2A70008D821 /* Sign up */,
+				A17B0A92210AF2930008D821 /* Sign in */,
 				EFE81EFD20FAF3A100C7BF09 /* Tel */,
 				EFE81F0020FAF3A100C7BF09 /* VerificationCode */,
 				EFE81F0320FAF3A100C7BF09 /* Mail */,
@@ -1199,6 +1227,7 @@
 				EFE81F6B20FAF3A200C7BF09 /* Find.storyboard in Resources */,
 				EFE81F9020FAF3A200C7BF09 /* LoginIconCell.xib in Resources */,
 				EFE81F9220FAF3A200C7BF09 /* MailLoginInputCell.xib in Resources */,
+				A17B0A9B210AF61B0008D821 /* Signup.storyboard in Resources */,
 				A10160A6210804B600BE3820 /* Localizable.strings in Resources */,
 				EFE81F8D20FAF3A200C7BF09 /* LoginActionCell.xib in Resources */,
 				EFE81F5120FAF3A200C7BF09 /* ProfileCell.xib in Resources */,
@@ -1228,6 +1257,7 @@
 				EF7D2F32210478BC009B75DB /* DetailEventImageCell.xib in Resources */,
 				EFE81F4F20FAF3A200C7BF09 /* UserInfoAlbumItemCell.xib in Resources */,
 				EFE81F4020FAF3A200C7BF09 /* Chatting.storyboard in Resources */,
+				A17B0A97210AF5E10008D821 /* Signin.storyboard in Resources */,
 				EFE81F4520FAF3A200C7BF09 /* SendTextCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1315,6 +1345,7 @@
 				EFE81F9A20FAF3A200C7BF09 /* MessageEntity.swift in Sources */,
 				EFE81F9B20FAF3A200C7BF09 /* TalkRoomDao.swift in Sources */,
 				EFE81F5920FAF3A200C7BF09 /* HanaInternalTextView.swift in Sources */,
+				A17B0A95210AF5D50008D821 /* SignupViewController.swift in Sources */,
 				EFE81F8E20FAF3A200C7BF09 /* LoginActionCell.swift in Sources */,
 				EF7D2F29210477C6009B75DB /* DetailEventTitleCell.swift in Sources */,
 				A101609D21057B8500BE3820 /* CategoryRepository.swift in Sources */,
@@ -1329,6 +1360,7 @@
 				EFE81F5A20FAF3A200C7BF09 /* PickerDialog.swift in Sources */,
 				EFE81F7E20FAF3A200C7BF09 /* CreateEventNormalCell.swift in Sources */,
 				EFE81F6320FAF3A200C7BF09 /* BrowseCardView.swift in Sources */,
+				A17B0A99210AF60D0008D821 /* SigninViewController.swift in Sources */,
 				A10160A1210599CF00BE3820 /* CategoryModel.swift in Sources */,
 				EFE81F9520FAF3A200C7BF09 /* LoginSelectionCell.swift in Sources */,
 				EFE81F2820FAF3A100C7BF09 /* SplashViewController.swift in Sources */,

@@ -9,6 +9,32 @@
 
 "Sent to" = "Sent to %@";
 
-"Mathing_Title" = "It's a Match";
-
 "Send_Message" = "Send Message";
+
+"Nickname" = "Nick Name";
+
+"BirthDay" = "BirthDay";
+
+"Sex" = "Sex";
+
+"Bio" = "Bio";
+
+"Email" = "E-mail";
+
+"Phone_Number" = "Phone Number";
+
+"Change_Profile" = "Change Profile";
+
+"Cancel" = "Cancel";
+
+"Done" = "Done";
+
+"Title_Browse" = "Browse";
+
+"Title_Message" = "Message";
+
+"Title_Setting" = "Setting";
+
+"Title_Mathing" = "It's a Match";
+
+

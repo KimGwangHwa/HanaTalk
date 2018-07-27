@@ -12,20 +12,29 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // getLocalUserInfo
-        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
-            DataManager.shared.currentuserInfo = userInfo
-            
-            if let userInfo = userInfo {
-                if !userInfo.configured {
-                    self.moveToEditUserInfo()
-                } else {
-                    self.moveToSideMenu()
-                }
-            } else {
-                self.moveToLogin()
-            }
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
+            let loginSelectionViewController = R.storyboard.signin.instantiateInitialViewController() {
+            appdelegate.window?.rootViewController = loginSelectionViewController
+            appdelegate.window?.makeKeyAndVisible()
         }
+        
+        
+        return
+        
+        // getLocalUserInfo
+//        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
+//            DataManager.shared.currentuserInfo = userInfo
+//            
+//            if let userInfo = userInfo {
+//                if !userInfo.configured {
+//                    self.moveToEditUserInfo()
+//                } else {
+//                    self.moveToSideMenu()
+//                }
+//            } else {
+//                self.moveToLogin()
+//            }
+//        }
     }
     
     func moveToEditUserInfo() {
