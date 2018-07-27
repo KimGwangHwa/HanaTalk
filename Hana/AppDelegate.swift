@@ -14,44 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        if let notificationPayload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary {
-//        }
-        ParseHelper.installations(with: application)
 
-//        let query = PFQuery(className:"UserInfo")
-//        query.whereKey("nickName", equalTo:"nickName")
-//        query.fromLocalDatastore()
-//        query.findObjectsInBackground { (objects, error) in
-//
-//        }
-//        return true
-//        let a = PFObject(withoutDataWithClassName: "_User", objectId: "RRcC6BJkX1")
-//
-//        let obj = PFObject(className: "UserInfo")
-//
-//        obj["user"] = a
-//        obj["nickName"] = "nickName"
-//
-//        obj.saveInBackground { (issuccess, error) in
-//
-//        }
-//        do {
-//            try obj.pin()
-//        } catch  {
-//
-//        }
-//
-//
-//                let query = PFQuery(className:"UserInfo")
-//                query.whereKey("nickName", equalTo:"nickName")
-//                query.fromLocalDatastore()
-//                query.findObjectsInBackground { (objects, error) in
-//
-//                }
-//
-//        return true
-//
-        
+        ParseHelper.installations(with: application)
+        NotificationManager.shared.requestAuthorization()
         return true
     }
 
@@ -79,9 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         ParseHelper.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: deviceToken)
     }
-
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        ParseHelper.didReceiveRemoteNotification(userInfo)
-    }
+    
 }
 

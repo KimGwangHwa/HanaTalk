@@ -53,40 +53,6 @@ class ParseHelper: NSObject {
         installation?.setDeviceTokenFrom(deviceToken)
         installation?.saveInBackground()
     }
-    
-    // MARK: - Push Notification
-    
-    class func sendPush(with message: MessageEntity, completion: ((Bool) -> Void)? = nil) {
-        let channels = message.talkRoom?.channels
-        let objectId = message.objectId!
-        let alert = message.alert!
-        sendPush(with: channels, objectId: objectId, alert: alert, type: .message, completion: completion)
-    }
-    
-    class func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
-        
-        let push = PFPush()
-        if let currentUserInfo = DataManager.shared.currentuserInfo {
-            push.setChannels(channels?.filter({$0 != currentUserInfo.objectId!}))
-        }
-        push.setData([
-            kPushNotificationAlert : alert,
-            kPushNotificationBadge : 1,
-            kPushNotificationId : objectId,
-            kPushNotificationType : type.rawValue
-            ])
-        push.sendInBackground { (isSuccess, error) in
-            if let guardCompletion = completion {
-                guardCompletion(error == nil ? true : false)
-            }
-        }
-    }
-    
-    class func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) {
-//        PFPush.handle(userInfo)
-        DataManager.shared.pushReceiveData = userInfo
-        NotificationCenter.default.post(name: .PushNotificationDidRecive, object: nil, userInfo: userInfo)
-    }
 }
 
 // MARK: - Send Cloud Code

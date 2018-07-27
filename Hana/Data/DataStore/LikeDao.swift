@@ -12,7 +12,7 @@ class LikeDao: LikeRepository {
     typealias Entity = LikeEntity
     
     func findAll(closure: (([Entity]?, Bool) -> Void)?) {
-        let query = PFQuery(className: EventClassName)
+        let query = PFQuery(className: LikedColumnName)
         query.includeKey("liked")
         query.includeKey("disliked")
         query.includeKey("organizer")
@@ -25,7 +25,7 @@ class LikeDao: LikeRepository {
     }
     
     func find(by objectId: String, closure: ((Entity?, Bool) -> Void)?) {
-        let query = PFQuery(className: EventClassName)
+        let query = PFQuery(className: LikedColumnName)
         query.includeKey("liked")
         query.includeKey("disliked")
         query.includeKey("organizer")
@@ -92,43 +92,31 @@ class LikeDao: LikeRepository {
         }
     }
     
-    /*
-     class func find(closure: @escaping ([Like]?, Bool) -> Void) {
-     guard let currentUserInfo = DataManager.shared.currentuserInfo else {
-     closure(nil, false)
-     return
-     }
-     let predicate = NSPredicate(format: "(liked = %@ || likedBy = %@) && likedBy != %@ ", argumentArray: [currentUserInfo, currentUserInfo, currentUserInfo])
-     let query = PFQuery(className: LikeClassName, predicate: predicate)
-     query.order(byAscending: "matched")
-     query.order(byAscending: "createdAt")
-     query.findObjectsInBackground { (objects, error) in
-     closure(objects as? [Like], error == nil ? true: false)
-     }
-     
-     }
-     
-     
-     class func find(by objectId: String, closure: @escaping (Like?, Bool) -> Void) {
-     
-     remoteFind(with: LikeClassName, parameters: [ObjectIdColumnName : objectId]) { (objects, isSuccess) in
-     closure(objects?.first as? Like, true)
-     }
-     }
-     
-     class func findLiked(by userInfo: UserInfoEntity, closure: @escaping (Like?, Bool) -> Void) {
-     
-     
-     guard let currentUserInfo = DataManager.shared.currentuserInfo else {
-     closure(nil, false)
-     return
-     }
-     remoteFind(with: LikeClassName, parameters: [likedByColumnName : userInfo, LikedColumnName : currentUserInfo]) { (objects, isSuccess) in
-     closure(objects?.first as? Like, true)
-     }
-     }
-     
-     */
-    
+    func matched(of organizer: String, reciver: String, closure: ((Bool, Bool) -> Void)?) {
+        let query = PFQuery(className: LikeClassName)
+        query.includeKey("liked")
+        query.includeKey("disliked")
+        query.includeKey("organizer")
+        query.whereKey("organizer", equalTo: LikeEntity(withoutDataWithObjectId: organizer))
+        query.whereKey("organizer", equalTo: LikeEntity(withoutDataWithObjectId: reciver))
 
+        query.findObjectsInBackground { (objects, error) in
+            if closure != nil {
+                
+                if let likeEntitys = objects as? [LikeEntity],
+                    likeEntitys.count == 2 {
+                    
+                    let firstEntity = likeEntitys.first
+                    let lastEntity = likeEntitys.last
+                    let firstLiked = firstEntity?.liked?.contains((lastEntity?.organizer)!) ?? false
+                    let lastLiked = lastEntity?.liked?.contains((firstEntity?.organizer)!) ?? false
+                    
+                    if firstLiked && lastLiked {
+                        closure!(true, error == nil ? true:false)
+                    }
+                }
+            }
+        }
+
+    }
 }

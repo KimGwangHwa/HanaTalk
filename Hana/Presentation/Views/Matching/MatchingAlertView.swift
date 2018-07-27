@@ -12,11 +12,16 @@ fileprivate let ScreenHeight = UIScreen.main.bounds.height
 fileprivate let ShowAlpha: CGFloat = 0.5
 fileprivate let DismissAlpha: CGFloat = 0
 fileprivate let AlertSpacing: CGFloat = 10
-fileprivate let AlertHeight: CGFloat = 300
+fileprivate let AlertHeight: CGFloat = 280
+
+fileprivate let MatchingTitle = R.string.localizable.mathing_Title()
+fileprivate let buttonTitle = R.string.localizable.send_Message()
 
 class MatchingAlertView: UIView {
 
-    var actionCompletion: (() -> Void)?
+    var actionCompletion: (() -> Void)!
+    var leftImageUrl: String?
+    var rightImageUrl: String?
 
     private var overlayView = UIView()
     private var alertView = UIView()
@@ -27,10 +32,9 @@ class MatchingAlertView: UIView {
         self.addSubview(overlayView)
         self.addSubview(alertView)
         
-        
         alertView.frame = CGRect(x: AlertSpacing, y: ScreenHeight, width: ScreenWidth - (AlertSpacing*2), height: AlertHeight)
         alertView.cornerRadius = 10
-
+        alertView.backgroundColor = BackgroundColor
 
         overlayView.frame = self.bounds
         overlayView.alpha = DismissAlpha
@@ -42,67 +46,49 @@ class MatchingAlertView: UIView {
         let spaceHeight: CGFloat = 10
 
         var offsetY: CGFloat = spaceHeight
-        let titleHeight: CGFloat = 20
-        let titleFontSize: CGFloat = 16
+        let titleHeight: CGFloat = 40
+        let titleFontSize: CGFloat = 20
 
         let titleLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: titleHeight))
-//        if object.matched {
-//            titleLabel.text = "MATHCED"
-//        } else {
-//            titleLabel.text = "LIKED BY"
-//        }
-        titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
+        titleLabel.text = MatchingTitle
+        titleLabel.font = UIFont.boldSystemFont(ofSize: titleFontSize)
         titleLabel.textAlignment = .center
         alertView.addSubview(titleLabel)
         
         offsetY += (spaceHeight + titleHeight)
-        
-        let iconWidth: CGFloat = 100
-        let iconHeight: CGFloat = iconWidth
 
-        let iconImageView = UIImageView(frame: CGRect(x: (alertView.width - iconWidth)/2, y: offsetY, width: iconWidth, height: iconHeight))
-        iconImageView.clipsToBounds = true
-        iconImageView.layer.cornerRadius = iconWidth/2
-        //iconImageView.sd_setImage(with: URL(string: object.likedBy?.profileUrl ?? ""), placeholderImage: nil)
-        alertView.addSubview(iconImageView)
+        let imageSize = CGSize(width: 120, height: 120)
+        let imageSpacing: CGFloat = 30
+        
+        let leftImageView = UIImageView(frame: CGRect(x: imageSpacing, y: offsetY, width: imageSize.width, height: imageSize.height))
+        leftImageView.cornerRadius = imageSize.width / 2
+        leftImageView.sd_setImage(with: URL(string: leftImageUrl ?? ""), placeholderImage: nil)
+        leftImageView.contentMode = .scaleAspectFill
+        alertView.addSubview(leftImageView)
        
-        offsetY += (spaceHeight + iconHeight)
+        let rightImageView = UIImageView(frame: CGRect(x: alertView.width - imageSpacing - imageSize.width, y: offsetY, width: imageSize.width, height: imageSize.height))
+        rightImageView.cornerRadius = imageSize.width / 2
+        rightImageView.sd_setImage(with: URL(string: rightImageUrl ?? ""), placeholderImage: nil)
+        rightImageView.contentMode = .scaleAspectFill
+        alertView.addSubview(rightImageView)
+        
+        offsetY += (spaceHeight + imageSize.height)
+        
+        let eventButtonHeight: CGFloat = 50
+        let eventButtonWidth: CGFloat = alertView.width - spaceHeight * 2
+        offsetY = alertView.height - eventButtonHeight - spaceHeight
 
-        let descriptionHeight: CGFloat = 20
-        let descriptionFontSize: CGFloat = 16
-
-        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: offsetY, width: alertView.width, height: descriptionHeight))
-        descriptionLabel.textAlignment = .center
-        //descriptionLabel.text = object.likedBy?.nickname
-        descriptionLabel.font = UIFont.boldSystemFont(ofSize: descriptionFontSize)
-        alertView.addSubview(descriptionLabel)
-        
-        offsetY += (spaceHeight + descriptionHeight)
-        
-        let eventButtonWidth: CGFloat = 100
-        let eventButtonHeight: CGFloat = 40
-        let cornerRadius: CGFloat = 5.0
-        let eventButton = UIButton(type: .custom)
-        eventButton.frame = CGRect(x: (alertView.width-eventButtonWidth)/2, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
-        
-//        if object.matched {
-//            eventButton.setTitle("Message", for: .normal)
-//        } else {
-//            eventButton.setTitle("UserInfo", for: .normal)
-//        }
-        
-        eventButton.setTitleColor(UIColor.white, for: .normal)
-        let backgroundImage = UIImage.colorImage(color: UIColor.red, size: eventButton.size)
-        eventButton.setBackgroundImage(backgroundImage, for: .normal)
-        eventButton.clipsToBounds = true
-        eventButton.layer.cornerRadius = cornerRadius
-        eventButton.addTarget(self, action: #selector(tappedEventButton), for: .touchUpInside)
-        alertView.addSubview(eventButton)
+        let okButton = UIButton(type: .custom)
+        okButton.frame = CGRect(x: spaceHeight, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
+        okButton.setTitle(buttonTitle, for: .normal)
+        okButton.setTitleColor(UIColor.white, for: .normal)
+        let backgroundImage = UIImage.colorImage(color: MainColor, size: okButton.size)
+        okButton.setBackgroundImage(backgroundImage, for: .normal)
+        okButton.cornerRadius = eventButtonHeight/2
+        okButton.addTarget(self, action: #selector(tappedEventButton), for: .touchUpInside)
+        alertView.addSubview(okButton)
         
         offsetY += (spaceHeight + eventButtonHeight)
-
-//        alertView.frame = CGRect(x: AlertSpacing, y: ScreenHeight, width: ScreenWidth - (AlertSpacing*2), height: offsetY)
-
     }
     
     @objc func tapped(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -135,14 +121,18 @@ class MatchingAlertView: UIView {
     }
     
     @objc func tappedEventButton() {
-        //actionCompletion!(object)
+        actionCompletion()
     }
     
-    class func show(in viewController: UIViewController, actionCompletion: @escaping () -> Void) {
+    class func show(in viewController: UIViewController,
+                    leftImageUrl: String?,
+                    rightImageUrl: String?,
+                    actionCompletion: @escaping () -> Void) {
         
         let view = MatchingAlertView()
         view.actionCompletion = actionCompletion
-        //view.object = object
+        view.leftImageUrl = leftImageUrl
+        view.rightImageUrl = rightImageUrl
         view.show(in: viewController)
     }
 

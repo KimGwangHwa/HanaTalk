@@ -84,12 +84,12 @@ class ChattingViewController: UIViewController {
         TalkRoomEntity.saveAll(inBackground: [message,talkRoom!]) { (isSuccess, error) in
             message.pinInBackground()
             self.talkRoom?.pinInBackground()
-            ParseHelper.sendPush(with: message) { (isSuccess) in
-                self.dataSource.append(message)
-                self.inputTextView.textView.text = nil
-                self.inputTextView.textView.resignFirstResponder()
-                self.tableView.reloadData()
-            }
+//            ParseHelper.sendPush(with: message) { (isSuccess) in
+//                self.dataSource.append(message)
+//                self.inputTextView.textView.text = nil
+//                self.inputTextView.textView.resignFirstResponder()
+//                self.tableView.reloadData()
+//            }
         }
     }
     

@@ -54,6 +54,7 @@
 		A11AA99A20FDA4EC00084367 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99920FDA4EC00084367 /* MessageRepository.swift */; };
 		A11AA99C20FDA50400084367 /* ImageUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */; };
 		A11AA99E20FDA51500084367 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99D20FDA51500084367 /* LikeRepository.swift */; };
+		A17B0A91210ABEBB0008D821 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A90210ABEBB0008D821 /* NotificationManager.swift */; };
 		A18DACB521004BFB00C7ECE8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DACB421004BFB00C7ECE8 /* UIColor.swift */; };
 		A18DACB72101BB2A00C7ECE8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DACB62101BB2A00C7ECE8 /* UIAlertController.swift */; };
 		A1D05D852108484000096EF4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D842108484000096EF4 /* ChatModel.swift */; };
@@ -245,6 +246,7 @@
 		A11AA99920FDA4EC00084367 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
 		A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadRepository.swift; sourceTree = "<group>"; };
 		A11AA99D20FDA51500084367 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
+		A17B0A90210ABEBB0008D821 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A18DACB421004BFB00C7ECE8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A18DACB62101BB2A00C7ECE8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		A1D05D842108484000096EF4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				34109D702076656200EC9CE0 /* DataManager.swift */,
+				A17B0A90210ABEBB0008D821 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 				A11AA99620FDA2E000084367 /* EventRepository.swift in Sources */,
 				EFE81F4320FAF3A200C7BF09 /* ReceiveTextCell.swift in Sources */,
 				A11AA99120FD9E9A00084367 /* EventUseCase.swift in Sources */,
+				A17B0A91210ABEBB0008D821 /* NotificationManager.swift in Sources */,
 				34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */,
 				EFE81F7820FAF3A200C7BF09 /* EventCell.swift in Sources */,
 				EFE81F5D20FAF3A200C7BF09 /* DatePickerDialog.swift in Sources */,

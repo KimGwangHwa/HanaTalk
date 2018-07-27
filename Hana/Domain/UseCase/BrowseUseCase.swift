@@ -30,7 +30,10 @@ class BrowseUseCase: NSObject {
         
         likeRepository.save(by: organizer, likedAt: likedObjectId) { (entity, isSuccess) in
             // PUSH
-            ParseHelper.sendPush(with: [likedObjectId], objectId: entity?.objectId ?? "", alert: "", type: .like)
+            self.likeRepository.matched(of: organizer, reciver: likedObjectId, closure: { (isMatched, isSuccess) in
+                
+            })
+            NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: entity?.objectId ?? "", alert: "", type: .like)
         }
 
     }

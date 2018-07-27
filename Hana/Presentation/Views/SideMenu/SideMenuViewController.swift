@@ -72,6 +72,7 @@ class SideMenuViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.sideHeaderCell(), forCellReuseIdentifier: sideHeaderIdentifier)
         tableView.register(R.nib.sideNormalCell(), forCellReuseIdentifier: normalIdentifier)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -164,7 +165,8 @@ extension SideMenuViewController {
     }
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
-//
+        
+        //
 //        if let message = notification?.object as? Message {
 //
 //        }
