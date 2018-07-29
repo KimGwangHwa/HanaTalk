@@ -9,6 +9,8 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
+    private let usercase = LoginUseCase()
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var signupButton: UIButton!
     

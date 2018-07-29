@@ -65,6 +65,8 @@
 		A1D05D8721084A0200096EF4 /* ChatTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D8621084A0200096EF4 /* ChatTranslator.swift */; };
 		A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
+		EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70B8210DD36100B154DC /* LoginModel.swift */; };
+		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
@@ -261,6 +263,8 @@
 		A1D05D8621084A0200096EF4 /* ChatTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTranslator.swift; sourceTree = "<group>"; };
 		A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoUseCase.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
+		EF0C70B8210DD36100B154DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 				A10160AB21083B7F00BE3820 /* BrowseUseCase.swift */,
 				A10160B12108404600BE3820 /* ChatUseCase.swift */,
 				A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */,
+				EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1116,6 +1121,7 @@
 				A10160A0210599CF00BE3820 /* CategoryModel.swift */,
 				A10160AD21083C7E00BE3820 /* UserInfoModel.swift */,
 				A1D05D842108484000096EF4 /* ChatModel.swift */,
+				EF0C70B8210DD36100B154DC /* LoginModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1395,6 +1401,7 @@
 				EFE81F6C20FAF3A200C7BF09 /* SettingViewController.swift in Sources */,
 				EFE81F8C20FAF3A200C7BF09 /* LoginIconCell.swift in Sources */,
 				EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */,
+				EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */,
 				EF7D2F31210478BC009B75DB /* DetailEventImageCell.swift in Sources */,
 				EF80175E20C38C4500112223 /* WaterFallViewLayout.swift in Sources */,
 				A101609F2105998B00BE3820 /* CategoryTranslator.swift in Sources */,
@@ -1417,6 +1424,7 @@
 				A18DACB521004BFB00C7ECE8 /* UIColor.swift in Sources */,
 				EFE81F6520FAF3A200C7BF09 /* BrowseCell.swift in Sources */,
 				EFE81F4C20FAF3A200C7BF09 /* UserInfoViewController.swift in Sources */,
+				EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */,
 				EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */,
 				EFE81F6020FAF3A200C7BF09 /* HanaTextView.swift in Sources */,
 				EFE81F3A20FAF3A200C7BF09 /* SideMenuViewController.swift in Sources */,

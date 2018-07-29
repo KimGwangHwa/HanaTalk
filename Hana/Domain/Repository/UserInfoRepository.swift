@@ -13,6 +13,12 @@ protocol UserInfoRepository: Repository {
     func findCurrent(closure: CompletionClosure)
     
     func findCurrentFromLocal(closure: CompletionClosure)
+    
+    func signin(username: String, password: String, closure: BoolClosure)
+    
+    func signup(username: String, password: String, closure: BoolClosure)
+    
+    func existence(username: String, closure: BoolClosure) 
 }
 
 struct UserInfoRepositoryImpl: UserInfoRepository {
@@ -38,6 +44,18 @@ struct UserInfoRepositoryImpl: UserInfoRepository {
     
     func save(by object: UserInfoEntity, closure: BoolClosure) {
         dao.save(by: object, closure: closure)
+    }
+    
+    func signin(username: String, password: String, closure: BoolClosure) {
+        dao.signin(username: username, password: password, closure: closure)
+    }
+    
+    func signup(username: String, password: String, closure: BoolClosure) {
+        dao.signup(username: username, password: password, closure: closure)
+    }
+    
+    func existence(username: String, closure: BoolClosure) {
+        dao.existence(username: username, closure: closure)
     }
 }
 

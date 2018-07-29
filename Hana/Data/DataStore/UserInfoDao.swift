@@ -9,6 +9,43 @@ import UIKit
 import Parse
 
 class UserInfoDao: UserInfoRepository {
+
+    func signin(username: String, password: String, closure: BoolClosure) {
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+            if error == nil {
+                if closure != nil {
+                    closure!(true)
+                }
+            }
+        }
+    }
+    
+    func existence(username: String, closure: BoolClosure) {
+        let query = PFQuery(className: UserClassName)
+        query.whereKey("username", notEqualTo: username)
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                if closure != nil {
+                    closure!(true)
+                }
+            }
+        }
+    }
+    
+    func signup(username: String, password: String, closure: BoolClosure) {
+        
+        let user = PFUser()
+        user.username = username
+        user.password = password
+        
+        user.signUpInBackground { (isSuccess, error) in
+            if error == nil {
+                if closure != nil {
+                    closure!(true)
+                }
+            }
+        }
+    }
     
     typealias Entity = UserInfoEntity
 
