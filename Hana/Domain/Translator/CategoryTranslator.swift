@@ -22,7 +22,7 @@ class CategoryTranslator: Translator {
         }
         return nil
     }
-    
+    // abolish
     func translateUserInfo(_ input: CategoryModel?) -> UserInfoEntity? {
         if let input = input {
             let currentUserInfo = UserInfoDao.current()!

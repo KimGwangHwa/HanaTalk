@@ -31,6 +31,7 @@ class EventDao: Repository {
     }
     
     func save(by object: Entity, closure: Repository.BoolClosure) {
+        object.organizer = UserInfoDao.current()!
         object.saveInBackground { (isSuccess, error) in
             closure!(isSuccess)
         }
