@@ -10,6 +10,8 @@ import Foundation
 // MARK: - UserInfoRepository
 protocol UserInfoRepository: Repository {
     
+    static func current() -> UserInfoEntity?
+    
     func findCurrent(closure: CompletionClosure)
     
     func findCurrentFromLocal(closure: CompletionClosure)
@@ -26,6 +28,10 @@ struct UserInfoRepositoryImpl: UserInfoRepository {
     private let dao = UserInfoDao()
     typealias Entity = UserInfoEntity
 
+    static func current() -> UserInfoEntity? {
+        return UserInfoDao.current()
+    }
+    
     func findCurrent(closure: CompletionClosure) {
         dao.findCurrent(closure: closure)
     }

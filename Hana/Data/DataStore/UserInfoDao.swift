@@ -10,6 +10,21 @@ import Parse
 
 class UserInfoDao: UserInfoRepository {
 
+    static func current() -> UserInfoEntity? {
+        if let guardUser = PFUser.current() {
+            let query = PFQuery(className: UserInfoClassName)
+            query.includeKey("todayWantCategory")
+            query.whereKey(UserColumnName, equalTo: guardUser)
+            query.fromLocalDatastore()
+            do {
+                return try query.findObjects().first as? UserInfoEntity
+            } catch {
+                return nil
+            }
+        }
+        return nil
+    }
+    
     func signin(username: String, password: String, closure: BoolClosure) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if error == nil {
