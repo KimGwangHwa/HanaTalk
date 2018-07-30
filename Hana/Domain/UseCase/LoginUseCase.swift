@@ -14,7 +14,7 @@ class LoginUseCase: NSObject {
     let disposeBag = DisposeBag()
     private let infoRepository = UserInfoRepositoryImpl()
     
-    func valueChanged(closure: @escaping (Bool)-> Void) {
+    func signinValueChanged(closure: @escaping (Bool)-> Void) {
         model.username.asObservable().subscribe { (username) in
             let isEmpty = self.model.username.value.isEmpty ||  self.model.password.value.isEmpty
             closure(isEmpty)
@@ -24,6 +24,23 @@ class LoginUseCase: NSObject {
             let isEmpty = self.model.username.value.isEmpty ||  self.model.password.value.isEmpty
             closure(isEmpty)
             }.disposed(by: disposeBag)
+    }
+    
+    func signupValueChanged(closure: @escaping (Bool)-> Void) {
+        model.username.asObservable().subscribe { (_) in
+            let isEmpty = self.model.username.value.isEmpty ||  self.model.password.value.isEmpty || self.model.confirmPassword.value.isEmpty
+            closure(isEmpty)
+            }.disposed(by: disposeBag)
+        
+        model.password.asObservable().subscribe { (_) in
+            let isEmpty = self.model.username.value.isEmpty ||  self.model.password.value.isEmpty || self.model.confirmPassword.value.isEmpty
+            closure(isEmpty)
+            }.disposed(by: disposeBag)
+        
+        model.confirmPassword.asObservable().subscribe { (_) in
+            let isEmpty = self.model.username.value.isEmpty ||  self.model.password.value.isEmpty || self.model.confirmPassword.value.isEmpty
+            closure(isEmpty)
+        }.disposed(by: disposeBag)
     }
     
     func existenceUsername(closure: @escaping (Bool)-> Void) {

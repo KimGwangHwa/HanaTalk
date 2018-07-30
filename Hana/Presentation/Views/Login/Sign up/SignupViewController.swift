@@ -9,7 +9,7 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
-    private let usercase = LoginUseCase()
+    private let usecase = LoginUseCase()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var signupButton: UIButton!
@@ -26,19 +26,30 @@ class SignupViewController: UIViewController {
 
     func setup() {
         scrollView.backgroundColor = BackgroundColor
-        signupButton.setTitleColor(TextColor, for: .normal)
+        signupButton.setTitleColor(WeakTextColor, for: .normal)
         
-        signupButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .normal)
+        signupButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
+        signupButton.setBackgroundImage(UIImage.colorImage(color: MainColor, size: CGSize(width: 100, height: 100)), for: .normal)
+
         usernameTextField.rx.controlEvent(UIControlEvents.editingDidEnd).asDriver().drive(onNext: { (event) in
-            self.usercase.existenceUsername(closure: { (isSuccess) in
+            self.usecase.existenceUsername(closure: { (isSuccess) in
                 self.usernameExistenceImageView.image = isSuccess ? #imageLiteral(resourceName: "icon_signup_check_mark"):#imageLiteral(resourceName: "icon_signup_x_mark")
+                self.usernameExistenceImageView.isHidden = false
             })
-        }).disposed(by: usercase.disposeBag)
+        }).disposed(by: usecase.disposeBag)
+        
+        _ = usernameTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.username)
+        _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.password)
+        _ = confirmPasswordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.confirmPassword)
+
+        usecase.signupValueChanged { (isEmpty) in
+            self.signupButton.isEnabled = !isEmpty
+        }
 
     }
 
     @IBAction func signupTapped(_ sender: UIButton) {
-        usercase.signup { (isSuccess) in
+        usecase.signup { (isSuccess) in
             self.moveToEditUserInfo()
         }
     }
@@ -49,7 +60,7 @@ class SignupViewController: UIViewController {
     
     func moveToEditUserInfo() {
         if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
-            self.present(viewController, animated: true, completion: nil)
+            present(viewController, animated: true, completion: nil)
         }
     }
 

@@ -33,7 +33,7 @@ class SigninViewController: UIViewController {
         _ = usernameTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.username)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.password)
 
-        usecase.valueChanged { (isEmpty) in
+        usecase.signinValueChanged { (isEmpty) in
             self.signinButton.isEnabled = !isEmpty
         }
         signinButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)

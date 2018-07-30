@@ -13,8 +13,15 @@ class UserInfoDao: UserInfoRepository {
     func signin(username: String, password: String, closure: BoolClosure) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if error == nil {
-                if closure != nil {
-                    closure!(true)
+                let query = PFQuery(className: UserInfoClassName)
+                query.whereKey(UserColumnName, equalTo: user!)
+                query.findObjectsInBackground { (objects, error) in
+                    if closure != nil {
+                        if let userInfo = objects?.first as? UserInfoEntity {
+                            userInfo.pinInBackground()
+                        }
+                        closure!(true)
+                    }
                 }
             }
         }
@@ -45,6 +52,7 @@ class UserInfoDao: UserInfoRepository {
                     userInfo.nickname = username
                     userInfo.user = PFUser.current()
                     userInfo.saveInBackground(block: { (isSuccess, error) in
+                        userInfo.pinInBackground()
                         closure!(isSuccess)
                     })
                 }

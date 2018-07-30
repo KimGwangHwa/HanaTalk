@@ -18,7 +18,7 @@ protocol Repository {
     func find(by objectId: String, closure: CompletionClosure)
     func findAll(closure: MultipleCompletionClosure)
     func save(by object: Entity, closure: BoolClosure)
-
+    
 }
 
 extension Repository {

@@ -25,7 +25,7 @@ class EditUserInfoViewController: UIViewController {
     fileprivate var datePickerView: UIDatePicker!
     fileprivate let pickerHeight: CGFloat = 162
 
-    let userInfo = DataManager.shared.currentuserInfo!
+    var userInfo: UserInfoEntity! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setup() {
+        userInfo = DataManager.shared.currentuserInfo!
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
         profileImageView.sd_setImage(with: URL(string: userInfo.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
         

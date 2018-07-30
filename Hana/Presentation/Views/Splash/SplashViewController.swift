@@ -11,30 +11,19 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
-            let loginSelectionViewController = R.storyboard.signin.instantiateInitialViewController() {
-            appdelegate.window?.rootViewController = loginSelectionViewController
-            appdelegate.window?.makeKeyAndVisible()
-        }
-        
-        
-        return
         
         // getLocalUserInfo
-//        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
-//            DataManager.shared.currentuserInfo = userInfo
-//            
-//            if let userInfo = userInfo {
-//                if !userInfo.configured {
-//                    self.moveToEditUserInfo()
-//                } else {
-//                    self.moveToSideMenu()
-//                }
-//            } else {
-//                self.moveToLogin()
-//            }
-//        }
+        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
+            if let userInfo = userInfo {
+                if !userInfo.configured {
+                    self.moveToEditUserInfo()
+                } else {
+                    self.moveToSideMenu()
+                }
+            } else {
+                self.moveToLogin()
+            }
+        }
     }
     
     func moveToEditUserInfo() {
@@ -53,8 +42,8 @@ class SplashViewController: UIViewController {
     
     func moveToLogin() {
         if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
-            let loginSelectionViewController = R.storyboard.loginSelection.loginSelectionViewController() {
-            appdelegate.window?.rootViewController = loginSelectionViewController
+            let loginViewController = R.storyboard.signin.instantiateInitialViewController() {
+            appdelegate.window?.rootViewController = loginViewController
             appdelegate.window?.makeKeyAndVisible()
         }
     }
