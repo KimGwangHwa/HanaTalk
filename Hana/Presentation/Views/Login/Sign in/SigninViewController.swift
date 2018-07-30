@@ -25,13 +25,17 @@ class SigninViewController: UIViewController {
     }
 
     func setup() {
+        usernameTextField.textColor = TextColor
+        passwordTextField.textColor = TextColor
+        signinButton.setTitleColor(WeakTextColor, for: .normal)
+        scrollView.backgroundColor = BackgroundColor
+
         _ = usernameTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.username)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.password)
 
         usecase.valueChanged { (isEmpty) in
             self.signinButton.isEnabled = !isEmpty
         }
-        scrollView.backgroundColor = UIColor.hex("f2f2f0")
         signinButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
         signinButton.setBackgroundImage(UIImage.colorImage(color: MainColor, size: CGSize(width: 100, height: 100)), for: .normal)
         
@@ -60,6 +64,14 @@ class SigninViewController: UIViewController {
         scrollView.contentInset = UIEdgeInsets.zero
     }
     
+    func moveToSideMenu() {
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            let sidMenuViewController = SideMenuViewController.shared
+            appdelegate.window?.rootViewController = sidMenuViewController
+            appdelegate.window?.makeKeyAndVisible()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,10 +82,11 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func signinTapped(_ sender: UIButton) {
-        usecase.sginin { (isSuccess) in
-            
+        usecase.signin { (isSuccess) in
+            self.moveToSideMenu()
         }
     }
+    
     /*
     // MARK: - Navigation
 

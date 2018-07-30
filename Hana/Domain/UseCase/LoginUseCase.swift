@@ -30,11 +30,11 @@ class LoginUseCase: NSObject {
         infoRepository.existence(username: model.username.value, closure: closure)
     }
     
-    func sginin(closure: @escaping (Bool)-> Void) {
+    func signin(closure: @escaping (Bool)-> Void) {
         infoRepository.signin(username: model.username.value, password: model.password.value, closure: closure)
     }
     
-    func sginup(closure: @escaping (Bool)-> Void) {
+    func signup(closure: @escaping (Bool)-> Void) {
         infoRepository.signup(username: model.username.value, password: model.password.value, closure: closure)
     }
 }

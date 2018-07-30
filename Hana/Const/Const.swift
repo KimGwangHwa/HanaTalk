@@ -8,10 +8,12 @@
 
 import UIKit
 
-let BackgroundColor = UIColor.hex("f9f7f7")
+let BackgroundColor = UIColor.hex("15151d")
 let MainColor = UIColor.hex("e84545")
 let SubColor = UIColor.hex("283149")
-let DisabelColor = UIColor.hex("cccccc")
+let DisabelColor = UIColor.hex("646464")
+let TextColor = UIColor.black
+let WeakTextColor = UIColor.white
 
 // MARK: - ClassName
 let UserInfoClassName = "UserInfo"

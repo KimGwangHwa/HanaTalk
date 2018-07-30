@@ -11,23 +11,21 @@
 
 "Send_Message" = "Send Message";
 
-"Nickname" = "Nick Name";
+"Placeholder_Nickname" = "Nick Name";
 
-"BirthDay" = "BirthDay";
+"Placeholder_Email" = "E-mail";
 
-"Sex" = "Sex";
+"Placeholder_Password" = "Password";
 
-"Bio" = "Bio";
+"Placeholder_Confirm_Password" = "Confirm Password";
 
-"Email" = "E-mail";
+"Placeholder_Phone_Number" = "Phone Number";
 
-"Phone_Number" = "Phone Number";
+"Button_Cancel" = "Cancel";
 
-"Change_Profile" = "Change Profile";
+"Button_Done" = "Done";
 
-"Cancel" = "Cancel";
-
-"Done" = "Done";
+"Title_Change_Profile" = "Change Profile";
 
 "Title_Browse" = "Browse";
 
@@ -36,5 +34,16 @@
 "Title_Setting" = "Setting";
 
 "Title_Mathing" = "It's a Match";
+
+"Title_Signin" = "Sign in";
+
+"Title_Signup" = "Sign up";
+
+"Title_BirthDay" = "BirthDay";
+
+"Title_Sex" = "Sex";
+
+"Title_Bio" = "Bio";
+
 
 

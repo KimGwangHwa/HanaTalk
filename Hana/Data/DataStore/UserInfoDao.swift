@@ -41,7 +41,12 @@ class UserInfoDao: UserInfoRepository {
         user.signUpInBackground { (isSuccess, error) in
             if error == nil {
                 if closure != nil {
-                    closure!(true)
+                    let userInfo = UserInfoEntity()
+                    userInfo.nickname = username
+                    userInfo.user = PFUser.current()
+                    userInfo.saveInBackground(block: { (isSuccess, error) in
+                        closure!(isSuccess)
+                    })
                 }
             }
         }
