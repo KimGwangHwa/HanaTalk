@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		34109DF02076656200EC9CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34109D6E2076656200EC9CE0 /* LaunchScreen.storyboard */; };
-		34109DF12076656200EC9CE0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D702076656200EC9CE0 /* DataManager.swift */; };
 		34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D7C2076656200EC9CE0 /* UIView+Layer.swift */; };
 		34109DFA2076656200EC9CE0 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D7D2076656200EC9CE0 /* UIView+Frame.swift */; };
 		34109DFB2076656200EC9CE0 /* UIViewController+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34109D7E2076656200EC9CE0 /* UIViewController+VisibleViewController.swift */; };
@@ -201,7 +200,6 @@
 		1C88405B7140C053588D5714 /* Pods-talk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.release.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.release.xcconfig"; sourceTree = "<group>"; };
 		30ACE6F08B4BEC66F2F7EE75 /* Pods_talk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34109D6E2076656200EC9CE0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		34109D702076656200EC9CE0 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		34109D7C2076656200EC9CE0 /* UIView+Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
 		34109D7D2076656200EC9CE0 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		34109D7E2076656200EC9CE0 /* UIViewController+VisibleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+VisibleViewController.swift"; sourceTree = "<group>"; };
@@ -440,7 +438,6 @@
 		34109D6F2076656200EC9CE0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				34109D702076656200EC9CE0 /* DataManager.swift */,
 				A17B0A90210ABEBB0008D821 /* NotificationManager.swift */,
 			);
 			path = Managers;
@@ -1450,7 +1447,6 @@
 				EFE81F5D20FAF3A200C7BF09 /* DatePickerDialog.swift in Sources */,
 				A11AA98920FD885700084367 /* EventDao.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
-				34109DF12076656200EC9CE0 /* DataManager.swift in Sources */,
 				EFE81F7F20FAF3A200C7BF09 /* CreateEventDetailCell.swift in Sources */,
 				A1D05D8721084A0200096EF4 /* ChatTranslator.swift in Sources */,
 				EFE81F8920FAF3A200C7BF09 /* MailLoginViewController.swift in Sources */,

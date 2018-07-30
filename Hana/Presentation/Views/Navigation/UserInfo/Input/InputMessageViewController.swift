@@ -10,7 +10,7 @@ import UIKit
 class InputMessageViewController: UIViewController {
 
     var userInfoType: UserInfoType!
-    private let userInfo = DataManager.shared.currentuserInfo!
+    private let userInfo = UserInfoDao.current()!
     var changedString: String?
     
     @IBOutlet weak var tableView: UITableView!

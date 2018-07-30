@@ -33,7 +33,7 @@ class MessageEntity: PFObject, PFSubclassing {
         super.init()
         self.type = MessageType.text.rawValue
         self.text = text
-        self.sender = DataManager.shared.currentuserInfo
+        self.sender = UserInfoDao.current()
         self.alert = text
     }
     
@@ -41,7 +41,7 @@ class MessageEntity: PFObject, PFSubclassing {
         super.init()
         self.type = MessageType.image.rawValue
         self.imageURL = imageURL
-        self.sender = DataManager.shared.currentuserInfo
+        self.sender = UserInfoDao.current()
         self.alert = "image"
     }
     

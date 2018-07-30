@@ -47,7 +47,7 @@ class ParseHelper: NSObject {
     class func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
 
         let installation = PFInstallation.current()
-        if let userInfo = DataManager.shared.currentuserInfo, let objectId = userInfo.objectId {
+        if let userInfo = UserInfoDao.current(), let objectId = userInfo.objectId {
             installation?.addUniqueObject(objectId, forKey: "channels")
         }
         installation?.setDeviceTokenFrom(deviceToken)

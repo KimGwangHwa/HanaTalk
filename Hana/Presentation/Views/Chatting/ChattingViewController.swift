@@ -19,7 +19,7 @@ class ChattingViewController: UIViewController {
     
     var talkRoom: TalkRoomEntity?
     var receiver: UserInfoEntity?
-    private var currentUserInfo: UserInfoEntity! = DataManager.shared.currentuserInfo!
+    private var currentUserInfo: UserInfoEntity! = UserInfoDao.current()!
     
     private var dataSource = [MessageEntity]()
     

@@ -35,7 +35,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setup() {
-        userInfo = DataManager.shared.currentuserInfo!
+        //userInfo = DataManager.shared.currentuserInfo!
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
         profileImageView.sd_setImage(with: URL(string: userInfo.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
         

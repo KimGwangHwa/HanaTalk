@@ -25,23 +25,21 @@ class BrowseUseCase: NSObject {
     }
     
     func liked(_ model: UserInfoModel) {
-        let organizer = DataManager.shared.currentuserInfo?.objectId ?? ""
+        let organizer = UserInfoDao.current()?.objectId ?? ""
         let likedObjectId = model.objectId ?? ""
         
-        likeRepository.save(by: organizer, likedAt: likedObjectId) { (entity, isSuccess) in
+        likeRepository.liked(with: likedObjectId) { (entity, isSuccess) in
             // PUSH
             self.likeRepository.matched(of: organizer, reciver: likedObjectId, closure: { (isMatched, isSuccess) in
                 
             })
             NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: entity?.objectId ?? "", alert: "", type: .like)
         }
-
     }
     
     func disliked(_ model: UserInfoModel) {
-        likeRepository.save(by: DataManager.shared.currentuserInfo?.objectId ?? "", dislikedAt: model.objectId) { (entity, isSuccess) in
-            // push
-        }
+        let objectId = model.objectId ?? ""
+        likeRepository.disliked(with: objectId, closure: nil)
     }
     
 }

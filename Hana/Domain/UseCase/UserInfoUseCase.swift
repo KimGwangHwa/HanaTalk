@@ -15,19 +15,8 @@ class UserInfoUseCase: NSObject {
     private let imageRepository = ImageUploadRepositoryImpl()
     private let browseTranslator = BrowseTranslator()
 
-    var isSelf: Bool {
-        if model.objectId == DataManager.shared.currentuserInfo?.objectId {
-            return true
-        }
-        return false
-    }
-    
-    override init() {
-        if model == nil {
-            model = browseTranslator.translate(DataManager.shared.currentuserInfo)
-        }
-    }
-    
+    var isSelf: Bool = false
+        
     func upload(album: UIImage, closure: @escaping (Bool)-> Void) {
         imageRepository.upload(image: album) { (url, isSuccess) in
             if let entity = self.browseTranslator.reverseTranslate(self.model) {
@@ -39,8 +28,18 @@ class UserInfoUseCase: NSObject {
     }
     
     func read(closure: @escaping (Bool)-> Void) {
-        infoRepository.find(by: model.objectId) { (entity, isSuccess) in
-            self.model = self.browseTranslator.translate(entity)
+        if model == nil {
+            isSelf = true
+            infoRepository.findCurrent { (entity, isSuccess) in
+                self.model = self.browseTranslator.translate(entity)
+                closure(isSuccess)
+            }
+        } else {
+            isSelf = false
+            infoRepository.find(by: model.objectId ?? "") { (entity, isSuccess) in
+                self.model = self.browseTranslator.translate(entity)
+                closure(isSuccess)
+            }
         }
     }
 

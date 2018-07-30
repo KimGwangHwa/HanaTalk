@@ -13,6 +13,17 @@ class NotificationManager: NSObject {
     
     static let shared = NotificationManager()
     
+    // push ReceiveData
+    var pushReceiveData: [AnyHashable : Any]!
+    
+    var receiveObjectId : String? {
+        return pushReceiveData[kPushNotificationId] as? String
+    }
+    
+    var receiveType: PushNotificationType? {
+        return PushNotificationType(rawValue: pushReceiveData[kPushNotificationType] as! Int)
+    }
+
     private override init() {
         super.init()
         
@@ -38,7 +49,7 @@ class NotificationManager: NSObject {
     func sendPush(with channels: [String]?, objectId: String, alert: String, type: PushNotificationType, completion: ((Bool) -> Void)? = nil) {
         
         let push = PFPush()
-        if let currentUserInfo = DataManager.shared.currentuserInfo {
+        if let currentUserInfo = UserInfoDao.current() {
             push.setChannels(channels?.filter({$0 != currentUserInfo.objectId!}))
         }
         push.setData([
@@ -68,7 +79,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         completionHandler([.alert, .sound, .badge])
-        DataManager.shared.pushReceiveData = notification.request.content.userInfo
+        self.pushReceiveData = notification.request.content.userInfo
         NotificationCenter.default.post(name: .PushNotificationDidRecive, object: nil, userInfo: nil)
 
         debugPrint("withCompletionHandler")

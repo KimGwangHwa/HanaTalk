@@ -12,7 +12,7 @@ class TalkRoomDao: DAO {
     // MARK: - Find
     
     class func findTalk(closure: @escaping ([TalkRoomEntity]?, Bool)-> Void) {
-        if let currentUserInfo = DataManager.shared.currentuserInfo {
+        if let currentUserInfo = UserInfoDao.current() {
             
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
@@ -25,7 +25,7 @@ class TalkRoomDao: DAO {
     }
     
     class func findTalk(by receiver: UserInfoEntity, closure: @escaping (TalkRoomEntity?, Bool)-> Void) {
-        if let currentUserInfo = DataManager.shared.currentuserInfo {
+        if let currentUserInfo = UserInfoDao.current() {
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
             query.whereKey("members", containsAllObjectsIn: [currentUserInfo, receiver])
@@ -47,7 +47,7 @@ class TalkRoomDao: DAO {
         } else {
             let room = TalkRoomEntity()
             if let receiverUserInfo = reciver,
-                let currentuserInfo = DataManager.shared.currentuserInfo {
+                let currentuserInfo = UserInfoDao.current() {
                 room.members = [receiverUserInfo, currentuserInfo]
             }
             lastMessage?.talkRoom = room

@@ -25,7 +25,7 @@ class CategoryTranslator: Translator {
     
     func translateUserInfo(_ input: CategoryModel?) -> UserInfoEntity? {
         if let input = input {
-            let currentUserInfo = DataManager.shared.currentuserInfo!
+            let currentUserInfo = UserInfoDao.current()!
             currentUserInfo.todayWantCategory = CategoryEntity(withoutDataWithObjectId: input.objectId)
             currentUserInfo.todayWantEnd = Date.tomorrow
             return currentUserInfo
