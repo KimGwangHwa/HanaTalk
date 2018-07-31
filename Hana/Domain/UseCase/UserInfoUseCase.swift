@@ -10,6 +10,12 @@ import UIKit
 class UserInfoUseCase: NSObject {
 
     var model: UserInfoModel!
+   
+    var editModel: UserInfoModel? {
+        
+        let currentUserInfo = UserInfoRepositoryImpl.current()
+        return browseTranslator.translate(currentUserInfo)
+    }
     
     private let infoRepository = UserInfoRepositoryImpl()
     private let imageRepository = ImageUploadRepositoryImpl()
@@ -19,6 +25,7 @@ class UserInfoUseCase: NSObject {
         
     func upload(album: UIImage, closure: @escaping (Bool)-> Void) {
         imageRepository.upload(image: album) { (url, isSuccess) in
+            self.model.imageUrls.append(url!)
             if let entity = self.browseTranslator.reverseTranslate(self.model) {
                 self.infoRepository.save(by: entity, closure: { (isSuccess) in
                     closure(isSuccess)
@@ -42,5 +49,4 @@ class UserInfoUseCase: NSObject {
             }
         }
     }
-
 }

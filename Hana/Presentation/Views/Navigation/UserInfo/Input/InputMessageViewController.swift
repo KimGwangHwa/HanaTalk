@@ -10,13 +10,48 @@ import UIKit
 class InputMessageViewController: UIViewController {
 
     var userInfoType: UserInfoType!
-    private let userInfo = UserInfoDao.current()!
-    var changedString: String?
+
+    var model: EditUserInfoModel!
+    
+    private var displayValue: String? {
+        set{
+            switch userInfoType {
+            case .nickname:
+                model.nickname.accept(newValue ?? "")
+                break
+            case .bio:
+                model.bio.accept(newValue ?? "")
+                break
+            case .email:
+                model.mail.accept(newValue ?? "")
+                break
+            case .phoneNumber:
+                model.tel.accept(newValue ?? "")
+                break
+            default:
+                break
+            }
+        }
+        get{
+            switch userInfoType {
+            case .nickname:
+                return model.nickname.value
+            case .bio:
+                return model.bio.value
+            case .email:
+                return model.mail.value
+            case .phoneNumber:
+                return model.tel.value
+            default:
+                return nil
+            }
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
-    let textViewCellIdentifier = R.reuseIdentifier.inputTextViewCell.identifier
-    let textFieldCellIdentifier = R.reuseIdentifier.inputTextFieldCell.identifier
+    fileprivate let textViewCellIdentifier = R.reuseIdentifier.inputTextViewCell.identifier
+    fileprivate let textFieldCellIdentifier = R.reuseIdentifier.inputTextFieldCell.identifier
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +66,6 @@ class InputMessageViewController: UIViewController {
         rightButton.tintColor = UIColor.black
         rightButton.isEnabled = false
         navigationItem.rightBarButtonItem = rightButton
-        
-        switch userInfoType {
-        case .nickname:
-            changedString = userInfo.nickname
-            break
-        case .bio:
-            changedString = userInfo.bio
-            break
-        case .email:
-            changedString = userInfo.email
-            break
-        case .phoneNumber:
-            changedString = userInfo.phoneNumber
-            break
-        default:
-            break
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,32 +74,19 @@ class InputMessageViewController: UIViewController {
     }
     
     @objc func tappedRightButton() {
-        switch userInfoType {
-        case .nickname:
-            userInfo.nickname = changedString
-            break
-        case .bio:
-            userInfo.bio = changedString
-            break
-        case .email:
-            userInfo.email = changedString
-            break
-        case .phoneNumber:
-            userInfo.phoneNumber = changedString
-            break
-        default:
-            break
-        }
+        
         navigationController?.popViewController(animated: true)
     }
     
     @objc func textFieldDidChanged(_ sender: UITextField) {
-        changedString = sender.text
-        if !changedString.isBlank {
+        
+        displayValue = sender.text
+        
+        if !displayValue.isBlank {
             navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }
-
+    
 }
 
 // MARK: - Table view data source
@@ -91,15 +96,14 @@ extension InputMessageViewController: UITableViewDelegate, UITableViewDataSource
 
         if userInfoType == .nickname || userInfoType == .email || userInfoType == .phoneNumber {
             if let cell = tableView.dequeueReusableCell(withIdentifier: textFieldCellIdentifier, for: indexPath) as? InputTextFieldCell {
-                cell.textField.text = changedString
+                cell.textField.text = displayValue
                 cell.textField.becomeFirstResponder()
-                cell.textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
                 return cell
             }
         }
         if userInfoType == .bio {
             if let cell = tableView.dequeueReusableCell(withIdentifier: textViewCellIdentifier, for: indexPath) as? InputTextViewCell {
-                cell.textView.text = changedString
+                cell.textView.text = displayValue
                 cell.textView.becomeFirstResponder()
                 cell.textView.delegate = self
                 return cell
@@ -121,8 +125,8 @@ extension InputMessageViewController: UITableViewDelegate, UITableViewDataSource
 // MARK: - UITextViewDelegate
 extension InputMessageViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        changedString = textView.text
-        if !changedString.isBlank {
+        displayValue = textView.text
+        if !displayValue.isBlank {
             navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }

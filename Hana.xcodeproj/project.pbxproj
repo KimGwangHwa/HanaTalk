@@ -63,6 +63,9 @@
 		A1D05D852108484000096EF4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D842108484000096EF4 /* ChatModel.swift */; };
 		A1D05D8721084A0200096EF4 /* ChatTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D8621084A0200096EF4 /* ChatTranslator.swift */; };
 		A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */; };
+		A1EF17C0210FEA2600744701 /* EditUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */; };
+		A1EF17C2210FEBE400744701 /* EditUserInfoTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */; };
+		A1EF17C4210FED0900744701 /* EditUserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF17C3210FED0900744701 /* EditUserInfoUseCase.swift */; };
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70B8210DD36100B154DC /* LoginModel.swift */; };
 		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
@@ -260,6 +263,9 @@
 		A1D05D842108484000096EF4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		A1D05D8621084A0200096EF4 /* ChatTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTranslator.swift; sourceTree = "<group>"; };
 		A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoUseCase.swift; sourceTree = "<group>"; };
+		A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoModel.swift; sourceTree = "<group>"; };
+		A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoTranslator.swift; sourceTree = "<group>"; };
+		A1EF17C3210FED0900744701 /* EditUserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoUseCase.swift; sourceTree = "<group>"; };
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0C70B8210DD36100B154DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -522,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				A11AA99020FD9E9A00084367 /* EventUseCase.swift */,
+				A1EF17C3210FED0900744701 /* EditUserInfoUseCase.swift */,
 				A10160A221059D8400BE3820 /* CategoryUseCase.swift */,
 				A10160AB21083B7F00BE3820 /* BrowseUseCase.swift */,
 				A10160B12108404600BE3820 /* ChatUseCase.swift */,
@@ -539,6 +546,7 @@
 				A101609E2105998B00BE3820 /* CategoryTranslator.swift */,
 				A10160AF21083DB700BE3820 /* BrowseTranslator.swift */,
 				A1D05D8621084A0200096EF4 /* ChatTranslator.swift */,
+				A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -1119,6 +1127,7 @@
 				A10160AD21083C7E00BE3820 /* UserInfoModel.swift */,
 				A1D05D842108484000096EF4 /* ChatModel.swift */,
 				EF0C70B8210DD36100B154DC /* LoginModel.swift */,
+				A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1364,6 +1373,7 @@
 				EFE81F7E20FAF3A200C7BF09 /* CreateEventNormalCell.swift in Sources */,
 				EFE81F6320FAF3A200C7BF09 /* BrowseCardView.swift in Sources */,
 				A17B0A99210AF60D0008D821 /* SigninViewController.swift in Sources */,
+				A1EF17C2210FEBE400744701 /* EditUserInfoTranslator.swift in Sources */,
 				A10160A1210599CF00BE3820 /* CategoryModel.swift in Sources */,
 				EFE81F9520FAF3A200C7BF09 /* LoginSelectionCell.swift in Sources */,
 				EFE81F2820FAF3A100C7BF09 /* SplashViewController.swift in Sources */,
@@ -1379,6 +1389,7 @@
 				EFE81F5420FAF3A200C7BF09 /* EditUserInfoViewController.swift in Sources */,
 				A10160AC21083B7F00BE3820 /* BrowseUseCase.swift in Sources */,
 				EF7D2F2D21047826009B75DB /* DetailEventListCell.swift in Sources */,
+				A1EF17C0210FEA2600744701 /* EditUserInfoModel.swift in Sources */,
 				34109E382076656300EC9CE0 /* CoreDataHelper.swift in Sources */,
 				342CF363209D73600044FF50 /* String.swift in Sources */,
 				A11AA99420FDA17900084367 /* UserInfoRepository.swift in Sources */,
@@ -1427,6 +1438,7 @@
 				EFE81F3A20FAF3A200C7BF09 /* SideMenuViewController.swift in Sources */,
 				EF7D2F35210487D3009B75DB /* WantTodoViewController.swift in Sources */,
 				EFE81F7A20FAF3A200C7BF09 /* CreateEventViewController.swift in Sources */,
+				A1EF17C4210FED0900744701 /* EditUserInfoUseCase.swift in Sources */,
 				EFE81F5620FAF3A200C7BF09 /* EditUserInfoCell.swift in Sources */,
 				EFE81F5020FAF3A200C7BF09 /* UserInfoAlbumItemCell.swift in Sources */,
 				EFE81F6120FAF3A200C7BF09 /* HNPageControl.swift in Sources */,

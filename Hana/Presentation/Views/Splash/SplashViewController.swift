@@ -9,20 +9,17 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // getLocalUserInfo
-        UserInfoDao().findCurrentFromLocal { (userInfo, isSuccess) in
-            if let userInfo = userInfo {
-                if !userInfo.configured {
-                    self.moveToEditUserInfo()
-                } else {
-                    self.moveToSideMenu()
-                }
+        if let userInfo = UserInfoRepositoryImpl.current() {
+            if !userInfo.configured {
+                self.moveToEditUserInfo()
             } else {
-                self.moveToLogin()
+                self.moveToSideMenu()
             }
+        } else {
+            self.moveToLogin()
         }
     }
     

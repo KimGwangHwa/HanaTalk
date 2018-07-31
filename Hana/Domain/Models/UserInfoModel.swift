@@ -21,5 +21,4 @@ class UserInfoModel: BaseModel {
     var birthDay: String?
     var email: String?
     var tel: String?
-    
 }

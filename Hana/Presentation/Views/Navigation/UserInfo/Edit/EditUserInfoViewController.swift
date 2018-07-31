@@ -6,12 +6,14 @@
 //
 
 import UIKit
-
+import RxCocoa
+import RxSwift
 
 fileprivate let editCellIdentifier = R.reuseIdentifier.editUserInfoCell.identifier
 
 class EditUserInfoViewController: UIViewController {
-
+    var usecase = EditUserInfoUseCase()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -21,11 +23,6 @@ class EditUserInfoViewController: UIViewController {
     var birthDayTextField: UITextField!
     var sexTextField: UITextField!
     var bioTextView: UITextView!
-    fileprivate var pickerView: UIPickerView!
-    fileprivate var datePickerView: UIDatePicker!
-    fileprivate let pickerHeight: CGFloat = 162
-
-    var userInfo: UserInfoEntity! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +32,14 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setup() {
-        //userInfo = DataManager.shared.currentuserInfo!
+        navigationBarColor = BackgroundColor
+        tableView.backgroundColor = BackgroundColor
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
-        profileImageView.sd_setImage(with: URL(string: userInfo.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
+        profileImageView.sd_setImage(with: URL(string: usecase.model.profileUrl.value), placeholderImage: R.image.placeholderImage())
         
-        if !userInfo.configured {
+        if !usecase.model.configured {
             navigationItem.leftBarButtonItem = nil;
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
     }
     
     func moveToSideMenu() {
@@ -57,82 +50,38 @@ class EditUserInfoViewController: UIViewController {
         }
     }
     
-    func showDatePicker() {
-        let width = UIScreen.main.bounds.width
-        let offsetY = UIScreen.main.bounds.height - pickerHeight
-
-        datePickerView = UIDatePicker(frame: CGRect(x: 0, y: offsetY, width: width, height: pickerHeight))
-        datePickerView.addTarget(self, action: #selector(datePickerDidChanged(_:)), for: .valueChanged)
-        datePickerView.datePickerMode = .date
-        datePickerView.backgroundColor = UIColor.groupTableViewBackground
-        view.addSubview(datePickerView)
-    }
-    
-    
-    func showPicker() {
-        let width = UIScreen.main.bounds.width
-        let offsetY = UIScreen.main.bounds.height - pickerHeight
-
-        pickerView = UIPickerView(frame: CGRect(x: 0, y: offsetY, width: width, height: pickerHeight))
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.backgroundColor = UIColor.groupTableViewBackground
-        view.addSubview(pickerView)
-    }
-    
-    
-    func dismissPicker() {
-        if pickerView != nil {
-            pickerView.removeFromSuperview()
-        }
-        if datePickerView != nil {
-            datePickerView.removeFromSuperview()
-        }
-    }
-    
-    @objc func datePickerDidChanged(_ sender: UIDatePicker) {
-        userInfo.birthday = sender.date
-        tableView.reloadData()
-    }
-    
     @IBAction func tappedCancel(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func tappedDone(_ sender: UIBarButtonItem) {
         let profileImage = profileImageView.image
-        UploadDao().upload(image: profileImage) { (stringUrl, isSuccess) in
-            self.userInfo.profileUrl = stringUrl
-            self.userInfo.configured = true
-            self.userInfo.saveInBackground(block: { (isSuccess, error) in
-                self.userInfo.pinInBackground()
-                if !self.userInfo.configured {
-                    self.moveToSideMenu()
-                } else {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
-        }
+//        UploadDao().upload(image: profileImage) { (stringUrl, isSuccess) in
+//            self.userInfo.profileUrl = stringUrl
+//            self.userInfo.configured = true
+//            self.userInfo.saveInBackground(block: { (isSuccess, error) in
+//                self.userInfo.pinInBackground()
+//                if !self.userInfo.configured {
+//                    self.moveToSideMenu()
+//                } else {
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//        }
     }
     
     @IBAction func tappedChangeProfile(_ sender: UIButton) {
-        let alert = UIAlertController()
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+        UIAlertController.show(in: self, {
             let imageViewController = UIImagePickerController()
             imageViewController.delegate = self
             imageViewController.sourceType = .camera
             self.present(imageViewController, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
+        }) {
             let imageViewController = UIImagePickerController()
             imageViewController.delegate = self
             imageViewController.sourceType = .photoLibrary
             self.present(imageViewController, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            
-        }))
-        present(alert, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -144,10 +93,6 @@ class EditUserInfoViewController: UIViewController {
 // MARK: - Table view data source
 extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        dismissPicker()
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: editCellIdentifier, for: indexPath) as? EditUserInfoCell,
@@ -155,17 +100,23 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
             cell.nameLabel?.text = infoRow.name
             switch infoRow {
             case .nickname:
-                cell.descriptionLabel?.text = userInfo.nickname; break
+                _ = usecase.model.nickname.bind(to: cell.descriptionLabel.rx.text)
+                break
             case .birthDay:
-                cell.descriptionLabel?.text = userInfo.birthday?.string(format: .date); break
+                _ = usecase.model.birthDay.bind(to: cell.descriptionLabel.rx.text)
+                break
             case .sex:
-                cell.descriptionLabel?.text = userInfo.sex.name; break
+                _ = usecase.model.sex.bind(to: cell.descriptionLabel.rx.text)
+                break
             case .bio:
-                cell.descriptionLabel?.text = userInfo.bio; break
+                _ = usecase.model.bio.bind(to: cell.descriptionLabel.rx.text)
+                break
             case .email:
-                cell.descriptionLabel?.text = userInfo.email; break
+                _ = usecase.model.mail.bind(to: cell.descriptionLabel.rx.text)
+                break
             case .phoneNumber:
-                cell.descriptionLabel?.text = userInfo.phoneNumber; break
+                _ = usecase.model.tel.bind(to: cell.descriptionLabel.rx.text)
+                break
             }
             return cell
         }
@@ -189,10 +140,16 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
         if let infoRow = UserInfoType(rawValue: indexPath.row)  {
             switch infoRow {
             case .sex:
-                showPicker()
+                let dataSource = [Sex.female.name, Sex.male.name]
+                PickerDialog.show(dataSource: dataSource) { (value) in
+                    self.usecase.model.sex.accept(value)
+                }
                 return
             case .birthDay:
-                showDatePicker()
+                let defaultDate = usecase.model.birthDay.value.date(format: .date) ?? Date()
+                DatePickerDialog.show(defaultDate: defaultDate) { (date) in
+                    self.usecase.model.birthDay.accept(date.string(format: .date))
+                }
                 return
             default:
                 break
@@ -200,6 +157,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
 
             if let viewController = R.storyboard.inputMessage.inputMessageViewController() {
                 viewController.userInfoType = infoRow
+                viewController.model = usecase.model
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }
@@ -222,31 +180,12 @@ extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigat
 }
 
 // MARK: UITextViewDelegate
-extension EditUserInfoViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-}
+//extension EditUserInfoViewController: UITextViewDelegate {
+//    func textViewDidChange(_ textView: UITextView) {
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+//}
 
-// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
-extension EditUserInfoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Sex.names.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Sex.names[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userInfo.sex = Sex(name: Sex.names[row])
-        tableView.reloadData()
-    }
-}
 
 
