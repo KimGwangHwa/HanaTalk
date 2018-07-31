@@ -140,5 +140,4 @@ class UserInfoDao: UserInfoRepository {
             }
         }
     }
-    
 }

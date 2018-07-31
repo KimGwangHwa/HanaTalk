@@ -87,6 +87,13 @@ class SigninViewController: UIViewController {
         }
     }
     
+    @IBAction func facebookLoginTapped(_ sender: UIButton) {
+        ParseHelper.LoginWithFacebook()
+    }
+    
+    @IBAction func twitterLoginTapped(_ sender: UIButton) {
+        ParseHelper.loginWithTwitter()
+    }
     /*
     // MARK: - Navigation
 

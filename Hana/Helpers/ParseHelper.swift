@@ -20,7 +20,7 @@ fileprivate let server = "https://parseapi.back4app.com"
 
 class ParseHelper: NSObject {
     
-    class func installations(with application: UIApplication) {
+    class func installations(with application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         let configuration = ParseClientConfiguration {
             $0.applicationId = applicationId
             $0.clientKey = clientKey
@@ -28,7 +28,7 @@ class ParseHelper: NSObject {
             $0.isLocalDatastoreEnabled = true
         }
         Parse.initialize(with: configuration)
-        
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
         let center = UNUserNotificationCenter.current()
 
@@ -80,6 +80,26 @@ extension ParseHelper {
                 // The function executed, but still has to check the response
             } else {
                 // The function returned an error
+            }
+        }
+    }
+}
+
+// MARK: - Login
+extension ParseHelper {
+    class func LoginWithFacebook() {
+        
+        PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email"]) { (user, error) in
+            if error == nil {
+                
+            }
+        }
+    }
+    
+    class func loginWithTwitter() {
+        PFTwitterUtils.logIn { (user, error) in
+            if error == nil {
+                
             }
         }
     }

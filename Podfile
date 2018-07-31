@@ -14,4 +14,8 @@ target 'Hana' do
   #pod ‘GzipSwift’
   #pod 'Realm'
   pod 'SDWebImage'
+  #pod 'ParseFacebookUtilsV4'
+  #pod 'ParseTwitterUtils'
+  pod 'Parse/FacebookUtils'
+  pod 'Parse/TwitterUtils'
 end

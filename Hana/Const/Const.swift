@@ -8,7 +8,7 @@
 
 import UIKit
 
-let BackgroundColor = UIColor.hex("15151d")
+let BackgroundColor = UIColor.hex("15151d")//15151d
 let WeakBackgroundColor = UIColor.hex("1c1b21")
 let MainColor = UIColor.hex("e84545")
 let SubColor = UIColor.hex("283149")

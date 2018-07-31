@@ -112,6 +112,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="Tye-hX-0KY"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_twitter"/>
+                                                <connections>
+                                                    <action selector="twitterLoginTapped:" destination="0Sr-he-Rdg" eventType="touchUpInside" id="Nn5-Vh-MPb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACc-yg-9na">
                                                 <rect key="frame" x="218" y="549" width="50" height="50"/>
@@ -120,6 +123,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="Nsi-87-wum"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_facebook"/>
+                                                <connections>
+                                                    <action selector="facebookLoginTapped:" destination="0Sr-he-Rdg" eventType="touchUpInside" id="Owm-SR-VRC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuo-fE-QDo">
                                                 <rect key="frame" x="30" y="607" width="200" height="40"/>
