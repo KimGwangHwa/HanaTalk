@@ -13,7 +13,7 @@ let WeakBackgroundColor = UIColor.hex("1c1b21")
 let MainColor = UIColor.hex("e84545")
 let SubColor = UIColor.hex("283149")
 let DisabelColor = UIColor.hex("646464")
-let TextColor = UIColor.black
+let TextColor = UIColor.hex("404b69")
 let WeakTextColor = UIColor.white
 
 // MARK: - ClassName

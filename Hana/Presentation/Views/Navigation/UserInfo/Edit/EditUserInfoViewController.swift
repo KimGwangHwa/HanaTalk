@@ -14,16 +14,10 @@ fileprivate let editCellIdentifier = R.reuseIdentifier.editUserInfoCell.identifi
 class EditUserInfoViewController: UIViewController {
     var usecase = EditUserInfoUseCase()
     
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    var nicknameTextField: UITextField!
-    var mailAddressTextField: UITextField!
-    var phoneNumberTextField: UITextField!
-    var birthDayTextField: UITextField!
-    var sexTextField: UITextField!
-    var bioTextView: UITextView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +26,20 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setup() {
+        doneBarButton.tintColor = WeakTextColor
         navigationBarColor = BackgroundColor
         tableView.backgroundColor = BackgroundColor
+        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
-        profileImageView.sd_setImage(with: URL(string: usecase.model.profileUrl.value), placeholderImage: R.image.placeholderImage())
-        
+        tableView.tableFooterView = UIView()
+        profileImageView.sd_setImage(with: URL(string: usecase.model.profileUrl), placeholderImage: R.image.placeholderImage())
+        _ = usecase.model.profileImage.bind(to: profileImageView.rx.image)
         if !usecase.model.configured {
             navigationItem.leftBarButtonItem = nil;
+        }
+        
+        usecase.valueChanged { (isEmpty) in
+            self.doneBarButton.isEnabled = !isEmpty
         }
     }
     
@@ -55,19 +56,9 @@ class EditUserInfoViewController: UIViewController {
     }
 
     @IBAction func tappedDone(_ sender: UIBarButtonItem) {
-        let profileImage = profileImageView.image
-//        UploadDao().upload(image: profileImage) { (stringUrl, isSuccess) in
-//            self.userInfo.profileUrl = stringUrl
-//            self.userInfo.configured = true
-//            self.userInfo.saveInBackground(block: { (isSuccess, error) in
-//                self.userInfo.pinInBackground()
-//                if !self.userInfo.configured {
-//                    self.moveToSideMenu()
-//                } else {
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            })
-//        }
+        usecase.update { (isSuccess) in
+            self.moveToSideMenu()
+        }
     }
     
     @IBAction func tappedChangeProfile(_ sender: UIButton) {
@@ -98,6 +89,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
         if let cell = tableView.dequeueReusableCell(withIdentifier: editCellIdentifier, for: indexPath) as? EditUserInfoCell,
             let infoRow = UserInfoType(rawValue: indexPath.row) {
             cell.nameLabel?.text = infoRow.name
+            cell.backgroundColor = WeakBackgroundColor
             switch infoRow {
             case .nickname:
                 _ = usecase.model.nickname.bind(to: cell.descriptionLabel.rx.text)
@@ -141,7 +133,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
             switch infoRow {
             case .sex:
                 let dataSource = [Sex.female.name, Sex.male.name]
-                PickerDialog.show(dataSource: dataSource) { (value) in
+                PickerDialog.show(defaultText: usecase.model.sex.value, dataSource: dataSource) { (value) in
                     self.usecase.model.sex.accept(value)
                 }
                 return
@@ -169,7 +161,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
 extension EditUserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.image = image;
+            usecase.model.profileImage.accept(image)
         }
         picker.dismiss(animated: true, completion: nil)
     }

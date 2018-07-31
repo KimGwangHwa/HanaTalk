@@ -18,6 +18,8 @@ class UploadDao: ImageUploadRepository {
                     closure!(pfile.url, isSuccess)
                 }
             })
+        } else {
+            closure!(nil, true)
         }
     }
 }

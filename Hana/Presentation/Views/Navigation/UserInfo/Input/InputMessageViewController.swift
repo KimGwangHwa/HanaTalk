@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class InputMessageViewController: UIViewController {
 
     var userInfoType: UserInfoType!
 
     var model: EditUserInfoModel!
+    
+    private let disposeBag = DisposeBag()
     
     private var displayValue: String? {
         set{
@@ -63,8 +67,7 @@ class InputMessageViewController: UIViewController {
         tableView.register(R.nib.inputTextViewCell(), forCellReuseIdentifier: textViewCellIdentifier)
         tableView.register(R.nib.inputTextFieldCell(), forCellReuseIdentifier: textFieldCellIdentifier)
         let rightButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(tappedRightButton))
-        rightButton.tintColor = UIColor.black
-        rightButton.isEnabled = false
+        rightButton.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = rightButton
     }
     
@@ -74,19 +77,8 @@ class InputMessageViewController: UIViewController {
     }
     
     @objc func tappedRightButton() {
-        
         navigationController?.popViewController(animated: true)
     }
-    
-    @objc func textFieldDidChanged(_ sender: UITextField) {
-        
-        displayValue = sender.text
-        
-        if !displayValue.isBlank {
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
-    }
-    
 }
 
 // MARK: - Table view data source
@@ -98,6 +90,10 @@ extension InputMessageViewController: UITableViewDelegate, UITableViewDataSource
             if let cell = tableView.dequeueReusableCell(withIdentifier: textFieldCellIdentifier, for: indexPath) as? InputTextFieldCell {
                 cell.textField.text = displayValue
                 cell.textField.becomeFirstResponder()
+                cell.textField.rx.text.map {$0 ?? ""}.subscribe { (event) in
+                    self.displayValue = event.element
+                    self.navigationItem.rightBarButtonItem?.isEnabled = !self.displayValue.isBlank
+                }.disposed(by: disposeBag)
                 return cell
             }
         }
@@ -126,9 +122,7 @@ extension InputMessageViewController: UITableViewDelegate, UITableViewDataSource
 extension InputMessageViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         displayValue = textView.text
-        if !displayValue.isBlank {
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
+        navigationItem.rightBarButtonItem?.isEnabled = !displayValue.isBlank
     }
 }
 

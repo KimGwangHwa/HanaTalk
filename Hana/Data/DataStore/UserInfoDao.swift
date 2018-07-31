@@ -13,11 +13,10 @@ class UserInfoDao: UserInfoRepository {
     static func current() -> UserInfoEntity? {
         if let guardUser = PFUser.current() {
             let query = PFQuery(className: UserInfoClassName)
-            query.includeKey("todayWantCategory")
             query.whereKey(UserColumnName, equalTo: guardUser)
             query.fromLocalDatastore()
             do {
-                return try query.findObjects().first as? UserInfoEntity
+                return try query.findObjects().last as? UserInfoEntity
             } catch {
                 return nil
             }
@@ -133,6 +132,7 @@ class UserInfoDao: UserInfoRepository {
     }
     
     func save(by object: UserInfoEntity, closure: BoolClosure) {
+        object.user = PFUser.current()
         object.saveInBackground { (isSuccess, error) in
             object.pinInBackground()
             if closure != nil {
