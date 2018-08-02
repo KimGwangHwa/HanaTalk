@@ -44,7 +44,6 @@ class UserInfoViewController: UIViewController {
             
             //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
-        navigationItem.title = usercase.model.name
         navigationBarColor = SubColor
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.icon_more(), for: .normal)
@@ -86,6 +85,7 @@ class UserInfoViewController: UIViewController {
     
     func loadRomoteData() {
         usercase.read { (isSuccess) in
+            self.navigationItem.title = self.usercase.model.name
             self.tableView.reloadData()
         }
     }

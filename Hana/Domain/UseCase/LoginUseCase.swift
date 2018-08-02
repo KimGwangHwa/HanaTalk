@@ -51,6 +51,10 @@ class LoginUseCase: NSObject {
         infoRepository.signin(username: model.username.value, password: model.password.value, closure: closure)
     }
     
+    var isConfigured: Bool {
+        return UserInfoRepositoryImpl.current()?.configured ?? false
+    }
+    
     func signup(closure: @escaping (Bool)-> Void) {
         infoRepository.signup(username: model.username.value, password: model.password.value, closure: closure)
     }

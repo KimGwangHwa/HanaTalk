@@ -17,6 +17,7 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var newAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,8 @@ class SigninViewController: UIViewController {
         passwordTextField.textColor = TextColor
         signinButton.setTitleColor(WeakTextColor, for: .normal)
         scrollView.backgroundColor = BackgroundColor
-
+        newAccountButton.setTitleColor(WeakTextColor, for: .normal)
+        
         _ = usernameTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.username)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.password)
 
@@ -47,7 +49,6 @@ class SigninViewController: UIViewController {
             self.didChangeScrollView(height: value.size.height)
 
             }.disposed(by: usecase.disposeBag)
-        
         NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide).asObservable().subscribe { (notification) in
                 self.returnScrollView()
             }.disposed(by: usecase.disposeBag)
@@ -72,6 +73,12 @@ class SigninViewController: UIViewController {
         }
     }
     
+    func moveToEditUserInfo() {
+        if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,8 +89,15 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func signinTapped(_ sender: UIButton) {
+
+        sender.isLoading = true
         usecase.signin { (isSuccess) in
-            self.moveToSideMenu()
+            sender.isLoading = false
+            if !self.usecase.isConfigured {
+                self.moveToEditUserInfo()
+            } else {
+                self.moveToSideMenu()
+            }
         }
     }
     

@@ -66,8 +66,9 @@ class UserInfoDao: UserInfoRepository {
                     userInfo.nickname = username
                     userInfo.user = PFUser.current()
                     userInfo.saveInBackground(block: { (isSuccess, error) in
-                        userInfo.pinInBackground()
-                        closure!(isSuccess)
+                        userInfo.pinInBackground(block: { (isSuccess, error) in
+                            closure!(isSuccess)
+                        })
                     })
                 }
             }

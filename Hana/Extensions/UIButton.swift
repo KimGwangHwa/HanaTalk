@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+fileprivate var LoadingKey: Bool = false
+fileprivate var IndicatorViewKey: UIActivityIndicatorView?
+
 extension UIButton {
     
     @IBInspectable var alignVerticalSpacing: CGFloat {
@@ -41,5 +44,44 @@ extension UIButton {
         }
     }
     
+    private var indicatorView: UIActivityIndicatorView? {
+        get {
+            guard let object = objc_getAssociatedObject(self, &IndicatorViewKey) as? UIActivityIndicatorView else {
+                let view = UIActivityIndicatorView(activityIndicatorStyle: .white)
+                objc_setAssociatedObject(self, &IndicatorViewKey, view, .OBJC_ASSOCIATION_RETAIN)
+                return view
+            }
+            return object
+        }
+        set {
+            objc_setAssociatedObject(self, &IndicatorViewKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
     
+    var isLoading: Bool {
+        get {
+            guard let object = objc_getAssociatedObject(self, &LoadingKey) as? Bool else {
+                return false
+            }
+
+            return object
+        }
+        set {
+            objc_setAssociatedObject(self, &LoadingKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            if newValue {
+                self.titleLabel?.layer.opacity = 0
+                self.imageView?.isHidden = true
+                self.isEnabled = false
+                indicatorView?.center = CGPoint(x: width/2, y: height/2)
+                self.addSubview(indicatorView!)
+                indicatorView?.startAnimating()
+                
+            } else {
+                self.titleLabel?.layer.opacity = 1
+                self.imageView?.isHidden = false
+                self.isEnabled = true
+                indicatorView?.removeFromSuperview()
+            }
+        }
+    }
 }

@@ -45,9 +45,31 @@ class SignupViewController: UIViewController {
         usecase.signupValueChanged { (isEmpty) in
             self.signupButton.isEnabled = !isEmpty
         }
+        
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow).asObservable().subscribe { (notification) in
+            
+            let info  = notification.element!.userInfo!
+            let value = info[UIKeyboardFrameEndUserInfoKey]! as! CGRect
+            
+            self.didChangeScrollView(height: value.size.height)
+            
+            }.disposed(by: usecase.disposeBag)
+        
+        NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide).asObservable().subscribe { (notification) in
+            self.returnScrollView()
+            }.disposed(by: usecase.disposeBag)
 
     }
 
+    private func didChangeScrollView(height: CGFloat) {
+        scrollView.contentOffset = CGPoint(x: 0, y: height)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
+    }
+    
+    private func returnScrollView() {
+        scrollView.contentInset = UIEdgeInsets.zero
+    }
+    
     @IBAction func signupTapped(_ sender: UIButton) {
         usecase.signup { (isSuccess) in
             self.moveToEditUserInfo()

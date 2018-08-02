@@ -24,7 +24,7 @@ class PickerDialog: NSObject {
         dialog.pikcer.dataSource = dialog
         dialog.data = dataSource
         dialog.pikcer.selectRow(dataSource.index(of: defaultText ?? "") ?? 0, inComponent: 0, animated: true)
-        dialog.selectedData = defaultText
+        dialog.selectedData = defaultText.isBlank ? dataSource.first : defaultText;
         HNAlertView.show(with: dialog.pikcer, okComplection: {
             closure(dialog.selectedData)
         }) {
