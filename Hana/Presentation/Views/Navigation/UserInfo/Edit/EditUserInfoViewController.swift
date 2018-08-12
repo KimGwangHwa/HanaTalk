@@ -89,7 +89,7 @@ extension EditUserInfoViewController: UITableViewDelegate, UITableViewDataSource
         if let cell = tableView.dequeueReusableCell(withIdentifier: editCellIdentifier, for: indexPath) as? EditUserInfoCell,
             let infoRow = UserInfoType(rawValue: indexPath.row) {
             cell.nameLabel?.text = infoRow.name
-            cell.backgroundColor = WeakBackgroundColor
+            //cell.backgroundColor = WeakBackgroundColor
             switch infoRow {
             case .nickname:
                 _ = usecase.model.nickname.bind(to: cell.descriptionLabel.rx.text)

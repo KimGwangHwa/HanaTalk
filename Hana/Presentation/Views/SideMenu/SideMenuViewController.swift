@@ -34,6 +34,7 @@ class SideMenuViewController: UIViewController {
     }
 
     func setup() {
+        view.backgroundColor = BackgroundColor
         let currentUserInfo = UserInfoDao.current()!
         iconImageView.sd_setImage(with: URL(string: currentUserInfo.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
         nicknameLabel.text = currentUserInfo.nickname

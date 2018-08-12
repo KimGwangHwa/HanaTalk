@@ -27,7 +27,7 @@ class BrowseViewController: UIViewController {
         swipeableView.rightSwipingImage = R.image.icon_large_like()
         navigationBarColor = BackgroundColor
         swipeableView.backgroundColor = BackgroundColor
-        
+        navigationBarBackgroundImageIsHidden = true
         swipeableView.delegate = self
         swipeableView.dataSource = self
 

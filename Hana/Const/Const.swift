@@ -8,8 +8,8 @@
 
 import UIKit
 
-let BackgroundColor = UIColor.hex("15151d")//15151d
-let WeakBackgroundColor = UIColor.hex("1c1b21")
+let BackgroundColor = UIColor.hex("1c1b21")//15151d
+let SelectedBackgroundColor = UIColor.hex("15151d")//15151d
 let MainColor = UIColor.hex("e84545")
 let SubColor = UIColor.hex("283149")
 let DisabelColor = UIColor.hex("646464")

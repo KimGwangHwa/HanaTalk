@@ -88,8 +88,10 @@ extension ParseHelper {
 // MARK: - Login
 extension ParseHelper {
     class func LoginWithFacebook() {
-        
-        PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email"]) { (user, error) in
+        PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email", "user_birthday", "user_gender"]) { (user, error) in
+            if let fbuser = user as? FacebookUserEntity {
+                debugPrint(fbuser.user_gender)
+            }
             if error == nil {
                 
             }

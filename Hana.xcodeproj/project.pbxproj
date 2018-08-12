@@ -69,6 +69,7 @@
 		D96C2D378915D317FA0231C3 /* Pods_Hana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632385B4EC9AB23C52F9BDC1 /* Pods_Hana.framework */; };
 		EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70B8210DD36100B154DC /* LoginModel.swift */; };
 		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
+		EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
@@ -269,6 +270,7 @@
 		ECE66B40DC122B8C3EC0A5F5 /* Pods-talk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talk/Pods-talk.debug.xcconfig"; sourceTree = "<group>"; };
 		EF0C70B8210DD36100B154DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserEntity.swift; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
@@ -1088,6 +1090,7 @@
 				EFE81F1A20FAF3A100C7BF09 /* MessageEntity.swift */,
 				A101609121056D8200BE3820 /* CategoryEntity.swift */,
 				A10160A92108319800BE3820 /* LikeEntity.swift */,
+				EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */,
 			);
 			path = Entitys;
 			sourceTree = "<group>";
@@ -1357,6 +1360,7 @@
 				A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */,
 				EFE81F7220FAF3A200C7BF09 /* EventViewController.swift in Sources */,
 				EFE81F3320FAF3A100C7BF09 /* TalkHistoryCell.swift in Sources */,
+				EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */,
 				A10160A321059D8400BE3820 /* CategoryUseCase.swift in Sources */,
 				EFE81F9A20FAF3A200C7BF09 /* MessageEntity.swift in Sources */,
 				EFE81F9B20FAF3A200C7BF09 /* TalkRoomDao.swift in Sources */,
