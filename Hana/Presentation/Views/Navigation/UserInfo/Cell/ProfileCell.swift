@@ -21,6 +21,9 @@ class ProfileCell: UITableViewCell {
     
     var model: UserInfoModel! {
         didSet {
+            guard model != nil else {
+                return
+            }
             profileImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
             bioLabel.text = model.bio
             infoLabel.text = model.subName

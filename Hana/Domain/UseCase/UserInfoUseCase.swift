@@ -21,7 +21,12 @@ class UserInfoUseCase: NSObject {
     private let imageRepository = ImageUploadRepositoryImpl()
     private let browseTranslator = BrowseTranslator()
 
-    var isSelf: Bool = false
+    var isSelf: Bool {
+        if model == nil {
+            return true
+        }
+        return false
+    }
         
     func upload(album: UIImage, closure: @escaping (Bool)-> Void) {
         imageRepository.upload(image: album) { (url, isSuccess) in
@@ -36,13 +41,11 @@ class UserInfoUseCase: NSObject {
     
     func read(closure: @escaping (Bool)-> Void) {
         if model == nil {
-            isSelf = true
             infoRepository.findCurrent { (entity, isSuccess) in
                 self.model = self.browseTranslator.translate(entity)
                 closure(isSuccess)
             }
         } else {
-            isSelf = false
             infoRepository.find(by: model.objectId ?? "") { (entity, isSuccess) in
                 self.model = self.browseTranslator.translate(entity)
                 closure(isSuccess)

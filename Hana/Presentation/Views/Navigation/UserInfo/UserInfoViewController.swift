@@ -125,6 +125,9 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard usercase.model != nil else {
+            return 0
+        }
         return 2
     }
     
