@@ -44,14 +44,14 @@ class UserInfoViewController: UIViewController {
             
             //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
-        navigationBarColor = SubColor
+        navigationBarBackgroundImageIsHidden = true
+        navigationBarColor = BackgroundColor
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        
+        tableView.backgroundColor = BackgroundColor
         tableView.tableFooterView = UIView(frame: .zero)
-
         tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
         tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
 
@@ -86,6 +86,7 @@ class UserInfoViewController: UIViewController {
     func loadRomoteData() {
         usercase.read { (isSuccess) in
             self.navigationItem.title = self.usercase.model.name
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: TextColor]
             self.tableView.reloadData()
         }
     }
@@ -181,7 +182,7 @@ extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             usercase.upload(album: image) { (isSuccess) in
-                
+                self.tableView.reloadData()
             }
         }
         picker.dismiss(animated: true, completion: nil)

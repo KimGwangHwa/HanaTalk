@@ -44,6 +44,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func moveToSideMenu() {
+        dismiss(animated: true, completion: nil)
         if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
             let sidMenuViewController = SideMenuViewController.shared
             appdelegate.window?.rootViewController = sidMenuViewController

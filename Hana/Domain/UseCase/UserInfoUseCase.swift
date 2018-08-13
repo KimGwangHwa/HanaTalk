@@ -18,24 +18,13 @@ class UserInfoUseCase: NSObject {
     }
     
     private let infoRepository = UserInfoRepositoryImpl()
-    private let imageRepository = ImageUploadRepositoryImpl()
     private let browseTranslator = BrowseTranslator()
 
-    var isSelf: Bool {
-        if model == nil {
-            return true
-        }
-        return false
-    }
+    var isSelf: Bool = true
         
     func upload(album: UIImage, closure: @escaping (Bool)-> Void) {
-        imageRepository.upload(image: album) { (url, isSuccess) in
-            self.model.imageUrls.append(url!)
-            if let entity = self.browseTranslator.reverseTranslate(self.model) {
-                self.infoRepository.save(by: entity, closure: { (isSuccess) in
-                    closure(isSuccess)
-                })
-            }
+        infoRepository.upload(image: album) { (isSuccess) in
+            closure(isSuccess)
         }
     }
     

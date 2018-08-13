@@ -51,7 +51,6 @@
 		A11AA99620FDA2E000084367 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99520FDA2E000084367 /* EventRepository.swift */; };
 		A11AA99820FDA4CB00084367 /* TalkRoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99720FDA4CB00084367 /* TalkRoomRepository.swift */; };
 		A11AA99A20FDA4EC00084367 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99920FDA4EC00084367 /* MessageRepository.swift */; };
-		A11AA99C20FDA50400084367 /* ImageUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */; };
 		A11AA99E20FDA51500084367 /* LikeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA99D20FDA51500084367 /* LikeRepository.swift */; };
 		A17B0A91210ABEBB0008D821 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A90210ABEBB0008D821 /* NotificationManager.swift */; };
 		A17B0A95210AF5D50008D821 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17B0A94210AF5D50008D821 /* SignupViewController.swift */; };
@@ -193,7 +192,6 @@
 		EFE81F9B20FAF3A200C7BF09 /* TalkRoomDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1C20FAF3A100C7BF09 /* TalkRoomDao.swift */; };
 		EFE81F9C20FAF3A200C7BF09 /* MessageDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1D20FAF3A100C7BF09 /* MessageDao.swift */; };
 		EFE81F9D20FAF3A200C7BF09 /* LikeDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1E20FAF3A100C7BF09 /* LikeDao.swift */; };
-		EFE81F9E20FAF3A200C7BF09 /* UploadDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F1F20FAF3A100C7BF09 /* UploadDao.swift */; };
 		EFE81F9F20FAF3A200C7BF09 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2020FAF3A100C7BF09 /* DAO.swift */; };
 		EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */; };
 		EFE81FA220FAF9D100C7BF09 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81FA120FAF9D100C7BF09 /* EventModel.swift */; };
@@ -252,7 +250,6 @@
 		A11AA99520FDA2E000084367 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		A11AA99720FDA4CB00084367 /* TalkRoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomRepository.swift; sourceTree = "<group>"; };
 		A11AA99920FDA4EC00084367 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
-		A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadRepository.swift; sourceTree = "<group>"; };
 		A11AA99D20FDA51500084367 /* LikeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepository.swift; sourceTree = "<group>"; };
 		A17B0A90210ABEBB0008D821 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A17B0A94210AF5D50008D821 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -394,7 +391,6 @@
 		EFE81F1C20FAF3A100C7BF09 /* TalkRoomDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkRoomDao.swift; sourceTree = "<group>"; };
 		EFE81F1D20FAF3A100C7BF09 /* MessageDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDao.swift; sourceTree = "<group>"; };
 		EFE81F1E20FAF3A100C7BF09 /* LikeDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeDao.swift; sourceTree = "<group>"; };
-		EFE81F1F20FAF3A100C7BF09 /* UploadDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDao.swift; sourceTree = "<group>"; };
 		EFE81F2020FAF3A100C7BF09 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		EFE81FA120FAF9D100C7BF09 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
@@ -561,7 +557,6 @@
 				A11AA99520FDA2E000084367 /* EventRepository.swift */,
 				A11AA99720FDA4CB00084367 /* TalkRoomRepository.swift */,
 				A11AA99920FDA4EC00084367 /* MessageRepository.swift */,
-				A11AA99B20FDA50400084367 /* ImageUploadRepository.swift */,
 				A11AA99D20FDA51500084367 /* LikeRepository.swift */,
 				A101609C21057B8500BE3820 /* CategoryRepository.swift */,
 			);
@@ -815,11 +810,11 @@
 			isa = PBXGroup;
 			children = (
 				EFE81EB320FAF3A100C7BF09 /* ProfileCell.swift */,
-				EFE81EB420FAF3A100C7BF09 /* UserInfoAlbumItemCell.xib */,
-				EFE81EB520FAF3A100C7BF09 /* UserInfoAlbumItemCell.swift */,
 				EFE81EB620FAF3A100C7BF09 /* ProfileCell.xib */,
-				EFE81EB720FAF3A100C7BF09 /* UserInfoAlbumCell.xib */,
+				EFE81EB520FAF3A100C7BF09 /* UserInfoAlbumItemCell.swift */,
+				EFE81EB420FAF3A100C7BF09 /* UserInfoAlbumItemCell.xib */,
 				EFE81EB820FAF3A100C7BF09 /* UserInfoAlbumCell.swift */,
+				EFE81EB720FAF3A100C7BF09 /* UserInfoAlbumCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1101,7 +1096,6 @@
 				EFE81F1C20FAF3A100C7BF09 /* TalkRoomDao.swift */,
 				EFE81F1D20FAF3A100C7BF09 /* MessageDao.swift */,
 				EFE81F1E20FAF3A100C7BF09 /* LikeDao.swift */,
-				EFE81F1F20FAF3A100C7BF09 /* UploadDao.swift */,
 				EFE81F2020FAF3A100C7BF09 /* DAO.swift */,
 				EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */,
 				A11AA98820FD885700084367 /* EventDao.swift */,
@@ -1407,12 +1401,10 @@
 				EFE81F9D20FAF3A200C7BF09 /* LikeDao.swift in Sources */,
 				EFE81F4A20FAF3A200C7BF09 /* InputTextFieldCell.swift in Sources */,
 				A10160B021083DB700BE3820 /* BrowseTranslator.swift in Sources */,
-				EFE81F9E20FAF3A200C7BF09 /* UploadDao.swift in Sources */,
 				A11AA99A20FDA4EC00084367 /* MessageRepository.swift in Sources */,
 				34109DFC2076656200EC9CE0 /* UIImage+Color.swift in Sources */,
 				A101609B21057B5200BE3820 /* CategoryDao.swift in Sources */,
 				A10160AE21083C7E00BE3820 /* UserInfoModel.swift in Sources */,
-				A11AA99C20FDA50400084367 /* ImageUploadRepository.swift in Sources */,
 				A11AA98F20FD9C6C00084367 /* EventTranslator.swift in Sources */,
 				EFE81F6C20FAF3A200C7BF09 /* SettingViewController.swift in Sources */,
 				EFE81F8C20FAF3A200C7BF09 /* LoginIconCell.swift in Sources */,

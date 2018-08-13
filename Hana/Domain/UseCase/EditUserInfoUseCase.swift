@@ -13,7 +13,6 @@ class EditUserInfoUseCase: NSObject {
     let disposeBag = DisposeBag()
 
     private let translator = EditUserInfoTranslator()
-    private let imageRepositoryImpl = ImageUploadRepositoryImpl()
     private let infoRepositoryImpl = UserInfoRepositoryImpl()
 
     override init() {
@@ -40,15 +39,8 @@ class EditUserInfoUseCase: NSObject {
     }
     
     func update(closure: @escaping (Bool)-> Void) {
-        
-        imageRepositoryImpl.upload(image: model.profileImage.value) { (url, isSuccess) in
-            self.model.profileUrl = url
-            guard let entity = self.translator.reverseTranslate(self.model) else {
-                return
-            }
-            self.infoRepositoryImpl.save(by: entity, closure: { (isSuccess) in
-                closure(isSuccess)
-            })
+        infoRepositoryImpl.upload(image: model.profileImage.value!) { (isSuccess) in
+            closure(isSuccess)
         }
     }
     

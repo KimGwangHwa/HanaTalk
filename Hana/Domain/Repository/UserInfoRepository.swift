@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - UserInfoRepository
 protocol UserInfoRepository: Repository {
@@ -20,7 +21,9 @@ protocol UserInfoRepository: Repository {
     
     func signup(username: String, password: String, closure: BoolClosure)
     
-    func existence(username: String, closure: BoolClosure) 
+    func existence(username: String, closure: BoolClosure)
+    
+    func upload(image: UIImage, closure: BoolClosure)
 }
 
 struct UserInfoRepositoryImpl: UserInfoRepository {
@@ -62,6 +65,10 @@ struct UserInfoRepositoryImpl: UserInfoRepository {
     
     func existence(username: String, closure: BoolClosure) {
         dao.existence(username: username, closure: closure)
+    }
+    
+    func upload(image: UIImage, closure: BoolClosure) {
+        
     }
 }
 

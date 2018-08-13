@@ -9,6 +9,26 @@ import UIKit
 import Parse
 
 class UserInfoDao: UserInfoRepository {
+    
+    func upload(image: UIImage, closure: Repository.BoolClosure) {
+        if let current = UserInfoDao.current() {
+            if let imageData = UIImageJPEGRepresentation(image, 1), let pfile = PFFile(data: imageData) {
+                pfile.saveInBackground(block: { (isSuccess, error) in
+                    current.albums?.append(pfile.url!)
+                    current.saveInBackground(block: { (isSuccess, error) in
+                        if closure != nil {
+                            closure!(isSuccess)
+                        }
+                    })
+                })
+            } else {
+                if closure != nil {
+                    closure!(false)
+                }
+            }
+        }
+    }
+    
 
     static func current() -> UserInfoEntity? {
         if let guardUser = PFUser.current() {

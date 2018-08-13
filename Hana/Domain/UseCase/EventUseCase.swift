@@ -21,7 +21,6 @@ class EventUseCase: NSObject {
     let model = EventModel()
     private let translator = EventTranslator()
     private let repository = EventRepositoryImpl()
-    private let imageRepository = ImageUploadRepositoryImpl()
     let disposeBag = DisposeBag()
     let memberCount = ["2", "4", "6", "8", "10"];
     private var eventList: [EventModel]?
@@ -58,14 +57,8 @@ class EventUseCase: NSObject {
     
     func create(closure: Repository.BoolClosure) {
         
-        imageRepository.upload(image: model.image) { (imageUrl, isSuccess) in
-            if isSuccess {
-                self.model.imageUrl = imageUrl
-                if let entity = self.translator.reverseTranslate(self.model) {
-                    self.repository.save(by: entity, closure: closure)
-                }
-            }
-        }
+
+        
         
     }
     
