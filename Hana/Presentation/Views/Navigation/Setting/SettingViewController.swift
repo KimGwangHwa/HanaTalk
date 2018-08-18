@@ -17,7 +17,7 @@ class SettingViewController: UIViewController {
 
     private func setup() {
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "icon_settings"))
-        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         navigationBarBackgroundImageIsHidden = true
 
     }

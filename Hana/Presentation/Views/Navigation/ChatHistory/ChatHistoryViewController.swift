@@ -12,14 +12,6 @@ fileprivate enum Section: Int {
     case history = 1
     
     static var count: Int = 2
-    var name: String {
-        switch self {
-        case .matching:
-            return "New Match"
-        case .history:
-            return "Message"
-        }
-    }
 }
 
 class ChatHistoryViewController: UIViewController {
@@ -50,7 +42,7 @@ class ChatHistoryViewController: UIViewController {
         view.backgroundColor = BackgroundColor
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "icon_chat"))
         navigationBarBackgroundImageIsHidden = true
-        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"
@@ -68,11 +60,21 @@ class ChatHistoryViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    func moveScreen(with model: ChatModel) {
+    func moveScreen(by model: ChatModel) {
         if model.matched {
-            
+            moveTalkRoom(with: model)
         } else {
-            
+            if let viewController = R.storyboard.userInfo.userInfoViewController() {
+                viewController.usercase.objectId = model.detailObjectId
+                viewController.usercase.isSelf = false
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
+    func moveTalkRoom(with model: ChatModel) {
+        if let viewController = R.storyboard.chatting.chattingViewController() {
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
@@ -107,7 +109,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                     //cell.dataSource = filterMathings
                 } else {
                     cell.config(with: usecase.data[indexPath.section]) { (model) in
-                        self.moveScreen(with: model)
+                        self.moveScreen(by: model)
                     }
                 }
                 return cell
@@ -128,14 +130,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let viewController = R.storyboard.chatting.chattingViewController() {
-//            if searchController.isActive {
-//                viewController.talkRoom = filterHistorys?[indexPath.row]
-//            } else {
-//                viewController.talkRoom = historys?[indexPath.row]
-//            }
-            navigationController?.pushViewController(viewController, animated: true)
-        }
+        moveTalkRoom(with: usecase.data[indexPath.section][indexPath.row])
     }
 }
 

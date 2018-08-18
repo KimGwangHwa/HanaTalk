@@ -17,7 +17,8 @@ class ChatTranslator: Translator {
             let output = ChatModel()
             output.name = input.organizer.nickname
             output.profileUrl = input.organizer.profileUrl
-            return output
+            output.detailObjectId = input.organizer.objectId
+            return output 
         }
         return nil
     }

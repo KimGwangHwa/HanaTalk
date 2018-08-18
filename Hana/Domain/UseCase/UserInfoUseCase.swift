@@ -9,6 +9,7 @@ import UIKit
 
 class UserInfoUseCase: NSObject {
 
+    var objectId: String?
     var model: UserInfoModel!
    
     var editModel: UserInfoModel? {
@@ -29,13 +30,13 @@ class UserInfoUseCase: NSObject {
     }
     
     func read(closure: @escaping (Bool)-> Void) {
-        if model == nil {
+        if objectId == nil {
             infoRepository.findCurrent { (entity, isSuccess) in
                 self.model = self.browseTranslator.translate(entity)
                 closure(isSuccess)
             }
         } else {
-            infoRepository.find(by: model.objectId ?? "") { (entity, isSuccess) in
+            infoRepository.find(by: objectId!) { (entity, isSuccess) in
                 self.model = self.browseTranslator.translate(entity)
                 closure(isSuccess)
             }

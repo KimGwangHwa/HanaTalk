@@ -29,7 +29,7 @@ class EditUserInfoViewController: UIViewController {
         doneBarButton.tintColor = WeakTextColor
         navigationBarColor = BackgroundColor
         tableView.backgroundColor = BackgroundColor
-        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
         tableView.tableFooterView = UIView()
         profileImageView.sd_setImage(with: URL(string: usecase.model.profileUrl), placeholderImage: R.image.placeholderImage())

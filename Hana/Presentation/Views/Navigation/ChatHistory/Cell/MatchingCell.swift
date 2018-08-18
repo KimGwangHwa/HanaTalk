@@ -19,9 +19,9 @@ class MatchingCell: UITableViewCell {
 
     func config(with models: [ChatModel], closure: @escaping (ChatModel)-> Void ) {
         self.models = models
-        rxTapIndex.asObservable().subscribe { (event) in
-            closure(models[event.element ?? 0])
-        }.disposed(by: disposeBag)
+        rxTapIndex.asDriver().skip(1).drive(onNext: { (row) in
+            closure(models[row])
+        }).disposed(by: disposeBag)
         collectionView.reloadData()
     }
     let itemCellIdentifier = R.reuseIdentifier.matchingStatusCell.identifier

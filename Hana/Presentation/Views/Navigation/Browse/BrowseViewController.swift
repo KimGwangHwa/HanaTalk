@@ -22,7 +22,7 @@ class BrowseViewController: UIViewController {
     }
     
     fileprivate func setupLayout() {
-        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         swipeableView.leftSwipingImage = R.image.icon_large_dislike()
         swipeableView.rightSwipingImage = R.image.icon_large_like()
         navigationBarColor = BackgroundColor
