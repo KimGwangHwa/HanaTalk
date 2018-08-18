@@ -39,6 +39,7 @@ class ChatHistoryViewController: UIViewController {
     }
     
     func setUpView() {
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "icon_chat"))
         navigationBarBackgroundImageIsHidden = true
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
         navigationBarColor = SubColor

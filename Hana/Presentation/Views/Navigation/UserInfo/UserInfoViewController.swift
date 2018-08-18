@@ -45,7 +45,6 @@ class UserInfoViewController: UIViewController {
             //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
         navigationBarBackgroundImageIsHidden = true
-        navigationBarColor = BackgroundColor
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
@@ -182,7 +181,7 @@ extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             usercase.upload(album: image) { (isSuccess) in
-                self.tableView.reloadData()
+                self.loadRomoteData()
             }
         }
         picker.dismiss(animated: true, completion: nil)

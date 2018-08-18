@@ -11,11 +11,17 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
-        navigationBarColor = SubColor
+        
+        setup()
     }
 
+    private func setup() {
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "icon_settings"))
+        setNavigationBarBackIndicatorImage(R.image.icon_back()!)
+        navigationBarBackgroundImageIsHidden = true
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

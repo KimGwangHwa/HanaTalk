@@ -68,7 +68,7 @@ struct UserInfoRepositoryImpl: UserInfoRepository {
     }
     
     func upload(image: UIImage, closure: BoolClosure) {
-        
+        dao.upload(image: image, closure: closure )
     }
 }
 

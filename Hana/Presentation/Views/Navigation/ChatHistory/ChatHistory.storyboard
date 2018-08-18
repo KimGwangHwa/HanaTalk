@@ -52,6 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="Aso-3H-ckl"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Ia-Ig-jBI">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="Gu9-En-Hdw"/>
                         <barButtonItem key="leftBarButtonItem" style="done" id="yBq-Yu-iNg">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Xq-hM-qkh">
