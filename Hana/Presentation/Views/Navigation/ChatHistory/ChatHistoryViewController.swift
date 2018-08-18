@@ -12,6 +12,14 @@ fileprivate enum Section: Int {
     case history = 1
     
     static var count: Int = 2
+    var name: String {
+        switch self {
+        case .matching:
+            return "New Match"
+        case .history:
+            return "Message"
+        }
+    }
 }
 
 class ChatHistoryViewController: UIViewController {
@@ -39,10 +47,10 @@ class ChatHistoryViewController: UIViewController {
     }
     
     func setUpView() {
+        view.backgroundColor = BackgroundColor
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "icon_chat"))
         navigationBarBackgroundImageIsHidden = true
         setNavigationBarBackIndicatorImage(R.image.icon_back()!)
-        navigationBarColor = SubColor
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         searchController.searchBar.placeholder = "placeholder"
@@ -51,13 +59,21 @@ class ChatHistoryViewController: UIViewController {
         //.obscuresBackgroundDuringPresentation
         //searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(R.nib.talkHistoryCell(), forCellReuseIdentifier: historyCellIdentifier)
         tableView.register(R.nib.matchingCell(), forCellReuseIdentifier: matchingCellIdentifier)
         tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    func moveScreen(with model: ChatModel) {
+        if model.matched {
+            
+        } else {
+            
+        }
     }
     
     @IBAction func sideMenuEvent(_ sender: UIButton) {
@@ -68,8 +84,6 @@ class ChatHistoryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -92,10 +106,9 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 if searchController.isActive {
                     //cell.dataSource = filterMathings
                 } else {
-                    cell.model = usecase.data[indexPath.section]
-                    cell.tapEventObservable.subscribe { (row) in
-                        
-                    }.dispose()
+                    cell.config(with: usecase.data[indexPath.section]) { (model) in
+                        self.moveScreen(with: model)
+                    }
                 }
                 return cell
             }
@@ -137,8 +150,6 @@ extension ChatHistoryViewController {
     @objc func pushNotificationDidReceive(notification: Notification?) {
         loadData()
     }
-
-    
 }
 
 // MARK: - UISearchResultsUpdating, UISearchControllerDelegate

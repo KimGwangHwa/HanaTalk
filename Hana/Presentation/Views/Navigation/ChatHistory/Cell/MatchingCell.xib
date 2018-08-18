@@ -20,7 +20,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="chp-c8-sqS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="120" id="goI-Fx-i4Y"/>
                         </constraints>
@@ -39,6 +39,7 @@
                     <constraint firstAttribute="bottom" secondItem="chp-c8-sqS" secondAttribute="bottom" constant="-0.5" id="to0-Sb-mkh"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="chp-c8-sqS" id="Rft-Ma-r6Z"/>

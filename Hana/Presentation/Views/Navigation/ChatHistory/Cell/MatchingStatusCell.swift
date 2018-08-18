@@ -21,11 +21,10 @@ class MatchingStatusCell: UICollectionViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        nicknameLabel.adjustsFontSizeToFitWidth = true
+        nicknameLabel.textColor = WeakTextColor
     }
 
 }

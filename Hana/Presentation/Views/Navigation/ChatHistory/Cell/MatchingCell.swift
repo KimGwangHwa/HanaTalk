@@ -14,23 +14,25 @@ class MatchingCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var rxTapIndex = BehaviorRelay<Int>(value: 0)
-    var tapEventObservable: Observable<Int> {
-        return rxTapIndex.asObservable()
-    }
-    
-    var model: [ChatModel]! {
-        didSet {
-            collectionView.delegate = self
-            collectionView.dataSource = self
-            collectionView.register(R.nib.matchingStatusCell(), forCellWithReuseIdentifier: itemCellIdentifier)
-            collectionView.reloadData()
-        }
+    private let disposeBag = DisposeBag()
+    private var models: [ChatModel]!
+
+    func config(with models: [ChatModel], closure: @escaping (ChatModel)-> Void ) {
+        self.models = models
+        rxTapIndex.asObservable().subscribe { (event) in
+            closure(models[event.element ?? 0])
+        }.disposed(by: disposeBag)
+        collectionView.reloadData()
     }
     let itemCellIdentifier = R.reuseIdentifier.matchingStatusCell.identifier
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(R.nib.matchingStatusCell(), forCellWithReuseIdentifier: itemCellIdentifier)
 
     }
     
@@ -44,12 +46,12 @@ class MatchingCell: UITableViewCell {
 
 extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.count
+        return models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier, for: indexPath) as? MatchingStatusCell {
-            cell.model  = model[indexPath.row]
+            cell.model  = models[indexPath.row]
             return cell
         }
         return UICollectionViewCell()
