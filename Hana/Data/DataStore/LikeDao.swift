@@ -12,11 +12,13 @@ class LikeDao: LikeRepository {
     typealias Entity = LikeEntity
     
     func findAll(closure: (([Entity]?, Bool) -> Void)?) {
-        let query = PFQuery(className: LikedColumnName)
+        let query = PFQuery(className: LikeClassName)
         query.includeKey("liked")
         query.includeKey("disliked")
         query.includeKey("organizer")
-        query.whereKey("liked", equalTo: UserInfoDao.current()!)
+        query.whereKey("liked", containedIn: [UserInfoDao.current()!])
+        //query.whereKey("liked", containsAllObjectsIn: [UserInfoDao.current()!])
+        //query.whereKey("liked", equalTo: UserInfoDao.current()!)
         query.findObjectsInBackground { (objects, error) in
             if closure != nil {
                 closure!(objects as? [LikeEntity], error == nil ? true:false)

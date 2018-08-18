@@ -24,16 +24,19 @@ class BrowseUseCase: NSObject {
         }
     }
     
-    func liked(_ model: UserInfoModel) {
+    func liked(_ model: UserInfoModel, closure: @escaping (Bool)-> Void) {
         let organizer = UserInfoDao.current()?.objectId ?? ""
         let likedObjectId = model.objectId ?? ""
         
         likeRepository.liked(with: likedObjectId) { (entity, isSuccess) in
             // PUSH
             self.likeRepository.matched(of: organizer, reciver: likedObjectId, closure: { (isMatched, isSuccess) in
-                
+                if !isMatched {
+                    let alertMessage = R.string.localizable.push_Like_Title(model.name)
+                    NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: entity?.objectId ?? "", alert: alertMessage, type: .like)
+                }
+                closure(isMatched)
             })
-            NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: entity?.objectId ?? "", alert: "", type: .like)
         }
     }
     

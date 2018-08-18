@@ -12,7 +12,6 @@ protocol Translator {
     associatedtype Output
     
     func translate(_: Input?) -> Output?
-    
     func reverseTranslate(_: Output?) -> Input?
 }
 

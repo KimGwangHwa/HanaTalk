@@ -89,7 +89,9 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
             if direction == .left {
                 usecase.disliked(model)
             } else if direction == .right {
-                usecase.liked(model)
+                usecase.liked(model) { (isMatched) in
+                    // TODO Show MathedView
+                }
             }
         }
     }

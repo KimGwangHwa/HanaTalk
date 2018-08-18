@@ -69,6 +69,7 @@
 		EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70B8210DD36100B154DC /* LoginModel.swift */; };
 		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
 		EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */; };
+		EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
@@ -268,6 +269,7 @@
 		EF0C70B8210DD36100B154DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserEntity.swift; sourceTree = "<group>"; };
+		EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomTranslator.swift; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				A10160AF21083DB700BE3820 /* BrowseTranslator.swift */,
 				A1D05D8621084A0200096EF4 /* ChatTranslator.swift */,
 				A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */,
+				EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -1367,6 +1370,7 @@
 				EFE81F8A20FAF3A200C7BF09 /* LoginSelectionViewController.swift in Sources */,
 				EFE81F8320FAF3A200C7BF09 /* PeekViewController.swift in Sources */,
 				EFE81F8020FAF3A200C7BF09 /* CreateEventNameCell.swift in Sources */,
+				EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
 				A10160992105795C00BE3820 /* WantTodoCategoryCell.swift in Sources */,
 				EFE81F9C20FAF3A200C7BF09 /* MessageDao.swift in Sources */,

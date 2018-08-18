@@ -7,13 +7,18 @@
 
 import UIKit
 
-class ChatTranslator: NSObject {
+class ChatTranslator: Translator {
+    typealias Input = LikeEntity
     
-    func translate(_ input: [TalkRoomEntity]?) -> [ChatModel]? {
-        return nil
-    }
-    
-    func translate(_ input: [LikeEntity]?) -> [ChatModel]? {
+    typealias Output = ChatModel
+
+    func translate(_ input: Input?) -> Output? {
+        if let input = input {
+            let output = ChatModel()
+            output.name = input.organizer.nickname
+            output.profileUrl = input.organizer.profileUrl
+            return output
+        }
         return nil
     }
     

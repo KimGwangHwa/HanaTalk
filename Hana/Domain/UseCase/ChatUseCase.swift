@@ -11,6 +11,7 @@ class ChatUseCase: NSObject {
     private let talkRepository = TalkRoomRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = ChatTranslator()
+    private let talkTranslator = TalkRoomTranslator()
 
     var data = [[ChatModel]]()
     
@@ -24,7 +25,7 @@ class ChatUseCase: NSObject {
         }
         
         talkRepository.findAll { (entitys, isSuccess) in
-            if let models = self.translator.translate(entitys) {
+            if let models = self.talkTranslator.translate(entitys) {
                 self.data.append(models)
             }
             closure(isSuccess)
