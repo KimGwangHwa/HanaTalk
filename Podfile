@@ -18,4 +18,5 @@ target 'Hana' do
   #pod 'ParseTwitterUtils'
   pod 'Parse/FacebookUtils'
   pod 'Parse/TwitterUtils'
+  pod 'LicensePlist'
 end

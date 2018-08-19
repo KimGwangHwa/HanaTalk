@@ -70,6 +70,8 @@
 		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
 		EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */; };
 		EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */; };
+		EF0C70C5212919F000B154DC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C4212919F000B154DC /* Settings.bundle */; };
+		EF0C70C82129222300B154DC /* license_plist.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C72129222300B154DC /* license_plist.yml */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
@@ -270,6 +272,8 @@
 		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserEntity.swift; sourceTree = "<group>"; };
 		EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomTranslator.swift; sourceTree = "<group>"; };
+		EF0C70C4212919F000B154DC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		EF0C70C72129222300B154DC /* license_plist.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license_plist.yml; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
@@ -479,11 +483,13 @@
 		34109D862076656200EC9CE0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				EF0C70C72129222300B154DC /* license_plist.yml */,
 				3451464D2081A92800605651 /* R.generated.swift */,
 				34109D872076656200EC9CE0 /* Assets.xcassets */,
 				34109D882076656200EC9CE0 /* Default-568h@2x.png */,
 				A10160A8210804B600BE3820 /* Localizable.strings */,
 				34362D99209D637E00E6EF77 /* HobbyDataSource.plist */,
+				EF0C70C4212919F000B154DC /* Settings.bundle */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1151,6 +1157,7 @@
 			buildPhases = (
 				CBFA38D5ECA35E05AC293680 /* [CP] Check Pods Manifest.lock */,
 				3406271F1F53314C00821E39 /* R.swift */,
+				EF0C70C62129205B00B154DC /* LicensePlist */,
 				349EAD421F2F55CE005833ED /* Sources */,
 				349EAD431F2F55CE005833ED /* Frameworks */,
 				349EAD441F2F55CE005833ED /* Resources */,
@@ -1233,6 +1240,7 @@
 				EFE81F3520FAF3A100C7BF09 /* ChatHistory.storyboard in Resources */,
 				EFE81F8120FAF3A200C7BF09 /* CreateEvent.storyboard in Resources */,
 				EFE81F3920FAF3A200C7BF09 /* HobbyCell.xib in Resources */,
+				EF0C70C82129222300B154DC /* license_plist.yml in Resources */,
 				EFE81F4B20FAF3A200C7BF09 /* InputMessage.storyboard in Resources */,
 				EFE81F8820FAF3A200C7BF09 /* MailLogin.storyboard in Resources */,
 				EFE81F6720FAF3A200C7BF09 /* Browse.storyboard in Resources */,
@@ -1266,6 +1274,7 @@
 				EFE81F7520FAF3A200C7BF09 /* LocationCell.xib in Resources */,
 				EFE81F7020FAF3A200C7BF09 /* AlbumCell.xib in Resources */,
 				EFE81F2920FAF3A100C7BF09 /* Splash.storyboard in Resources */,
+				EF0C70C5212919F000B154DC /* Settings.bundle in Resources */,
 				EF7D2F32210478BC009B75DB /* DetailEventImageCell.xib in Resources */,
 				EFE81F4F20FAF3A200C7BF09 /* UserInfoAlbumItemCell.xib in Resources */,
 				EFE81F4020FAF3A200C7BF09 /* Chatting.storyboard in Resources */,
@@ -1340,6 +1349,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		EF0C70C62129205B00B154DC /* LicensePlist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = LicensePlist;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\ncd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Resource/Settings.bundle\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
