@@ -23,28 +23,16 @@ class UserInfoViewController: UIViewController {
         loadRomoteData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //navigationBarBackgroundImageIsHidden = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //navigationBarBackgroundImageIsHidden = true
-    }
-    
     func setUpView() {
-        
+        navigationBarBackgroundImageIsHidden = true
+        navigationBarColor = BackgroundColor
         // if is self
         if usercase.isSelf {
             let leftButton = UIButton(type: .custom)
             leftButton.setImage(R.image.icon_menu(), for: .normal)
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-            
-            //actionButton.setImage(R.image.icon_edit(), for: .normal)
         }
-        navigationBarBackgroundImageIsHidden = true
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)

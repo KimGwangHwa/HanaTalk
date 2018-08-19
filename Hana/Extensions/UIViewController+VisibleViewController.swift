@@ -68,10 +68,10 @@ extension UIViewController {
         set{
             if newValue {
                 navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-                navigationController?.navigationBar.shadowImage = UIImage()
+                //navigationController?.navigationBar.shadowImage = UIImage()
             } else {
                 navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-                navigationController?.navigationBar.shadowImage = nil
+                //navigationController?.navigationBar.shadowImage = nil
             }
         }
         get{
