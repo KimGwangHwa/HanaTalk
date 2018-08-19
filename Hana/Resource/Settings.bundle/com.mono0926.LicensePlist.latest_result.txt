@@ -1,0 +1,51 @@
+name: Bolts, nameSpecified: 
+body: BSD License
+
+For Bol…
+version: 1.9.0
+
+name: FBSDKCoreKit, nameSpecified: 
+body: Copyright (c) 2014-p…
+version: 4.28.0
+
+name: FBSDKLoginKit, nameSpecified: 
+body: Copyright (c) 2014-p…
+version: 4.28.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.8.3
+
+name: Parse, nameSpecified: 
+body: BSD License
+
+For Par…
+version: 1.17.1
+
+name: R.swift, nameSpecified: 
+body: The MIT License (MIT…
+version: 4.0.0
+
+name: R.swift.Library, nameSpecified: 
+body: The MIT License (MIT…
+version: 4.0.0
+
+name: RxCocoa, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.1.2
+
+name: RxSwift, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.1.2
+
+name: SDWebImage, nameSpecified: 
+body: Copyright (c) 2009-2…
+version: 4.4.0
+
+add-version-numbers: false
+
+LicensePlist Version: 1.8.3
