@@ -13,6 +13,8 @@ protocol UserInfoRepository: Repository {
     
     static func current() -> UserInfoEntity?
     
+    typealias UploadClosure = ((String?, Bool)-> Void)?
+    
     func findCurrent(closure: CompletionClosure)
     
     func findCurrentFromLocal(closure: CompletionClosure)
@@ -23,7 +25,7 @@ protocol UserInfoRepository: Repository {
     
     func existence(username: String, closure: BoolClosure)
     
-    func upload(image: UIImage, closure: BoolClosure)
+    func upload(image: UIImage, closure: UploadClosure)
 }
 
 struct UserInfoRepositoryImpl: UserInfoRepository {
@@ -67,7 +69,7 @@ struct UserInfoRepositoryImpl: UserInfoRepository {
         dao.existence(username: username, closure: closure)
     }
     
-    func upload(image: UIImage, closure: BoolClosure) {
+    func upload(image: UIImage, closure: UploadClosure) {
         dao.upload(image: image, closure: closure )
     }
 }

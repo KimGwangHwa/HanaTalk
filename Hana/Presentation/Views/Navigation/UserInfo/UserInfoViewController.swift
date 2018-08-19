@@ -12,7 +12,7 @@ fileprivate let albumCellIdentifier = R.reuseIdentifier.userInfoAlbumCell.identi
 
 class UserInfoViewController: UIViewController {
 
-    let usercase = UserInfoUseCase()
+    let usecase = UserInfoUseCase()
     var displayMode: AlbumDisplayMode = .vertical
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,7 +27,7 @@ class UserInfoViewController: UIViewController {
         navigationBarBackgroundImageIsHidden = true
         navigationBarColor = BackgroundColor
         // if is self
-        if usercase.isSelf {
+        if usecase.isSelf {
             let leftButton = UIButton(type: .custom)
             leftButton.setImage(R.image.icon_menu(), for: .normal)
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
@@ -48,7 +48,7 @@ class UserInfoViewController: UIViewController {
         
         let alert = UIAlertController()
         
-        if usercase.isSelf {
+        if usecase.isSelf {
             alert.addAction(UIAlertAction(title: "edit profile", style: .default, handler: { (action) in
                 self.moveEdit()
             }))
@@ -65,14 +65,16 @@ class UserInfoViewController: UIViewController {
     }
     
     func moveEdit() {
-        if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController() {
+        if let viewController = R.storyboard.editUserInfo.instantiateInitialViewController(),
+            let editViewController = viewController.viewControllers.first as? EditUserInfoViewController {
+            editViewController.usecase = usecase
             self.present(viewController, animated: true, completion: nil)
         }
     }
     
     func loadRomoteData() {
-        usercase.read { (isSuccess) in
-            self.navigationItem.title = self.usercase.model.name
+        usecase.read { (isSuccess) in
+            self.navigationItem.title = self.usecase.model.name
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: TextColor]
             self.tableView.reloadData()
         }
@@ -97,13 +99,13 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: profileCellIdentifier, for: indexPath) as? ProfileCell {
-                cell.model = usercase.model
+                cell.model = usecase.model
                 cell.delegate = self
                 return cell
             }
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: albumCellIdentifier, for: indexPath) as? UserInfoAlbumCell {
-                cell.reload(with: displayMode, dataSource: usercase.model)
+                cell.reload(with: displayMode, dataSource: usecase.model)
                 return cell
             }
         default:
@@ -113,7 +115,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard usercase.model != nil else {
+        guard usecase.model != nil else {
             return 0
         }
         return 2
@@ -121,7 +123,7 @@ extension UserInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
-            return UserInfoAlbumCell.height(with: displayMode, dataSource: usercase.model)
+            return UserInfoAlbumCell.height(with: displayMode, dataSource: usecase.model)
         }
         return UITableViewAutomaticDimension
     }
@@ -168,7 +170,7 @@ extension UserInfoViewController: ProfileCellDelegate {
 extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            usercase.upload(album: image) { (isSuccess) in
+            usecase.upload(album: image) { (isSuccess) in
                 self.loadRomoteData()
             }
         }

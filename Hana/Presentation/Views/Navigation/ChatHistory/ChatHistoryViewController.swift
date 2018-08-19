@@ -65,8 +65,8 @@ class ChatHistoryViewController: UIViewController {
             moveTalkRoom(with: model)
         } else {
             if let viewController = R.storyboard.userInfo.userInfoViewController() {
-                viewController.usercase.objectId = model.detailObjectId
-                viewController.usercase.isSelf = false
+                viewController.usecase.objectId = model.detailObjectId
+                viewController.usecase.isSelf = false
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }
