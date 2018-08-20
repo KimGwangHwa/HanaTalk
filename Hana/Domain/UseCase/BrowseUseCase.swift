@@ -13,6 +13,10 @@ class BrowseUseCase: NSObject {
     private let likeRepository = LikeRepositoryImpl()
     private let translator = BrowseTranslator()
     
+    var currentProfileUrl: String? {
+        return UserInfoDao.current()?.profileUrl
+    }
+    
     func read(closure: @escaping ([UserInfoModel]?, Bool)-> Void) {
         userInfoRepository.findAll { (entitys, isSuccess) in
             if isSuccess {

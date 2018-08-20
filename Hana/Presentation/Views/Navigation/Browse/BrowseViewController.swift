@@ -90,7 +90,10 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
                 usecase.disliked(model)
             } else if direction == .right {
                 usecase.liked(model) { (isMatched) in
-                    // TODO Show MathedView
+                    
+                    MatchingAlertView.show(in: self, leftImageUrl: model.profileUrl, rightImageUrl: self.usecase.currentProfileUrl, actionCompletion: {
+                        // TODO Show Talk Room
+                    })
                 }
             }
         }

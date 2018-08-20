@@ -15,6 +15,10 @@ class ChatUseCase: NSObject {
 
     var data = [[ChatModel]]()
     
+    func enterRoom(closure: @escaping (Bool)-> Void) {
+        
+    }
+    
     func read(closure: @escaping (Bool)-> Void) {
         
         likeRepository.findAll { (entitys, isSuccess) in
