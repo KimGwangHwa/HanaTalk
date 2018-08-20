@@ -49,9 +49,10 @@ extension UIViewController {
     
     func setNavigationBarBackIndicatorImage(_ image: UIImage) {
         
-        navigationController?.navigationBar.backIndicatorImage = image
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(image: image, style: .done, target: nil, action: nil)
     }
     
     
