@@ -42,13 +42,57 @@
                                     <outlet property="delegate" destination="xAV-Yz-xRN" id="3Jv-eL-dD1"/>
                                 </connections>
                             </tableView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9f-re-np7">
-                                <rect key="frame" x="285" y="513" width="60" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y8w-4a-ial">
+                                <rect key="frame" x="67.5" y="543" width="240" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv6-my-bGA">
+                                        <rect key="frame" x="0.0" y="8" width="100" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="I5S-NK-ea2"/>
+                                            <constraint firstAttribute="height" constant="44" id="kbX-Uu-hlz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Info Edit">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tappedEdit:" destination="xAV-Yz-xRN" eventType="touchUpInside" id="gMz-dx-2Og"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkE-8w-LZV">
+                                        <rect key="frame" x="110" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Q4I-eC-F4B"/>
+                                            <constraint firstAttribute="height" constant="60" id="hu9-LH-JoB"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_send_msg"/>
+                                        <connections>
+                                            <action selector="tappedSendMessage:" destination="xAV-Yz-xRN" eventType="touchUpInside" id="0Z8-dq-arI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-yW-RfM">
+                                        <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="KyY-d4-Lts"/>
+                                            <constraint firstAttribute="width" constant="60" id="dde-Zt-GQb"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_heart_press"/>
+                                        <connections>
+                                            <action selector="tappedLike:" destination="xAV-Yz-xRN" eventType="touchUpInside" id="PRA-wV-grv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Fxv-uJ-d8o"/>
-                                    <constraint firstAttribute="width" constant="60" id="aFp-dF-Utm"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="FY0-x2-hwX"/>
+                                    <constraint firstAttribute="height" constant="60" id="vwH-Bi-TSD"/>
                                 </constraints>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -56,13 +100,16 @@
                             <constraint firstItem="Eam-YL-XHr" firstAttribute="leading" secondItem="5pO-Ud-1kM" secondAttribute="leading" id="6Q5-02-erL"/>
                             <constraint firstItem="5pO-Ud-1kM" firstAttribute="top" secondItem="Eam-YL-XHr" secondAttribute="top" id="6qp-nh-lcf"/>
                             <constraint firstItem="5pO-Ud-1kM" firstAttribute="bottom" secondItem="Eam-YL-XHr" secondAttribute="bottom" id="E0u-11-ldD"/>
-                            <constraint firstItem="5pO-Ud-1kM" firstAttribute="bottom" secondItem="h9f-re-np7" secondAttribute="bottom" constant="30" id="SBK-8n-rMo"/>
-                            <constraint firstItem="5pO-Ud-1kM" firstAttribute="trailing" secondItem="h9f-re-np7" secondAttribute="trailing" constant="30" id="enL-Ym-QS9"/>
+                            <constraint firstItem="y8w-4a-ial" firstAttribute="centerX" secondItem="G14-ye-ihF" secondAttribute="centerX" id="eJe-L7-Wj3"/>
+                            <constraint firstItem="y8w-4a-ial" firstAttribute="bottom" secondItem="5pO-Ud-1kM" secondAttribute="bottom" id="wzF-L9-ouJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pO-Ud-1kM"/>
                     </view>
                     <navigationItem key="navigationItem" id="UD8-AL-twy"/>
                     <connections>
+                        <outlet property="editButton" destination="Wv6-my-bGA" id="C4j-S6-bdM"/>
+                        <outlet property="likeButton" destination="lpQ-yW-RfM" id="HPI-Lo-hb7"/>
+                        <outlet property="sendMessageButton" destination="EkE-8w-LZV" id="f6V-Q5-vk1"/>
                         <outlet property="tableView" destination="Eam-YL-XHr" id="dcz-Ib-c7D"/>
                     </connections>
                 </viewController>
@@ -71,4 +118,8 @@
             <point key="canvasLocation" x="-944.79999999999995" y="11.244377811094454"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_heart_press" width="32" height="32"/>
+        <image name="icon_send_msg" width="32" height="32"/>
+    </resources>
 </document>

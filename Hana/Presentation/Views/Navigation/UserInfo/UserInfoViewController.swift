@@ -16,6 +16,9 @@ class UserInfoViewController: UIViewController {
     var displayMode: AlbumDisplayMode = .vertical
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var sendMessageButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,10 @@ class UserInfoViewController: UIViewController {
             leftButton.addTarget(self, action: #selector(tappedMenu(_:)), for: .touchUpInside)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         }
+        editButton.isHidden = !usecase.isSelf
+        sendMessageButton.isHidden = usecase.isSelf
+        likeButton.isHidden = usecase.isSelf
+
         let rightButton = UIButton(type: .custom)
         rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
@@ -89,6 +96,15 @@ class UserInfoViewController: UIViewController {
         SideMenuViewController.show()
     }
     
+    @IBAction func tappedEdit(_ sender: UIButton) {
+        moveEdit()
+    }
+    
+    @IBAction func tappedSendMessage(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedLike(_ sender: UIButton) {
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -171,10 +187,10 @@ extension UserInfoViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             usecase.upload(album: image) { (isSuccess) in
+                picker.dismiss(animated: true, completion: nil)
                 self.loadRomoteData()
             }
         }
-        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

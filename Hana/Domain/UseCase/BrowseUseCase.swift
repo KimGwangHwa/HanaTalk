@@ -32,15 +32,12 @@ class BrowseUseCase: NSObject {
         let organizer = UserInfoDao.current()?.objectId ?? ""
         let likedObjectId = model.objectId ?? ""
         
-        likeRepository.liked(with: likedObjectId) { (entity, isSuccess) in
-            // PUSH
-            self.likeRepository.matched(of: organizer, reciver: likedObjectId, closure: { (isMatched, isSuccess) in
-                if !isMatched {
-                    let alertMessage = R.string.localizable.push_Like_Title(model.name)
-                    NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: entity?.objectId ?? "", alert: alertMessage, type: .like)
-                }
-                closure(isMatched)
-            })
+        likeRepository.liked(with: likedObjectId) { (isMatched, isSuccess) in
+            if !isMatched {
+                let alertMessage = R.string.localizable.push_Like_Title(model.name)
+                NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: likedObjectId, alert: alertMessage, type: .like)
+            }
+            closure(isMatched)
         }
     }
     

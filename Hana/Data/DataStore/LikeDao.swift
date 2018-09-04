@@ -47,34 +47,49 @@ class LikeDao: LikeRepository {
         }
     }
     
-    func liked(with objectId: String, closure: CompletionClosure) {
+    func liked(with objectId: String, closure: MatchedClosure) {
+        
+        find(by: objectId) { (entity, isSuccess) in
+            if isSuccess {
+                self.matched(of: entity!, closure: closure)
+            } else {
+                if closure != nil {
+                    closure!(false, false)
+                }
+            }
+        }
+    }
+    
+    private func matched(of liked: LikeEntity, closure: MatchedClosure) {
         guard let organizerObjectId = UserInfoDao.current()?.objectId else {
             if closure != nil {
-                closure!(nil, false)
+                closure!(false, false)
             }
             return
         }
         find(by: organizerObjectId) { (entity, isSuccess) in
             if let entity = entity {
-                entity.liked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
+                entity.liked?.append(liked.organizer)
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(entity ,isSuccess)
+                        let isMatched = liked.liked?.contains(entity.organizer) ?? false
+                        closure!(isMatched ,isSuccess)
                     }
                 })
             } else {
                 let entity = LikeEntity()
                 entity.organizer = UserInfoEntity(withoutDataWithObjectId: organizerObjectId)
-                entity.liked = [UserInfoEntity(withoutDataWithObjectId: objectId)]
+                entity.liked = [liked.organizer]
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        closure!(entity ,isSuccess)
+                        let isMatched = liked.liked?.contains(entity.organizer) ?? false
+                        closure!(isMatched ,isSuccess)
                     }
                 })
             }
         }
-
     }
+    
     
     func disliked(with objectId: String, closure: CompletionClosure) {
         guard let organizerObjectId = UserInfoDao.current()?.objectId else {
@@ -103,33 +118,5 @@ class LikeDao: LikeRepository {
                 })
             }
         }
-    }
-    
-    func matched(of organizer: String, reciver: String, closure: ((Bool, Bool) -> Void)?) {
-        let query = PFQuery(className: LikeClassName)
-        query.includeKey("liked")
-        query.includeKey("disliked")
-        query.includeKey("organizer")
-        query.whereKey("organizer", equalTo: LikeEntity(withoutDataWithObjectId: organizer))
-        query.whereKey("organizer", equalTo: LikeEntity(withoutDataWithObjectId: reciver))
-
-        query.findObjectsInBackground { (objects, error) in
-            if closure != nil {
-                
-                if let likeEntitys = objects as? [LikeEntity],
-                    likeEntitys.count == 2 {
-                    
-                    let firstEntity = likeEntitys.first
-                    let lastEntity = likeEntitys.last
-                    let firstLiked = firstEntity?.liked?.contains((lastEntity?.organizer)!) ?? false
-                    let lastLiked = lastEntity?.liked?.contains((firstEntity?.organizer)!) ?? false
-                    
-                    if firstLiked && lastLiked {
-                        closure!(true, error == nil ? true:false)
-                    }
-                }
-            }
-        }
-
     }
 }
