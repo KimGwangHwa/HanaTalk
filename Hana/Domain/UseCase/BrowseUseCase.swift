@@ -33,7 +33,7 @@ class BrowseUseCase: NSObject {
         let likedObjectId = model.objectId ?? ""
         
         likeRepository.liked(with: likedObjectId) { (isMatched, isSuccess) in
-            if !isMatched {
+            if isMatched {
                 let alertMessage = R.string.localizable.push_Like_Title(model.name)
                 NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: likedObjectId, alert: alertMessage, type: .like)
             }

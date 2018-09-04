@@ -27,11 +27,11 @@ class LikeDao: LikeRepository {
     }
     
     func find(by objectId: String, closure: ((Entity?, Bool) -> Void)?) {
-        let query = PFQuery(className: LikedColumnName)
+        let query = PFQuery(className: LikeClassName)
         query.includeKey("liked")
         query.includeKey("disliked")
         query.includeKey("organizer")
-        query.whereKey("organizer", equalTo: Entity(withoutDataWithObjectId: objectId))
+        query.whereKey("organizer", equalTo: UserInfoEntity(withoutDataWithObjectId: objectId))
         query.findObjectsInBackground { (objects, error) in
             if closure != nil {
                 closure!(objects?.first as? LikeEntity, error == nil ? true:false)
@@ -51,7 +51,7 @@ class LikeDao: LikeRepository {
         
         find(by: objectId) { (entity, isSuccess) in
             if isSuccess {
-                self.matched(of: entity!, closure: closure)
+                self.matched(of: entity, objectId: objectId, closure: closure)
             } else {
                 if closure != nil {
                     closure!(false, false)
@@ -60,7 +60,7 @@ class LikeDao: LikeRepository {
         }
     }
     
-    private func matched(of liked: LikeEntity, closure: MatchedClosure) {
+    private func matched(of liked: LikeEntity?, objectId: String, closure: MatchedClosure) {
         guard let organizerObjectId = UserInfoDao.current()?.objectId else {
             if closure != nil {
                 closure!(false, false)
@@ -69,20 +69,20 @@ class LikeDao: LikeRepository {
         }
         find(by: organizerObjectId) { (entity, isSuccess) in
             if let entity = entity {
-                entity.liked?.append(liked.organizer)
+                entity.liked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        let isMatched = liked.liked?.contains(entity.organizer) ?? false
+                        let isMatched = liked?.liked?.contains(entity.organizer) ?? false
                         closure!(isMatched ,isSuccess)
                     }
                 })
             } else {
                 let entity = LikeEntity()
                 entity.organizer = UserInfoEntity(withoutDataWithObjectId: organizerObjectId)
-                entity.liked = [liked.organizer]
+                entity.liked = [UserInfoEntity(withoutDataWithObjectId: objectId)]
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
-                        let isMatched = liked.liked?.contains(entity.organizer) ?? false
+                        let isMatched = liked?.liked?.contains(entity.organizer) ?? false
                         closure!(isMatched ,isSuccess)
                     }
                 })
