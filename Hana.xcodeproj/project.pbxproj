@@ -197,6 +197,7 @@
 		EFE81F9F20FAF3A200C7BF09 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2020FAF3A100C7BF09 /* DAO.swift */; };
 		EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */; };
 		EFE81FA220FAF9D100C7BF09 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81FA120FAF9D100C7BF09 /* EventModel.swift */; };
+		EFFD6DC6213FF713009427EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DC5213FF713009427EC /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +399,7 @@
 		EFE81F2020FAF3A100C7BF09 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		EFE81FA120FAF9D100C7BF09 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		EFFD6DC5213FF713009427EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				A17B0A90210ABEBB0008D821 /* NotificationManager.swift */,
+				EFFD6DC5213FF713009427EC /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1483,6 +1486,7 @@
 				A11AA98920FD885700084367 /* EventDao.swift in Sources */,
 				34109DFD2076656200EC9CE0 /* Notification+Name.swift in Sources */,
 				EFE81F7F20FAF3A200C7BF09 /* CreateEventDetailCell.swift in Sources */,
+				EFFD6DC6213FF713009427EC /* DataManager.swift in Sources */,
 				A1D05D8721084A0200096EF4 /* ChatTranslator.swift in Sources */,
 				EFE81F8920FAF3A200C7BF09 /* MailLoginViewController.swift in Sources */,
 				EFE81F3820FAF3A200C7BF09 /* HobbyCell.swift in Sources */,

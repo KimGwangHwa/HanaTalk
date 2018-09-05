@@ -18,6 +18,7 @@ class ChatTranslator: Translator {
             output.name = input.organizer.nickname
             output.profileUrl = input.organizer.profileUrl
             output.detailObjectId = input.organizer.objectId
+            output.matched = input.matched.contains(where: {$0.objectId == UserInfoDao.current()!.objectId})
             return output 
         }
         return nil

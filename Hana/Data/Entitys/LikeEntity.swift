@@ -14,7 +14,8 @@ class LikeEntity: PFObject, PFSubclassing {
         return LikeClassName
     }
     
-    @NSManaged var liked: [UserInfoEntity]?
-    @NSManaged var disliked: [UserInfoEntity]?
+    @NSManaged var liked: [UserInfoEntity]
+    @NSManaged var disliked: [UserInfoEntity]
     @NSManaged var organizer: UserInfoEntity!
+    @NSManaged var matched: [UserInfoEntity]
 }

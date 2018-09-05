@@ -68,28 +68,24 @@ class LikeDao: LikeRepository {
             return
         }
         find(by: organizerObjectId) { (entity, isSuccess) in
-            if let entity = entity {
-                entity.liked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
-                entity.saveInBackground(block: { (isSuccess, error) in
-                    if closure != nil {
-                        let isMatched = liked?.liked?.contains(entity.organizer) ?? false
-                        closure!(isMatched ,isSuccess)
-                    }
-                })
-            } else {
-                let entity = LikeEntity()
-                entity.organizer = UserInfoEntity(withoutDataWithObjectId: organizerObjectId)
-                entity.liked = [UserInfoEntity(withoutDataWithObjectId: objectId)]
-                entity.saveInBackground(block: { (isSuccess, error) in
-                    if closure != nil {
-                        let isMatched = liked?.liked?.contains(entity.organizer) ?? false
-                        closure!(isMatched ,isSuccess)
-                    }
-                })
+            let entityObject: LikeEntity = entity == nil ? LikeEntity() : entity!
+            if !entityObject.liked.contains(where: {$0.objectId == objectId}) {
+                entityObject.liked.append(UserInfoEntity(withoutDataWithObjectId: objectId))
+            }
+            var updateList = [entityObject]
+            let matched = liked?.liked.contains(where: {$0.objectId == organizerObjectId}) ?? false
+            if matched {
+                entityObject.matched.append(liked!.organizer)
+                liked!.matched.append(entityObject.organizer)
+                updateList.append(liked!)
+            }
+            PFObject.saveAll(inBackground: updateList) { (isSuccess, error) in
+                if closure != nil {
+                    closure!(matched ,isSuccess)
+                }
             }
         }
     }
-    
     
     func disliked(with objectId: String, closure: CompletionClosure) {
         guard let organizerObjectId = UserInfoDao.current()?.objectId else {
@@ -101,7 +97,7 @@ class LikeDao: LikeRepository {
         find(by: organizerObjectId) { (entity, isSuccess) in
             
             if let entity = entity {
-                entity.disliked?.append(UserInfoEntity(withoutDataWithObjectId: objectId))
+                entity.disliked.append(UserInfoEntity(withoutDataWithObjectId: objectId))
                 entity.saveInBackground(block: { (isSuccess, error) in
                     if closure != nil {
                         closure!(entity ,isSuccess)
