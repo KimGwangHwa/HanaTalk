@@ -14,9 +14,9 @@ enum DateTemplate: String {
     case time = "H:mm"
     case dateAndTime = "y/M/d H:mm"
     case year = "yyyy"
-    case month = "M"
+    case month = "MM"
     case week = "EEEE"
-    case day = "d"  
+    case day = "dd"
     case hour = "H"
 }
 
