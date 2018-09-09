@@ -10,9 +10,7 @@ import Foundation
 // MARK: - LikeRepository
 protocol LikeRepository: Repository {
     
-    typealias MatchedClosure = ((Bool, Bool)-> Void)?
-    
-    func liked(with objectId: String, closure: MatchedClosure)
+    func liked(with objectId: String, closure: CompletionClosure)
 
     func disliked(with objectId: String, closure: CompletionClosure)
     
@@ -30,7 +28,7 @@ struct LikeRepositoryImpl: LikeRepository {
         dao.find(by: objectId, closure: closure)
     }
     
-    func liked(with objectId: String, closure: MatchedClosure) {
+    func liked(with objectId: String, closure: CompletionClosure) {
         dao.liked(with: objectId, closure: closure)
     }
     

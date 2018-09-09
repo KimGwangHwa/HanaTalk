@@ -11,6 +11,7 @@ import UserNotifications
 
 enum PushNotificationType: Int {
     case like
+    case matched
     case message
 }
 

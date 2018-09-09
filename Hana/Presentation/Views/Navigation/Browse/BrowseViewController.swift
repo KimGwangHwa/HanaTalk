@@ -64,13 +64,13 @@ class BrowseViewController: UIViewController {
 extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func numberOfRow() -> Int {
-        return usecase.data?.count ?? 0
+        return usecase.data.count
     }
     
     func swipeableView(_ swipeableView: SwipeableView, displayViewForRowAt index: Int) -> UIView {
         
         if let cardView = R.nib.browseCardView.firstView(owner: nil) {
-            cardView.model = usecase.data?[index]
+            cardView.model = usecase.data[index]
             return cardView
         }
         return UIView()
@@ -78,23 +78,22 @@ extension BrowseViewController: SwipeableViewDelegate, SwipeableViewDataSource {
     
     func swipeableView(_ swipeableView: SwipeableView, didSelectRowAt index: Int) {
         if let userInfoViewController = R.storyboard.userInfo.userInfoViewController() {
-            userInfoViewController.usecase.model = usecase.data![index]
+            userInfoViewController.usecase.model = usecase.data[index]
             userInfoViewController.usecase.isSelf = false
             navigationController?.pushViewController(userInfoViewController, animated: true)
         }
     }
     
     func swipeableView(_ swipeableView: SwipeableView, didSwipedAt index: Int, direction: DraggableDirection) {
-        if let model = usecase.data?[index] {
-            if direction == .left {
-                usecase.disliked(model)
-            } else if direction == .right {
-                usecase.liked(model) { (isMatched) in
-                    
-                    MatchingAlertView.show(in: self, leftImageUrl: model.profileUrl, rightImageUrl: self.usecase.currentProfileUrl, actionCompletion: {
-                        // TODO Show Talk Room
-                    })
-                }
+        let model = usecase.data[index]
+        if direction == .left {
+            usecase.disliked(model)
+        } else if direction == .right {
+            usecase.liked(model) { (isMatched) in
+                
+                MatchingAlertView.show(in: self, leftImageUrl: model.profileUrl, rightImageUrl: self.usecase.currentProfileUrl, actionCompletion: {
+                    // TODO Show Talk Room
+                })
             }
         }
     }

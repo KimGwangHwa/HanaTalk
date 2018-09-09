@@ -16,6 +16,10 @@ class BrowseTranslator: Translator {
             model.imageUrls = input.albums ?? []
             model.profileUrl = input.profileUrl ?? ""
             model.objectId = input.objectId
+            var images = [String]()
+            images.append(model.profileUrl)
+            images.append(contentsOf: model.imageUrls)
+            model.displayImages = images
             return model
         }
         return nil

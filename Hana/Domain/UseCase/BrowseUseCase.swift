@@ -8,7 +8,7 @@
 import UIKit
 
 class BrowseUseCase: NSObject {
-    var data: [UserInfoModel]? = nil
+    var data = [UserInfoModel]()
     private let userInfoRepository = UserInfoRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = BrowseTranslator()
@@ -18,9 +18,12 @@ class BrowseUseCase: NSObject {
     }
     
     func read(closure: @escaping ([UserInfoModel]?, Bool)-> Void) {
+        data.removeAll()
         userInfoRepository.findAll { (entitys, isSuccess) in
             if isSuccess {
-                self.data = self.translator.translate(entitys)
+                if let models = self.translator.translate(entitys) {
+                    self.data.append(contentsOf: models)
+                }
                 closure(self.data, isSuccess)
             } else {
                 closure(nil, isSuccess)
@@ -32,11 +35,11 @@ class BrowseUseCase: NSObject {
         let organizer = UserInfoDao.current()?.objectId ?? ""
         let likedObjectId = model.objectId ?? ""
         
-        likeRepository.liked(with: likedObjectId) { (isMatched, isSuccess) in
-            if isMatched {
-                let alertMessage = R.string.localizable.push_Like_Title(model.name)
-                NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: likedObjectId, alert: alertMessage, type: .like)
-            }
+        likeRepository.liked(with: likedObjectId) { (entity, isSuccess) in
+            let isMatched = entity?.matched.contains(where: { $0.objectId == model.objectId }) ?? false
+            let type: PushNotificationType = isMatched ? .matched : .like
+            let alertMessage = R.string.localizable.push_Like_Title(model.name)
+            NotificationManager.shared.sendPush(with: [organizer, likedObjectId], objectId: likedObjectId, alert: alertMessage, type: type)
             closure(isMatched)
         }
     }

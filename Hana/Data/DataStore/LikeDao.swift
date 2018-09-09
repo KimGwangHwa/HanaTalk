@@ -47,23 +47,23 @@ class LikeDao: LikeRepository {
         }
     }
     
-    func liked(with objectId: String, closure: MatchedClosure) {
+    func liked(with objectId: String, closure: CompletionClosure) {
         
         find(by: objectId) { (entity, isSuccess) in
             if isSuccess {
                 self.matched(of: entity, objectId: objectId, closure: closure)
             } else {
                 if closure != nil {
-                    closure!(false, false)
+                    closure!(nil, false)
                 }
             }
         }
     }
     
-    private func matched(of liked: LikeEntity?, objectId: String, closure: MatchedClosure) {
+    private func matched(of liked: LikeEntity?, objectId: String, closure: CompletionClosure) {
         guard let organizerObjectId = UserInfoDao.current()?.objectId else {
             if closure != nil {
-                closure!(false, false)
+                closure!(nil, false)
             }
             return
         }
@@ -81,7 +81,7 @@ class LikeDao: LikeRepository {
             }
             PFObject.saveAll(inBackground: updateList) { (isSuccess, error) in
                 if closure != nil {
-                    closure!(matched ,isSuccess)
+                    closure!(entity ,isSuccess)
                 }
             }
         }
