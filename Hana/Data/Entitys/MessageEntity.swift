@@ -8,12 +8,6 @@
 import UIKit
 import Parse
 
-// MARK: - Message Type
-enum MessageType: Int {
-    case text = 0
-    case image = 1
-}
-
 class MessageEntity: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
@@ -31,7 +25,7 @@ class MessageEntity: PFObject, PFSubclassing {
     
     init(text: String) {
         super.init()
-        self.type = MessageType.text.rawValue
+        //self.type = MessageType.text.rawValue
         self.text = text
         self.sender = UserInfoDao.current()
         self.alert = text
@@ -39,7 +33,7 @@ class MessageEntity: PFObject, PFSubclassing {
     
     init(imageURL: String) {
         super.init()
-        self.type = MessageType.image.rawValue
+        //self.type = MessageType.image.rawValue
         self.imageURL = imageURL
         self.sender = UserInfoDao.current()
         self.alert = "image"

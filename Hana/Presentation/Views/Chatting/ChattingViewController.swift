@@ -17,6 +17,10 @@ class ChattingViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextView: HanaTextView!
     
+    var presenter = ChattingPresenterImpl()
+    var dataStore: ChattingDataStore! {
+        return presenter.useCase
+    }
     var talkRoom: TalkRoomEntity?
     var receiver: UserInfoEntity?
     private var currentUserInfo: UserInfoEntity! = UserInfoDao.current()!
@@ -26,7 +30,7 @@ class ChattingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addObserver()
-        setUpView()
+        setup()
         loadData()
     }
     
@@ -57,12 +61,13 @@ class ChattingViewController: UIViewController {
     }
     
     
-    func setUpView() {
+    func setup() {
         title = receiver?.nickname
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundColor = BackgroundColor
     }
     
     // MARK: - TapEvent
@@ -110,32 +115,32 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataSource[indexPath.row]
         if rowData.sender == currentUserInfo {
-            switch rowData.type {
-            case MessageType.image.rawValue:
-                break
-            case MessageType.text.rawValue:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: SendTextCellIdentifier, for: indexPath) as? SendTextCell {
-                    cell.message = rowData
-                    return cell
-                }
-                break
-            default:
-                break
-            }
+//            switch rowData.type {
+//            case .image:
+//                break
+//            case .text(let text):
+//                if let cell = tableView.dequeueReusableCell(withIdentifier: SendTextCellIdentifier, for: indexPath) as? SendTextCell {
+//                    cell.message = rowData
+//                    return cell
+//                }
+//                break
+//            default:
+//                break
+//            }
 
         } else {
-            switch rowData.type {
-            case MessageType.image.rawValue:
-                break
-            case MessageType.text.rawValue:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: reciveTextCellIdentifier, for: indexPath) as? ReceiveTextCell {
-                    cell.message = rowData
-                    return cell
-                }
-                break
-            default:
-                break
-            }
+//            switch rowData.type {
+//            case MessageType.image.rawValue:
+//                break
+//            case MessageType.text.rawValue:
+//                if let cell = tableView.dequeueReusableCell(withIdentifier: reciveTextCellIdentifier, for: indexPath) as? ReceiveTextCell {
+//                    cell.message = rowData
+//                    return cell
+//                }
+//                break
+//            default:
+//                break
+//            }
         }
         return UITableViewCell()
     }

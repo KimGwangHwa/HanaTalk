@@ -74,7 +74,7 @@ class ChatHistoryViewController: UIViewController {
     
     func moveTalkRoom(with model: ChatModel) {
         if let viewController = R.storyboard.chatting.chattingViewController() {
-            navigationController?.pushViewController(viewController, animated: true)
+            navigationController?.show(viewController, sender: self)
         }
     }
     

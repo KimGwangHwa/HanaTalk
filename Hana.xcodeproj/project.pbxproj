@@ -198,6 +198,9 @@
 		EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */; };
 		EFE81FA220FAF9D100C7BF09 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE81FA120FAF9D100C7BF09 /* EventModel.swift */; };
 		EFFD6DC6213FF713009427EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DC5213FF713009427EC /* DataManager.swift */; };
+		EFFD6DCA2144FD57009427EC /* ChattingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DC92144FD57009427EC /* ChattingPresenter.swift */; };
+		EFFD6DCC2144FEA6009427EC /* ChattingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */; };
+		EFFD6DCE2145030D009427EC /* ChattingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DCD2145030D009427EC /* ChattingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -400,6 +403,9 @@
 		EFE81F2120FAF3A100C7BF09 /* UserInfoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoDao.swift; sourceTree = "<group>"; };
 		EFE81FA120FAF9D100C7BF09 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		EFFD6DC5213FF713009427EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		EFFD6DC92144FD57009427EC /* ChattingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingPresenter.swift; sourceTree = "<group>"; };
+		EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingUseCase.swift; sourceTree = "<group>"; };
+		EFFD6DCD2145030D009427EC /* ChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +546,7 @@
 				A10160B12108404600BE3820 /* ChatUseCase.swift */,
 				A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */,
 				EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */,
+				EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -656,6 +663,7 @@
 		EFE81E7920FAF3A100C7BF09 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EFFD6DC72144FC9B009427EC /* Presenter */,
 				EFE81E7A20FAF3A100C7BF09 /* Views */,
 			);
 			path = Presentation;
@@ -1134,8 +1142,25 @@
 				A1D05D842108484000096EF4 /* ChatModel.swift */,
 				EF0C70B8210DD36100B154DC /* LoginModel.swift */,
 				A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */,
+				EFFD6DCD2145030D009427EC /* ChattingModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EFFD6DC72144FC9B009427EC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EFFD6DC82144FCBB009427EC /* Chatting */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EFFD6DC82144FCBB009427EC /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				EFFD6DC92144FD57009427EC /* ChattingPresenter.swift */,
+			);
+			path = Chatting;
 			sourceTree = "<group>";
 		};
 		F4421D63EAEE078F3728A42A /* Frameworks */ = {
@@ -1394,6 +1419,7 @@
 				EFE81F8320FAF3A200C7BF09 /* PeekViewController.swift in Sources */,
 				EFE81F8020FAF3A200C7BF09 /* CreateEventNameCell.swift in Sources */,
 				EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */,
+				EFFD6DCA2144FD57009427EC /* ChattingPresenter.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
 				A10160992105795C00BE3820 /* WantTodoCategoryCell.swift in Sources */,
 				EFE81F9C20FAF3A200C7BF09 /* MessageDao.swift in Sources */,
@@ -1445,6 +1471,7 @@
 				EFE81F3220FAF3A100C7BF09 /* MatchingStatusCell.swift in Sources */,
 				EFE81F5E20FAF3A200C7BF09 /* MatchingAlertView.swift in Sources */,
 				EFE81F9420FAF3A200C7BF09 /* MailLoginInputCell.swift in Sources */,
+				EFFD6DCC2144FEA6009427EC /* ChattingUseCase.swift in Sources */,
 				EFE81F9920FAF3A200C7BF09 /* TalkRoomEntity.swift in Sources */,
 				A11AA98B20FD8A8800084367 /* BaseModel.swift in Sources */,
 				A11AA98D20FD914200084367 /* Translator.swift in Sources */,
@@ -1475,6 +1502,7 @@
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				EFE81F3020FAF3A100C7BF09 /* MatchingCell.swift in Sources */,
 				EFE81F7620FAF3A200C7BF09 /* LocationCell.swift in Sources */,
+				EFFD6DCE2145030D009427EC /* ChattingModel.swift in Sources */,
 				EFE81F2E20FAF3A100C7BF09 /* ChatHistoryViewController.swift in Sources */,
 				A11AA99620FDA2E000084367 /* EventRepository.swift in Sources */,
 				EFE81F4320FAF3A200C7BF09 /* ReceiveTextCell.swift in Sources */,
