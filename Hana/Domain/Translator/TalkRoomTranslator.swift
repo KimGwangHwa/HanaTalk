@@ -8,13 +8,14 @@
 import UIKit
 
 class TalkRoomTranslator: Translator {
-    func translate(_ input: TalkRoomEntity?) -> ChatModel? {
+    func translate(_ input: TalkRoomEntity?) -> TalkRoomModel? {
         if let input = input {
-            let output = ChatModel()
-            output.name = input.name
+            let output = TalkRoomModel()
+            output.objectId = input.objectId
+            output.title = input.name
             output.lastMessage = input.lastMessage?.alert
             output.lastActiveDate = input.lastMessage?.createdAt?.string(format: .date)
-            output.profileUrl = input.members?.first?.profileUrl
+            output.profileUrl = URL(string: input.members?.first?.profileUrl ?? "")
             return output
         }
         return nil

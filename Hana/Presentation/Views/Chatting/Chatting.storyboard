@@ -31,16 +31,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vi-We-Yt4">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T86-Kq-LqU">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T86-Kq-LqU">
                                         <rect key="frame" x="307" y="10" width="60" height="30"/>
-                                        <color key="backgroundColor" red="0.015686274510000001" green="0.54117647059999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q78-8H-pdu"/>
                                             <constraint firstAttribute="width" constant="60" id="r7C-mX-qLC"/>
                                         </constraints>
-                                        <state key="normal" title="send">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="send" backgroundImage="icon_abled">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="disabled" backgroundImage="icon_disabled"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="sendEvent:" destination="zIV-Uo-APX" eventType="touchUpInside" id="Oua-Ia-z0O"/>
                                         </connections>
@@ -120,4 +126,8 @@
             <point key="canvasLocation" x="-231.19999999999999" y="81.409295352323838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_abled" width="11" height="10"/>
+        <image name="icon_disabled" width="9" height="8"/>
+    </resources>
 </document>

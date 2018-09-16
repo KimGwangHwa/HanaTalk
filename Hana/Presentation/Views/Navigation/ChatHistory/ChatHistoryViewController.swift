@@ -19,7 +19,9 @@ class ChatHistoryViewController: UIViewController {
     var searchController = UISearchController(searchResultsController: nil)
         
     let usecase = ChatUseCase()
-
+    var dataStore: ChatDataStore {
+        return usecase
+    }
     let historyCellIdentifier = R.reuseIdentifier.talkHistoryCell.identifier
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
 
@@ -62,7 +64,7 @@ class ChatHistoryViewController: UIViewController {
     
     func moveScreen(by model: ChatModel) {
         if model.matched {
-            moveTalkRoom(with: model)
+            //moveTalkRoom(with: model)
         } else {
             if let viewController = R.storyboard.userInfo.userInfoViewController() {
                 viewController.usecase.objectId = model.detailObjectId
@@ -72,7 +74,7 @@ class ChatHistoryViewController: UIViewController {
         }
     }
     
-    func moveTalkRoom(with model: ChatModel) {
+    func moveTalkRoom(with model: TalkRoomModel) {
         if let viewController = R.storyboard.chatting.chattingViewController() {
             navigationController?.show(viewController, sender: self)
         }
@@ -92,14 +94,14 @@ class ChatHistoryViewController: UIViewController {
 extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return usecase.data.count
+        return dataStore.section
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return usecase.data[section].count != 0 ? 1:0
+            return dataStore.likeModels.count
         }
-        return usecase.data[section].count
+        return dataStore.talkModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +110,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 if searchController.isActive {
                     //cell.dataSource = filterMathings
                 } else {
-                    cell.config(with: usecase.data[indexPath.section]) { (model) in
+                    cell.config(with: dataStore.likeModels) { (model) in
                         self.moveScreen(by: model)
                     }
                 }
@@ -120,7 +122,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                 if searchController.isActive {
                     //cell.talkRoom = filterHistorys?[indexPath.row]
                 } else {
-                    cell.model = usecase.data[indexPath.section][indexPath.row]
+                    cell.model = dataStore.talkModels[indexPath.row]
                 }
                 return cell
             }
@@ -130,7 +132,7 @@ extension ChatHistoryViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        moveTalkRoom(with: usecase.data[indexPath.section][indexPath.row])
+        moveTalkRoom(with:  dataStore.talkModels[indexPath.row])
     }
 }
 

@@ -7,14 +7,20 @@
 
 import UIKit
 
+protocol ChatDataStore {
+    var likeModels: [ChatModel] { get }
+    var talkModels: [TalkRoomModel] { get }
+    var section: Int { get }
+}
+
 class ChatUseCase: NSObject {
     private let talkRepository = TalkRoomRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = ChatTranslator()
     private let talkTranslator = TalkRoomTranslator()
+    private var privateLikes = [ChatModel]()
+    private var privateTalks = [TalkRoomModel]()
 
-    var data = [[ChatModel]]()
-    
     func enterRoom(closure: @escaping (Bool)-> Void) {
         
     }
@@ -23,16 +29,41 @@ class ChatUseCase: NSObject {
         
         likeRepository.findAll { (entitys, isSuccess) in
             if let models = self.translator.translate(entitys) {
-                self.data.append(models)
+                self.privateLikes.append(contentsOf: models)
             }
             closure(isSuccess)
         }
         
         talkRepository.findAll { (entitys, isSuccess) in
             if let models = self.talkTranslator.translate(entitys) {
-                self.data.append(models)
+                self.privateTalks.append(contentsOf: models)
             }
             closure(isSuccess)
         }
     }
 }
+
+// MARK: - ChatDataStore
+extension ChatUseCase: ChatDataStore {
+    var likeModels: [ChatModel] {
+        get {
+            return privateLikes
+        }
+    }
+
+    var talkModels: [TalkRoomModel] {
+        get {
+            return privateTalks
+        }
+    }
+    
+    var section: Int {
+        get {
+            var count = 0
+            if likeModels.isEmpty { count += 1 }
+            if talkModels.isEmpty { count += 1 }
+            return count
+        }
+    }
+}
+

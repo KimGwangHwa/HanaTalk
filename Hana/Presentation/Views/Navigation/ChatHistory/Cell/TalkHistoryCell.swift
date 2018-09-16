@@ -15,10 +15,10 @@ class TalkHistoryCell: UITableViewCell {
     @IBOutlet weak var talkDescriptionLabel: UILabel!
     @IBOutlet weak var talkBageLabel: UILabel!
     
-    var model: ChatModel! {
+    var model: TalkRoomModel! {
         didSet {
-            iconImageView.sd_setImage(with: URL(string: model.profileUrl ?? ""), placeholderImage: nil)
-            talkNameLabel.text = model.name
+            iconImageView.sd_setImage(with: model.profileUrl, placeholderImage: nil)
+            talkNameLabel.text = model.title
             talkDescriptionLabel.text = model.lastMessage
             talkDateLabel.text = model.lastActiveDate
         }

@@ -15,4 +15,6 @@ enum MessageType {
 class ChattingModel: BaseModel {
     var sendDate: String!
     var type:MessageType!
+    var isSelf = false
+    var profileImage: String?
 }

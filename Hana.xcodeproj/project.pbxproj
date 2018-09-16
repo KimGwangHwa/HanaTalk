@@ -73,6 +73,9 @@
 		EF0C70C82129222300B154DC /* license_plist.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C72129222300B154DC /* license_plist.yml */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
+		EF628D3B214CF4FE00005F20 /* ChattingTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */; };
+		EF628D3D214CF64F00005F20 /* TalkRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */; };
+		EF628D3F214CF6AB00005F20 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3E214CF6AB00005F20 /* MessageModel.swift */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
 		EF7D2F262104778C009B75DB /* DetailEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7D2F252104778C009B75DB /* DetailEvent.storyboard */; };
 		EF7D2F29210477C6009B75DB /* DetailEventTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F27210477C6009B75DB /* DetailEventTitleCell.swift */; };
@@ -278,6 +281,9 @@
 		EF0C70C72129222300B154DC /* license_plist.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license_plist.yml; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
+		EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTranslator.swift; sourceTree = "<group>"; };
+		EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomModel.swift; sourceTree = "<group>"; };
+		EF628D3E214CF6AB00005F20 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		EF7D2F252104778C009B75DB /* DetailEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailEvent.storyboard; sourceTree = "<group>"; };
 		EF7D2F27210477C6009B75DB /* DetailEventTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventTitleCell.swift; sourceTree = "<group>"; };
@@ -561,6 +567,7 @@
 				A1D05D8621084A0200096EF4 /* ChatTranslator.swift */,
 				A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */,
 				EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */,
+				EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -1143,6 +1150,8 @@
 				EF0C70B8210DD36100B154DC /* LoginModel.swift */,
 				A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */,
 				EFFD6DCD2145030D009427EC /* ChattingModel.swift */,
+				EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */,
+				EF628D3E214CF6AB00005F20 /* MessageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1405,6 +1414,7 @@
 				A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */,
 				EFE81F7220FAF3A200C7BF09 /* EventViewController.swift in Sources */,
 				EFE81F3320FAF3A100C7BF09 /* TalkHistoryCell.swift in Sources */,
+				EF628D3B214CF4FE00005F20 /* ChattingTranslator.swift in Sources */,
 				EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */,
 				A10160A321059D8400BE3820 /* CategoryUseCase.swift in Sources */,
 				EFE81F9A20FAF3A200C7BF09 /* MessageEntity.swift in Sources */,
@@ -1414,12 +1424,14 @@
 				EFE81F8E20FAF3A200C7BF09 /* LoginActionCell.swift in Sources */,
 				EF7D2F29210477C6009B75DB /* DetailEventTitleCell.swift in Sources */,
 				A101609D21057B8500BE3820 /* CategoryRepository.swift in Sources */,
+				EF628D3F214CF6AB00005F20 /* MessageModel.swift in Sources */,
 				EFE81F6820FAF3A200C7BF09 /* FindCell.swift in Sources */,
 				EFE81F8A20FAF3A200C7BF09 /* LoginSelectionViewController.swift in Sources */,
 				EFE81F8320FAF3A200C7BF09 /* PeekViewController.swift in Sources */,
 				EFE81F8020FAF3A200C7BF09 /* CreateEventNameCell.swift in Sources */,
 				EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */,
 				EFFD6DCA2144FD57009427EC /* ChattingPresenter.swift in Sources */,
+				EF628D3D214CF64F00005F20 /* TalkRoomModel.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,
 				A10160992105795C00BE3820 /* WantTodoCategoryCell.swift in Sources */,
 				EFE81F9C20FAF3A200C7BF09 /* MessageDao.swift in Sources */,
