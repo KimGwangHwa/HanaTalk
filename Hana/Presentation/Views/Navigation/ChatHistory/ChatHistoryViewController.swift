@@ -17,10 +17,9 @@ fileprivate enum Section: Int {
 class ChatHistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchController = UISearchController(searchResultsController: nil)
-        
-    let usecase = ChatUseCase()
+    let present = ChatPresenterImpl()
     var dataStore: ChatDataStore {
-        return usecase
+        return present.useCase
     }
     let historyCellIdentifier = R.reuseIdentifier.talkHistoryCell.identifier
     let matchingCellIdentifier = R.reuseIdentifier.matchingCell.identifier
@@ -33,9 +32,8 @@ class ChatHistoryViewController: UIViewController {
         loadData()
     }
     
-    func loadData() {
-        
-        usecase.read { (isSuccess) in
+    private func loadData() {
+        present.viewDidLoad { (isSuccess) in
             self.tableView.reloadData()
         }
     }
@@ -64,7 +62,7 @@ class ChatHistoryViewController: UIViewController {
     
     func moveScreen(by model: ChatModel) {
         if model.matched {
-            //moveTalkRoom(with: model)
+            moveTalkRoom()
         } else {
             if let viewController = R.storyboard.userInfo.userInfoViewController() {
                 viewController.usecase.objectId = model.detailObjectId
@@ -74,8 +72,9 @@ class ChatHistoryViewController: UIViewController {
         }
     }
     
-    func moveTalkRoom(with model: TalkRoomModel) {
+    func moveTalkRoom(with model: TalkRoomModel? = nil) {
         if let viewController = R.storyboard.chatting.chattingViewController() {
+            viewController.dataStore.enterTakRoom(with: model?.objectId)
             navigationController?.show(viewController, sender: self)
         }
     }

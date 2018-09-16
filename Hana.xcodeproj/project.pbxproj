@@ -40,7 +40,7 @@
 		A10160AC21083B7F00BE3820 /* BrowseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160AB21083B7F00BE3820 /* BrowseUseCase.swift */; };
 		A10160AE21083C7E00BE3820 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160AD21083C7E00BE3820 /* UserInfoModel.swift */; };
 		A10160B021083DB700BE3820 /* BrowseTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160AF21083DB700BE3820 /* BrowseTranslator.swift */; };
-		A10160B22108404600BE3820 /* ChatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160B12108404600BE3820 /* ChatUseCase.swift */; };
+		A10160B22108404600BE3820 /* ChatUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10160B12108404600BE3820 /* ChatUseCaseImpl.swift */; };
 		A11AA98720FD794A00084367 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98620FD794A00084367 /* Repository.swift */; };
 		A11AA98920FD885700084367 /* EventDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98820FD885700084367 /* EventDao.swift */; };
 		A11AA98B20FD8A8800084367 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA98A20FD8A8800084367 /* BaseModel.swift */; };
@@ -76,6 +76,7 @@
 		EF628D3B214CF4FE00005F20 /* ChattingTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */; };
 		EF628D3D214CF64F00005F20 /* TalkRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */; };
 		EF628D3F214CF6AB00005F20 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3E214CF6AB00005F20 /* MessageModel.swift */; };
+		EF628D42214E45CD00005F20 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D41214E45CD00005F20 /* ChatPresenter.swift */; };
 		EF7D2F2421047784009B75DB /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F2321047784009B75DB /* DetailEventViewController.swift */; };
 		EF7D2F262104778C009B75DB /* DetailEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7D2F252104778C009B75DB /* DetailEvent.storyboard */; };
 		EF7D2F29210477C6009B75DB /* DetailEventTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D2F27210477C6009B75DB /* DetailEventTitleCell.swift */; };
@@ -248,7 +249,7 @@
 		A10160AB21083B7F00BE3820 /* BrowseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseUseCase.swift; sourceTree = "<group>"; };
 		A10160AD21083C7E00BE3820 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		A10160AF21083DB700BE3820 /* BrowseTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseTranslator.swift; sourceTree = "<group>"; };
-		A10160B12108404600BE3820 /* ChatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCase.swift; sourceTree = "<group>"; };
+		A10160B12108404600BE3820 /* ChatUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUseCaseImpl.swift; sourceTree = "<group>"; };
 		A11AA98620FD794A00084367 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A11AA98820FD885700084367 /* EventDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDao.swift; sourceTree = "<group>"; };
 		A11AA98A20FD8A8800084367 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -284,6 +285,7 @@
 		EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTranslator.swift; sourceTree = "<group>"; };
 		EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomModel.swift; sourceTree = "<group>"; };
 		EF628D3E214CF6AB00005F20 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		EF628D41214E45CD00005F20 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		EF7D2F2321047784009B75DB /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		EF7D2F252104778C009B75DB /* DetailEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailEvent.storyboard; sourceTree = "<group>"; };
 		EF7D2F27210477C6009B75DB /* DetailEventTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventTitleCell.swift; sourceTree = "<group>"; };
@@ -549,7 +551,7 @@
 				A11AA99020FD9E9A00084367 /* EventUseCase.swift */,
 				A10160A221059D8400BE3820 /* CategoryUseCase.swift */,
 				A10160AB21083B7F00BE3820 /* BrowseUseCase.swift */,
-				A10160B12108404600BE3820 /* ChatUseCase.swift */,
+				A10160B12108404600BE3820 /* ChatUseCaseImpl.swift */,
 				A1D05D88210962D300096EF4 /* UserInfoUseCase.swift */,
 				EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */,
 				EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */,
@@ -624,6 +626,14 @@
 				EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		EF628D40214E45B000005F20 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				EF628D41214E45CD00005F20 /* ChatPresenter.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		EF7D2F1D21047616009B75DB /* Detail */ = {
@@ -1159,6 +1169,7 @@
 		EFFD6DC72144FC9B009427EC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				EF628D40214E45B000005F20 /* Chat */,
 				EFFD6DC82144FCBB009427EC /* Chatting */,
 			);
 			path = Presenter;
@@ -1411,6 +1422,7 @@
 				A10160AA2108319800BE3820 /* LikeEntity.swift in Sources */,
 				EFE81F6F20FAF3A200C7BF09 /* AlbumCell.swift in Sources */,
 				EFE81F5F20FAF3A200C7BF09 /* SwipeableView.swift in Sources */,
+				EF628D42214E45CD00005F20 /* ChatPresenter.swift in Sources */,
 				A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */,
 				EFE81F7220FAF3A200C7BF09 /* EventViewController.swift in Sources */,
 				EFE81F3320FAF3A100C7BF09 /* TalkHistoryCell.swift in Sources */,
@@ -1533,7 +1545,7 @@
 				EFE81F4E20FAF3A200C7BF09 /* ProfileCell.swift in Sources */,
 				EFE81F4620FAF3A200C7BF09 /* InputMessageViewController.swift in Sources */,
 				34109DFF2076656300EC9CE0 /* Const.swift in Sources */,
-				A10160B22108404600BE3820 /* ChatUseCase.swift in Sources */,
+				A10160B22108404600BE3820 /* ChatUseCaseImpl.swift in Sources */,
 				EFE81FA020FAF3A200C7BF09 /* UserInfoDao.swift in Sources */,
 				A1016096210574BD00BE3820 /* UIButton.swift in Sources */,
 				A10160A52105B03F00BE3820 /* WantTodoCategoryHeader.swift in Sources */,

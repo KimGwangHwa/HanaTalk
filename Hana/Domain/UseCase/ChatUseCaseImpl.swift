@@ -12,8 +12,12 @@ protocol ChatDataStore {
     var talkModels: [TalkRoomModel] { get }
     var section: Int { get }
 }
+protocol ChatUseCase {
+    func read(closure: @escaping (Bool)-> Void)
+    func enterRoom(closure: @escaping (Bool)-> Void)
+}
 
-class ChatUseCase: NSObject {
+class ChatUseCaseImpl: NSObject {
     private let talkRepository = TalkRoomRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = ChatTranslator()
@@ -44,7 +48,7 @@ class ChatUseCase: NSObject {
 }
 
 // MARK: - ChatDataStore
-extension ChatUseCase: ChatDataStore {
+extension ChatUseCaseImpl: ChatDataStore {
     var likeModels: [ChatModel] {
         get {
             return privateLikes
