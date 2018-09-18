@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T86-Kq-LqU">
-                                        <rect key="frame" x="307" y="10" width="60" height="30"/>
+                                        <rect key="frame" x="307" y="10.5" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q78-8H-pdu"/>
                                             <constraint firstAttribute="width" constant="60" id="r7C-mX-qLC"/>
@@ -61,9 +61,9 @@
                                         </state>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-nK-GMH" customClass="HanaTextView" customModule="Hana" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="5" width="249" height="40"/>
+                                        <rect key="frame" x="50" y="7.5" width="249" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="zHV-iB-QT0"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="zHV-iB-QT0"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -73,7 +73,7 @@
                                                 <real key="value" value="0.5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="17.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -88,9 +88,9 @@
                                     <constraint firstItem="EJQ-ir-hvt" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="U6J-WO-gFw"/>
                                     <constraint firstAttribute="trailing" secondItem="T86-Kq-LqU" secondAttribute="trailing" constant="8" id="Wfi-bK-Q5h"/>
                                     <constraint firstItem="kqY-nK-GMH" firstAttribute="leading" secondItem="EJQ-ir-hvt" secondAttribute="trailing" constant="2" id="Whu-E7-5Lx"/>
-                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="5" id="XL3-44-Dlt"/>
+                                    <constraint firstItem="kqY-nK-GMH" firstAttribute="top" secondItem="2Vi-We-Yt4" secondAttribute="top" constant="7.5" id="XL3-44-Dlt"/>
                                     <constraint firstItem="T86-Kq-LqU" firstAttribute="leading" secondItem="kqY-nK-GMH" secondAttribute="trailing" constant="8" id="ae6-c8-HFd"/>
-                                    <constraint firstAttribute="bottom" secondItem="kqY-nK-GMH" secondAttribute="bottom" constant="5" id="iem-QA-V4I"/>
+                                    <constraint firstAttribute="bottom" secondItem="kqY-nK-GMH" secondAttribute="bottom" constant="7.5" id="iem-QA-V4I"/>
                                     <constraint firstItem="EJQ-ir-hvt" firstAttribute="leading" secondItem="2Vi-We-Yt4" secondAttribute="leading" constant="8" id="uxg-bj-ejd"/>
                                 </constraints>
                             </view>

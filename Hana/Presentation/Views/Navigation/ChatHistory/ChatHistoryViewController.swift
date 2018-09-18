@@ -65,16 +65,21 @@ class ChatHistoryViewController: UIViewController {
             moveTalkRoom()
         } else {
             if let viewController = R.storyboard.userInfo.userInfoViewController() {
-                viewController.usecase.objectId = model.detailObjectId
+                viewController.usecase.objectId = model.subObjectId
                 viewController.usecase.isSelf = false
                 navigationController?.pushViewController(viewController, animated: true)
             }
         }
     }
     
-    func moveTalkRoom(with model: TalkRoomModel? = nil) {
+    func moveTalkRoom(with model: TalkRoomModel? = nil, subObject: String? = nil) {
         if let viewController = R.storyboard.chatting.chattingViewController() {
-            viewController.dataStore.enterTakRoom(with: model?.objectId)
+            if let subObject = subObject {
+                viewController.dataStore.findTalkRoom(by: subObject)
+            }
+            if let model = model {
+                viewController.dataStore.enterTakRoom(with: model.objectId)
+            }
             navigationController?.show(viewController, sender: self)
         }
     }

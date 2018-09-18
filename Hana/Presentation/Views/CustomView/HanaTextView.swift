@@ -15,13 +15,22 @@ class HanaTextView: UIScrollView {
         return _textView
     }
     
+    open var textViewInset: UIEdgeInsets {
+        get {
+            return _textViewInset
+        }
+        set {
+            _textViewInset = newValue
+        }
+    }
+    
     @IBInspectable var minNumberOfLines: Int {
         get {
             return _minNumberOfLines
         }
         set {
             guard newValue > 1 else {
-                _minHeight = simulateHeight(1)
+                _minHeight = simulateHeight()
                 return
             }
             
@@ -36,7 +45,7 @@ class HanaTextView: UIScrollView {
         }
         set {
             guard newValue > 1 else {
-                _maxHeight = simulateHeight(1)
+                _maxHeight = simulateHeight()
                 return
             }
             
@@ -83,12 +92,13 @@ class HanaTextView: UIScrollView {
     private var _maxHeight: CGFloat = 0
     private var _minHeight: CGFloat = 0
     private var _previousFrame: CGRect = CGRect.zero
+    private var _textViewInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
     // MARK: - Initializers
     
     public override init(frame: CGRect) {
-        
-        _textView = HanaInternalTextView(frame: CGRect(x: 15, y: 0, width: frame.width - 30, height: frame.height))
+
+        _textView = HanaInternalTextView(frame: CGRect(x: _textViewInset.left, y: 0, width: frame.width - 30, height: frame.height))
         _previousFrame = frame
         
         super.init(frame: frame)
@@ -102,7 +112,7 @@ class HanaTextView: UIScrollView {
         
         super.init(coder: aDecoder)
         
-        _textView.frame = CGRect(x: 15, y: 0, width: bounds.width - 30, height: bounds.height)
+        _textView.frame = CGRect(x: _textViewInset.left, y: 0, width: bounds.width - 30, height: bounds.height)
         _previousFrame = frame
         setup()
     }
@@ -126,10 +136,11 @@ class HanaTextView: UIScrollView {
     private func setup() {
         
         _textView.isScrollEnabled = false
+        showsVerticalScrollIndicator = false
         _textView.font = UIFont.systemFont(ofSize: 16)
         _textView.backgroundColor = UIColor.clear
         addSubview(_textView)
-        _minHeight = simulateHeight(1)
+        _minHeight = simulateHeight()
         maxNumberOfLines = 3
         
         _textView.didChange = { [weak self] in
@@ -167,11 +178,8 @@ class HanaTextView: UIScrollView {
         let actualTextViewSize = measureTextViewSize()
         let oldScrollViewFrame = frame
         
-        var _frame = bounds
-        _frame.origin = CGPoint.zero
-        _frame.size.height = actualTextViewSize.height
-        _textView.frame = _frame
-        contentSize = _frame.size
+        contentSize = CGSize(width: bounds.width, height: actualTextViewSize.height)
+        _textView.frame = textViewFrame()
         
         let newScrollViewFrame = measureFrame(actualTextViewSize)
         
@@ -191,18 +199,24 @@ class HanaTextView: UIScrollView {
         }
     }
     
+    private func textViewFrame() -> CGRect {
+        let origin = CGPoint(x: _textViewInset.left, y: _textViewInset.top)
+        let size = CGSize(width: contentSize.width - _textViewInset.left - _textViewInset.right, height: contentSize.height - _textViewInset.top - textViewInset.bottom)
+        return CGRect(origin: origin, size: size)
+    }
+    
     private func scrollToBottom() {
         guard !disableAutomaticScrollToBottom else { return }
         contentOffset.y = contentSize.height - frame.height
     }
     
     private func updateMinimumAndMaximumHeight() {
-        _minHeight = simulateHeight(1)
+        _minHeight = simulateHeight()
         _maxHeight = simulateHeight(maxNumberOfLines)
         fitToScrollView()
     }
     
-    private func simulateHeight(_ line: Int) -> CGFloat {
+    private func simulateHeight(_ line: Int = 1) -> CGFloat {
         
         let saveText = _textView.text
         var newText = "-"
