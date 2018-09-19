@@ -68,7 +68,7 @@
 		EF0C70B9210DD36100B154DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70B8210DD36100B154DC /* LoginModel.swift */; };
 		EF0C70BB210DDCF300B154DC /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */; };
 		EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */; };
-		EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */; };
+		EF0C70BF2127C08B00B154DC /* TalkRoomTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C70BE2127C08B00B154DC /* TalkRoomTranslater.swift */; };
 		EF0C70C5212919F000B154DC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C4212919F000B154DC /* Settings.bundle */; };
 		EF0C70C82129222300B154DC /* license_plist.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C72129222300B154DC /* license_plist.yml */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
@@ -277,7 +277,7 @@
 		EF0C70B8210DD36100B154DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		EF0C70BA210DDCF300B154DC /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EF0C70BC211FCCFC00B154DC /* FacebookUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUserEntity.swift; sourceTree = "<group>"; };
-		EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomTranslator.swift; sourceTree = "<group>"; };
+		EF0C70BE2127C08B00B154DC /* TalkRoomTranslater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomTranslater.swift; sourceTree = "<group>"; };
 		EF0C70C4212919F000B154DC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EF0C70C72129222300B154DC /* license_plist.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license_plist.yml; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 				A10160AF21083DB700BE3820 /* BrowseTranslator.swift */,
 				A1D05D8621084A0200096EF4 /* ChatTranslator.swift */,
 				A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */,
-				EF0C70BE2127C08B00B154DC /* TalkRoomTranslator.swift */,
+				EF0C70BE2127C08B00B154DC /* TalkRoomTranslater.swift */,
 				EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */,
 			);
 			path = Translator;
@@ -1441,7 +1441,7 @@
 				EFE81F8A20FAF3A200C7BF09 /* LoginSelectionViewController.swift in Sources */,
 				EFE81F8320FAF3A200C7BF09 /* PeekViewController.swift in Sources */,
 				EFE81F8020FAF3A200C7BF09 /* CreateEventNameCell.swift in Sources */,
-				EF0C70BF2127C08B00B154DC /* TalkRoomTranslator.swift in Sources */,
+				EF0C70BF2127C08B00B154DC /* TalkRoomTranslater.swift in Sources */,
 				EFFD6DCA2144FD57009427EC /* ChattingPresenter.swift in Sources */,
 				EF628D3D214CF64F00005F20 /* TalkRoomModel.swift in Sources */,
 				34109DF92076656200EC9CE0 /* UIView+Layer.swift in Sources */,

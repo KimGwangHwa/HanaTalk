@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ChattingViewController: UIViewController {
 
     fileprivate let reciveTextCellIdentifier = R.reuseIdentifier.receiveTextCell.identifier
     fileprivate let SendTextCellIdentifier = R.reuseIdentifier.sendTextCell.identifier
+    fileprivate let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextView: HanaTextView!
-    
+    @IBOutlet weak var sendButton: UIButton!
+
     var presenter = ChattingPresenterImpl()
     var dataStore: ChattingDataStore! {
         return presenter.useCase
@@ -62,12 +66,19 @@ class ChattingViewController: UIViewController {
     
     
     func setup() {
+        inputTextView.placeholderAttributedText = NSAttributedString(string: "input", attributes: [.foregroundColor: UIColor.gray])
         title = receiver?.nickname
         tableView.register(R.nib.receiveTextCell(), forCellReuseIdentifier: R.reuseIdentifier.receiveTextCell.identifier)
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = BackgroundColor
+        //sendButton.isEnabled
+        inputTextView.textView.rx.didChange.asControlEvent().subscribe { (_) in
+            self.sendButton.isEnabled = !self.inputTextView.textView.text.isEmpty
+        }.disposed(by: disposeBag)
+        //inputTextView.textView.rx.text.bind(to: sendButton.rx.isEnabled)
+        
     }
     
     // MARK: - TapEvent
@@ -77,25 +88,7 @@ class ChattingViewController: UIViewController {
     }
 
     @IBAction func sendEvent(_ sender: UIButton) {
-
-        let message = MessageEntity(text: inputTextView.textView.text!)
-        if let guardTalkRoom = talkRoom {
-            guardTalkRoom.lastMessage = message
-        } else {
-            talkRoom = TalkRoomEntity(members: [receiver!, currentUserInfo])
-        }
-        
-        message.talkRoom = talkRoom
-        TalkRoomEntity.saveAll(inBackground: [message,talkRoom!]) { (isSuccess, error) in
-            message.pinInBackground()
-            self.talkRoom?.pinInBackground()
-//            ParseHelper.sendPush(with: message) { (isSuccess) in
-//                self.dataSource.append(message)
-//                self.inputTextView.textView.text = nil
-//                self.inputTextView.textView.resignFirstResponder()
-//                self.tableView.reloadData()
-//            }
-        }
+        presenter.sendText(message: inputTextView.textView.text)
     }
     
     deinit {

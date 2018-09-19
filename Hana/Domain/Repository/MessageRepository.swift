@@ -11,7 +11,7 @@ import Foundation
 protocol MessageRepository: Repository {
     
     func find(by talkRoom: TalkRoomEntity, closure: MultipleCompletionClosure)
-    
+    func create(with talkRoom: TalkRoomEntity, text: String, closure: CompletionClosure)
 }
 
 
@@ -21,4 +21,9 @@ struct MessageRepositoryImpl: MessageRepository {
     func find(by talkRoom: TalkRoomEntity, closure: (([MessageRepositoryImpl.Entity]?, Bool) -> Void)?) {
         
     }
+    
+    func create(with talkRoom: TalkRoomEntity, text: String, closure: CompletionClosure) {
+
+    }
+
 }

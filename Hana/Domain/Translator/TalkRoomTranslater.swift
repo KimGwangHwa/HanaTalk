@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TalkRoomTranslator: Translator {
+class TalkRoomTranslater: Translator {
     func translate(_ input: TalkRoomEntity?) -> TalkRoomModel? {
         if let input = input {
             let output = TalkRoomModel()

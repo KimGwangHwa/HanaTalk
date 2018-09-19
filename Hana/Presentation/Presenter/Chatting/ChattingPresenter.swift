@@ -8,17 +8,17 @@
 import UIKit
 
 protocol ChattingPresenter {
-    func sendMessage()
-    func more()
+    func sendText(message: String?)
+    func tapMore()
 }
 
 class ChattingPresenterImpl: ChattingPresenter {
     var useCase = ChattingUseCaseImpl()
 
-    func sendMessage() {
-        
+    func sendText(message: String?) {
+        useCase.sendText(message: message)
     }
-    func more() {
+    func tapMore() {
         
     }
 }

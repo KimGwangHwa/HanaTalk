@@ -10,14 +10,14 @@ import Foundation
 // MARK: - TalkRoomRepository
 protocol TalkRoomRepository: Repository {
 
-    func find(by receiver: UserInfoEntity, closure: CompletionClosure)
-    
+    func search(by receiver: String, closure: CompletionClosure)
+    func create(with partner: String, closure: CompletionClosure)
 }
 
 struct TalkRoomRepositoryImpl: TalkRoomRepository {
     typealias Entity = TalkRoomEntity
 
-    func find(by receiver: UserInfoEntity, closure: ((TalkRoomEntity?, Bool) -> Void)?) {
+    func search(by receiver: String, closure: CompletionClosure) {
         
     }
     
@@ -25,6 +25,7 @@ struct TalkRoomRepositoryImpl: TalkRoomRepository {
         
     }
     
-    
-    
+    func create(with partner: String, closure: CompletionClosure) {
+    }
+
 }

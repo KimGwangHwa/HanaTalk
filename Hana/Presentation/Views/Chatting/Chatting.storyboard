@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="zGQ-at-eR4" id="BID-xG-KTS"/>
                         <outlet property="inputTextView" destination="kqY-nK-GMH" id="eoV-QV-y0I"/>
+                        <outlet property="sendButton" destination="T86-Kq-LqU" id="TSG-FY-ueD"/>
                         <outlet property="tableView" destination="6us-Wx-A88" id="p7C-T0-889"/>
                     </connections>
                 </viewController>

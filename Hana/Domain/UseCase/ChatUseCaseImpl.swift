@@ -21,7 +21,7 @@ class ChatUseCaseImpl: NSObject {
     private let talkRepository = TalkRoomRepositoryImpl()
     private let likeRepository = LikeRepositoryImpl()
     private let translator = ChatTranslator()
-    private let talkTranslator = TalkRoomTranslator()
+    private let talkTranslator = TalkRoomTranslater()
     private var privateLikes = [ChatModel]()
     private var privateTalks = [TalkRoomModel]()
 
