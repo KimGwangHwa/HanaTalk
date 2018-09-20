@@ -8,28 +8,25 @@
 import UIKit
 import Parse
 
-class MessageDao: DAO {
+class MessageDao: MessageRepository {
+    typealias Entity = MessageEntity
 
-    // MARK: - Find
- 
-    class func findMessages(with talkRoom: TalkRoomEntity, closure: @escaping ([MessageEntity]?)-> Void) {
-        localFind(with: MessageClassName, parameters: [TalkRoomColumnName : talkRoom], closure: closure)
-    }
-    
-    class func find(by talkRoom: TalkRoomEntity, closure: @escaping ([MessageEntity]?, Bool)-> Void) {
-        remoteFind(with: MessageClassName, parameters: [TalkRoomColumnName : talkRoom], closure: closure)
-    }
-    
-    class func find(by objectId: String, completion: @escaping (MessageEntity?, Bool) -> Void) {
-        
-        remoteFind(with: MessageClassName, parameters: [ObjectIdColumnName : objectId]) { (objects, isSuccess) in
-            completion(objects?.first as? MessageEntity, true)
+    func find(by talkRoomObjectId: String, closure: (([MessageDao.Entity]?, Bool) -> Void)?) {
+        let query = PFQuery(className: MessageClassName)
+        query.whereKey(TalkRoomColumnName, equalTo: TalkRoomEntity(withoutDataWithObjectId: talkRoomObjectId))
+        //query.fromLocalDatastore()
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects as? [MessageEntity], error == nil ? true: false)
         }
     }
-
     
-    
-    // MARK: - Save Update
-
-    
+    func create(with talkRoomObjectId: String, text: String, closure: ((MessageDao.Entity?, Bool) -> Void)?) {
+        let entity = MessageEntity()
+        entity.talkRoom = TalkRoomEntity(withoutDataWithObjectId: talkRoomObjectId)
+        entity.text = text
+        entity.type = 1
+        entity.saveInBackground { (isSuccess, error) in
+            closure!(entity, isSuccess)
+        }
+    }
 }

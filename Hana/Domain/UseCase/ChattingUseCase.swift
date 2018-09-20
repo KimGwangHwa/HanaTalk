@@ -10,6 +10,7 @@ import UIKit
 protocol ChattingDataStore {
     func findTalkRoom(by partner: String)
     func enterTakRoom(with objectId: String)
+    var messageModels: [MessageModel] { get }
 }
 
 protocol ChattingUseCase {
@@ -24,6 +25,7 @@ class ChattingUseCaseImpl: NSObject {
 
     private var talkRoom: TalkRoomEntity?
     private var partner: String?
+    private var messages: [MessageModel]!
 }
 
 extension ChattingUseCaseImpl: ChattingUseCase {
@@ -32,7 +34,7 @@ extension ChattingUseCaseImpl: ChattingUseCase {
             return
         }
         if let talkRoom = talkRoom {
-            messageRepo.create(with: talkRoom, text: message) { (entity, isSuccess) in
+            messageRepo.create(with: talkRoom.objectId!, text: message) { (entity, isSuccess) in
                 
             }
             return
@@ -40,7 +42,7 @@ extension ChattingUseCaseImpl: ChattingUseCase {
         talkRepo.create(with: partner!) { (entity, isSuccess) in
             if let entity = entity, isSuccess {
                 self.talkRoom = entity
-                self.messageRepo.create(with: entity, text: message) { (entity, isSuccess) in
+                self.messageRepo.create(with: entity.objectId!, text: message) { (entity, isSuccess) in
                     
                 }
             }
@@ -53,6 +55,7 @@ extension ChattingUseCaseImpl: ChattingUseCase {
 
 // MARK: - ChattingDataStore
 extension ChattingUseCaseImpl: ChattingDataStore {
+    
     func findTalkRoom(by partner: String) {
         self.partner = partner
         talkRepo.search(by: partner) { (entity, isSuccess) in
@@ -67,5 +70,8 @@ extension ChattingUseCaseImpl: ChattingDataStore {
                 self.talkRoom = entity
             }
         }
+    }
+    var messageModels: [MessageModel] {
+        return messages
     }
  }

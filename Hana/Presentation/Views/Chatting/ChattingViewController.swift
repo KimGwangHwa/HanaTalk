@@ -10,6 +10,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+protocol ChattingInputView: class {
+    func setMessage(models: [MessageModel])
+    func networkFailure()
+}
+
 class ChattingViewController: UIViewController {
 
     fileprivate let reciveTextCellIdentifier = R.reuseIdentifier.receiveTextCell.identifier
@@ -44,10 +49,10 @@ class ChattingViewController: UIViewController {
     
     func loadTalkRoom() {
         if let receiver = receiver {
-            TalkRoomDao.findTalk(by: receiver) { (object, isSuccess) in
-                self.talkRoom = object
-                self.loadMessage()
-            }
+//            TalkRoomDao.findTalk(by: receiver) { (object, isSuccess) in
+//                self.talkRoom = object
+//                self.loadMessage()
+//            }
         } else {
             loadMessage()
         }
@@ -55,12 +60,12 @@ class ChattingViewController: UIViewController {
     
     func loadMessage() {
         if let guardTalkRoom = talkRoom {
-            MessageDao.find(by: guardTalkRoom) { (objects, isSuccess) in
-                if let guardMessage = objects {
-                    self.dataSource.append(contentsOf: guardMessage)
-                    self.tableView.reloadData()
-                }
-            }
+//            MessageDao.find(by: guardTalkRoom) { (objects, isSuccess) in
+//                if let guardMessage = objects {
+//                    self.dataSource.append(contentsOf: guardMessage)
+//                    self.tableView.reloadData()
+//                }
+//            }
         }
     }
     

@@ -13,6 +13,7 @@ protocol ChattingPresenter {
 }
 
 class ChattingPresenterImpl: ChattingPresenter {
+    weak var viewInput: ChattingInputView?
     var useCase = ChattingUseCaseImpl()
 
     func sendText(message: String?) {

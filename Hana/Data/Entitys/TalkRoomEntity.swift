@@ -20,17 +20,17 @@ class TalkRoomEntity: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var type: Int
 
-    init(members: [UserInfoEntity]?) {
-        super.init()
-        self.members = members
-        var channels = [String]()
-        for member in members ?? [] {
-            channels.append(member.objectId ?? "")
-        }
-        self.channels = channels
-    }
-    override init() {
-        super.init()
-    }
+//    init(members: [UserInfoEntity]?) {
+//        super.init()
+//        self.members = members
+//        var channels = [String]()
+//        for member in members ?? [] {
+//            channels.append(member.objectId ?? "")
+//        }
+//        self.channels = channels
+//    }
+//    override init() {
+//        super.init()
+//    }
 
 }

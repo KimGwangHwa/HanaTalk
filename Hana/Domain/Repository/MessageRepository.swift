@@ -10,19 +10,19 @@ import Foundation
 // MARK: - MessageRepository
 protocol MessageRepository: Repository {
     
-    func find(by talkRoom: TalkRoomEntity, closure: MultipleCompletionClosure)
-    func create(with talkRoom: TalkRoomEntity, text: String, closure: CompletionClosure)
+    func find(by talkRoomObjectId: String, closure: MultipleCompletionClosure)
+    func create(with talkRoomObjectId: String, text: String, closure: CompletionClosure)
 }
 
 
 struct MessageRepositoryImpl: MessageRepository {
     typealias Entity = MessageEntity
     
-    func find(by talkRoom: TalkRoomEntity, closure: (([MessageRepositoryImpl.Entity]?, Bool) -> Void)?) {
+    func find(by talkRoomObjectId: String, closure: (([MessageRepositoryImpl.Entity]?, Bool) -> Void)?) {
         
     }
     
-    func create(with talkRoom: TalkRoomEntity, text: String, closure: CompletionClosure) {
+    func create(with talkRoomObjectId: String, text: String, closure: CompletionClosure) {
 
     }
 

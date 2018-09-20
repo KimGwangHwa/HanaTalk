@@ -8,53 +8,49 @@
 import UIKit
 import Parse
 
-class TalkRoomDao: DAO {
-    // MARK: - Find
-    
-    class func findTalk(closure: @escaping ([TalkRoomEntity]?, Bool)-> Void) {
-        if let currentUserInfo = UserInfoDao.current() {
-            
-            let query = PFQuery(className: TalkRoomClassName)
-            query.includeKey("lastMessage")
-            query.whereKey("members", equalTo: currentUserInfo)
-            query.findObjectsInBackground { (objects, error) in
-                closure(objects as? [TalkRoomEntity], error == nil ? true: false)
-            }
+class TalkRoomDao: TalkRoomRepository {
+    typealias Entity = TalkRoomEntity
 
+    func find(by objectId: String, closure: ((TalkRoomEntity?, Bool) -> Void)?) {
+        let query = PFQuery(className: TalkRoomClassName)
+        query.includeKey("lastMessage")
+        query.whereKey("objectId", equalTo: objectId)
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects?.first as? TalkRoomEntity, error == nil ? true: false)
         }
     }
     
-    class func findTalk(by receiver: UserInfoEntity, closure: @escaping (TalkRoomEntity?, Bool)-> Void) {
+    func findAll(closure: (([TalkRoomEntity]?, Bool) -> Void)?) {
         if let currentUserInfo = UserInfoDao.current() {
             let query = PFQuery(className: TalkRoomClassName)
             query.includeKey("lastMessage")
-            query.whereKey("members", containsAllObjectsIn: [currentUserInfo, receiver])
-            
+            query.whereKey("members", containedIn: [currentUserInfo])
             query.findObjectsInBackground { (objects, error) in
-                closure(objects?.first as? TalkRoomEntity, error == nil ? true: false)
+                closure!(objects as? [TalkRoomEntity], error == nil ? true: false)
             }
         }
     }
     
-    
-    
-    // MARK: - Save Update
-    
-    class func saveTalkRoom(with reciver: UserInfoEntity?, lastMessage: MessageEntity?) {
-        if let talkRoom = lastMessage?.talkRoom {
-            talkRoom.lastMessage = lastMessage
-            talkRoom.pinInBackground()
-        } else {
-            let room = TalkRoomEntity()
-            if let receiverUserInfo = reciver,
-                let currentuserInfo = UserInfoDao.current() {
-                room.members = [receiverUserInfo, currentuserInfo]
-            }
-            lastMessage?.talkRoom = room
-            room.lastMessage = lastMessage
-            room.pinInBackground()
+    func search(by receiver: String, closure: ((TalkRoomDao.Entity?, Bool) -> Void)?) {
+        let query = PFQuery(className: TalkRoomClassName)
+        query.includeKey("lastMessage")
+        query.whereKey("members", containedIn: [UserInfoEntity(withoutDataWithObjectId: receiver)])
+        query.findObjectsInBackground { (objects, error) in
+            closure!(objects?.first as? TalkRoomEntity, error == nil ? true: false)
         }
     }
-
-
+    
+    func create(with partner: String, closure: ((TalkRoomDao.Entity?, Bool) -> Void)?) {
+        let entity = TalkRoomEntity()
+        entity.members = [UserInfoEntity(withoutDataWithObjectId: partner), UserInfoDao.current()!]
+        entity.saveInBackground { (isSuccess, error) in
+            closure!(entity, isSuccess)
+        }
+    }
+    
+    func save(by object: TalkRoomEntity, closure: Repository.BoolClosure) {
+        object.saveInBackground { (isSuccess, error) in
+            closure!(isSuccess)
+        }
+    }
 }
