@@ -34,8 +34,6 @@ class ChattingViewController: UIViewController {
     var receiver: UserInfoEntity?
     private var currentUserInfo: UserInfoEntity! = UserInfoDao.current()!
     
-    private var dataSource = [MessageEntity]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -66,6 +64,8 @@ class ChattingViewController: UIViewController {
 
     @IBAction func sendEvent(_ sender: UIButton) {
         presenter.sendText(message: inputTextView.textView.text)
+        inputTextView.textView.resignFirstResponder()
+        inputTextView.textView.text = nil
         tableView.reloadData()
     }
     
@@ -79,12 +79,12 @@ class ChattingViewController: UIViewController {
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataStore.messageModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rowData = dataSource[indexPath.row]
-        if rowData.sender == currentUserInfo {
+        let rowData = dataStore.messageModels[indexPath.row]
+        if rowData.isSelf {
 //            switch rowData.type {
 //            case .image:
 //                break
@@ -128,10 +128,10 @@ extension ChattingViewController {
     
     @objc func pushNotificationDidReceive(notification: Notification?) {
         if let guardMessage = notification?.object as? MessageEntity {
-            if guardMessage.sender?.objectId == receiver?.objectId {
-                dataSource.append(guardMessage)
-                tableView.reloadData()
-            }
+//            if guardMessage.sender?.objectId == receiver?.objectId {
+//                dataSource.append(guardMessage)
+//                tableView.reloadData()
+//            }
         }
     }
 
@@ -159,8 +159,7 @@ extension ChattingViewController {
 extension ChattingViewController: ChattingInputView {
     
     func didSendMessage() {
-        inputTextView.textView.resignFirstResponder()
-        inputTextView.textView.text = nil
+        
     }
     
     func networkFailure() {
