@@ -62,7 +62,7 @@ class ChatHistoryViewController: UIViewController {
     
     func moveScreen(by model: ChatModel) {
         if model.matched {
-            moveTalkRoom()
+            moveTalkRoom(subObject: model.subObjectId)
         } else {
             if let viewController = R.storyboard.userInfo.userInfoViewController() {
                 viewController.usecase.objectId = model.subObjectId

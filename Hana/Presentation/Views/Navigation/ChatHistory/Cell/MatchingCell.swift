@@ -6,22 +6,17 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class MatchingCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    private var rxTapIndex = BehaviorRelay<Int>(value: 0)
-    private let disposeBag = DisposeBag()
+    private var closure: (ChatModel)-> Void = {_ in }
     private var models: [ChatModel]!
 
     func config(with models: [ChatModel], closure: @escaping (ChatModel)-> Void ) {
+        self.closure = closure
         self.models = models
-        rxTapIndex.asDriver().skip(1).drive(onNext: { (row) in
-            closure(models[row])
-        }).disposed(by: disposeBag)
         collectionView.reloadData()
     }
     let itemCellIdentifier = R.reuseIdentifier.matchingStatusCell.identifier
@@ -58,7 +53,7 @@ extension MatchingCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        rxTapIndex.accept(indexPath.row)
+        closure(models[indexPath.row])
     }
     
 }

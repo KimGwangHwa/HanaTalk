@@ -35,7 +35,10 @@ extension ChattingUseCaseImpl: ChattingUseCase {
         }
         if let talkRoom = talkRoom {
             messageRepo.create(with: talkRoom.objectId!, text: message) { (entity, isSuccess) in
-                
+                guard let objectId = entity?.objectId, let channels = talkRoom.channels else {
+                    return
+                }
+                NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message)
             }
             return
         }
@@ -43,7 +46,11 @@ extension ChattingUseCaseImpl: ChattingUseCase {
             if let entity = entity, isSuccess {
                 self.talkRoom = entity
                 self.messageRepo.create(with: entity.objectId!, text: message) { (entity, isSuccess) in
-                    
+                    guard let objectId = entity?.objectId, let channels = self.talkRoom?.channels else {
+                        return
+                    }
+                    NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message)
+
                 }
             }
         }

@@ -13,4 +13,8 @@ class DataManager: NSObject {
     private override init() {
         super.init()
     }
+    
+    var currentUserInfo: UserInfoEntity {
+        return UserInfoDao.current()!
+    }
 }
