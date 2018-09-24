@@ -24,7 +24,7 @@ class MatchingStatusCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        nicknameLabel.textColor = WeakTextColor
+        nicknameLabel.textColor = HanaWhiteTextColor
     }
 
 }

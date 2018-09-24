@@ -28,7 +28,7 @@ class UserInfoViewController: UIViewController {
     
     func setUpView() {
         navigationBarBackgroundImageIsHidden = true
-        navigationBarColor = BackgroundColor
+        navigationBarColor = HanaBackgroundColor
         // if is self
         if usecase.isSelf {
             let leftButton = UIButton(type: .custom)
@@ -44,7 +44,7 @@ class UserInfoViewController: UIViewController {
         rightButton.setImage(R.image.icon_more(), for: .normal)
         rightButton.addTarget(self, action: #selector(tappedMore), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        tableView.backgroundColor = BackgroundColor
+        tableView.backgroundColor = HanaBackgroundColor
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(R.nib.profileCell(), forCellReuseIdentifier: profileCellIdentifier)
         tableView.register(R.nib.userInfoAlbumCell(), forCellReuseIdentifier: albumCellIdentifier)
@@ -82,7 +82,7 @@ class UserInfoViewController: UIViewController {
     func loadRomoteData() {
         usecase.read { (isSuccess) in
             self.navigationItem.title = self.usecase.model.name
-            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: TextColor]
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: HanaNavyTextColor]
             self.tableView.reloadData()
         }
     }

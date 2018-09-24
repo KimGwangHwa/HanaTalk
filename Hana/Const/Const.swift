@@ -8,13 +8,13 @@
 
 import UIKit
 
-let BackgroundColor = UIColor.hex("1c1b21")//15151d
-let SelectedBackgroundColor = UIColor.hex("15151d")//15151d
-let MainColor = UIColor.hex("e84545")
-let SubColor = UIColor.hex("283149")
-let DisabelColor = UIColor.hex("646464")
-let TextColor = UIColor.hex("404b69")
-let WeakTextColor = UIColor.white
+let HanaBackgroundColor = UIColor.hex("1c1b21")//1c1b21
+let HanaSelectedBackgroundColor = UIColor.hex("15151d")//15151d
+let HanaMainRedColor = UIColor.hex("e84545")
+let HanaDisabelColor = UIColor.hex("646464")
+let HanaNavyTextColor = UIColor.hex("404b69")
+let HanaWhiteTextColor = UIColor.white
+let HanaGraySeparatorColor = UIColor.gray
 
 // MARK: - ClassName
 let UserInfoClassName = "UserInfo"

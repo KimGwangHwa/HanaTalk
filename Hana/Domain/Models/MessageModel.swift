@@ -7,6 +7,14 @@
 
 import UIKit
 
-class MessageModel: BaseModel {
+enum MessageType {
+    case text(String)
+    case image(String)
+}
 
+class MessageModel: BaseModel {
+    var sendDate: String!
+    var type:MessageType!
+    var isSelf = false
+    var profileImage: String?
 }

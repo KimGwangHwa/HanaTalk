@@ -34,7 +34,7 @@ class MatchingAlertView: UIView {
         
         alertView.frame = CGRect(x: AlertSpacing, y: ScreenHeight, width: ScreenWidth - (AlertSpacing*2), height: AlertHeight)
         alertView.cornerRadius = 10
-        alertView.backgroundColor = BackgroundColor
+        alertView.backgroundColor = HanaBackgroundColor
 
         overlayView.frame = self.bounds
         overlayView.alpha = DismissAlpha
@@ -82,7 +82,7 @@ class MatchingAlertView: UIView {
         okButton.frame = CGRect(x: spaceHeight, y: offsetY, width: eventButtonWidth, height: eventButtonHeight)
         okButton.setTitle(buttonTitle, for: .normal)
         okButton.setTitleColor(UIColor.white, for: .normal)
-        let backgroundImage = UIImage.colorImage(color: MainColor, size: okButton.size)
+        let backgroundImage = UIImage.colorImage(color: HanaMainRedColor, size: okButton.size)
         okButton.setBackgroundImage(backgroundImage, for: .normal)
         okButton.cornerRadius = eventButtonHeight/2
         okButton.addTarget(self, action: #selector(tappedEventButton), for: .touchUpInside)

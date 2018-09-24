@@ -26,11 +26,11 @@ class SigninViewController: UIViewController {
     }
 
     func setup() {
-        usernameTextField.textColor = TextColor
-        passwordTextField.textColor = TextColor
-        signinButton.setTitleColor(WeakTextColor, for: .normal)
-        scrollView.backgroundColor = BackgroundColor
-        newAccountButton.setTitleColor(WeakTextColor, for: .normal)
+        usernameTextField.textColor = HanaNavyTextColor
+        passwordTextField.textColor = HanaNavyTextColor
+        signinButton.setTitleColor(HanaWhiteTextColor, for: .normal)
+        scrollView.backgroundColor = HanaBackgroundColor
+        newAccountButton.setTitleColor(HanaWhiteTextColor, for: .normal)
         
         _ = usernameTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.username)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: usecase.model.password)
@@ -38,8 +38,8 @@ class SigninViewController: UIViewController {
         usecase.signinValueChanged { (isEmpty) in
             self.signinButton.isEnabled = !isEmpty
         }
-        signinButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
-        signinButton.setBackgroundImage(UIImage.colorImage(color: MainColor, size: CGSize(width: 100, height: 100)), for: .normal)
+        signinButton.setBackgroundImage(UIImage.colorImage(color: HanaDisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
+        signinButton.setBackgroundImage(UIImage.colorImage(color: HanaMainRedColor, size: CGSize(width: 100, height: 100)), for: .normal)
         
         NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillShow).asObservable().subscribe { (notification) in
 

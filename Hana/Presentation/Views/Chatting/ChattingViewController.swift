@@ -77,12 +77,13 @@ class ChattingViewController: UIViewController {
         tableView.register(R.nib.sendTextCell(), forCellReuseIdentifier: R.reuseIdentifier.sendTextCell.identifier)
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = BackgroundColor
+        tableView.backgroundColor = HanaBackgroundColor
         //sendButton.isEnabled
         inputTextView.textView.rx.didChange.asControlEvent().subscribe { (_) in
             self.sendButton.isEnabled = !self.inputTextView.textView.text.isEmpty
         }.disposed(by: disposeBag)
         //inputTextView.textView.rx.text.bind(to: sendButton.rx.isEnabled)
+        presenter.viewInput = self
         
     }
     
@@ -180,5 +181,16 @@ extension ChattingViewController {
         UIView.animate(withDuration: duration!, animations: { () in
             self.view.layoutIfNeeded()
         })
+    }
+}
+
+// MARK: - ChattingInputView
+extension ChattingViewController: ChattingInputView {
+    func setMessage(models: [MessageModel]) {
+        tableView.reloadData()
+    }
+    
+    func networkFailure() {
+        
     }
 }

@@ -26,9 +26,9 @@ class EditUserInfoViewController: UIViewController {
     }
     
     func setup() {
-        doneBarButton.tintColor = WeakTextColor
-        navigationBarColor = BackgroundColor
-        tableView.backgroundColor = BackgroundColor
+        doneBarButton.tintColor = HanaWhiteTextColor
+        navigationBarColor = HanaBackgroundColor
+        tableView.backgroundColor = HanaBackgroundColor
         setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         tableView.register(R.nib.editUserInfoCell(), forCellReuseIdentifier: editCellIdentifier)
         tableView.tableFooterView = UIView()

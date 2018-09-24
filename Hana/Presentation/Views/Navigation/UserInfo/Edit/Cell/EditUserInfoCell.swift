@@ -14,7 +14,7 @@ class EditUserInfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        nameLabel.textColor = TextColor
+        nameLabel.textColor = HanaNavyTextColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

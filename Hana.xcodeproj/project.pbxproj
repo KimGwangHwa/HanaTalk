@@ -204,7 +204,6 @@
 		EFFD6DC6213FF713009427EC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DC5213FF713009427EC /* DataManager.swift */; };
 		EFFD6DCA2144FD57009427EC /* ChattingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DC92144FD57009427EC /* ChattingPresenter.swift */; };
 		EFFD6DCC2144FEA6009427EC /* ChattingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */; };
-		EFFD6DCE2145030D009427EC /* ChattingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD6DCD2145030D009427EC /* ChattingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -413,7 +412,6 @@
 		EFFD6DC5213FF713009427EC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EFFD6DC92144FD57009427EC /* ChattingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingPresenter.swift; sourceTree = "<group>"; };
 		EFFD6DCB2144FEA6009427EC /* ChattingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingUseCase.swift; sourceTree = "<group>"; };
-		EFFD6DCD2145030D009427EC /* ChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1159,7 +1157,6 @@
 				A1D05D842108484000096EF4 /* ChatModel.swift */,
 				EF0C70B8210DD36100B154DC /* LoginModel.swift */,
 				A1EF17BF210FEA2600744701 /* EditUserInfoModel.swift */,
-				EFFD6DCD2145030D009427EC /* ChattingModel.swift */,
 				EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */,
 				EF628D3E214CF6AB00005F20 /* MessageModel.swift */,
 			);
@@ -1526,7 +1523,6 @@
 				3451464E2081A92800605651 /* R.generated.swift in Sources */,
 				EFE81F3020FAF3A100C7BF09 /* MatchingCell.swift in Sources */,
 				EFE81F7620FAF3A200C7BF09 /* LocationCell.swift in Sources */,
-				EFFD6DCE2145030D009427EC /* ChattingModel.swift in Sources */,
 				EFE81F2E20FAF3A100C7BF09 /* ChatHistoryViewController.swift in Sources */,
 				A11AA99620FDA2E000084367 /* EventRepository.swift in Sources */,
 				EFE81F4320FAF3A200C7BF09 /* ReceiveTextCell.swift in Sources */,

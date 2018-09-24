@@ -23,7 +23,7 @@ class SideHeaderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        backgroundColor = SubColor
+        backgroundColor = HanaNavyTextColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

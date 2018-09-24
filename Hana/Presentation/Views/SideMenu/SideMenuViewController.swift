@@ -34,12 +34,13 @@ class SideMenuViewController: UIViewController {
     }
 
     func setup() {
-        view.backgroundColor = BackgroundColor
+        tableView.separatorColor = HanaGraySeparatorColor
+        view.backgroundColor = HanaBackgroundColor
         let currentUserInfo = UserInfoDao.current()!
         iconImageView.sd_setImage(with: URL(string: currentUserInfo.profileUrl ?? ""), placeholderImage: R.image.placeholderImage())
         nicknameLabel.text = currentUserInfo.nickname
-        headerView.backgroundColor = BackgroundColor
-        tableView.backgroundColor = BackgroundColor
+        headerView.backgroundColor = HanaBackgroundColor
+        tableView.backgroundColor = HanaBackgroundColor
         
         let navViewController = R.storyboard.userInfo().instantiateInitialViewController()
         self.addChildViewController(navViewController!)

@@ -25,8 +25,8 @@ class BrowseViewController: UIViewController {
         setNavigationBarBackIndicatorImage(#imageLiteral(resourceName: "icon_back"))
         swipeableView.leftSwipingImage = R.image.icon_large_dislike()
         swipeableView.rightSwipingImage = R.image.icon_large_like()
-        navigationBarColor = BackgroundColor
-        swipeableView.backgroundColor = BackgroundColor
+        navigationBarColor = HanaBackgroundColor
+        swipeableView.backgroundColor = HanaBackgroundColor
         navigationBarBackgroundImageIsHidden = true
         swipeableView.delegate = self
         swipeableView.dataSource = self

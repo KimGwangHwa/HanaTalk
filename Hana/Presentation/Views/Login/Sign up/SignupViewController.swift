@@ -25,11 +25,11 @@ class SignupViewController: UIViewController {
     }
 
     func setup() {
-        scrollView.backgroundColor = BackgroundColor
-        signupButton.setTitleColor(WeakTextColor, for: .normal)
+        scrollView.backgroundColor = HanaBackgroundColor
+        signupButton.setTitleColor(HanaWhiteTextColor, for: .normal)
         
-        signupButton.setBackgroundImage(UIImage.colorImage(color: DisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
-        signupButton.setBackgroundImage(UIImage.colorImage(color: MainColor, size: CGSize(width: 100, height: 100)), for: .normal)
+        signupButton.setBackgroundImage(UIImage.colorImage(color: HanaDisabelColor, size: CGSize(width: 100, height: 100)), for: .disabled)
+        signupButton.setBackgroundImage(UIImage.colorImage(color: HanaMainRedColor, size: CGSize(width: 100, height: 100)), for: .normal)
 
         usernameTextField.rx.controlEvent(UIControlEvents.editingDidEnd).asDriver().drive(onNext: { (event) in
             self.usecase.existenceUsername(closure: { (isSuccess) in

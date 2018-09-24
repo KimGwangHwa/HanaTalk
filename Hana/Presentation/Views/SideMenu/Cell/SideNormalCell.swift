@@ -23,9 +23,9 @@ class SideNormalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        descriptionLabel.textColor = WeakTextColor
+        descriptionLabel.textColor = HanaWhiteTextColor
         let selectedView = UIView()
-        selectedView.backgroundColor = SelectedBackgroundColor
+        selectedView.backgroundColor = HanaSelectedBackgroundColor
         selectedBackgroundView = selectedView
         addObserver()
     }
