@@ -64,8 +64,8 @@ extension ChatUseCaseImpl: ChatDataStore {
     var section: Int {
         get {
             var count = 0
-            if likeModels.isEmpty { count += 1 }
-            if talkModels.isEmpty { count += 1 }
+            if !likeModels.isEmpty { count += 1 }
+            if !talkModels.isEmpty { count += 1 }
             return count
         }
     }

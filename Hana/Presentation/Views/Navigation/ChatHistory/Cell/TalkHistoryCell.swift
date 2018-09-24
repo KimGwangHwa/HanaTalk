@@ -28,6 +28,9 @@ class TalkHistoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let selectedView = UIView()
+        selectedView.backgroundColor = HanaSelectedBackgroundColor
+        selectedBackgroundView = selectedView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
