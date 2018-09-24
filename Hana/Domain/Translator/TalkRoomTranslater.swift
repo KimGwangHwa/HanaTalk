@@ -20,6 +20,4 @@ class TalkRoomTranslater: Translator {
         }
         return nil
     }
-    
-
 }

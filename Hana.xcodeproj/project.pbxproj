@@ -73,7 +73,7 @@
 		EF0C70C82129222300B154DC /* license_plist.yml in Resources */ = {isa = PBXBuildFile; fileRef = EF0C70C72129222300B154DC /* license_plist.yml */; };
 		EF2BE5B020FB0F48003E64EC /* HNAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */; };
 		EF2BE5B320FB0F6B003E64EC /* HNAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */; };
-		EF628D3B214CF4FE00005F20 /* ChattingTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */; };
+		EF628D3B214CF4FE00005F20 /* MessageTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3A214CF4FE00005F20 /* MessageTranslator.swift */; };
 		EF628D3D214CF64F00005F20 /* TalkRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */; };
 		EF628D3F214CF6AB00005F20 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D3E214CF6AB00005F20 /* MessageModel.swift */; };
 		EF628D42214E45CD00005F20 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF628D41214E45CD00005F20 /* ChatPresenter.swift */; };
@@ -281,7 +281,7 @@
 		EF0C70C72129222300B154DC /* license_plist.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license_plist.yml; sourceTree = "<group>"; };
 		EF2BE5AF20FB0F48003E64EC /* HNAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAlertView.swift; sourceTree = "<group>"; };
 		EF2BE5B220FB0F6B003E64EC /* HNAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNAlertView.xib; sourceTree = "<group>"; };
-		EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTranslator.swift; sourceTree = "<group>"; };
+		EF628D3A214CF4FE00005F20 /* MessageTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTranslator.swift; sourceTree = "<group>"; };
 		EF628D3C214CF64F00005F20 /* TalkRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomModel.swift; sourceTree = "<group>"; };
 		EF628D3E214CF6AB00005F20 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		EF628D41214E45CD00005F20 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
@@ -567,7 +567,7 @@
 				A1D05D8621084A0200096EF4 /* ChatTranslator.swift */,
 				A1EF17C1210FEBE400744701 /* EditUserInfoTranslator.swift */,
 				EF0C70BE2127C08B00B154DC /* TalkRoomTranslater.swift */,
-				EF628D3A214CF4FE00005F20 /* ChattingTranslator.swift */,
+				EF628D3A214CF4FE00005F20 /* MessageTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -1423,7 +1423,7 @@
 				A1D05D89210962D300096EF4 /* UserInfoUseCase.swift in Sources */,
 				EFE81F7220FAF3A200C7BF09 /* EventViewController.swift in Sources */,
 				EFE81F3320FAF3A100C7BF09 /* TalkHistoryCell.swift in Sources */,
-				EF628D3B214CF4FE00005F20 /* ChattingTranslator.swift in Sources */,
+				EF628D3B214CF4FE00005F20 /* MessageTranslator.swift in Sources */,
 				EF0C70BD211FCCFC00B154DC /* FacebookUserEntity.swift in Sources */,
 				A10160A321059D8400BE3820 /* CategoryUseCase.swift in Sources */,
 				EFE81F9A20FAF3A200C7BF09 /* MessageEntity.swift in Sources */,
