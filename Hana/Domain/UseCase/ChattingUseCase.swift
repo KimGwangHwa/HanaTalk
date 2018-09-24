@@ -19,20 +19,33 @@ protocol ChattingUseCase {
 }
 
 class ChattingUseCaseImpl: NSObject {
+    weak var present: ChattingPresenter?
     private let talkRepo = TalkRoomRepositoryImpl()
     private let messageRepo = MessageRepositoryImpl()
     private let talkTrans = TalkRoomTranslater()
 
     private var talkRoom: TalkRoomEntity?
     private var partner: String?
-    private var messages: [MessageModel]!
+    private var messages = [MessageModel]()
 }
 
+// MARK: - Private
+extension ChattingUseCaseImpl {
+    private func addMessage(with text: String? = nil, image: UIImage? = nil) {
+        if let text = text {
+            let messageModel = MessageModel(text: text)
+            messages.append(messageModel)
+        }
+    }
+}
+
+// MARK: - ChattingUseCase
 extension ChattingUseCaseImpl: ChattingUseCase {
     func sendText(message: String?) {
         guard let message = message else {
             return
         }
+        addMessage(with: message)
         if let talkRoom = talkRoom {
             messageRepo.create(with: talkRoom.objectId!, text: message) { (entity, isSuccess) in
                 guard let objectId = entity?.objectId, let channels = talkRoom.channels else {

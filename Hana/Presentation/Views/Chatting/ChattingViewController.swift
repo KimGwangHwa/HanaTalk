@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol ChattingInputView: class {
-    func setMessage(models: [MessageModel])
+    func didSendMessage()
     func networkFailure()
 }
 
@@ -38,37 +38,8 @@ class ChattingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addObserver()
         setup()
-        loadData()
     }
-    
-    func loadData() {
-        loadTalkRoom()
-    }
-    
-    func loadTalkRoom() {
-        if let receiver = receiver {
-//            TalkRoomDao.findTalk(by: receiver) { (object, isSuccess) in
-//                self.talkRoom = object
-//                self.loadMessage()
-//            }
-        } else {
-            loadMessage()
-        }
-    }
-    
-    func loadMessage() {
-        if let guardTalkRoom = talkRoom {
-//            MessageDao.find(by: guardTalkRoom) { (objects, isSuccess) in
-//                if let guardMessage = objects {
-//                    self.dataSource.append(contentsOf: guardMessage)
-//                    self.tableView.reloadData()
-//                }
-//            }
-        }
-    }
-    
     
     func setup() {
         inputTextView.placeholderAttributedText = NSAttributedString(string: "input", attributes: [.foregroundColor: UIColor.gray])
@@ -84,7 +55,7 @@ class ChattingViewController: UIViewController {
         }.disposed(by: disposeBag)
         //inputTextView.textView.rx.text.bind(to: sendButton.rx.isEnabled)
         presenter.viewInput = self
-        
+        addObserver()
     }
     
     // MARK: - TapEvent
@@ -95,6 +66,7 @@ class ChattingViewController: UIViewController {
 
     @IBAction func sendEvent(_ sender: UIButton) {
         presenter.sendText(message: inputTextView.textView.text)
+        tableView.reloadData()
     }
     
     deinit {
@@ -105,7 +77,6 @@ class ChattingViewController: UIViewController {
 
 // MARK: - UITabelViewDelegate
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -186,8 +157,10 @@ extension ChattingViewController {
 
 // MARK: - ChattingInputView
 extension ChattingViewController: ChattingInputView {
-    func setMessage(models: [MessageModel]) {
-        tableView.reloadData()
+    
+    func didSendMessage() {
+        inputTextView.textView.resignFirstResponder()
+        inputTextView.textView.text = nil
     }
     
     func networkFailure() {

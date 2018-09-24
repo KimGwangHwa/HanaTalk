@@ -7,9 +7,11 @@
 
 import UIKit
 
-protocol ChattingPresenter {
+protocol ChattingPresenter: class {
     func sendText(message: String?)
     func tapMore()
+    
+    func didSendMessage()
 }
 
 class ChattingPresenterImpl: ChattingPresenter {
@@ -21,5 +23,8 @@ class ChattingPresenterImpl: ChattingPresenter {
     }
     func tapMore() {
         
+    }
+    func didSendMessage() {
+        viewInput?.didSendMessage()
     }
 }

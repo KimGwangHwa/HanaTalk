@@ -17,4 +17,11 @@ class MessageModel: BaseModel {
     var type:MessageType!
     var isSelf = false
     var profileImage: String?
+    var profileUrl: URL!
+    
+    init(text: String) {
+        super.init()
+        self.type = .text(text)
+        self.profileUrl = URL(string: DataManager.shared.currentUserInfo.profileUrl!)
+    }
 }
