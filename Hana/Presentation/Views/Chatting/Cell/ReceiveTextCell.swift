@@ -18,19 +18,11 @@ class ReceiveTextCell: UITableViewCell {
         // Initialization code
     }
     
-    var message: MessageEntity? {
-        didSet {
-            messageLabel.text = message?.text
-        }
+    func config(with text: String, url: URL) {
+        messageLabel.text = text
+        headImageView.sd_setImage(with: url, placeholderImage: nil)
+
     }
-    
-    var receiver: UserInfoEntity? {
-        didSet {
-            headImageView.sd_setImage(with: URL(string: receiver?.profileUrl ?? ""), placeholderImage: nil)
-        }
-    }
-    
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

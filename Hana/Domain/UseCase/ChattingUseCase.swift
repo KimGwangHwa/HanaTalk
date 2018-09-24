@@ -27,15 +27,20 @@ class ChattingUseCaseImpl: NSObject {
     private var talkRoom: TalkRoomEntity?
     private var partner: String?
     private var messages = [MessageModel]()
+    private var currentMessage: MessageModel!
 }
 
 // MARK: - Private
 extension ChattingUseCaseImpl {
     private func addMessage(with text: String? = nil, image: UIImage? = nil) {
         if let text = text {
-            let messageModel = MessageModel(text: text)
-            messages.append(messageModel)
+            currentMessage = MessageModel(text: text)
+            messages.append(currentMessage)
         }
+    }
+    private func updateMessageState(with success: Bool) {
+        currentMessage.state.accept(success ? .success : .failure)
+        self.present?.didSendMessage()
     }
 }
 
@@ -51,7 +56,9 @@ extension ChattingUseCaseImpl: ChattingUseCase {
                 guard let objectId = entity?.objectId, let channels = talkRoom.channels else {
                     return
                 }
-                NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message)
+                NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message, completion: { (isSuccess) in
+                    self.updateMessageState(with: isSuccess)
+                })
             }
             return
         }
@@ -62,8 +69,9 @@ extension ChattingUseCaseImpl: ChattingUseCase {
                     guard let objectId = entity?.objectId, let channels = self.talkRoom?.channels else {
                         return
                     }
-                    NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message)
-
+                    NotificationManager.shared.sendPush(with: channels, objectId: objectId, alert: message, type: .message, completion: { (isSuccess) in
+                        self.updateMessageState(with: isSuccess)
+                    })
                 }
             }
         }

@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 enum MessageType {
     case text(String)
     case image(String)
+}
+
+enum MessageState {
+    case sending
+    case failure
+    case success
 }
 
 class MessageModel: BaseModel {
@@ -18,7 +26,8 @@ class MessageModel: BaseModel {
     var isSelf = false
     var profileImage: String?
     var profileUrl: URL!
-    
+    var state = BehaviorRelay<MessageState>(value: .sending)
+
     init(text: String) {
         super.init()
         self.type = .text(text)

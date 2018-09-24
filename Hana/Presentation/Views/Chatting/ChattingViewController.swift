@@ -85,32 +85,26 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowData = dataStore.messageModels[indexPath.row]
         if rowData.isSelf {
-//            switch rowData.type {
-//            case .image:
-//                break
-//            case .text(let text):
-//                if let cell = tableView.dequeueReusableCell(withIdentifier: SendTextCellIdentifier, for: indexPath) as? SendTextCell {
-//                    cell.message = rowData
-//                    return cell
-//                }
-//                break
-//            default:
-//                break
-//            }
-
+            switch rowData.type! {
+            case .image:
+                break
+            case .text(let text):
+                if let cell = tableView.dequeueReusableCell(withIdentifier: SendTextCellIdentifier, for: indexPath) as? SendTextCell {
+                    cell.config(with: text, driver: rowData.state)
+                    return cell
+                }
+            }
         } else {
-//            switch rowData.type {
-//            case MessageType.image.rawValue:
-//                break
-//            case MessageType.text.rawValue:
-//                if let cell = tableView.dequeueReusableCell(withIdentifier: reciveTextCellIdentifier, for: indexPath) as? ReceiveTextCell {
-//                    cell.message = rowData
-//                    return cell
-//                }
-//                break
-//            default:
-//                break
-//            }
+            switch rowData.type! {
+            case .image:
+                break
+            case .text(let text):
+                if let cell = tableView.dequeueReusableCell(withIdentifier: reciveTextCellIdentifier, for: indexPath) as? ReceiveTextCell {
+                    cell.config(with: text, url: rowData.profileUrl)
+                    return cell
+                }
+                break
+            }
         }
         return UITableViewCell()
     }
@@ -159,7 +153,7 @@ extension ChattingViewController {
 extension ChattingViewController: ChattingInputView {
     
     func didSendMessage() {
-        
+
     }
     
     func networkFailure() {

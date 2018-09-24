@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendTextCell" rowHeight="50" id="KGk-i7-Jjw" customClass="SendTextCell" customModule="talk" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendTextCell" rowHeight="50" id="KGk-i7-Jjw" customClass="SendTextCell" customModule="Hana" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -33,6 +32,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gOg-h9-kdC">
+                        <rect key="frame" x="204" y="14" width="20" height="20"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q93-Cx-bGX">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
+                                <state key="normal" image="icon_refresh"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="hjg-uw-v7a">
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="gw1-Vl-qWN"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="mEe-XV-LXk"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -42,13 +57,20 @@
                     <constraint firstAttribute="trailing" secondItem="y7P-iK-Yng" secondAttribute="trailing" constant="20" id="P4D-UQ-KBF"/>
                     <constraint firstItem="y7P-iK-Yng" firstAttribute="top" secondItem="q7V-aF-oQD" secondAttribute="top" constant="1" id="WYG-Sq-XdI"/>
                     <constraint firstItem="y7P-iK-Yng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="axl-ab-mQP"/>
+                    <constraint firstItem="q7V-aF-oQD" firstAttribute="leading" secondItem="gOg-h9-kdC" secondAttribute="trailing" constant="8" id="bZ3-SP-LK6"/>
+                    <constraint firstItem="gOg-h9-kdC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ghQ-Sn-LC3"/>
                     <constraint firstAttribute="bottom" secondItem="y7P-iK-Yng" secondAttribute="bottom" constant="10.5" id="wCI-Up-GM8"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="indicatorView" destination="hjg-uw-v7a" id="gTo-MS-dfi"/>
                 <outlet property="messageLabel" destination="y7P-iK-Yng" id="zzT-eq-dEk"/>
+                <outlet property="refreshButton" destination="q93-Cx-bGX" id="Cqo-kq-Y2S"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_refresh" width="16" height="16"/>
+    </resources>
 </document>
